@@ -1,6 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
+import './styles/styles.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 //components
 import App from './components/App';
@@ -19,9 +21,10 @@ const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={SideBar}/>
-        <Route path="/issue" component={IssueList}/>
-        <Route path="/manager" component={IssueManager}/>
+        <IndexRoute component={SideBar}>
+          <Route component={IssueList}/>
+        </IndexRoute>
+        <Route path="/:id" component={IssueManager}/>
       </Route>
     </Router>
   </Provider>

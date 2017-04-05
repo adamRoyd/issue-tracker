@@ -3,9 +3,12 @@ import React from 'react';
 class Issue extends React.Component{
     render(){
         return(
-            <div>
-                <p>I am an issue</p>
-            </div>
+            <tr>
+                <td>{this.props.issue.id}</td>
+                <td>screen</td>
+                <td>cat</td>
+                <td>des</td>                                
+            </tr>
         );
     }
 }

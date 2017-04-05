@@ -210,7 +210,7 @@ const comments = {
       "user": "datamoshr"
     },
     {
-      "text":"@jonasbad @datamoshr I'll post them up on my blog soon!",
+      "text":"@jonasbad @datamoshr I'll issue them up on my blog soon!",
       "user": "wesbos"
     },
     {
