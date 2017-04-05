@@ -1,14 +1,20 @@
-import React from 'react'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as actionCreators from '../actions/actionCreators';
 
-const App = () => (
-  <div>
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
-  </div>
-)
+import Main from './Main';
 
-export default App
+function mapStateToProps(state){
+    return{
+        posts: state.posts,
+        comments: state.comments
+    };
+}
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(actionCreators, dispatch);
+}
+
+const App = connect(mapStateToProps,mapDispatchToProps)(Main);
+
+export default App;

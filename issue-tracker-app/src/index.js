@@ -1,15 +1,33 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import todoApp from './reducers/index';
-import App from './components/App'
 
-let store = createStore(todoApp)
+//components
+import App from './components/App';
+import Main from './components/Main';
+import IssueList from './components/IssueList';
+import IssueManager from './components/IssueManager';
+import SideBar from './components/SideBar';
+
+//react router deps
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+
+//import store. store is the default export, history is the named export. therefore put it in brackets
+import store, {history} from './store';
+
+const router = (
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App}>
+        <IndexRoute component={SideBar}/>
+        <Route path="/issue" component={IssueList}/>
+        <Route path="/manager" component={IssueManager}/>
+      </Route>
+    </Router>
+  </Provider>
+);
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  router,
   document.getElementById('root')
-)
+);
