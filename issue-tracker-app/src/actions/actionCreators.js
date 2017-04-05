@@ -25,3 +25,11 @@ export function removeComment(issueId,i){
         issueId
     };
 }
+
+//filter issues
+export const setIssueFilter = (filter) =>{
+    return{
+        type: 'SET_ISSUE_FILTER',
+        filter
+    };
+};
