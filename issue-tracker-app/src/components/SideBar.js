@@ -13,8 +13,8 @@ class SideBar extends React.Component{
                     <IssueList {...this.props}/>
                 </div>
                 {/*TO DO show the issues dependent on issue status. there should be one issue list and then the rows are filtered.*/}
-                <div  className="col-sm-6">
-                    <IssueManager/>
+                <div id="issueManager" className="col-sm-6">
+                    <IssueManager {...this.props}/>
                 </div>
             </div>
         );

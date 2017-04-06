@@ -6,7 +6,7 @@ class Issue extends React.Component{
         const { issue } = this.props;
         return(
             <tr>
-                <td><Link to={issue.id} activeClassName="active">{issue.id}</Link></td>
+                <td><Link to={`/issue/${issue.id}`} activeClassName="active">{issue.id}</Link></td>
                 <td>{issue.screen}</td>
                 <td>{issue.category}</td>
                 <td>{issue.description}</td>

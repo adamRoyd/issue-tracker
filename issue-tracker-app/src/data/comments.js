@@ -1,11 +1,11 @@
 const comments = {
-  "BAhvZrRwcfu":[
+  "1":[
     {
       "text":"Totally need to try this.",
       "user": "heavymetaladam"
     }
   ],
-  "BAcyDyQwcXX":[
+  "2":[
     {
       "text":"Wes. WE should have lunch.",
       "user": "jdaveknox"
@@ -23,7 +23,7 @@ const comments = {
       "user": "willowtreemegs"
     }
   ],
-  "BAPIPRjQce9":[
+  "3":[
     {
       "text":"Those are cute! They're like silver dollar pancakes.",
       "user": "rrsimonsen"
@@ -61,7 +61,7 @@ const comments = {
       "user": "world_greg"
     }
   ],
-  "BAF_KY4wcRY":[
+  "4":[
     {
       "text":"Looking great Wes! I'd like to see the other side of the room too.",
       "user": "axcdnt"
@@ -95,13 +95,13 @@ const comments = {
       "user": "wesbos"
     }
   ],
-  "_4jHytwcUA":[
+  "5":[
     {
       "text":"that is the sound of success!",
       "user": "mdxprograms"
     }
   ],
-  "_zbaOlQcbn":[
+  "6":[
     {
       "text":"Did she get to eat her letter?",
       "user": "pathiebert"

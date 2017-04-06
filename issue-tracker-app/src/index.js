@@ -21,11 +21,12 @@ const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={SideBar}>
-          <Route route="" component={IssueList}/>
-          <Route route="/:id" component={IssueManager}/>
-        </IndexRoute>
+        <Route component={SideBar}>
+          <Route path="issue" component={IssueList}/>
+          <Route path="issue/:id" component={IssueManager}/>
+        </Route>
       </Route>
+      
     </Router>
   </Provider>
 );

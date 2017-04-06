@@ -8,4 +8,6 @@ const rootReducer = combineReducers(
     {issues, comments, routing: routerReducer}
     );
 
+
+
 export default rootReducer;
