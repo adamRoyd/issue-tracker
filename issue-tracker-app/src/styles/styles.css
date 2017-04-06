@@ -1,0 +1,11 @@
+#sideBar{
+    background: #40535D;
+    height:1000px;
+    width:auto;
+    position:relative;
+    color:white;
+}
+
+#issuelist{
+    border-right:2px solid grey;
+}

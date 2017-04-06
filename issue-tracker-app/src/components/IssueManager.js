@@ -4,7 +4,7 @@ class IssueManager extends React.Component{
     render(){
         return(
             <div>
-                <p>ISSUE MANAGER</p>
+                <h3>Issue Manager</h3>
             </div>
         );
     }

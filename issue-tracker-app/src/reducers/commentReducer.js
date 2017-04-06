@@ -2,7 +2,6 @@
 //it spits out a new updated state.
 
 export default function commentReducer(state = [], action) {
-    console.log(state,action);
     return state;
 }
 

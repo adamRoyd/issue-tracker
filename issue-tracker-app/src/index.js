@@ -5,7 +5,7 @@ import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 //components
-import App from './components/App';
+import App from './containers/App';
 import Main from './components/Main';
 import IssueList from './components/IssueList';
 import IssueManager from './components/IssueManager';
@@ -22,9 +22,9 @@ const router = (
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={SideBar}>
-          <Route component={IssueList}/>
+          <Route route="" component={IssueList}/>
+          <Route route="/:id" component={IssueManager}/>
         </IndexRoute>
-        <Route path="/:id" component={IssueManager}/>
       </Route>
     </Router>
   </Provider>
