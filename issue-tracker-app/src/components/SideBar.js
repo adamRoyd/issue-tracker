@@ -8,6 +8,7 @@ class SideBar extends React.Component{
             <div className="row">
                 <div id="sideBar" className="col-sm-1">
                     <h3>Nav</h3>
+                    <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
                 </div>
                 <div id="issuelist" className="col-sm-5">
                     <IssueList {...this.props}/>

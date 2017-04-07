@@ -7,7 +7,7 @@ class IssueList extends React.Component{
         return(
             <div>
                 <h3>Issue list</h3>
-                <table className="table">
+                <table className="table table-hover">
                 <thead>
                 <tr>
                     <th>Id</th>
