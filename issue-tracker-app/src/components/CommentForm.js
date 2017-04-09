@@ -36,7 +36,7 @@ class CommentForm extends React.Component{
                     <input className="btn" type="submit"/>  
                     {/*<input className="" type="text" ref="author" placeholder="author"/>*/}
                 </form>
-
+                
             </div>
         );
     }

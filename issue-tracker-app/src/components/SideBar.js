@@ -3,12 +3,18 @@ import IssueList from './IssueList';
 import IssueManager from './IssueManager';
 
 class SideBar extends React.Component{
+
+    filterPots(){
+        console.log(this.refs.new.id);
+        this.props.setIssueFilter(this.id);
+    }
     render(){
+        this.filterPots = this.filterPots.bind(this);
         return(
             <div className="row">
                 <div id="sideBar" className="col-sm-1">
                     <h3>Nav</h3>
-                    <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <a href="#" id="new" ref="new" onClick={this.filterPots}>New</a>
                 </div>
                 <div id="issuelist" className="col-sm-5">
                     <IssueList {...this.props}/>

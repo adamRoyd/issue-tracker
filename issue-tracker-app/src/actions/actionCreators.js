@@ -28,6 +28,7 @@ export function removeComment(issueId,i){
 
 //filter issues
 export const setIssueFilter = (filter) =>{
+    console.log('SET ISSUE FILTER');
     return{
         type: 'SET_ISSUE_FILTER',
         filter
