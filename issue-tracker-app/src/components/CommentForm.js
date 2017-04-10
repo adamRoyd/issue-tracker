@@ -22,16 +22,7 @@ class CommentForm extends React.Component{
                         <select ref="assigned" className="form-control">
                             <option value="adam">adam</option>
                         </select>
-                        <select ref="status" className="form-control">
-                            <option value="New">New</option>
-                            <option value="Hold">On Hold</option>
-                            <option value="RTF">Ready To Fix</option>
-                            <option value="Fixed">Fixed</option>
-                            <option value="Returned">Returned</option>
-                            <option value="Closed">Closed</option>
-                            <option value="Rejected">Rejected</option>
-                            <option value="All">All</option>                            
-                        </select>    
+                        <Dropdown ref="status" options={this.props.status}/>
                     </div>
                     <input className="btn" type="submit"/>  
                     {/*<input className="" type="text" ref="author" placeholder="author"/>*/}

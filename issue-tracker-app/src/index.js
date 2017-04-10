@@ -9,7 +9,7 @@ import App from './containers/App';
 import Main from './components/Main';
 import IssueList from './components/IssueList';
 import IssueManager from './components/IssueManager';
-import SideBar from './components/SideBar';
+import IssuePage from './components/IssuePage';
 
 //react router deps
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
@@ -21,7 +21,7 @@ const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <Route component={SideBar}>
+        <Route component={IssuePage}>
           <Route path="issue" component={IssueList}/>
           <Route path="issue/:id" component={IssueManager}/>
         </Route>

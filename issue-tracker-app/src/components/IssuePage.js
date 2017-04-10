@@ -2,7 +2,7 @@ import React from 'react';
 import IssueList from './IssueList';
 import IssueManager from './IssueManager';
 
-class SideBar extends React.Component{
+class IssuePage extends React.Component{
 
     filterPots(){
         console.log(this.refs);
@@ -29,4 +29,4 @@ class SideBar extends React.Component{
     }
 }
 
-export default SideBar;
+export default IssuePage;
