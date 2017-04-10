@@ -7,7 +7,9 @@ import Main from '../components/Main';
 function mapStateToProps(state){
     return{
         issues: state.issues,
-        comments: state.comments
+        comments: state.comments,
+        status : state.status,
+        filter : state.filter
     };
 }
 

@@ -5,7 +5,6 @@ export function increment(index) {
         index
     };
 }
-
 //add comment
 export function addComment(issueId,author,comment){
     return{
@@ -15,8 +14,6 @@ export function addComment(issueId,author,comment){
         comment
     };
 }
-
-
 //remove comment
 export function removeComment(issueId,i){
     return{
@@ -25,12 +22,10 @@ export function removeComment(issueId,i){
         issueId
     };
 }
-
 //filter issues
-export const setIssueFilter = (filter) =>{
-    console.log('SET ISSUE FILTER');
+export function setIssueFilter(filter){
     return{
         type: 'SET_ISSUE_FILTER',
         filter
     };
-};
+}

@@ -6,7 +6,7 @@ class SideBar extends React.Component{
 
     filterPots(){
         console.log(this.refs.new.id);
-        this.props.setIssueFilter(this.id);
+        this.props.setIssueFilter(this.refs.new.id);
     }
     render(){
         this.filterPots = this.filterPots.bind(this);
@@ -14,7 +14,7 @@ class SideBar extends React.Component{
             <div className="row">
                 <div id="sideBar" className="col-sm-1">
                     <h3>Nav</h3>
-                    <a href="#" id="new" ref="new" onClick={this.filterPots}>New</a>
+                    <a href="#" id="show_new" ref="new" onClick={this.filterPots}>New</a>
                 </div>
                 <div id="issuelist" className="col-sm-5">
                     <IssueList {...this.props}/>
