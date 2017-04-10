@@ -5,7 +5,7 @@ const issues = [
     "screen":"1_100",
     "category":"Image",
     "description":"Issue description",
-    "status" : "new"
+    "status" : 'ready to fix'
    },
    {
     "code":"BAcyDyQwcXX",
@@ -13,7 +13,7 @@ const issues = [
     "screen":"2_100",
     "category":"Text",
     "description":"Issue description",
-    "status" : "ready to fix"
+    "status" : 'new'
    },
    {
     "code":"BAcyDyQwcXX",
@@ -21,7 +21,7 @@ const issues = [
     "screen":"3_100",
     "category":"Design",
     "description":"Issue description",
-    "status" : "new"
+    "status" : 'new'
    },
    {
     "code":"BAcyDyQwcXX",
@@ -29,7 +29,7 @@ const issues = [
     "screen":"4_100",
     "category":"Functionality",
     "description":"Issue description",
-    "status" : "ready to fix"
+    "status" : 'new'
    }
 ];
 
