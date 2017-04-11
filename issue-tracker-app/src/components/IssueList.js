@@ -23,24 +23,6 @@ class IssueList extends React.Component{
                     {this.props.issues.map((issue, i) => <Issue {...this.props} key={i} issue={issue} status={status}/>)}
                 </tbody>
                 </table>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-                <p>l</p>
-    
             </div>
         );
     }
