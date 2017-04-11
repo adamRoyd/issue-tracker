@@ -9,3 +9,9 @@
 #issuelist{
     border-right:2px solid grey;
 }
+
+.sideBarLink{
+    position:relative;
+    width:1000px;
+    color:black;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import IssueList from './IssueList';
 import IssueManager from './IssueManager';
+import SideBar from './SideBar';
 
 class IssuePage extends React.Component{
 
@@ -13,9 +14,7 @@ class IssuePage extends React.Component{
         return(
             <div className="row">
                 <div id="sideBar" className="col-sm-1">
-                    <h3>Nav</h3>
-                    <a href="#" id="SHOW_ALL" ref="all" onClick={this.filterPots}>All</a>
-                    <a href="#" id="SHOW_NEW" ref="new" onClick={this.filterPots}>New</a>
+                    <SideBar {...this.props}/>
                 </div>
                 <div id="issuelist" className="col-sm-5">
                     <IssueList {...this.props}/>
