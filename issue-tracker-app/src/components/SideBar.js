@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import FilterLink from '../containers/FilterLink';
 
 class SideBar extends React.Component{
@@ -13,8 +13,8 @@ class SideBar extends React.Component{
     }
 }
 
-            // <a href="#" id="SHOW_ALL" ref="all" onClick={this.filterPots}>All</a>
-            // <a href="#" id="SHOW_NEW" ref="new" onClick={this.filterPots}>New</a>
-
+SideBar.propTypes = {
+    status : PropTypes.array.isRequired
+}
 
 export default SideBar;

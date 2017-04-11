@@ -10,6 +10,7 @@ class IssueList extends React.Component{
                 <table className="table table-hover">
                 <thead>
                 <tr>
+                    <th></th>
                     <th>Id</th>
                     <th>Screen</th>
                     <th>Category</th>
@@ -22,6 +23,24 @@ class IssueList extends React.Component{
                     {this.props.issues.map((issue, i) => <Issue {...this.props} key={i} issue={issue} status={status}/>)}
                 </tbody>
                 </table>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+                <p>l</p>
+    
             </div>
         );
     }

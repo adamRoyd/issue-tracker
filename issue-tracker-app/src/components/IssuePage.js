@@ -12,7 +12,7 @@ class IssuePage extends React.Component{
     render(){
         this.filterPots = this.filterPots.bind(this);
         return(
-            <div className="row">
+            <div id="issuePage" className="row">
                 <div id="sideBar" className="col-sm-1">
                     <SideBar {...this.props}/>
                 </div>

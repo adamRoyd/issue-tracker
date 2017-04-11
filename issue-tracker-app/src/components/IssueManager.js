@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Issue from './Issue';
 import Comments from './Comments';
 import CommentForm from './CommentForm';
@@ -15,7 +15,7 @@ class IssueManager extends React.Component{
         return(
             <div>
                 <div id="issueDescription">
-                    <p>Id: {issue.id}</p>
+                    <p>Screen: {issue.screen}</p>
                     <p>Category: {issue.category}</p>
                     <p>Description: {issue.description}</p>
                 </div>
@@ -25,5 +25,11 @@ class IssueManager extends React.Component{
         );
     }
 }
+
+IssueManager.propTypes = {
+    issues : PropTypes.object.isRequired,
+    params : PropTypes.object.isRequired,
+    comments : PropTypes.object.isRequired
+};
 
 export default IssueManager;

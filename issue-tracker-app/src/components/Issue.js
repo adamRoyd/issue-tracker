@@ -1,16 +1,18 @@
-import React from 'react';
-import {Link} from 'react-router';
+import React, { PropTypes } from 'react';
+import { Link, browserHistory } from 'react-router';
 
 class Issue extends React.Component{
     rowSelect(){
-        console.log('CHANGE SELECTED CLASS');
+        browserHistory.push(`/issue/${this.props.issue.id}`);
+        
     }
     render(){
         this.rowSelect = this.rowSelect.bind(this);
         const { issue } = this.props;
         return(
-            <tr onClick={this.rowSelect}>
-                <td><Link to={`/issue/${issue.id}`} activeClassName="active">{issue.id}</Link></td>
+            <tr onClick={this.rowSelect} activeClassName="active">
+                <td><input type="checkbox"/></td>
+                <td>{issue.id}</td>
                 <td>{issue.screen}</td>
                 <td>{issue.category}</td>
                 <td>{issue.description}</td>
@@ -19,5 +21,9 @@ class Issue extends React.Component{
         );
     }
 }
+
+Issue.propTypes = {
+    issue : PropTypes.object.isRequired
+};
 
 export default Issue;

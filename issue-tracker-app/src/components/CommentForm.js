@@ -25,7 +25,7 @@ class CommentForm extends React.Component{
                         <Dropdown ref="status" options={this.props.status}/>
                     </div>
                     <input className="btn" type="submit"/>  
-                    {/*<input className="" type="text" ref="author" placeholder="author"/>*/}
+                    <button id="attach" className="btn">Add attachment</button>
                 </form>
                 
             </div>
@@ -35,7 +35,8 @@ class CommentForm extends React.Component{
 
 CommentForm.propTypes = {
     params : PropTypes.object.isRequired,
-    addComment : PropTypes.func.isRequired
+    addComment : PropTypes.func.isRequired,
+    status : PropTypes.object.isRequired
 };
 
 export default CommentForm;
