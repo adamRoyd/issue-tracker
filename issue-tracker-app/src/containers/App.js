@@ -8,8 +8,22 @@ const getVisibleIssues = (issues, filter) => {
     switch(filter){
         case 'SHOW_ALL':
             return issues;
-        case 'SHOW_NEW':
-            return issues.filter(t => t.status == 'new');
+        case 'New':
+            return issues.filter(t => t.status == 'New');
+        case 'On Hold':
+            return issues.filter(t => t.status == 'On Hold');
+        case 'Ready To Fix':
+            return issues.filter(t => t.status == 'Ready To Fix');
+        case 'Fixed':
+            return issues.filter(t => t.status == 'Fixed');
+        case 'Returned':
+            return issues.filter(t => t.status == 'Returned');
+        case 'Closed':
+            return issues.filter(t => t.status == 'Closed');
+        case 'Rejected':
+            return issues.filter(t => t.status == 'Rejected');        
+        default:
+            return issues;
     }
 };
 

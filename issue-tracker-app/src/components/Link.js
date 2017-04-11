@@ -1,20 +1,20 @@
 import React, { PropTypes } from 'react';
 
-const Link = ({ active, onClick }) => {
+const Link = ({ value, onClick }) => {
+
 
   return (
-        /*<a 
+       <a 
             href="#" 
-            filter={this.props.value} 
+            filter={value} 
             className="row"
             onClick={e => {
                 e.preventDefault()
                 onClick()
             }}
         >
-            {this.props.value}
-        </a>*/
-        <a className="row" href='#'>No props!</a>
+            {value}
+        </a> 
   )
 }
 

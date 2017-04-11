@@ -6,7 +6,7 @@ class SideBar extends React.Component{
         return(
             <div>
                 <h3>Nav</h3>
-                {this.props.status.map((s,i) => <FilterLink key={i} value={s}/>)}
+                {this.props.status.map((value,i) => <FilterLink key={i} value={value}/>)}
                 
             </div>
         );

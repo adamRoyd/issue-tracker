@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
-      dispatch(setIssueFilter(ownProps.filter));
+      console.log(ownProps.value);
+      dispatch(setIssueFilter(ownProps.value));
     }
   };
 };
@@ -21,4 +22,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const FilterLink = connect(mapStateToProps,mapDispatchToProps)(Link);
 
 
-export default FilterLink
+export default FilterLink;
