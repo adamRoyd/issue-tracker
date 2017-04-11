@@ -33,6 +33,14 @@ body, html {
     color:black;
 }
 
+.DropZone{
+    border: 3px dashed transparent;
+}
+
+.DropZoneOver{
+    border: 3px dashed black;
+}
+
 /*Scrollbar styling */
 
 body::-webkit-scrollbar {
