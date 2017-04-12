@@ -4,42 +4,52 @@ body, html {
   height:100%;
 }
 
-#issuePage{
-    height:920px;
-}
-
-#sideBar{
-    background: #40535D;
-    height: 100%;
-    position:relative;
+a{
     color:white;
 }
 
-#issuelist{
-    border-right:2px solid grey;
-    height:100%;
-    max-height: 900px;
+
+@media (min-width: 768px){
+#sideBar{
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    width: 8%;
+  }
+  #issuelist {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 8%;
+    width: 42%;
+    overflow-y: scroll; 
+  }
+  
+  #issueManager {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
     overflow-y: scroll;
+    width: 50%;
+  }
 }
 
-#issueManager{
-    height:100%;
-    max-height:900px;
-    overflow-y: scroll;
+#sideBar {
+  height:100%;
+  background: #40535D;
+  color:white;
 }
 
-.sideBarLink{
-    position:relative;
-    color:black;
+#issuelist {
+  height:100%;
 }
 
-.DropZone{
-    border: 3px dashed transparent;
+#issueManager {
+  height:100%;
 }
 
-.DropZoneOver{
-    border: 3px dashed black;
-}
 
 /*Scrollbar styling */
 
@@ -55,3 +65,44 @@ body::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
 }
+
+
+/* DropZone */
+
+.DropZone{
+    border: 3px dashed transparent;
+}
+
+.DropZoneOver{
+    border: 3px dashed black;
+}
+
+/*Issues Table*/
+.issueTable .description{
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 250px;
+    text-overflow: ellipsis;
+}
+
+
+/*Comments*/
+.comment{
+  padding:10px 0px;
+  border-bottom: 2px solid rgba(55,55,55,0.1);
+}
+.comment .commentHeading{
+  width: 100%;
+  font-weight:bold;
+}
+
+.comment .commentHeading .right{
+  float:right;
+}
+
+.comment .commentHeading .pot{
+  color:green;
+  text-align: left;
+}
+

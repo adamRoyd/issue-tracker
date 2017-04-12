@@ -29,7 +29,7 @@ class CommentForm extends React.Component{
         this.onOpenClick = this.onOpenClick.bind(this);
         return(
             <div>
-                <DropZone ref="dropzone" className="DropZone" activeClassName="DropZoneOver" disableClick="true" onDrop={this.onDrop}>
+                <DropZone ref="dropzone" className="DropZone" activeClassName="DropZoneOver" disableClick={true} onDrop={this.onDrop}>
                     <form className="form-horizontal" ref="commentForm" onSubmit={this.handleSubmit}>
                     
                             <textarea type="text" className="col-sm-7" rows="3" ref="comment" placeholder="comment"/>

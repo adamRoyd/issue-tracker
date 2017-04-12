@@ -15,9 +15,8 @@ class IssueManager extends React.Component{
         return(
             <div>
                 <div id="issueDescription">
-                    <p>Screen: {issue.screen}</p>
-                    <p>Category: {issue.category}</p>
-                    <p>Description: {issue.description}</p>
+                    <p><b>Description</b></p>
+                    <p>{issue.description}</p>
                 </div>
                 <CommentForm {...this.props}/>
                 <Comments issueComments={issueComments}/>

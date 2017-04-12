@@ -5,6 +5,7 @@ import * as actionCreators from '../actions/actionCreators';
 import Main from '../components/Main';
 
 const getVisibleIssues = (issues, filter) => {
+    console.log('GET VISIBLE ISSUES:' + filter);
     switch(filter){
         case 'SHOW_ALL':
             return issues;
