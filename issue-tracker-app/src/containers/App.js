@@ -9,7 +9,6 @@ const getVisibleIssues = (issues, filter) => {
         case 'SHOW_ALL':
             return issues;
         case 'New':
-            debugger;
             return issues.filter(t => t.status == 'New');
         case 'On Hold':
             return issues.filter(t => t.status == 'On Hold');

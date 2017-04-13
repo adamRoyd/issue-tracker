@@ -12,9 +12,14 @@ class IssueManager extends React.Component{
         const issue = this.props.issues[i];
         //get the issue Comments
         const issueComments = this.props.comments[this.props.params.id] || []; //empty array ensures that it loads when there are no comments
-
+        console.log('param id = ' + i);
+        console.log('issue =' + issue);
+        console.log(issueComments);
         return(
             <div>
+                {issue == null} ?
+                <p>No issue selected</p>
+                :
                 <div id="issueDescription" className="row">
                     <div className="col-sm-7">
                         <p><b>Description</b></p>
