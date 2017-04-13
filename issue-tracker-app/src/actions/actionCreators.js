@@ -8,14 +8,6 @@ export function addComment(issueId,author,comment){
         comment
     };
 }
-//remove comment
-export function removeComment(issueId,i){
-    return{
-        type:'REMOVE_COMMENT',
-        i,
-        issueId
-    };
-}
 //filter issues
 export function setIssueFilter(filter){
     return{
