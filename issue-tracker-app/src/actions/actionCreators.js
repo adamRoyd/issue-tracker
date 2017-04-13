@@ -1,10 +1,4 @@
-//increment
-export function increment(index) {
-    return {
-        type: 'INCREMENT_LIKES',
-        index
-    };
-}
+
 //add comment
 export function addComment(issueId,author,comment){
     return{

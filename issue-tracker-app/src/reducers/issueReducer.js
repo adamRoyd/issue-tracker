@@ -2,7 +2,12 @@
 //it spits out a new updated state.
 
 const issueReducer = (state = [], action) => {
-    return state;
+
+    switch(action.type){
+      
+        default:
+            return state;   
+    }
 };
 
 export default issueReducer;

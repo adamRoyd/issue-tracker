@@ -86,6 +86,10 @@ body::-webkit-scrollbar-thumb {
     text-overflow: ellipsis;
 }
 
+.issueRowActive{
+  background: #F5F5F5;
+}
+
 
 /*Comments*/
 .comment{
