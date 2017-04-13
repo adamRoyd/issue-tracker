@@ -15,9 +15,14 @@ class IssueManager extends React.Component{
 
         return(
             <div>
-                <div id="issueDescription">
-                    <p><b>Description</b></p>
-                    <p>{issue.description}</p>
+                <div id="issueDescription" className="row">
+                    <div className="col-sm-7">
+                        <p><b>Description</b></p>
+                        <p>{issue.description}</p>
+                    </div>
+                    <div className="col-sm-5">
+                        <img src="https://placekitten.com/300/140"/>
+                    </div>
                 </div>
                 <CommentForm {...this.props} issue={issue}/>
                 <Comments issueComments={issueComments}/>
