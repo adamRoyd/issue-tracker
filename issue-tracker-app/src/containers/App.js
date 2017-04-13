@@ -32,7 +32,8 @@ function mapStateToProps(state){
         issues: getVisibleIssues(state.issues,state.filter),
         comments: state.comments,
         status : state.status,
-        filter : state.filter
+        filter : state.filter,
+        users : state.users
     };
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Issue from './Issue';
 import IssueManager from './IssueManager';
 import { Link, browserHistory } from 'react-router';
@@ -6,9 +6,9 @@ import { Link, browserHistory } from 'react-router';
 class IssueList extends React.Component{
     
     handleClick(i){
-        const selectedIssue = this.props.issues[i]
+        const selectedIssue = this.props.issues[i];
         browserHistory.push(`/issue/${selectedIssue.id}`);
-        //TO DO insert map function to set all actives to false
+        this.props.issues.map((issue) => issue.active = false);
         selectedIssue.active = true;
     }
 
@@ -16,7 +16,6 @@ class IssueList extends React.Component{
         return(
             <div>
                 <h3>Issue list</h3>
-                <p>Active: {this.props.params.id}</p>
                 <table className="issueTable table table-hover">
                 <thead>
                 <tr>
@@ -26,6 +25,7 @@ class IssueList extends React.Component{
                     <th>Category</th>
                     <th>Description</th>
                     <th>Status</th>
+                    <th>Assigned</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,5 +37,9 @@ class IssueList extends React.Component{
         );
     }
 }
+
+IssueList.propTypes = {
+    issues : PropTypes.object.isRequired
+};
 
 export default IssueList;
