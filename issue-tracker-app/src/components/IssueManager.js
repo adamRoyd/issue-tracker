@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import Issue from './Issue';
-import Comments from './Comments';
-import CommentForm from './CommentForm';
+import Comments from './comments/Comments';
+import CommentForm from './comments/CommentForm';
+import IssueDescription from './issues/IssueDescription';
 
 class IssueManager extends React.Component{
     render(){
@@ -17,15 +18,7 @@ class IssueManager extends React.Component{
                 :
                     (
                     <div>
-                        <div id="issueDescription" className="row">
-                            <div className="col-sm-7">
-                                <p><b>Description</b></p>
-                                <p>{issue.description}</p>
-                            </div>
-                            <div className="col-sm-5">
-                                <img src="https://placekitten.com/300/140"/>
-                            </div>
-                        </div>
+                        <IssueDescription issue={issue}/>
                         <CommentForm {...this.props} issue={issue}/>
                         <Comments issueComments={issueComments}/>
                     </div>
