@@ -13,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
-      console.log(ownProps.value);
       dispatch(setIssueFilter(ownProps.value));
     }
   };

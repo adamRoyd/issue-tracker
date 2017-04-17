@@ -13,7 +13,7 @@ class IssueList extends React.Component{
     render(){
         return(
             <div>
-                <h3>Issue list</h3>
+                <h3>{this.props.filter}</h3>
                 <table className="issueTable table table-hover">
                     <thead>
                     <tr>
@@ -22,12 +22,11 @@ class IssueList extends React.Component{
                         <th>Screen</th>
                         <th>Category</th>
                         <th>Description</th>
-                        <th>Status</th>
                         <th>Assigned</th>
                     </tr>
                     </thead>
                     <tbody>
-                        {this.props.issues.map((issue, i) => <Issue {...this.props} key={i} issue={issue} status={status} onClick={() => this.handleClick(i)}/>)}
+                        {this.props.issues.map((issue, i) => <Issue {...this.props} key={i} issue={issue} onClick={() => this.handleClick(i)}/>)}
                     </tbody>
                 </table>
             </div>

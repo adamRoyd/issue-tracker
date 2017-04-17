@@ -2,7 +2,6 @@ import React,{PropTypes} from 'react';
 import DropZone from 'react-dropzone';
 
 class CommentForm extends React.Component{
-
     onDrop(files){
         //console.log('Recieved files :', files);
         this.setState({
@@ -21,9 +20,15 @@ class CommentForm extends React.Component{
         this.props.addComment(id,author,comment);
         this.refs.commentForm.reset();
     }
+    handleStatusChange(e){
+        console.log(e.target.value);
+        const status = e.target.value;
+        this.props.changeStatus(status);
+    }
     render(){
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onOpenClick = this.onOpenClick.bind(this);
+        this.handleStatusChange = this.handleStatusChange.bind(this);
         return(
             <div>
                 <DropZone ref="dropzone" className="DropZone" activeClassName="DropZoneOver" disableClick={true} onDrop={this.onDrop}>
@@ -33,7 +38,7 @@ class CommentForm extends React.Component{
                             <select ref="assigned" className="form-control">
                                 <option value="adam">adam</option>
                             </select>
-                            <select ref="status" className="form-control" value={this.props.issue.status}>  
+                            <select ref="status" className="form-control" value={this.props.issue.status} onChange={this.handleStatusChange}>  
                                 {this.props.status.map((option, i) =>
                                 <option key={i} value={option}>{option}</option>
                                 )}
@@ -52,7 +57,8 @@ CommentForm.propTypes = {
     params : PropTypes.object.isRequired,
     addComment : PropTypes.func.isRequired,
     status : PropTypes.object.isRequired,
-    issue : PropTypes.object.isRequired
+    issue : PropTypes.object.isRequired,
+    changeStatus : PropTypes.func.isRequired
 };
 
 export default CommentForm;

@@ -5,10 +5,11 @@ import issues from './issueReducer';
 import comments from './commentReducer';
 import status from './statusReducer';
 import filter from './issueFilter';
+import users from './usersReducer';
 
 const rootReducer = combineReducers(
-    {issues, comments, status, filter, routing: routerReducer}
-    );
+    {issues, comments, status, users, filter, routing: routerReducer}
+);
 
 
 

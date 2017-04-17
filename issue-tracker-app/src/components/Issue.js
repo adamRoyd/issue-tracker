@@ -3,13 +3,12 @@ import React, { PropTypes } from 'react';
 function Issue ({onClick, issue}){
         return(
             <tr onClick={() => onClick()} className={issue.active ? 'issueRowActive' : 'issueRow'}>
-                <td><div><input type="checkbox"/></div></td>
-                <td><div>{issue.id}</div></td>
-                <td><div>{issue.screen}</div></td>
-                <td><div>{issue.category}</div></td>
+                <td><input type="checkbox"/></td>
+                <td>{issue.id}</td>
+                <td>{issue.screen}</td>
+                <td>{issue.category}</td>
                 <td><div className="description">{issue.description}</div></td>
-                <td><div>{issue.status}</div></td>
-                
+                <td>{issue.assigned}</td>
             </tr>
         );
     }

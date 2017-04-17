@@ -15,3 +15,10 @@ export function setIssueFilter(filter){
         filter
     };
 }
+//change status
+export function changeStatus(status){
+    return{
+        type: 'CHANGE_ISSUE_STATUS',
+        status
+    }
+}
