@@ -3,13 +3,7 @@ import React, {PropTypes} from 'react';
 const TrophyImage = ({imageCssClass, height, width}) => {
     return (
         
-        <svg x="0px" y="0px" height={height} width={width} viewBox="0 0 50 50" >
-            <g>
-                <path className={imageCssClass} d="
-	M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z"
-	/>
-            </g>
-        </svg>
+        <svg height={height} width={width} className={imageCssClass} viewBox="0 0 100 125" enable-background="new 0 0 100 100"><polygon points="44.8,82.8 13.2,59.4 19.8,50.6 42.2,67.2 79,13.9 88,20.1 "/></svg>
 
   );
 };
