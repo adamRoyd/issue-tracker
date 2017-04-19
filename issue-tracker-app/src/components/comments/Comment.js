@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class Comment extends React.Component{
     render(){
@@ -18,6 +18,10 @@ class Comment extends React.Component{
             </div>
         );
     }
+}
+
+Comment.propTypes = {
+    comment : PropTypes.object.isRequired
 }
 
 export default Comment;

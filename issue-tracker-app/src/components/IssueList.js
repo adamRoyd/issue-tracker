@@ -6,7 +6,7 @@ import { Link, browserHistory } from 'react-router';
 class IssueList extends React.Component{
     handleClick(i){
         const selectedIssue = this.props.issues[i];
-        browserHistory.push(`/issue/${selectedIssue.id}`);
+        browserHistory.push(`/${this.props.filter}/issue/${selectedIssue.id}`);
         this.props.issues.map((issue) => issue.active = false);
         selectedIssue.active = true;
     }

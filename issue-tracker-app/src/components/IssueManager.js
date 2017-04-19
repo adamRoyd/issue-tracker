@@ -13,7 +13,7 @@ class IssueManager extends React.Component{
             <div>
                 {issue == undefined ? 
                     (
-                    <p>No issue selected</p>
+                    <p></p>
                     )
                 :
                     (
