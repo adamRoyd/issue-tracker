@@ -30,9 +30,9 @@ class IssueManager extends React.Component{
 }
 
 IssueManager.propTypes = {
-    issues : PropTypes.object.isRequired,
+    issues : PropTypes.array.isRequired,
     params : PropTypes.object.isRequired,
-    comments : PropTypes.object.isRequired
+    comments : PropTypes.array.isRequired
 };
 
 export default IssueManager;

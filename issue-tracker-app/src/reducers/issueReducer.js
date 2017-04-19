@@ -1,10 +1,10 @@
-//a reducer takes in two things : the action, and a copy of current state.
-//it spits out a new updated state.
+import initialState from './initialState';
 
-const issueReducer = (state = [], action) => {
+const issueReducer = (state = initialState.issues, action) => {
 
     switch(action.type){
-      
+        case 'LOAD_ISSUES_SUCCESS':
+            return action.issues;
         default:
             return state;   
     }

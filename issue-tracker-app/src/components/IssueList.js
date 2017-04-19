@@ -35,7 +35,8 @@ class IssueList extends React.Component{
 }
 
 IssueList.propTypes = {
-    issues : PropTypes.object.isRequired
+    issues : PropTypes.array.isRequired,
+    filter : PropTypes.string.isRequired
 };
 
 export default IssueList;

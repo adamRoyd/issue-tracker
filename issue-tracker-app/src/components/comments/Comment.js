@@ -1,7 +1,6 @@
 import React from 'react';
 
 class Comment extends React.Component{
-
     render(){
         const {comment} = this.props;
         return(
@@ -14,10 +13,8 @@ class Comment extends React.Component{
                     <div className="col-sm-2">
                         <p>{comment.movement} 6:34pm</p>
                         <p>Link to attachment</p>
-                    </div>
-                   
+                    </div>   
                 </div>
-                
             </div>
         );
     }

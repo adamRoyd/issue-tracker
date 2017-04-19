@@ -1,3 +1,5 @@
+import initialState from './initialState';
+
 function postComments(state = [], action) {
   switch(action.type){
     case 'ADD_COMMENT':
@@ -11,7 +13,11 @@ function postComments(state = [], action) {
   }
 }
 
-function commentReducer(state = [], action) {
+function commentReducer(state = initialState.comments, action) {
+  switch(action.type){
+    case ('LOAD_COMMENTS_SUCCESS'):
+      return action.comments;
+  }
   if(typeof action.issueId !== 'undefined') {
     return {
       // take the current state

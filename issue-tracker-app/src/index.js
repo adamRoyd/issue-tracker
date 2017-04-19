@@ -1,6 +1,9 @@
 import React from 'react';
+import 'babel-polyfill';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import configureStore from './store/configureStore';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -11,15 +14,18 @@ import IssueList from './components/IssueList';
 import IssueManager from './components/IssueManager';
 import IssuePage from './components/IssuePage';
 
-//react router deps
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+//actions
+import {loadIssues} from './actions/actionCreators';
+import {loadComments} from './actions/actionCreators';
 
-//import store. store is the default export, history is the named export. therefore put it in brackets
-import store, {history} from './store';
+const store = configureStore();
+store.dispatch(loadIssues());
+store.dispatch(loadComments());
+
 
 const router = (
   <Provider store={store}>
-    <Router history={history}>
+    <Router history={browserHistory}>
       <Route path="/" component={App}>
         <Route component={IssuePage}>
           <Route path="issue" component={IssueList}/>

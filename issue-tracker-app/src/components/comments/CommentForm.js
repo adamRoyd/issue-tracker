@@ -61,10 +61,10 @@ class CommentForm extends React.Component{
 CommentForm.propTypes = {
     params : PropTypes.object.isRequired,
     addComment : PropTypes.func.isRequired,
-    status : PropTypes.object.isRequired,
+    status : PropTypes.array.isRequired,
     issue : PropTypes.object.isRequired,
     changeStatus : PropTypes.func.isRequired,
-    users : PropTypes.object.isRequired
+    users : PropTypes.array.isRequired
 };
 
 export default CommentForm;

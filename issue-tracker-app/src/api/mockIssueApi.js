@@ -1,6 +1,10 @@
-import status from './status';
-import users from './users';
+import delay from './delay';
+import status from '../constants/status';
+import users from '../constants/users';
 
+// This file mocks a web API by working with the hard-coded data below.
+// It uses setTimeout to simulate the delay of an AJAX call.
+// All calls return promises.
 const issues = [
    {
     "code":"46hshdhy",
@@ -74,5 +78,62 @@ const issues = [
    }
 ];
 
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
 
-export default issues;
+//This would be performed on the server in a real app. Just stubbing in.
+const generateId = (issue) => {
+  return replaceAll(issue.title, ' ', '-');
+};
+
+class IssueApi {
+  static getAllIssues() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(Object.assign([], issues));
+      }, delay);
+    });
+  }
+
+  static saveIssue(issue) {
+    issue = Object.assign({}, issue); // to avoid manipulating object passed in.
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // Simulate server-side validation
+        const minIssueTitleLength = 1;
+        if (issue.title.length < minIssueTitleLength) {
+          reject(`Title must be at least ${minIssueTitleLength} characters.`);
+        }
+
+        if (issue.id) {
+          const existingIssueIndex = issues.findIndex(a => a.id == issue.id);
+          issues.splice(existingIssueIndex, 1, issue);
+        } else {
+          //Just simulating creation here.
+          //The server would generate ids and watchHref's for new issues in a real app.
+          //Cloning so copy returned is passed by value rather than by reference.
+          issue.id = generateId(issue);
+          issue.watchHref = `http://www.pluralsight.com/issues/${issue.id}`;
+          issues.push(issue);
+        }
+
+        resolve(issue);
+      }, delay);
+    });
+  }
+
+  static deleteIssue(issueId) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const indexOfIssueToDelete = issues.findIndex(issue => {
+          issue.id == issueId;
+        });
+        issues.splice(indexOfIssueToDelete, 1);
+        resolve();
+      }, delay);
+    });
+  }
+}
+
+export default IssueApi;

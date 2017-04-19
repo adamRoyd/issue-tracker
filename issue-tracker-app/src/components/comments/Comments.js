@@ -15,7 +15,7 @@ class Comments extends React.Component{
 }
 
 Comments.propTypes = {
-    issueComments : PropTypes.object.isRequired
+    issueComments : PropTypes.array.isRequired
 };
 
 export default Comments;

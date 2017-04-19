@@ -1,3 +1,10 @@
+import delay from './delay';
+import status from '../constants/status';
+import users from '../constants/users';
+
+// This file mocks a web API by working with the hard-coded data below.
+// It uses setTimeout to simulate the delay of an AJAX call.
+// All calls return promises.
 const comments = {
   "1":[
     {
@@ -353,4 +360,26 @@ const comments = {
   ]
 };
 
-export default comments;
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
+
+//This would be performed on the server in a real app. Just stubbing in.
+const generateId = (comment) => {
+  return replaceAll(comment.title, ' ', '-');
+};
+
+class IssueApi {
+  static getAllComments() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(Object.assign([], comments));
+      }, delay);
+    });
+  }
+
+
+ 
+}
+
+export default IssueApi;
