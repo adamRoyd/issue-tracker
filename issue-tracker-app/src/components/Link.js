@@ -19,7 +19,7 @@ const Link = ({ value, onClick }) => {
 Link.propTypes = {
   active: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
-  value : PropTypes.object.isRequired
+  value : PropTypes.string.isRequired
 };
 
 export default Link;

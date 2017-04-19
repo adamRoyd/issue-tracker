@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Comment from './Comment';
 
 class Comments extends React.Component{
-
     render(){
         return(
             <div id="commentsBox">

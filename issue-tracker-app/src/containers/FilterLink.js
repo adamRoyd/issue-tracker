@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { setIssueFilter } from '../actions/actionCreators';
 import Link from '../components/Link';
@@ -13,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
+      browserHistory.push(`/${ownProps.value}/issue/`);
       dispatch(setIssueFilter(ownProps.value));
     }
   };

@@ -20,8 +20,16 @@ class CommentForm extends React.Component{
         const assigned = this.refs.assigned.value;
         const comment = this.refs.comment.value;
         const status = this.refs.status.value;
-        this.props.addComment(id,assigned,comment);
+        const time = this.getDateTime();
+        this.props.addComment(id,assigned,comment,time);
         this.refs.commentForm.reset();
+    }
+    getDateTime(){
+        const d = new Date();
+        const curr_date = d.getDate();
+        const curr_month = d.getMonth();
+        const curr_year = d.getFullYear();
+        return (curr_date + "-" + curr_month + "-" + curr_year);
     }
     handleStatusChange(e){
         const status = e.target.value;

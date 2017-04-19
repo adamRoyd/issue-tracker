@@ -11,7 +11,7 @@ class Comment extends React.Component{
                         <p>{comment.text}</p>
                     </div>
                     <div className="col-sm-2">
-                        <p>{comment.movement} 6:34pm</p>
+                        <p>{comment.movement} {comment.time}</p>
                         <p>Link to attachment</p>
                     </div>   
                 </div>
@@ -22,6 +22,6 @@ class Comment extends React.Component{
 
 Comment.propTypes = {
     comment : PropTypes.object.isRequired
-}
+};
 
 export default Comment;

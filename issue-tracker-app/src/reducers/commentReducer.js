@@ -6,7 +6,8 @@ function postComments(state = [], action) {
       // return the new state with the new comment
       return [...state,{
         user: action.author,
-        text: action.comment
+        text: action.comment,
+        time: action.time
       }];
     default:
       return state;

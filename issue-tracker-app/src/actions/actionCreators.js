@@ -2,12 +2,13 @@ import issueApi from '../api/mockIssueApi';
 import commentApi from '../api/mockCommentApi';
 
 //add comment
-export function addComment(issueId,author,comment){
+export function addComment(issueId,author,comment,time){
     return{
         type: 'ADD_COMMENT',
         issueId,
         author,
-        comment
+        comment,
+        time
     };
 }
 //filter issues
