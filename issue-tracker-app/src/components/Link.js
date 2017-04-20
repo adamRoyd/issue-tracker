@@ -7,7 +7,7 @@ const Link = ({ value, onClick, active }) => {
         <div>
             <div 
                     href="#" 
-                    data-tip data-for="happyFace"
+                    data-tip="tip"
                     filter={value}
                     className={active ? 'linkIconActive' : 'linkIcon'}
                     onClick={e => {
@@ -17,9 +17,7 @@ const Link = ({ value, onClick, active }) => {
                 >
                     <StatusIcon height="40" width="40" type={value} imageCssClass="iconWhite"/>
             </div> 
-            <ReactTooltip id="happyFace">
-                <span><p>placeholder</p></span>
-            </ReactTooltip>
+            <ReactTooltip/>
         </div>
         
   );
