@@ -7,7 +7,7 @@ class IssuePage extends React.Component{
     render(){
         return(
             <div id="issuePage" className="row">
-                <div id="sideBar" className="col-sm-1">
+                <div id="sideBar">
                     <SideBar {...this.props}/>
                 </div>
                 <div id="issuelist" className="col-sm-5">

@@ -1,19 +1,19 @@
 import React, { PropTypes } from 'react';
 import StatusIcon from '../assets/StatusIcon';
 
-const Link = ({ value, onClick }) => {
+const Link = ({ value, onClick, active }) => {
   return (
-       <a 
+       <div 
             href="#" 
-            filter={value} 
-            className="row"
+            filter={value}
+            className={active ? 'linkIconActive' : 'linkIcon'}
             onClick={e => {
                 e.preventDefault();
                 onClick();
             }}
         >
             <StatusIcon height="40" width="40" type={value} imageCssClass="iconWhite"/>
-        </a> 
+        </div> 
         
   );
 };

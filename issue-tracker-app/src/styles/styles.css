@@ -16,7 +16,6 @@ a{
     bottom: 0;
     left: 0;
     width: 3.5%;
-    padding-left:9px;
   }
   #issuelist {
     position: absolute;
@@ -85,11 +84,11 @@ a{
 
 /*Issues Table*/
 .issueTable .description{
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 250px;
-    text-overflow: ellipsis;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 250px;
+  text-overflow: ellipsis;
 }
 
 .issueRowActive{
@@ -122,6 +121,25 @@ a{
 .comment .commentHeading .pot{
   color:green;
   text-align: left;
+}
+
+/* SIDE BAR */
+
+.linkIcon{
+  position:relative;
+  height:50px;
+  width:100%;
+}
+
+.linkIconActive{
+  position:relative;
+  height:50px;
+  width:100%;
+  background:rgba(255,255,255,0.1);
+}
+
+.linkIcon:hover{
+  background:rgba(255,255,255,0.1);
 }
 
 .iconWhite{
