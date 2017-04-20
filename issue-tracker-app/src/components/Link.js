@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import StatusIcon from '../assets/StatusIcon';
 
 const Link = ({ value, onClick }) => {
   return (
@@ -11,8 +12,9 @@ const Link = ({ value, onClick }) => {
                 onClick();
             }}
         >
-            {value}
+            <StatusIcon height="40" width="40" type={value} imageCssClass="iconWhite"/>
         </a> 
+        
   );
 };
 
