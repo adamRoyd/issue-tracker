@@ -135,7 +135,7 @@ a{
   position:relative;
   height:50px;
   width:100%;
-  background:rgba(255,255,255,0.1);
+  background:rgba(42,62,71,1);
 }
 
 .linkIcon:hover{
@@ -143,5 +143,18 @@ a{
 }
 
 .iconWhite{
-  fill:rgba(255,255,255,0.8);
+  fill:rgba(255,255,255,0.7);
+}
+
+.linkIconActive .iconWhite{
+  fill:rgba(255,255,255,1); 
+}
+
+.linkIcon .icontooltip,
+.linkIconActive .icontooltip{
+  display:none;
+}
+
+.linkIcon:hover .icontooltip{
+  display:block;
 }

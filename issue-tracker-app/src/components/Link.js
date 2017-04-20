@@ -12,7 +12,11 @@ const Link = ({ value, onClick, active }) => {
                 onClick();
             }}
         >
+            <div className="icontooltip">
+                <p>{value}</p>
+            </div>
             <StatusIcon height="40" width="40" type={value} imageCssClass="iconWhite"/>
+
         </div> 
         
   );
