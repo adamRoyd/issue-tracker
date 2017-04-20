@@ -1,23 +1,26 @@
 import React, { PropTypes } from 'react';
 import StatusIcon from '../assets/StatusIcon';
+import ReactTooltip from 'react-tooltip';
 
 const Link = ({ value, onClick, active }) => {
   return (
-       <div 
-            href="#" 
-            filter={value}
-            className={active ? 'linkIconActive' : 'linkIcon'}
-            onClick={e => {
-                e.preventDefault();
-                onClick();
-            }}
-        >
-            <div className="icontooltip">
-                <p>{value}</p>
-            </div>
-            <StatusIcon height="40" width="40" type={value} imageCssClass="iconWhite"/>
-
-        </div> 
+        <div>
+            <div 
+                    href="#" 
+                    data-tip data-for="happyFace"
+                    filter={value}
+                    className={active ? 'linkIconActive' : 'linkIcon'}
+                    onClick={e => {
+                        e.preventDefault();
+                        onClick();
+                    }}
+                >
+                    <StatusIcon height="40" width="40" type={value} imageCssClass="iconWhite"/>
+            </div> 
+            <ReactTooltip id="happyFace">
+                <span><p>placeholder</p></span>
+            </ReactTooltip>
+        </div>
         
   );
 };

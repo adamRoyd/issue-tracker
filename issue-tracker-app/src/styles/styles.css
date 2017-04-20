@@ -149,12 +149,3 @@ a{
 .linkIconActive .iconWhite{
   fill:rgba(255,255,255,1); 
 }
-
-.linkIcon .icontooltip,
-.linkIconActive .icontooltip{
-  display:none;
-}
-
-.linkIcon:hover .icontooltip{
-  display:block;
-}
