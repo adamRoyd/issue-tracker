@@ -8,10 +8,11 @@ import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 //actions
-import {loadIssues, loadComments} from './actions/actionCreators';
+import {loadIssues, loadComments, loadUsers} from './actions/actionCreators';
 const store = configureStore();
 store.dispatch(loadIssues());
 store.dispatch(loadComments());
+store.dispatch(loadUsers());
 
 //rooter
 import Root from './root';

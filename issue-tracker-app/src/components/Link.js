@@ -7,7 +7,8 @@ const Link = ({ value, onClick, active }) => {
         <div>
             <div 
                     href="#" 
-                    data-tip="tip"
+                    data-tip={value}
+                    data-delay-show="500"
                     filter={value}
                     className={active ? 'linkIconActive' : 'linkIcon'}
                     onClick={e => {
@@ -17,7 +18,7 @@ const Link = ({ value, onClick, active }) => {
                 >
                     <StatusIcon height="40" width="40" type={value} imageCssClass="iconWhite"/>
             </div> 
-            <ReactTooltip/>
+            <ReactTooltip className="potToolTip" offset={{top:0, left:-40}} place="right"/>
         </div>
         
   );
