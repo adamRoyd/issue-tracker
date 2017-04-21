@@ -114,7 +114,6 @@ class IssueApi {
           //The server would generate ids and watchHref's for new issues in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
           issue.id = generateId(issue);
-          issue.watchHref = `http://www.pluralsight.com/issues/${issue.id}`;
           issues.push(issue);
         }
 

@@ -1,7 +1,33 @@
 import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import Issue from './Issue';
 import IssueManager from './IssueManager';
 import { Link, browserHistory } from 'react-router';
+import * as issueActions from '../actions/issueActions';
+
+const getVisibleIssues = (issues, filter) => {
+    switch(filter){
+        case 'SHOW_ALL':
+            return issues;
+        case 'New':
+            return issues.filter(t => t.status == 'New');
+        case 'On Hold':
+            return issues.filter(t => t.status == 'On Hold');
+        case 'Ready To Fix':
+            return issues.filter(t => t.status == 'Ready To Fix');
+        case 'Fixed':
+            return issues.filter(t => t.status == 'Fixed');
+        case 'Returned':
+            return issues.filter(t => t.status == 'Returned');
+        case 'Closed':
+            return issues.filter(t => t.status == 'Closed');
+        case 'Rejected':
+            return issues.filter(t => t.status == 'Rejected');        
+        default:
+            return issues;
+    }
+};
 
 class IssueList extends React.Component{
     handleClick(i){
@@ -39,4 +65,14 @@ IssueList.propTypes = {
     filter : PropTypes.string.isRequired
 };
 
-export default IssueList;
+function mapStateToProps(state, ownProps) {
+    return {
+        issues: getVisibleIssues(state.issues,state.filter)
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(issueActions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IssueList);

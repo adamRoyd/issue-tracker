@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import {connect} from 'react-redux';
 import Issue from './Issue';
 import Comments from './comments/Comments';
 import CommentForm from './comments/CommentForm';
@@ -35,4 +36,16 @@ IssueManager.propTypes = {
     comments : PropTypes.array.isRequired
 };
 
-export default IssueManager;
+function mapStateToProps(state, ownProps) {
+    return {
+        issues: state.issues
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IssueManager);

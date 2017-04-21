@@ -8,7 +8,9 @@ import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 //actions
-import {loadIssues, loadComments, loadUsers} from './actions/actionCreators';
+import {loadComments, loadUsers} from './actions/actionCreators';
+import {loadIssues} from './actions/issueActions';
+
 const store = configureStore();
 store.dispatch(loadIssues());
 store.dispatch(loadComments());

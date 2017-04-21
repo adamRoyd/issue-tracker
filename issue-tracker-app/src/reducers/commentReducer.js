@@ -1,8 +1,9 @@
 import initialState from './initialState';
+import * as types from '../actions/actionTypes';
 
 function postComments(state = [], action) {
   switch(action.type){
-    case 'ADD_COMMENT':
+    case types.ADD_COMMENT:
       // return the new state with the new comment
       return [...state,{
         user: action.author,
@@ -14,7 +15,7 @@ function postComments(state = [], action) {
   }
 }
 
-function commentReducer(state = initialState.comments, action) {
+export default function commentReducer(state = initialState.comments, action) {
   switch(action.type){
     case ('LOAD_COMMENTS_SUCCESS'):
       return action.comments;
@@ -30,4 +31,3 @@ function commentReducer(state = initialState.comments, action) {
   return state;
 }
 
-export default commentReducer;
