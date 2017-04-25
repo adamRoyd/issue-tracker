@@ -7,7 +7,6 @@ import users from '../constants/users';
 // All calls return promises.
 const issues = [
    {
-    "code":"46hshdhy",
     "id":"1",
     "screen":"1_100",
     "category":"Image",
@@ -17,7 +16,6 @@ const issues = [
     "active" : false
    },
    {
-    "code":"sergtsegs",
     "id":"2",
     "screen":"2_100",
     "category":"Text",
@@ -27,7 +25,6 @@ const issues = [
     "active" : false
    },
    {
-    "code":"htrdht",
     "id":"3",
     "screen":"3_100",
     "category":"Design",
@@ -37,7 +34,6 @@ const issues = [
     "active" : false
    },
    {
-    "code":"dtndtyndt",
     "id":"4",
     "screen":"4_100",
     "category":"Functionality",
@@ -47,7 +43,6 @@ const issues = [
     "active" : false
    },
    {
-    "code":"tsjyjyj",
     "id":"5",
     "screen":"3_100",
     "category":"Functionality",
@@ -57,7 +52,6 @@ const issues = [
     "active" : false
    },
    {
-    "code":"dxrynn",
     "id":"6",
     "screen":"2_100",
     "category":"Image",
@@ -67,8 +61,205 @@ const issues = [
     "active" : false
    },
    {
-    "code":"sdfsdfsdf",
     "id":"7",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"8",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"9",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"10",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"11",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"12",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"13",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"14",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"15",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"16",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"17",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"18",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"19",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"20",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"21",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"22",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"23",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"24",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"25",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"26",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"27",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"28",
+    "screen":"2_100",
+    "category":"Image",
+    "description":"Issue description",
+    "status" : status[6],
+    "assigned" : users[0],
+    "active" : false
+   },
+   {
+    "id":"29",
     "screen":"2_100",
     "category":"Image",
     "description":"Issue description",
@@ -84,7 +275,7 @@ function replaceAll(str, find, replace) {
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (issue) => {
-  return replaceAll(issue.title, ' ', '-');
+  return replaceAll(issue.description, ' ', '-');
 };
 
 class IssueApi {
@@ -96,28 +287,17 @@ class IssueApi {
     });
   }
 
-  static saveIssue(issue) {
-    issue = Object.assign({}, issue); // to avoid manipulating object passed in.
+  static saveIssue(id,status) {
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        // Simulate server-side validation
-        const minIssueTitleLength = 1;
-        if (issue.title.length < minIssueTitleLength) {
-          reject(`Title must be at least ${minIssueTitleLength} characters.`);
-        }
-
-        if (issue.id) {
-          const existingIssueIndex = issues.findIndex(a => a.id == issue.id);
-          issues.splice(existingIssueIndex, 1, issue);
-        } else {
-          //Just simulating creation here.
-          //The server would generate ids and watchHref's for new issues in a real app.
-          //Cloning so copy returned is passed by value rather than by reference.
-          issue.id = generateId(issue);
-          issues.push(issue);
-        }
-
-        resolve(issue);
+          let issue = issues.filter(k => k.id == id);
+          Object.assign({}, issue, issue.status = status);
+          console.log(issue);
+          const issueIndex = issues.findIndex(a => a.id == id);
+          issues.splice(issueIndex, 1, issue);
+          console.log(issues);
+          resolve(Object.assign([], issues));
       }, delay);
     });
   }

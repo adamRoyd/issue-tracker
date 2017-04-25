@@ -13,8 +13,6 @@ export function addComment(issueId,author,comment,time){
     };
 }
 
-
-
 //load comments
 export function loadCommentsSuccess(comments){
     return {type: types.LOAD_COMMENTS_SUCCESS,comments};

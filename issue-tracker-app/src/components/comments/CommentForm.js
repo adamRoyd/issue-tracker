@@ -21,7 +21,9 @@ class CommentForm extends React.Component{
         const comment = this.refs.comment.value;
         const status = this.refs.status.value;
         const time = this.getDateTime();
-        this.props.addComment(id,assigned,comment,time);
+        //TO DO what is addcomment mutating state on the first instance?
+        //this.props.addComment(id,assigned,comment,time);
+        this.props.saveIssue(id,status);
         this.refs.commentForm.reset();
     }
     getDateTime(){
@@ -74,5 +76,7 @@ CommentForm.propTypes = {
     changeStatus : PropTypes.func.isRequired,
     users : PropTypes.array.isRequired
 };
+
+
 
 export default CommentForm;

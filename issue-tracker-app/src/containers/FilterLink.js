@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { setIssueFilter } from '../actions/issueActions';
 import Link from '../components/Link';
 
-
 const mapStateToProps = (state, ownProps) => {
   return {
     active: ownProps.value === state.filter

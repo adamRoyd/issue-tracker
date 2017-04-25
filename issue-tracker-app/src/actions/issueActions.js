@@ -29,3 +29,17 @@ export function loadIssues(){
         });
     };
 }
+
+export function saveIssueSuccess(issues){
+    return {type: types.SAVE_ISSUE_SUCCESS};
+}
+
+export function saveIssue(id,status){
+    return function(dispatch){
+        return issueApi.saveIssue(id,status).then(issues =>{
+            dispatch(saveIssueSuccess(issues));
+        }).catch(error =>{
+            throw(error);
+        });
+    };    
+}

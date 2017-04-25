@@ -1,11 +1,14 @@
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as issueActions from '../actions/issueActions';
 import Issue from './Issue';
 import Comments from './comments/Comments';
 import CommentForm from './comments/CommentForm';
 import IssueDescription from './issues/IssueDescription';
 
 class IssueManager extends React.Component{
+
     render(){
         const i = this.props.issues.findIndex((issue) => issue.id === this.props.params.id);
         const issue = this.props.issues[i];
@@ -43,9 +46,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-
-    };
+    return bindActionCreators(issueActions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IssueManager);
