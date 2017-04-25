@@ -20,10 +20,11 @@ class CommentForm extends React.Component{
         const assigned = this.refs.assigned.value;
         const comment = this.refs.comment.value;
         const status = this.refs.status.value;
-        const time = this.getDateTime();
-        //TO DO what is addcomment mutating state on the first instance?
-        //this.props.addComment(id,assigned,comment,time);
-        this.props.saveIssue(id,status);
+        const time = this.getDateTime(); 
+        console.log(id,assigned,comment,time);
+        //TO DO why is addcomment mutating state on the first instance?
+        this.props.addComment(id,assigned,comment,time);
+        //this.props.saveIssue(id,status);
         this.refs.commentForm.reset();
     }
     getDateTime(){
@@ -74,7 +75,8 @@ CommentForm.propTypes = {
     status : PropTypes.array.isRequired,
     issue : PropTypes.object.isRequired,
     changeStatus : PropTypes.func.isRequired,
-    users : PropTypes.array.isRequired
+    users : PropTypes.array.isRequired,
+    saveIssue : PropTypes.func.isRequired
 };
 
 
