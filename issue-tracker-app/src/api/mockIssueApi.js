@@ -293,6 +293,7 @@ class IssueApi {
       setTimeout(() => {
           let issue = issues.filter(k => k.id == id);
           Object.assign({}, issue, issue.status = status);
+
           console.log(issue);
           const issueIndex = issues.findIndex(a => a.id == id);
           issues.splice(issueIndex, 1, issue);

@@ -1,6 +1,6 @@
 import React from 'react';
-import IssueList from './IssueList';
-import IssueManager from './IssueManager';
+import IssueList from './issues/IssueList';
+import IssueManager from './issues/IssueManager';
 import SideBar from './SideBar';
 
 class IssuePage extends React.Component{

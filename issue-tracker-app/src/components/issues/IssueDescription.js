@@ -17,7 +17,7 @@ function IssueDescription ({issue}){
 
 IssueDescription.propTypes = {
     issue : PropTypes.object.isRequired
-}
+};
 
 
 export default IssueDescription;

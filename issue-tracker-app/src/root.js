@@ -5,8 +5,8 @@ import { Router, Route, browserHistory } from 'react-router';
 //components
 import App from './containers/App';
 import Main from './components/Main';
-import IssueList from './components/IssueList';
-import IssueManager from './components/IssueManager';
+import IssueList from './components/issues/IssueList';
+import IssueManager from './components/issues/IssueManager';
 import IssuePage from './components/IssuePage';
 
 

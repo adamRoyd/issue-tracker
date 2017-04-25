@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import Issue from './Issue';
 import IssueManager from './IssueManager';
 import { Link, browserHistory } from 'react-router';
-import * as issueActions from '../actions/issueActions';
+import * as issueActions from '../../actions/issueActions';
 
 const getVisibleIssues = (issues, filter) => {
     switch(filter){
