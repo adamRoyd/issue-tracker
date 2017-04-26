@@ -8,7 +8,7 @@ import Main from './components/Main';
 import IssueList from './components/issues/IssueList';
 import IssueManager from './components/issues/IssueManager';
 import IssuePage from './components/IssuePage';
-
+import NewIssueForm from './components/NewIssueForm';
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -17,11 +17,15 @@ const Root = ({ store }) => (
         <Route component={IssuePage}>
           <Route path="issue" component={IssueList}/>
           <Route path="issue/:id" component={IssueManager}/>
+          <Route path="issue/newissue" component={NewIssueForm}/>
         </Route>
       </Route>
     </Router>
   </Provider>
 );
 
+Root.propTypes = {
+  store : PropTypes.object.isRequired
+};
 
 export default Root;

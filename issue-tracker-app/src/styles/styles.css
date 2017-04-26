@@ -95,22 +95,6 @@ a{
   background: #F5F5F5;
 }
 
-tr {
-  width: 100%;
-  table-layout: fixed;
-}
-
-table{
-  height:300px;              
-  display: -moz-groupbox;    
-}
-tbody{
-  overflow-y: scroll;      
-  height: 200px;           
-  width: 100%;
-  /*position: absolute;*/
-}
-
 
 /*Description and Form */
 #issueDescription{

@@ -41,7 +41,14 @@ class IssueList extends React.Component{
     render(){
         return(
             <div>
-                <h3>{this.props.filter}</h3>
+                <div className="row">
+                    <div className="col-sm-8">
+                        <h3>{this.props.filter}</h3>
+                    </div>
+                    <div className="col-sm-4">
+                        <button className="btn">New issue</button>
+                    </div>
+                </div>
                 <table className="issueTable table table-hover">
                     <thead>
                     <tr>
