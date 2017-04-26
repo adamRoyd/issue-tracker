@@ -39,12 +39,15 @@ export function loadIssues(){
 }
 
 export function saveIssueSuccess(issues){
-    return {type: types.SAVE_ISSUE_SUCCESS};
+    return {
+        type: types.SAVE_ISSUE_SUCCESS,
+        issues
+    };
 }
 
-export function saveIssue(id,status){
+export function saveIssue(id,status,assigned){
     return function(dispatch){
-        return issueApi.saveIssue(id,status).then(issues =>{
+        return issueApi.saveIssue(id,status,assigned).then(issues =>{
             dispatch(saveIssueSuccess(issues));
         }).catch(error =>{
             throw(error);

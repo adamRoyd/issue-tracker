@@ -7,7 +7,7 @@ const issueReducer = (state = initialState.issues, action) => {
         case types.LOAD_ISSUES_SUCCESS:
             return action.issues;
         case types.SAVE_ISSUE_SUCCESS:
-            return state;
+            return action.issues;
         case types.SET_ACTIVE_ISSUE:
             return [
                 ...state.map((issue,index) => {

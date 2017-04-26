@@ -287,18 +287,21 @@ class IssueApi {
     });
   }
 
-  static saveIssue(id,status) {
-
+  static saveIssue(id,newstatus,newassigned) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-          let issue = issues.filter(k => k.id == id);
-          Object.assign({}, issue, issue.status = status);
-
-          console.log(issue);
-          const issueIndex = issues.findIndex(a => a.id == id);
-          issues.splice(issueIndex, 1, issue);
-          console.log(issues);
-          resolve(Object.assign([], issues));
+          resolve(Object.assign([], issues.map((issue,index) => {
+              if(id == (index + 1)){
+                return Object.assign({},issue,{
+                  description : 'WORKS',
+                  status : newstatus,
+                  assigned : newassigned
+                });
+              } else{
+                return issue;
+              }
+            })
+          ));
       }, delay);
     });
   }

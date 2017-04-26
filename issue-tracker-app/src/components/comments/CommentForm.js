@@ -21,9 +21,8 @@ class CommentForm extends React.Component{
         const comment = this.refs.comment.value;
         const status = this.refs.status.value;
         const time = this.getDateTime(); 
-        console.log(id,assigned,comment,time);
         this.props.addComment(id,assigned,comment,time);
-        this.props.saveIssue(id,status);
+        this.props.saveIssue(id,status,assigned);
         this.refs.commentForm.reset();
     }
     getDateTime(){
@@ -45,7 +44,7 @@ class CommentForm extends React.Component{
             <div>
                 <DropZone ref="dropzone" className="DropZone" activeClassName="DropZoneOver" disableClick={true} onDrop={this.onDrop}>
                     <form className="form-horizontal" ref="commentForm" onSubmit={this.handleSubmit}>
-                        <textarea type="text" className="col-sm-7" rows="3" ref="comment" placeholder="comment"/>    
+                        <textarea type="text" className="col-sm-7" rows="3" ref="comment" placeholder="comment"/>
                         <div className="col-sm-5">
                             <select ref="assigned" className="form-control">
                                 {this.props.users.map((user,i) =>
