@@ -33,8 +33,10 @@ class IssueList extends React.Component{
     handleClick(i){
         const selectedIssue = this.props.issues[i];
         browserHistory.push(`/${this.props.filter}/issue/${selectedIssue.id}`);
-        this.props.issues.map((issue) => issue.active = false);
-        selectedIssue.active = true;
+        //this.props.issues.map((issue) => issue.active = false);
+        //TO DO change this without mutating state!
+        //selectedIssue.active = true;
+        this.props.setActiveIssue(selectedIssue,i);
     }
     render(){
         return(
@@ -62,7 +64,8 @@ class IssueList extends React.Component{
 
 IssueList.propTypes = {
     issues : PropTypes.array.isRequired,
-    filter : PropTypes.string.isRequired
+    filter : PropTypes.string.isRequired,
+    setActiveIssue : PropTypes.func.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

@@ -8,6 +8,20 @@ const issueReducer = (state = initialState.issues, action) => {
             return action.issues;
         case types.SAVE_ISSUE_SUCCESS:
             return state;
+        case types.SET_ACTIVE_ISSUE:
+            return [
+                ...state.map((issue,index) => {
+                    if(index == action.index){
+                        return Object.assign({},action.issue,{
+                            active : true
+                        });
+                    } else{
+                        return Object.assign({},issue,{
+                            active : false
+                        });
+                    }
+                })
+            ];
         default:
             return state;   
     }

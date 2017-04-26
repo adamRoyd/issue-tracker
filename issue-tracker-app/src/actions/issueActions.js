@@ -16,6 +16,14 @@ export function changeStatus(status){
     };
 }
 
+export function setActiveIssue(issue, index){
+    return{
+        type: types.SET_ACTIVE_ISSUE,
+        issue,
+        index
+    };
+}
+
 export function loadIssuesSuccess(issues){
     return {type: types.LOAD_ISSUES_SUCCESS,issues};
 }

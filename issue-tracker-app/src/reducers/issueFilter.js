@@ -6,8 +6,6 @@ const issueFilter = (state = 'All', action) => {
   switch (action.type) {
     case types.SET_ISSUE_FILTER:
       return action.filter;
-    case types.CHANGE_ISSUE_STATUS:
-      return action.status;
     default:
       return state;
   }
