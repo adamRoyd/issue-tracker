@@ -38,6 +38,9 @@ class IssueList extends React.Component{
         //selectedIssue.active = true;
         this.props.setActiveIssue(selectedIssue,i);
     }
+    headerClick(){
+        console.log('headerClicked');
+    }
     render(){
         return(
             <div>
@@ -52,12 +55,12 @@ class IssueList extends React.Component{
                 <table className="issueTable table table-hover">
                     <thead>
                     <tr>
-                        <th></th>
-                        <th>Id</th>
-                        <th>Screen</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th>Assigned</th>
+                        <th onClick={() => this.headerClick()}></th>
+                        <th onClick={() => this.headerClick()}>Id</th>
+                        <th onClick={() => this.headerClick()}>Screen</th>
+                        <th onClick={() => this.headerClick()}>Category</th>
+                        <th onClick={() => this.headerClick()}>Description</th>
+                        <th onClick={() => this.headerClick()}>Assigned</th>
                     </tr>
                     </thead>
                     <tbody>

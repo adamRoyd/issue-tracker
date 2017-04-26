@@ -17,7 +17,6 @@ const Root = ({ store }) => (
         <Route component={IssuePage}>
           <Route path="issue" component={IssueList}/>
           <Route path="issue/:id" component={IssueManager}/>
-          <Route path="issue/newissue" component={NewIssueForm}/>
         </Route>
       </Route>
     </Router>
