@@ -24,6 +24,13 @@ export function setActiveIssue(issue, index){
     };
 }
 
+export function sortIssue(index){
+    return{
+        type: types.SORT_ISSUES,
+        index
+    };
+}
+
 export function loadIssuesSuccess(issues){
     return {type: types.LOAD_ISSUES_SUCCESS,issues};
 }

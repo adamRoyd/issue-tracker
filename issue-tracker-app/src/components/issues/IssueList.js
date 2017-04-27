@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Issue from './Issue';
+import Header from './Header';
 import IssueManager from './IssueManager';
 import { Link, browserHistory } from 'react-router';
 import * as issueActions from '../../actions/issueActions';
@@ -33,13 +34,10 @@ class IssueList extends React.Component{
     handleClick(i){
         const selectedIssue = this.props.issues[i];
         browserHistory.push(`/${this.props.filter}/issue/${selectedIssue.id}`);
-        //this.props.issues.map((issue) => issue.active = false);
-        //TO DO change this without mutating state!
-        //selectedIssue.active = true;
         this.props.setActiveIssue(selectedIssue,i);
     }
-    headerClick(){
-        console.log('headerClicked');
+    headerClick(i){
+        this.props.sortIssue(i - 1);
     }
     render(){
         return(
@@ -55,12 +53,7 @@ class IssueList extends React.Component{
                 <table className="issueTable table table-hover">
                     <thead>
                     <tr>
-                        <th onClick={() => this.headerClick()}></th>
-                        <th onClick={() => this.headerClick()}>Id</th>
-                        <th onClick={() => this.headerClick()}>Screen</th>
-                        <th onClick={() => this.headerClick()}>Category</th>
-                        <th onClick={() => this.headerClick()}>Description</th>
-                        <th onClick={() => this.headerClick()}>Assigned</th>
+                        {this.props.headers.map((header,i) => <Header key={i} value={header} onClick={() => this.headerClick(i)}/>)}
                     </tr>
                     </thead>
                     <tbody>
@@ -75,12 +68,15 @@ class IssueList extends React.Component{
 IssueList.propTypes = {
     issues : PropTypes.array.isRequired,
     filter : PropTypes.string.isRequired,
-    setActiveIssue : PropTypes.func.isRequired
+    setActiveIssue : PropTypes.func.isRequired,
+    sortIssue : PropTypes.func.isRequired,
+    headers : PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
     return {
-        issues: getVisibleIssues(state.issues,state.filter)
+        issues: getVisibleIssues(state.issues,state.filter),
+        headers : ['','Id','Screen','Category','Description','Assigned']
     };
 }
 
