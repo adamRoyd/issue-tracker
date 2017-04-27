@@ -1,8 +1,12 @@
 import React, { PropTypes } from 'react';
 
-function Header ({onClick,value}) {
+function Header ({onClick,header}) {
     return(
-        <th onClick={() => onClick()}>{value}&nbsp;<span className="glyphicon glyphicon-menu-down"/></th>
+        <th onClick={() => onClick()}>
+            {header.name}
+            &nbsp;
+            <span className={(header.filter == 0) ? "" : "glyphicon glyphicon-menu-down"}/>
+        </th>
     );
 }
 
