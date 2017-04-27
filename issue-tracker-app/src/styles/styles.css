@@ -12,14 +12,14 @@ a{
 @media (min-width: 768px){
 #sideBar{
     position: absolute;
-    top: 0px;
+    top: 50px;
     bottom: 0;
     left: 0;
     width: 3.5%;
   }
   #issuelist {
     position: absolute;
-    top: 0px;
+    top: 50px;
     bottom: 0;
     left: 4%;
     width: 48%;
@@ -28,7 +28,7 @@ a{
   
   #issueManager {
     position: absolute;
-    top: 0;
+    top: 50px;
     bottom: 0;
     right: 0;
     overflow-y: hidden;
@@ -154,4 +154,14 @@ a{
 .potToolTip{
   position:absolute !important;
   left:100% !important;
+}
+
+.white{
+  color:white;
+}
+
+/* TOP BAR */
+#topBar{
+  height:50px;
+  background:#403075;
 }

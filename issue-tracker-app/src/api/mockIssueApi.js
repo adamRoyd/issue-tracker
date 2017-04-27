@@ -19,7 +19,7 @@ const issues = [
     "id":"2",
     "screen":"2_100",
     "category":"Text",
-    "description":"Issue description",
+    "description":"Alpaca description",
     "status" : status[1],
     "assigned" : users[0],
     "active" : false
@@ -28,7 +28,7 @@ const issues = [
     "id":"3",
     "screen":"3_100",
     "category":"Design",
-    "description":"Issue description",
+    "description":"Badger description",
     "status" : status[2],
     "assigned" : users[0],
     "active" : false
@@ -37,7 +37,7 @@ const issues = [
     "id":"4",
     "screen":"4_100",
     "category":"Functionality",
-    "description":"Issue description",
+    "description":"Cat description",
     "status" : status[3],
     "assigned" : users[0],
     "active" : false
@@ -46,7 +46,7 @@ const issues = [
     "id":"5",
     "screen":"3_100",
     "category":"Functionality",
-    "description":"Issue description",
+    "description":"Dog description",
     "status" : status[4],
     "assigned" : users[0],
     "active" : false
@@ -55,7 +55,7 @@ const issues = [
     "id":"6",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Elephant description",
     "status" : status[5],
     "assigned" : users[0],
     "active" : false
@@ -64,7 +64,7 @@ const issues = [
     "id":"7",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Fox description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -73,7 +73,7 @@ const issues = [
     "id":"8",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Gorilla description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -82,7 +82,7 @@ const issues = [
     "id":"9",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Horse description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -91,7 +91,7 @@ const issues = [
     "id":"10",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Iguana description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -100,7 +100,7 @@ const issues = [
     "id":"11",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Jaguar description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -109,7 +109,7 @@ const issues = [
     "id":"12",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Krill description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -118,7 +118,7 @@ const issues = [
     "id":"13",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Leopard description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -127,7 +127,7 @@ const issues = [
     "id":"14",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Marmaduke description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -136,7 +136,7 @@ const issues = [
     "id":"15",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Narwhal description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -145,7 +145,7 @@ const issues = [
     "id":"16",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Orangutan description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -154,7 +154,7 @@ const issues = [
     "id":"17",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Pangolin description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false
@@ -172,7 +172,7 @@ const issues = [
     "id":"19",
     "screen":"2_100",
     "category":"Image",
-    "description":"Issue description",
+    "description":"Quoli description",
     "status" : status[6],
     "assigned" : users[0],
     "active" : false

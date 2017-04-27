@@ -24,10 +24,11 @@ export function setActiveIssue(issue, index){
     };
 }
 
-export function sortIssue(index){
+export function sortIssue(index,header){
     return{
         type: types.SORT_ISSUES,
-        index
+        index,
+        header
     };
 }
 

@@ -1,7 +1,7 @@
 import initialState from './initialState';
 import * as types from '../actions/actionTypes';
 
-function postComments(state = [], action) {
+function postComments(state = initialState.comments, action) {
   switch(action.type){
     case types.ADD_COMMENT:
       return [...state,{
@@ -20,7 +20,6 @@ export default function commentReducer(state = initialState.comments, action) {
       return action.comments;
   }
   if(typeof action.issueId !== 'undefined') {
-    console.log(action.type)
     return {
       ...state,
       [action.issueId]: postComments(state[action.issueId], action)

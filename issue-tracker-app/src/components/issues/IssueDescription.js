@@ -4,7 +4,6 @@ function IssueDescription ({issue}){
     return(
         <div id="issueDescription" className="row">
             <div className="col-sm-8">
-                <h3>Description</h3>
                 <p>{issue.description}</p>
             </div>
             <div className="col-sm-4">

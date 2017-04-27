@@ -37,21 +37,12 @@ class IssueList extends React.Component{
         this.props.setActiveIssue(selectedIssue,i);
     }
     headerClick(i){
-        this.props.headers[i].filter = 1;
-        console.log(this.props.headers[i]);
-        this.props.sortIssue(i - 1);
+        if(i != 0)
+        this.props.sortIssue(i - 1,this.props.headers[i]);
     }
     render(){
         return(
             <div>
-                <div className="row">
-                    <div className="col-sm-8">
-                        <h3>{this.props.filter}</h3>
-                    </div>
-                    <div className="col-sm-4">
-                        <button className="btn">New issue</button>
-                    </div>
-                </div>
                 <table className="issueTable table table-hover">
                     <thead>
                     <tr>
@@ -77,10 +68,7 @@ IssueList.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        issues: getVisibleIssues(state.issues,state.filter),
-        headers : [
-            {"name" : "","filter" : 0},{"name" : "Id","filter" : 0},{"name" : "Screen","filter" : 0},{"name" : "Category","filter" : 0},{"name" : "Description","filter" : 0},{"name" : "Assigned","filter" : 0}
-        ]
+        issues: getVisibleIssues(state.issues,state.filter)
     };
 }
 
