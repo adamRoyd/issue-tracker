@@ -1,24 +1,44 @@
+import * as types from './actionTypes';
+import commentApi from '../api/mockCommentApi';
+import userApi from '../api/mockUserApi';
 
 //add comment
-export function addComment(issueId,author,comment){
+export function addComment(issueId,author,comment,time){
     return{
-        type: 'ADD_COMMENT',
+        type: types.ADD_COMMENT,
         issueId,
         author,
-        comment
+        comment,
+        time
     };
 }
-//filter issues
-export function setIssueFilter(filter){
-    return{
-        type: 'SET_ISSUE_FILTER',
-        filter
+
+//load comments
+export function loadCommentsSuccess(comments){
+    return {type: types.LOAD_COMMENTS_SUCCESS,comments};
+}
+
+export function loadComments(){
+    return function(dispatch){
+        return commentApi.getAllComments().then(comments =>{
+            dispatch(loadCommentsSuccess(comments));
+        }).catch(error =>{
+            throw(error);
+        });
     };
 }
-//change status
-export function changeStatus(status){
-    return{
-        type: 'CHANGE_ISSUE_STATUS',
-        status
-    }
+
+//load users
+export function loadUsersSuccess(users){
+    return {type: types.LOAD_USERS_SUCCESS,users};
+}
+
+export function loadUsers(){
+    return function(dispatch){
+        return userApi.getAllUsers().then(users =>{
+            dispatch(loadUsersSuccess(users));
+        }).catch(error =>{
+            throw(error);
+        });
+    };
 }

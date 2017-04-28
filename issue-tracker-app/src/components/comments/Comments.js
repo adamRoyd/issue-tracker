@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Comment from './Comment';
 
 class Comments extends React.Component{
-
     render(){
         return(
             <div id="commentsBox">
@@ -15,7 +14,7 @@ class Comments extends React.Component{
 }
 
 Comments.propTypes = {
-    issueComments : PropTypes.object.isRequired
+    issueComments : PropTypes.array.isRequired
 };
 
 export default Comments;

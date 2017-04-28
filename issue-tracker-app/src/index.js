@@ -1,37 +1,25 @@
 import React from 'react';
+import 'babel-polyfill';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import configureStore from './store/configureStore';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-//components
-import App from './containers/App';
-import Main from './components/Main';
-import IssueList from './components/IssueList';
-import IssueManager from './components/IssueManager';
-import IssuePage from './components/IssuePage';
+//actions
+import {loadComments, loadUsers} from './actions/actionCreators';
+import {loadIssues} from './actions/issueActions';
 
-//react router deps
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+const store = configureStore();
+store.dispatch(loadIssues());
+store.dispatch(loadComments());
+store.dispatch(loadUsers());
 
-//import store. store is the default export, history is the named export. therefore put it in brackets
-import store, {history} from './store';
-
-const router = (
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <Route component={IssuePage}>
-          <Route path="issue" component={IssueList}/>
-          <Route path="issue/:id" component={IssueManager}/>
-        </Route>
-      </Route>
-      
-    </Router>
-  </Provider>
-);
+//rooter
+import Root from './root';
 
 render(
-  router,
+  <Root store={store}/>,
   document.getElementById('root')
 );

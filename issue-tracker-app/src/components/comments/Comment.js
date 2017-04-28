@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class Comment extends React.Component{
-
     render(){
         const {comment} = this.props;
         return(
@@ -12,15 +11,17 @@ class Comment extends React.Component{
                         <p>{comment.text}</p>
                     </div>
                     <div className="col-sm-2">
-                        <p>{comment.movement} 6:34pm</p>
+                        <p>{comment.movement} {comment.time}</p>
                         <p>Link to attachment</p>
-                    </div>
-                   
+                    </div>   
                 </div>
-                
             </div>
         );
     }
 }
+
+Comment.propTypes = {
+    comment : PropTypes.object.isRequired
+};
 
 export default Comment;

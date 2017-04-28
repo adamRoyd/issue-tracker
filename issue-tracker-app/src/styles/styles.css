@@ -12,27 +12,27 @@ a{
 @media (min-width: 768px){
 #sideBar{
     position: absolute;
-    top: 0px;
+    top: 40px;
     bottom: 0;
     left: 0;
-    width: 8%;
+    width: 50px;
   }
   #issuelist {
     position: absolute;
-    top: 0px;
+    top: 40px;
     bottom: 0;
-    left: 8%;
-    width: 42%;
-    overflow-y: scroll; 
+    left: 3.5%;
+    width: 48%;
+    /*overflow-y: scroll; */
   }
   
   #issueManager {
     position: absolute;
-    top: 0;
+    top: 40px;
     bottom: 0;
     right: 0;
     overflow-y: hidden;
-    width: 50%;
+    width: 48%;
   }
 }
 
@@ -43,7 +43,7 @@ a{
 
 #sideBar {
   height:100%;
-  background: #40535D;
+  background: #DEDEE1;
   color:white;
 }
 
@@ -84,16 +84,25 @@ a{
 
 /*Issues Table*/
 .issueTable .description{
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 250px;
-    text-overflow: ellipsis;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 250px;
+  text-overflow: ellipsis;
+}
+
+.issueTable .assigned{
+  display: inline-block;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 120px;
 }
 
 .issueRowActive{
-  background: #F5F5F5;
+  background: #C8C8C8;
 }
+
 
 /*Description and Form */
 #issueDescription{
@@ -102,6 +111,7 @@ a{
   overflow-y: scroll;
   margin-bottom:20px;
   border-bottom:2px solid rgba(55,55,55,0.1);
+  padding:20px 20px 20px 20px;
 }
 
 /*Comments*/
@@ -123,4 +133,45 @@ a{
   text-align: left;
 }
 
+/* SIDE BAR */
 
+.linkIcon{
+  position:relative;
+  height:50px;
+  width:100%;
+}
+
+.linkIconActive{
+  position:relative;
+  height:50px;
+  width:100%;
+  background:rgba(42,62,71,1);
+}
+
+.linkIcon:hover{
+  background:rgba(255,255,255,0.1);
+}
+
+.iconWhite{
+  fill:rgba(64,83,93,1);
+}
+
+.linkIconActive .iconWhite{
+  fill:rgba(255,255,255,1); 
+}
+
+.potToolTip{
+  position:absolute !important;
+  left:100% !important;
+}
+
+.white{
+  color:white;
+}
+
+
+/* TOP BAR */
+#topBar{
+  height:40px;
+  background:#2A3E47;
+}

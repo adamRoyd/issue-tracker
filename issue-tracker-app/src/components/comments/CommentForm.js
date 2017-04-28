@@ -20,8 +20,17 @@ class CommentForm extends React.Component{
         const assigned = this.refs.assigned.value;
         const comment = this.refs.comment.value;
         const status = this.refs.status.value;
-        this.props.addComment(id,assigned,comment);
+        const time = this.getDateTime(); 
+        this.props.addComment(id,assigned,comment,time);
+        this.props.saveIssue(id,status,assigned);
         this.refs.commentForm.reset();
+    }
+    getDateTime(){
+        const d = new Date();
+        const curr_date = d.getDate();
+        const curr_month = d.getMonth();
+        const curr_year = d.getFullYear();
+        return (curr_date + "-" + curr_month + "-" + curr_year);
     }
     handleStatusChange(e){
         const status = e.target.value;
@@ -35,8 +44,8 @@ class CommentForm extends React.Component{
             <div>
                 <DropZone ref="dropzone" className="DropZone" activeClassName="DropZoneOver" disableClick={true} onDrop={this.onDrop}>
                     <form className="form-horizontal" ref="commentForm" onSubmit={this.handleSubmit}>
-                        <textarea type="text" className="col-sm-7" rows="3" ref="comment" placeholder="comment"/>    
-                        <div className="col-sm-5">
+                        <textarea type="text" className="col-sm-8" rows="3" ref="comment" placeholder="comment"/>
+                        <div className="col-sm-4">
                             <select ref="assigned" className="form-control">
                                 {this.props.users.map((user,i) =>
                                 <option key={i} value={user}>{user}</option>
@@ -61,10 +70,13 @@ class CommentForm extends React.Component{
 CommentForm.propTypes = {
     params : PropTypes.object.isRequired,
     addComment : PropTypes.func.isRequired,
-    status : PropTypes.object.isRequired,
+    status : PropTypes.array.isRequired,
     issue : PropTypes.object.isRequired,
     changeStatus : PropTypes.func.isRequired,
-    users : PropTypes.object.isRequired
+    users : PropTypes.array.isRequired,
+    saveIssue : PropTypes.func.isRequired
 };
+
+
 
 export default CommentForm;

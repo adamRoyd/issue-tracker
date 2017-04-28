@@ -2,12 +2,16 @@ import React, {PropTypes} from 'react';
 import FilterLink from '../containers/FilterLink';
 
 class SideBar extends React.Component{
+
+    constructor(props){
+        super(props);
+
+    }
+
     render(){
         return(
             <div>
-                <h3>Nav</h3>
                 {this.props.status.map((value,i) => <FilterLink key={i} value={value}/>)}
-                
             </div>
         );
     }
@@ -15,6 +19,6 @@ class SideBar extends React.Component{
 
 SideBar.propTypes = {
     status : PropTypes.array.isRequired
-}
+};
 
 export default SideBar;
