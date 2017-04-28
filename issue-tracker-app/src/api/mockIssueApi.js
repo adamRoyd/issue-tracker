@@ -53,7 +53,7 @@ const issues = [
    },
    {
     "id":"6",
-    "screen":"2_100",
+    "screen":"Global",
     "category":"Image",
     "description":"Elephant description",
     "status" : status[5],
@@ -62,7 +62,7 @@ const issues = [
    },
    {
     "id":"7",
-    "screen":"2_100",
+    "screen":"Splash",
     "category":"Image",
     "description":"Fox description",
     "status" : status[6],
@@ -71,7 +71,7 @@ const issues = [
    },
    {
     "id":"8",
-    "screen":"2_100",
+    "screen":"Menu",
     "category":"Image",
     "description":"Gorilla description",
     "status" : status[6],
@@ -80,7 +80,7 @@ const issues = [
    },
    {
     "id":"9",
-    "screen":"2_100",
+    "screen":"Bookmark",
     "category":"Image",
     "description":"Horse description",
     "status" : status[6],
@@ -89,7 +89,7 @@ const issues = [
    },
    {
     "id":"10",
-    "screen":"2_100",
+    "screen":"Exit",
     "category":"Image",
     "description":"Iguana description",
     "status" : status[6],
@@ -98,7 +98,7 @@ const issues = [
    },
    {
     "id":"11",
-    "screen":"2_100",
+    "screen":"Glossary",
     "category":"Image",
     "description":"Jaguar description",
     "status" : status[6],
@@ -107,7 +107,7 @@ const issues = [
    },
    {
     "id":"12",
-    "screen":"2_100",
+    "screen":"Help",
     "category":"Image",
     "description":"Krill description",
     "status" : status[6],
@@ -116,7 +116,7 @@ const issues = [
    },
    {
     "id":"13",
-    "screen":"2_100",
+    "screen":"Print",
     "category":"Image",
     "description":"Leopard description",
     "status" : status[6],
@@ -125,7 +125,7 @@ const issues = [
    },
    {
     "id":"14",
-    "screen":"2_100",
+    "screen":"Resources",
     "category":"Image",
     "description":"Marmaduke description",
     "status" : status[6],
