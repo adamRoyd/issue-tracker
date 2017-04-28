@@ -8,7 +8,7 @@ function Issue ({onClick, issue}){
                 <td>{issue.screen}</td>
                 <td>{issue.category}</td>
                 <td><div className="description">{issue.description}</div></td>
-                <td>{issue.assigned}</td>
+                <td><div className="assigned">{issue.assigned}</div></td>
             </tr>
         );
     }

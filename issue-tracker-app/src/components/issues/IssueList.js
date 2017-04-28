@@ -33,7 +33,7 @@ const getVisibleIssues = (issues, filter) => {
 class IssueList extends React.Component{
     handleClick(i){
         const selectedIssue = this.props.issues[i];
-        browserHistory.push(`/${this.props.filter}/issue/${selectedIssue.id}`);
+        browserHistory.push(`/abc123/${this.props.filter}/${selectedIssue.id}`);
         this.props.setActiveIssue(selectedIssue,i);
     }
     headerClick(i){

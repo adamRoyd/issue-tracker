@@ -293,7 +293,6 @@ class IssueApi {
           resolve(Object.assign([], issues.map((issue,index) => {
               if(id == (index + 1)){
                 return Object.assign({},issue,{
-                  description : 'WORKS',
                   status : newstatus,
                   assigned : newassigned
                 });

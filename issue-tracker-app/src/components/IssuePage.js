@@ -3,6 +3,8 @@ import IssueList from './issues/IssueList';
 import IssueManager from './issues/IssueManager';
 import SideBar from './SideBar';
 import TopBar from './TopBar';
+import NewIssueForm from './NewIssueForm';
+
 
 class IssuePage extends React.Component{
     render(){
@@ -20,6 +22,7 @@ class IssuePage extends React.Component{
                     </div>
                     <div id="issueManager" className="col-sm-6">
                         <IssueManager {...this.props}/>
+                        <NewIssueForm {...this.props}/>
                     </div>
                 </div>
             </div>

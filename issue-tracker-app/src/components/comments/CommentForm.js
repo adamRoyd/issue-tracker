@@ -44,8 +44,8 @@ class CommentForm extends React.Component{
             <div>
                 <DropZone ref="dropzone" className="DropZone" activeClassName="DropZoneOver" disableClick={true} onDrop={this.onDrop}>
                     <form className="form-horizontal" ref="commentForm" onSubmit={this.handleSubmit}>
-                        <textarea type="text" className="col-sm-7" rows="3" ref="comment" placeholder="comment"/>
-                        <div className="col-sm-5">
+                        <textarea type="text" className="col-sm-8" rows="3" ref="comment" placeholder="comment"/>
+                        <div className="col-sm-4">
                             <select ref="assigned" className="form-control">
                                 {this.props.users.map((user,i) =>
                                 <option key={i} value={user}>{user}</option>
