@@ -8,7 +8,7 @@ class TopBar extends React.Component{
                 <div className="col-sm-2">
                     <h4 className="white">ABC123</h4>
                 </div>
-                <button className="btn blue">Open Project</button>
+                <Link to="/selectproject"><button className="btn blue">Open Project</button></Link>
                 <button className="btn blue">Batch mode</button>
                 <Link to="/abc123/new"><button className="btn">New issue</button></Link>
 

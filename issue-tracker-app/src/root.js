@@ -21,7 +21,7 @@ const Root = ({ store }) => (
           <Route path="new" component={NewIssueForm}/>
         </Route>
       </Route>
-      <Route path="/picker" component={ProjectPicker}/>
+      <Route path="/selectproject" component={ProjectPicker}/>
     </Router>
   </Provider>
 );
