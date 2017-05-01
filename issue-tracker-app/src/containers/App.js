@@ -10,7 +10,8 @@ function mapStateToProps(state){
         status : state.status,
         filter : state.filter,
         users : state.users,
-        headers : state.headers
+        headers : state.headers,
+        user : state.user
     };
 }
 

@@ -10,18 +10,20 @@ import IssueManager from './components/issues/IssueManager';
 import IssuePage from './components/IssuePage';
 import NewIssueForm from './components/NewIssueForm';
 import ProjectPicker from './components/ProjectPicker';
+import LoginPage from './components/Login/LoginPage';
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="abc123" component={App}>
-        <Route component={IssuePage}> 
-          <Route path=":filter" component={IssueList}/>
-          <Route path=":filter/:id" component={IssueManager}/>
-          <Route path="new" component={NewIssueForm}/>
+      <Route path="/" component={App}>
+        <Route path="/login" component={LoginPage}/>
+        <Route path="/selectproject" component={ProjectPicker}/>  
+        <Route path="(:projectCode)" component={IssuePage}>         
+          <Route path="issue/:filter" component={IssueList}/>
+          <Route path="issue/:filter/:id" component={IssueManager}/>
         </Route>
+        <Route path="(:projectCode)/newissue" component={NewIssueForm}/> 
       </Route>
-      <Route path="/selectproject" component={ProjectPicker}/>
     </Router>
   </Provider>
 );

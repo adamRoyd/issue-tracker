@@ -16,7 +16,7 @@ export function changeStatus(status){
     };
 }
 
-export function setActiveIssue(issue, index){
+export function setActiveIssue(issue,index){
     return{
         type: types.SET_ACTIVE_ISSUE,
         issue,

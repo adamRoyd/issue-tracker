@@ -20,7 +20,7 @@ const issues = [
     "screen":"2_100",
     "category":"Text",
     "description":"Alpaca description",
-    "status" : status[1],
+    "status" : status[0],
     "assigned" : users[0],
     "active" : false
    },

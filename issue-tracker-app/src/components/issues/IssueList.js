@@ -31,9 +31,15 @@ const getVisibleIssues = (issues, filter) => {
 };
 
 class IssueList extends React.Component{
+    componentWillMount(){
+        this.props.loadIssues();        
+        this.props.setIssueFilter(this.props.params.filter);
+        //TO DO setActiveIssue does not work as the state has not recieved the issues in time
+        //this.props.setActiveIssue(this.props.params.id);
+    }
     handleClick(i){
         const selectedIssue = this.props.issues[i];
-        browserHistory.push(`/abc123/${this.props.filter}/${selectedIssue.id}`);
+        browserHistory.push(`/${this.props.params.projectCode}/issue/${this.props.filter}/${selectedIssue.id}`);
         this.props.setActiveIssue(selectedIssue,i);
     }
     headerClick(i){
@@ -63,6 +69,9 @@ IssueList.propTypes = {
     filter : PropTypes.string.isRequired,
     setActiveIssue : PropTypes.func.isRequired,
     sortIssue : PropTypes.func.isRequired,
+    loadIssues : PropTypes.func.isRequired,
+    setIssueFilter : PropTypes.func.isRequired,
+    params : PropTypes.array.isRequired,
     headers : PropTypes.array.isRequired
 };
 

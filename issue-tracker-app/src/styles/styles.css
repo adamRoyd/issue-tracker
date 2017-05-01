@@ -82,7 +82,7 @@ a{
     border: 3px dashed black;
 }
 
-/*Issues Table*/
+/**********************Issues Table*****************************/
 .issueTable .description{
   display: inline-block;
   overflow: hidden;
@@ -99,12 +99,15 @@ a{
   width: 120px;
 }
 
+.table-hover tbody tr:hover td, 
+.table-hover tbody tr:hover th,
 .issueRowActive{
   background: #C8C8C8;
 }
 
 
-/*Description and Form */
+
+/***********************************Description and Form ************************************/
 #issueDescription{
   height:200px;
   max-height:200px;
@@ -171,7 +174,23 @@ a{
 
 
 /* TOP BAR */
-#topBar{
+#navBar{
   height:40px;
-  background:#2A3E47;
+  background:#004D1F;
+}
+
+#navBar .projectCode{
+  margin-left:10px;
+}
+
+#navBar .btn{
+  background:#004D1F !important;
+  color:white;
+  font-weight:bold;
+  height:100%;
+  border-radius: 0px !important;
+}
+
+#navBar .btn:hover{
+  background:#149849 !important;
 }
