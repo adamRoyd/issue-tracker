@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import FilterLink from '../containers/FilterLink';
+import FilterLink from '../../containers/FilterLink';
 
 class SideBar extends React.Component{
     constructor(props){

@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as issueActions from '../../actions/issueActions';
 import Issue from './Issue';
 import Comments from '../comments/Comments';
-import CommentForm from '../comments/CommentForm';
+import CommentManager from '../comments/CommentManager';
 import IssueDescription from './IssueDescription';
 
 class IssueManager extends React.Component{
@@ -22,8 +22,9 @@ class IssueManager extends React.Component{
                 :
                     (
                     <div>
+                        <h4>Issue description</h4>
                         <IssueDescription issue={issue}/>
-                        <CommentForm {...this.props} issue={issue}/>
+                        <CommentManager {...this.props} issue={issue}/>
                         <Comments issueComments={issueComments}/>
                     </div>
                     )

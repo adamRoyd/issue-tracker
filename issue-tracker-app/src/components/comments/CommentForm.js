@@ -21,7 +21,7 @@ class CommentForm extends React.Component{
         const comment = this.refs.comment.value;
         const status = this.refs.status.value;
         const time = this.getDateTime(); 
-        this.props.addComment(id,assigned,comment,time);
+        this.props.addComment(id,this.props.user,comment,time);
         this.props.saveIssue(id,status,assigned);
         this.refs.commentForm.reset();
     }

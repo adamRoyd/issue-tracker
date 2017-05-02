@@ -7,7 +7,7 @@ class Comment extends React.Component{
             <div className="comment">
                 <div className="row">
                     <div className="col-sm-10">
-                        <p>{comment.user}</p>
+                        <p><strong>{comment.user}</strong></p>
                         <p>{comment.text}</p>
                     </div>
                     <div className="col-sm-2">

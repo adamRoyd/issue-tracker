@@ -294,7 +294,8 @@ class IssueApi {
               if(id == (index + 1)){
                 return Object.assign({},issue,{
                   status : newstatus,
-                  assigned : newassigned
+                  assigned : newassigned,
+                  active: true
                 });
               } else{
                 return issue;

@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { setIssueFilter } from '../actions/issueActions';
-import Link from '../components/Link';
+import Link from '../components/common/Link';
 
 const mapStateToProps = (state, ownProps) => {
   return {

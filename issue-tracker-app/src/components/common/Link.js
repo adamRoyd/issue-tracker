@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import StatusIcon from '../assets/StatusIcon';
+import StatusIcon from '../../assets/StatusIcon';
 import ReactTooltip from 'react-tooltip';
 
 const Link = ({ value, onClick, active }) => {

@@ -9,12 +9,12 @@ import './styles/loginPage.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 //actions
-import {loadComments, loadUsers} from './actions/actionCreators';
+import {loadUsers} from './actions/userActions';
+import {loadComments} from './actions/commentActions';
 import {loadProjects} from './actions/projectActions';
 import {loadIssues} from './actions/issueActions';
 
 const store = configureStore();
-//store.dispatch(loadIssues());
 store.dispatch(loadComments());
 store.dispatch(loadUsers());
 store.dispatch(loadProjects());

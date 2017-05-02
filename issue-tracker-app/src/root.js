@@ -4,13 +4,12 @@ import { Router, Route, browserHistory } from 'react-router';
 
 //components
 import App from './containers/App';
-import Main from './components/Main';
 import IssueList from './components/issues/IssueList';
 import IssueManager from './components/issues/IssueManager';
-import IssuePage from './components/IssuePage';
-import NewIssueForm from './components/NewIssueForm';
-import ProjectPicker from './components/ProjectPicker';
-import LoginPage from './components/Login/LoginPage';
+import IssuePage from './components/issues/IssuePage';
+import NewIssueForm from './components/issues/NewIssueForm';
+import ProjectPicker from './components/common/ProjectPicker';
+import LoginPage from './components/login/LoginPage';
 
 const Root = ({ store }) => (
   <Provider store={store}>

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {loadIssues} from '../actions/issueActions';
+import {loadIssues} from '../../actions/issueActions';
 import { Link, browserHistory } from 'react-router';
 
 class ProjectPicker extends React.Component{
@@ -26,6 +26,7 @@ class ProjectPicker extends React.Component{
                         return <option key={i} value={project}/>;
                     })}
                 </datalist>
+             
             </div>
         );
     }

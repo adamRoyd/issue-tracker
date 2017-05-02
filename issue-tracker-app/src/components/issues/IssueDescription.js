@@ -2,9 +2,11 @@ import React, { PropTypes } from 'react';
 
 function IssueDescription ({issue}){
     return(
-        <div id="issueDescription" className="row">
-            <div className="">
+        <div id="descriptionHolder"> 
+            <div id="issueDescription" className="row">
                 <p>{issue.description}</p>
+                <a>Image 1</a>
+
             </div>
         </div>
     );

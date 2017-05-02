@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
-import IssueList from './issues/IssueList';
-import IssueManager from './issues/IssueManager';
-import SideBar from './SideBar';
-import NavBar from './NavBar';
-import NewIssueForm from './NewIssueForm';
+import IssueList from '../issues/IssueList';
+import IssueManager from '../issues/IssueManager';
+import SideBar from '../common/SideBar';
+import NavBar from '../common/NavBar';
+import NewIssueForm from '../issues/NewIssueForm';
 
 
 class IssuePage extends React.Component{
