@@ -16,7 +16,7 @@ class ProjectPicker extends React.Component{
         return(
             <div id="projectPicker" className="dropdown-menu">
                 <form onSubmit={this.handleSubmit}>
-                    <input ref="projects" type="text" list="projects"/>
+                    <input className="form-control"  ref="projects" type="text" list="projects"/>
                     {/*TO DO button only becomes active when input is a project*/}
                     <button className="btn" type="submit">Confirm</button>
                 </form>
