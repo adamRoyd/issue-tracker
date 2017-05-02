@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 
 //components
 import App from './containers/App';
@@ -15,8 +15,9 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
+        <IndexRedirect to="/login"/>
         <Route path="/login" component={LoginPage}/>
-        <Route path="/selectproject" component={ProjectPicker}/>  
+        <Route path="/selectproject" component={ProjectPicker}/>
         <Route path="(:projectCode)" component={IssuePage}>         
           <Route path="issue/:filter" component={IssueList}/>
           <Route path="issue/:filter/:id" component={IssueManager}/>

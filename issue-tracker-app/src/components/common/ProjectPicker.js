@@ -14,19 +14,17 @@ class ProjectPicker extends React.Component{
     render(){
         this.handleSubmit = this.handleSubmit.bind(this);
         return(
-            <div>
-                <h4>Hi {this.props.username},Select a project</h4>
+            <div id="projectPicker" className="dropdown-menu">
                 <form onSubmit={this.handleSubmit}>
                     <input ref="projects" type="text" list="projects"/>
                     {/*TO DO button only becomes active when input is a project*/}
-                    <button type="submit">Confirm</button>
+                    <button className="btn" type="submit">Confirm</button>
                 </form>
                 <datalist id="projects">
                     {this.props.projects.map((project, i) => {
                         return <option key={i} value={project}/>;
                     })}
-                </datalist>
-             
+                </datalist>       
             </div>
         );
     }

@@ -175,7 +175,7 @@ a{
 }
 
 
-/* TOP BAR */
+/**************************** NAV *******************************/
 #navBar{
   height:40px;
   background:#004D1F;
@@ -186,7 +186,7 @@ a{
 }
 
 #navBar .btn{
-  background:#004D1F !important;
+  background:#004D1F;
   color:white;
   font-weight:bold;
   height:100%;
@@ -196,3 +196,12 @@ a{
 #navBar .btn:hover{
   background:#149849 !important;
 }
+
+#projectPicker{
+  width:300px;
+}
+
+.dropdown.open.btn-group .btn{
+  background:#149849 !important;
+}
+
