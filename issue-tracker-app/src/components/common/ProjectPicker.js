@@ -1,50 +1,48 @@
 import React, { PropTypes } from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {loadIssues} from '../../actions/issueActions';
 import { Link, browserHistory } from 'react-router';
+import { Dropdown, Button } from 'react-bootstrap';
+import CustomMenu from './CustomMenu';
 
 class ProjectPicker extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {visibleprojects : []};
+    }
+    loadProjects(){
+        this.setState({
+            visibleprojects : this.props.projects
+        });
+    }
+    searchProjects(e){
+        let term = e.target.value.toUpperCase();
+        this.setState({
+            visibleprojects : this.props.projects.filter(project => project.includes(term))
+        });
+    }
     handleSubmit(e){
         e.preventDefault();
         const projectCode = this.refs.projects.value.toLowerCase();
-        this.props.loadIssues();
         browserHistory.push(`/${projectCode}/issue/All/`);
     }
     render(){
+        this.loadProjects = this.loadProjects.bind(this);
+        this.searchProjects = this.searchProjects.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         return(
-            <div id="projectPicker" className="dropdown-menu">
-                <form onSubmit={this.handleSubmit}>
-                    <input className="form-control"  ref="projects" type="text" list="projects"/>
-                    {/*TO DO button only becomes active when input is a project*/}
-                    <button className="btn" type="submit">Confirm</button>
-                </form>
-                <datalist id="projects">
-                    {this.props.projects.map((project, i) => {
-                        return <option key={i} value={project}/>;
-                    })}
-                </datalist>       
-            </div>
+            <Dropdown id="dropdown-custom-menu">
+                <Button onClick={this.loadProjects} className="btn" bsRole="toggle">
+                    Open Project
+                </Button>
+                <CustomMenu visibleprojects={this.state.visibleprojects} searchProjects={this.searchProjects} bsRole="menu"/>
+            </Dropdown> 
         );
     }
 }
 
 ProjectPicker.propTypes = {
-    projects : PropTypes.array.isRequired,
-    loadIssues : PropTypes.func.isRequired
+    projects : PropTypes.array.isRequired
 };
 
-function mapStateToProps(state){
-    return{
-        username : state.user,
-        projects : state.projects,
-        issues : state.issues
-    };
-}
-
-function mapDispatchToProps(dispatch){
-    return bindActionCreators({loadIssues}, dispatch);
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(ProjectPicker);
+export default ProjectPicker;
+                    

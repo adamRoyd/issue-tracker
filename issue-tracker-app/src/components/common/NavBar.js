@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import { Link } from 'react-router';
-import { Dropdown, Button } from 'react-bootstrap';
 import ProjectPicker from './ProjectPicker';
 
 class NavBar extends React.Component{
@@ -14,12 +13,7 @@ class NavBar extends React.Component{
                             <h4 className="white">{projectCode.toUpperCase()}</h4>
                         </div>
                     </Link>
-                    <Dropdown id="dropdown-custom-menu">
-                        <Button className="btn" bsRole="toggle">
-                            Open Project
-                        </Button>
-                        <ProjectPicker bsRole="menu"/>
-                    </Dropdown> 
+                    <ProjectPicker {...this.props}/>
                     <button className="btn">Batch mode</button>
                     <Link to={`/${projectCode}/newissue`}><button className="btn">New issue</button></Link>
                     <Link to={`/login`}><button className="btn">Log out</button></Link>
