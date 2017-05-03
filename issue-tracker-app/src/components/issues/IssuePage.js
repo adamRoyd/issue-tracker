@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import IssueList from '../issues/IssueList';
 import IssueManager from '../issues/IssueManager';
 import SideBar from '../common/SideBar';
@@ -31,7 +32,7 @@ class IssuePage extends React.Component{
 }
 
 IssuePage.propTypes = {
-    params : PropTypes.array.isRequired
+    params : PropTypes.object.isRequired
 };
 
 export default IssuePage;

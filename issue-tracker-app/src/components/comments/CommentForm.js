@@ -1,4 +1,5 @@
-import React,{PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import DropZone from 'react-dropzone';
 
 class CommentForm extends React.Component{
@@ -74,7 +75,8 @@ CommentForm.propTypes = {
     issue : PropTypes.object.isRequired,
     changeStatus : PropTypes.func.isRequired,
     users : PropTypes.array.isRequired,
-    saveIssue : PropTypes.func.isRequired
+    saveIssue : PropTypes.func.isRequired,
+    user : PropTypes.string.isRequired
 };
 
 

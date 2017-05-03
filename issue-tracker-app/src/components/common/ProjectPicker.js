@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {loadIssues} from '../../actions/issueActions';
 import { Link, browserHistory } from 'react-router';
 import { Dropdown, Button } from 'react-bootstrap';

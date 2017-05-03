@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Issue from './Issue';
@@ -71,7 +72,7 @@ IssueList.propTypes = {
     sortIssue : PropTypes.func.isRequired,
     loadIssues : PropTypes.func.isRequired,
     setIssueFilter : PropTypes.func.isRequired,
-    params : PropTypes.array.isRequired,
+    params : PropTypes.object.isRequired,
     headers : PropTypes.array.isRequired
 };
 

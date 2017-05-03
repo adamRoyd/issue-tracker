@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function Issue ({onClick, issue}){
         return(
@@ -15,8 +16,7 @@ function Issue ({onClick, issue}){
 
 Issue.propTypes = {
     onClick : PropTypes.func.isRequired,
-    issue : PropTypes.object.isRequired,
-    active : PropTypes.bool.isRequired
+    issue : PropTypes.object.isRequired
 };
 
 export default Issue;

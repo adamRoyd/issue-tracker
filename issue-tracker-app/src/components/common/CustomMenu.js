@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
 class CustomMenu extends React.Component {
@@ -19,5 +20,10 @@ class CustomMenu extends React.Component {
     );
   }
 }
+
+CustomMenu.propTypes = {
+  searchProjects : PropTypes.func.isRequired,
+  visibleprojects : PropTypes.array.isRequired
+};
 
 export default CustomMenu;

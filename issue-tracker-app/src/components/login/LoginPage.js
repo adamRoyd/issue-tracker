@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {setUser} from '../../actions/loginActions';
@@ -32,7 +33,7 @@ class LoginPage extends React.Component{
 }
 
 LoginPage.propTypes = {
-
+    setUser : PropTypes.func.isRequired
 };
 
 function mapStateToProps(state){

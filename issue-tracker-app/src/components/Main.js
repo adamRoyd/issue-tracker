@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import NavBar from './common/NavBar';
 
 class Main extends React.Component{
@@ -11,5 +12,9 @@ class Main extends React.Component{
         );
     }
 }
+
+Main.propTypes = {
+    children : PropTypes.object.isRequired
+};
 
 export default Main;

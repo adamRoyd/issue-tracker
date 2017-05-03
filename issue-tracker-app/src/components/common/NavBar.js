@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import ProjectPicker from './ProjectPicker';
 
@@ -30,7 +31,8 @@ class NavBar extends React.Component{
 }
 
 NavBar.propTypes = {
-    projectCode : PropTypes.string.isRequired
+    params : PropTypes.object.isRequired,
+    user : PropTypes.string.isRequired
 };
 
 
