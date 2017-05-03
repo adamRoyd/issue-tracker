@@ -7,7 +7,9 @@ import NewIssueForm from '../issues/NewIssueForm';
 
 
 class IssuePage extends React.Component{
-
+    constructor(props){
+        super(props);
+    }
     render(){
         return(
             <div id="issuePage" className="container-fluid">

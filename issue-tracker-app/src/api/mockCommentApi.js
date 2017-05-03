@@ -1,6 +1,4 @@
 import delay from './delay';
-import status from '../constants/status';
-import users from '../constants/users';
 
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
