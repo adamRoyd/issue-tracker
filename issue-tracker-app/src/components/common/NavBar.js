@@ -5,8 +5,8 @@ import ProjectPicker from './ProjectPicker';
 
 class NavBar extends React.Component{
     render(){
-        const projectCode = this.props.params.projectCode;
-        if(projectCode != null){
+        let projectCode = this.props.params.projectCode;
+        if(projectCode == null){projectCode = '';}
             return(
                 <div id="navBar" className="row">
                     <Link to={`/${projectCode}/issue/All`}>
@@ -15,20 +15,16 @@ class NavBar extends React.Component{
                         </div>
                     </Link>
                     <ProjectPicker {...this.props}/>
-                    <button className="btn">Batch mode</button>
-                    <Link to={`/${projectCode}/newissue`}><button className="btn">New issue</button></Link>
+                    {(projectCode == '')
+                        ? <div></div>
+                        : <Link to={`/${projectCode}/newissue`}><button className="btn">New issue</button></Link>
+                    }
                     <Link to={`/login`}><button className="btn">Log out</button></Link>
                     <h4 className="white">{this.props.user}</h4>
                 </div>
             );
         }
-        else{
-            return(
-                <div id="navBar" className="row"/>
-            );
-        }
     }
-}
 
 NavBar.propTypes = {
     params : PropTypes.object.isRequired,

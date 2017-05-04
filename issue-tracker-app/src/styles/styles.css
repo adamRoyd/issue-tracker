@@ -205,3 +205,16 @@ a{
   background:#149849 !important;
 }
 
+.dropdown-menu{
+  padding:10px !important;
+}
+
+.dropdown-menu .project-list{
+  max-height:400px;
+  overflow-y: scroll;
+}
+
+.list-group-item{
+  padding:5px 10px !important;
+  border:none !important;
+}

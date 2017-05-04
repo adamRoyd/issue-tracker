@@ -6,15 +6,13 @@ import {setUser} from '../../actions/loginActions';
 import { Link, browserHistory } from 'react-router';
 
 class LoginPage extends React.Component{
-
-    handleSubmit(e){
+    handleSubmit = (e) => {
         e.preventDefault();
         const userName = this.refs.userName.value;
         const passWord = this.refs.password.value;
         this.props.setUser(userName);
         browserHistory.push(`/selectproject`);
     }
-
     render(){
         this.handleSubmit = this.handleSubmit.bind(this);
         return(

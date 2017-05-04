@@ -9,7 +9,7 @@ import IssueList from './components/issues/IssueList';
 import IssueManager from './components/issues/IssueManager';
 import IssuePage from './components/issues/IssuePage';
 import NewIssueForm from './components/issues/NewIssueForm';
-import ProjectPicker from './components/common/ProjectPicker';
+import SelectProjectPage from './components/login/SelectProjectPage';
 import LoginPage from './components/login/LoginPage';
 
 const Root = ({ store }) => (
@@ -18,7 +18,7 @@ const Root = ({ store }) => (
       <Route path="/" component={App}>
         <IndexRedirect to="/login"/>
         <Route path="/login" component={LoginPage}/>
-        <Route path="/selectproject" component={ProjectPicker}/>
+        <Route path="/selectproject" component={SelectProjectPage}/>
         <Route path="(:projectCode)" component={IssuePage}>         
           <Route path="issue/:filter" component={IssueList}/>
           <Route path="issue/:filter/:id" component={IssueManager}/>

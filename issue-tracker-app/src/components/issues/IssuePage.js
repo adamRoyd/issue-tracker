@@ -6,14 +6,11 @@ import SideBar from '../common/SideBar';
 import NavBar from '../common/NavBar';
 import NewIssueForm from '../issues/NewIssueForm';
 
-
 class IssuePage extends React.Component{
-    constructor(props){
-        super(props);
-    }
     render(){
         return(
             <div id="issuePage" className="container-fluid">
+                <NavBar {...this.props}/>
                 <div className="row">
                     <div id="sideBar">
                         <SideBar projectCode={this.props.params.projectCode} {...this.props}/>

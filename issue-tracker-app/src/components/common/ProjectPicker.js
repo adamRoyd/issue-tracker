@@ -8,9 +8,10 @@ import CustomMenu from './CustomMenu';
 class ProjectPicker extends React.Component{
     constructor(props){
         super(props);
-        this.state = {visibleprojects : []};
+        this.state = {visibleprojects : [],dropdownIsOpen : false};
     }
     loadProjects(){
+        this.toggleDropdown();
         this.setState({
             visibleprojects : this.props.projects
         });
@@ -21,28 +22,34 @@ class ProjectPicker extends React.Component{
             visibleprojects : this.props.projects.filter(project => project.includes(term))
         });
     }
-    handleSubmit(e){
-        e.preventDefault();
-        const projectCode = this.refs.projects.value.toLowerCase();
+    toggleDropdown(){
+        this.setState({
+            dropdownIsOpen : !this.state.dropdownIsOpen
+        });
+    }
+    handleClick(value){
+        const projectCode = value.toLowerCase();
+        this.props.toggleDropdown();
         browserHistory.push(`/${projectCode}/issue/All/`);
+        //TO DO load issues
     }
     render(){
         this.loadProjects = this.loadProjects.bind(this);
         this.searchProjects = this.searchProjects.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
         return(
-            <Dropdown id="dropdown-custom-menu">
+            <Dropdown id="dropdown-custom-menu" open={this.state.dropdownIsOpen}>
                 <Button onClick={this.loadProjects} className="btn" bsRole="toggle">
                     Open Project
                 </Button>
-                <CustomMenu visibleprojects={this.state.visibleprojects} searchProjects={this.searchProjects} bsRole="menu"/>
+                <CustomMenu toggleDropdown={() => this.toggleDropdown()} listValues={this.state.visibleprojects} searchProjects={this.searchProjects} bsRole="menu"/>
             </Dropdown> 
         );
     }
 }
 
 ProjectPicker.propTypes = {
-    projects : PropTypes.array.isRequired
+    projects : PropTypes.array.isRequired,
+    toggleDropdown : PropTypes.func.isRequired
 };
 
 export default ProjectPicker;
