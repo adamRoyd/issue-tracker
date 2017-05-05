@@ -103,6 +103,7 @@ a{
 .table-hover tbody tr:hover th,
 .issueRowActive{
   background: #C8C8C8;
+  cursor: pointer;
 }
 
 
@@ -195,6 +196,15 @@ a{
 
 #navBar .btn:hover{
   background:#149849 !important;
+}
+
+.nav-div{
+  display:inline-block;
+}
+
+.nav-div.right{
+  float:right;
+  margin-right:10px;
 }
 
 #projectPicker{

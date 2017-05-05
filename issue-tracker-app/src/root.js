@@ -11,6 +11,7 @@ import IssuePage from './components/issues/IssuePage';
 import NewIssueForm from './components/issues/NewIssueForm';
 import SelectProjectPage from './components/login/SelectProjectPage';
 import LoginPage from './components/login/LoginPage';
+import NewIssueModal from './components/issues/NewIssueModal';
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -19,6 +20,7 @@ const Root = ({ store }) => (
         <IndexRedirect to="/login"/>
         <Route path="/login" component={LoginPage}/>
         <Route path="/selectproject" component={SelectProjectPage}/>
+        <Route path="/test" component={NewIssueModal}/>
         <Route path="(:projectCode)" component={IssuePage}>         
           <Route path="issue/:filter" component={IssueList}/>
           <Route path="issue/:filter/:id" component={IssueManager}/>

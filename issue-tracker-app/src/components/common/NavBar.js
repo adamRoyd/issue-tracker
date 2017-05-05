@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import ProjectPicker from './ProjectPicker';
+import NewIssueModal from '../issues/NewIssueModal';
 
 class NavBar extends React.Component{
     render(){
@@ -17,10 +18,12 @@ class NavBar extends React.Component{
                     <ProjectPicker {...this.props}/>
                     {(projectCode == '')
                         ? <div></div>
-                        : <Link to={`/${projectCode}/newissue`}><button className="btn">New issue</button></Link>
+                        : <NewIssueModal {...this.props}/>
                     }
                     <Link to={`/login`}><button className="btn">Log out</button></Link>
-                    <h4 className="white">{this.props.user}</h4>
+                    <div className="nav-div right">
+                        <h4 className="white">User: {this.props.user}</h4>
+                    </div>
                 </div>
             );
         }

@@ -20,7 +20,6 @@ class IssuePage extends React.Component{
                     </div>
                     <div id="issueManager" className="col-sm-6">
                         <IssueManager {...this.props}/>
-                        <NewIssueForm {...this.props}/>
                     </div>
                 </div>
             </div>
