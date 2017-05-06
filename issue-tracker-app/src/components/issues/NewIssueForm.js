@@ -1,94 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextInput from '../common/TextInput';
+import SelectInput from '../common/SelectInput';
 
-class NewIssueForm extends React.Component{
-    constructor(props){
-        super(props);
-    }
-    handleSubmit(e){
-        e.preventDefault();
-    }
-    render(){
+const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees}) => {
         return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group row">
-                        <label className="col-sm-2 col-form-label">User</label>
-                        <p className="col-sm-6"><strong>{this.props.user}</strong></p>
-                    </div>
-                    <div className="form-group row">
-                        <label className="col-sm-2 col-form-label">Project</label>
-                        <p className="col-sm-6"><strong>{this.props.params.projectCode}</strong></p>
-                    </div>
-                    <div className="form-group row">
-                        <label className="col-sm-2 col-form-label">Summary</label>
-                        <div className="col-sm-6">
-                            <input type="text" className="form-control"/>
-                        </div>
-                    </div>
-                    <div className="form-group row">
-                        <label className="col-sm-2 col-form-label">Location</label>
-                        <div className="col-sm-6">
-                            <select ref="" className="form-control">
-                                <option>Location</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="form-group row">
-                        <label className="col-sm-2 col-form-label">Sco ID</label>
-                        <div className="col-sm-6">
-                            <select ref="" className="form-control">
-                                <option>Sco ID</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="form-group row">
-                        <label className="col-sm-2 col-form-label">Screen ID</label>
-                        <div className="col-sm-6">
-                            <select ref="" className="form-control">
-                                <option>Screen ID</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="form-group row">
-                        <label className="col-sm-2 col-form-label">Category</label>
-                        <div className="col-sm-6">
-                            <select ref="" className="form-control">
-                                <option>Category</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="form-group row">
-                        <label className="col-sm-2 col-form-label">Assigned</label>
-                        <div className="col-sm-6">
-                            <select ref="" className="form-control">
-                                {this.props.users.map((user,i) =>
-                                <option key={i} value={user}>{user}</option>
-                                )}
-                            </select>
-                        </div>
-                    </div>
-                    <div className="form-group row">
-                        <label className="col-sm-2 col-form-label">Description</label> 
-                        <div className="col-sm-10">
-                            <textarea type="text" className="col-sm-12" rows="5" ref="comment" placeholder="comment"/>
-                        </div>                                           
-                    </div>
-                    <div className="form-group row">
-                        <div className="col-sm-12">
-                            <input className="btn" type="submit"/>
-                            <a>Add attachment</a>
-                        </div>
-                    </div>
-                    
-                </form>
-            </div>
+            <form>
+                <TextInput
+                    name="summary"
+                    label="Summary"
+                    value={issue.summary}
+                    onChange={onChange}
+                    error=""/>
+                <TextInput
+                    name="description"
+                    label="Description"
+                    value={issue.description}
+                    onChange={onChange}
+                    error=""/>
+                <SelectInput
+                    name="assigned"
+                    label="Assigned"
+                    value={issue.assigned}
+                    defaultOption= {assignees[0]}
+                    options={assignees}
+                    onChange={onChange} 
+                    error={errors.assigned}/>
+                <input
+                    type="submit"
+                    disabled={loading}
+                    value={loading ? 'Saving...' : 'Save'}
+                    className="btn btn-primary"
+                    onClick={onSave}/>
+            </form>
         );
-    }
-}
+};
 
 NewIssueForm.propTypes = {
-    users : PropTypes.array.isRequired
+    issue : PropTypes.object.isRequired,
+    onChange : PropTypes.func.isRequired,
+    onSave : PropTypes.func.isRequired,
+    loading : React.PropTypes.bool,
+    errors : PropTypes.object
 };
 
 export default NewIssueForm;
