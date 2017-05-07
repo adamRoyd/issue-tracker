@@ -53,9 +53,9 @@ export function saveIssueSuccess(issues){
     };
 }
 
-export function saveIssue(id,status,assigned){
+export function saveIssue(issue){
     return function(dispatch){
-        return issueApi.saveIssue(id,status,assigned).then(issues =>{
+        return issueApi.saveIssue(issue).then(issues =>{
             dispatch(saveIssueSuccess(issues));
         }).catch(error =>{
             throw(error);

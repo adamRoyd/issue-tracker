@@ -3,8 +3,8 @@ import React, {PropTypes} from 'react';
 const SelectInput = ({name, label, onChange, defaultOption, value, error, options}) => {
   return (
     <div className="form-group row">
-      <label className="col-sm-2 col-form-label" htmlFor={name}>{label}</label>
-      <div className="col-sm-6 field">
+      <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
+      <div className="col-sm-7 field">
         {/* Note, value is set here rather than on the option - docs: https://facebook.github.io/react/docs/forms.html */}
         <select
           name={name}

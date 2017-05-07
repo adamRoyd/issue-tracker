@@ -7,8 +7,9 @@ function Issue ({onClick, issue}){
                 <td><input type="checkbox"/></td>
                 <td>{issue.id}</td>
                 <td>{issue.screen}</td>
+                <td>{issue.location}</td>
                 <td>{issue.category}</td>
-                <td><div className="description">{issue.description}</div></td>
+                <td><div className="summary">{issue.summary}</div></td>
                 <td><div className="assigned">{issue.assigned}</div></td>
             </tr>
         );

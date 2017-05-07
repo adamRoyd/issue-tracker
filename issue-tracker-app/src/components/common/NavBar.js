@@ -18,7 +18,9 @@ class NavBar extends React.Component{
                     <ProjectPicker {...this.props}/>
                     {(projectCode == '')
                         ? <div></div>
-                        : <NewIssueModal {...this.props}/>
+                        : <NewIssueModal 
+                            buttonName="New issue"
+                            {...this.props}/>
                     }
                     <Link to={`/login`}><button className="btn">Log out</button></Link>
                     <div className="nav-div right">

@@ -1,5 +1,8 @@
 import React,{getInitialState} from 'react';
 import PropTypes from 'prop-types';
+import {saveIssue} from '../../actions/issueActions';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {Modal} from 'react-bootstrap';
 import NewIssueForm from './NewIssueForm';
 
@@ -8,7 +11,7 @@ class NewIssueModal extends React.Component{
         super(props);
         this.state = {
             showModal: false,
-            issue : {},
+            issue : Object.assign({},this.props.issue),
             errors : {}
         };
         this.updateIssueState = this.updateIssueState.bind(this);
@@ -31,7 +34,7 @@ class NewIssueModal extends React.Component{
     }
     saveIssue(event){
         event.preventDefault();
-        //this.props.actions.saveCourse(this.state.course);
+        this.props.saveIssue(this.state.issue);
         return this.setState({ showModal: false });
     }
     render(){
@@ -41,23 +44,26 @@ class NewIssueModal extends React.Component{
                 className="btn"
                 onClick={this.open}
                 >
-                New Issue
+                {this.props.buttonName}
                 </button>
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
-                        <Modal.Title>New Issue</Modal.Title>
+                        <Modal.Title>New Issue for {this.props.user} {this.props.params.projectCode.toUpperCase()}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <NewIssueForm 
-                        issue={this.state.issue}
-                        errors={this.state.errors}
-                        onChange={this.updateIssueState}
-                        onSave={this.saveIssue}
-                        assignees={this.props.users}
-                        {...this.props}/>
+                            issue={this.state.issue}
+                            errors={this.state.errors}
+                            onChange={this.updateIssueState}
+                            onSave={this.saveIssue}
+                            assignees={this.props.users}
+                            locations={this.props.locations}
+                            categories={this.categoreis}
+                            {...this.props}/>
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn" onClick={this.close}>Close</button>
+                        <button className="btn" onClick={this.saveIssue}>Save</button>
                     </Modal.Footer>
                 </Modal>
             </div>
@@ -65,5 +71,14 @@ class NewIssueModal extends React.Component{
     }
 }
 
+function mapStateToProps(state, ownProps) {
+    return {
+        
+    };
+}
 
-export default NewIssueModal;
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({saveIssue}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewIssueModal);

@@ -9,9 +9,11 @@ import filter from './issueFilter';
 import users from './usersReducer';
 import headers from './headerReducer';
 import user from './loginReducer';
+import locations from './locationReducer';
+import categories from './categoryReducer';
 
 const rootReducer = combineReducers(
-    {projects,issues,user,comments, status, users, filter, headers, routing: routerReducer}
+    {projects,issues,user,comments, status, users, filter, headers, categories, locations,routing: routerReducer}
 );
 
 

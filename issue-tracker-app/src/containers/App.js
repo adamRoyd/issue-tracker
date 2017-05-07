@@ -11,7 +11,9 @@ function mapStateToProps(state){
         users : state.users,
         headers : state.headers,
         user : state.user,
-        projects : state.projects
+        locations : state.locations,
+        projects : state.projects,
+        categories : state.categories
     };
 }
 

@@ -12,11 +12,15 @@ const  headers = [
         "filter" : 0
     },
     {
+        "name" : "Location",
+        "filter" : 0
+    },
+    {
         "name" : "Category",
         "filter" : 0
     },
     {
-        "name" : "Description",
+        "name" : "Summary",
         "filter" : 0
     },
     {
