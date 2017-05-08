@@ -56,7 +56,7 @@ class NewIssueModal extends React.Component{
                             errors={this.state.errors}
                             onChange={this.updateIssueState}
                             onSave={this.saveIssue}
-                            assignees={this.props.users}
+                            assignees={this.props.assignees}
                             locations={this.props.locations}
                             categories={this.categoreis}
                             {...this.props}/>
@@ -70,6 +70,16 @@ class NewIssueModal extends React.Component{
         );
     }
 }
+
+NewIssueModal.propTypes = {
+    issue : PropTypes.object.isRequired,
+    user : PropTypes.string.isRequired,
+    assignees : PropTypes.array.isRequired,
+    locations : PropTypes.array.isRequired,
+    buttonName : PropTypes.string,
+    params : PropTypes.array.isRequired,
+    saveIssue : PropTypes.func.isRequired
+};
 
 function mapStateToProps(state, ownProps) {
     return {

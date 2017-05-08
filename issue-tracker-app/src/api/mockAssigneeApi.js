@@ -3,7 +3,7 @@ import delay from './delay';
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.
-const users = [
+const assignees = [
     "adam.boothroyd@brightwave.co.uk",
     "Simon Hollobon",
     "Joe Bloggs"
@@ -14,15 +14,15 @@ function replaceAll(str, find, replace) {
 }
 
 //This would be performed on the server in a real app. Just stubbing in.
-const generateId = (user) => {
-  return replaceAll(user.title, ' ', '-');
+const generateId = (assignee) => {
+  return replaceAll(assignee.title, ' ', '-');
 };
 
-class UserApi {
-  static getAllUsers() {
+class AssigneeApi {
+  static getAllAssignees() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(Object.assign([], users));
+        resolve(Object.assign([], assignees));
       }, delay);
     });
   }
@@ -30,4 +30,4 @@ class UserApi {
 
 }
 
-export default UserApi;
+export default AssigneeApi;

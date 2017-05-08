@@ -1,6 +1,6 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as userActions from '../actions/userActions';
+import * as assigneeActions from '../actions/assigneeActions';
 import Main from '../components/Main';
 
 function mapStateToProps(state){
@@ -8,7 +8,7 @@ function mapStateToProps(state){
         comments: state.comments,
         status : state.status,
         filter : state.filter,
-        users : state.users,
+        assignees : state.assignees,
         headers : state.headers,
         user : state.user,
         locations : state.locations,
@@ -18,7 +18,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators(userActions, dispatch);
+    return bindActionCreators(assigneeActions, dispatch);
 }
 
 const App = connect(mapStateToProps,mapDispatchToProps)(Main);

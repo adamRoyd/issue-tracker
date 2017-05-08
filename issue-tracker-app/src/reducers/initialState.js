@@ -8,7 +8,7 @@ export default{
     issues : [],
     comments : [],
     status : status,
-    users : [],
+    assignees : [],
     headers : headers,
     locations : locations,
     user: '',

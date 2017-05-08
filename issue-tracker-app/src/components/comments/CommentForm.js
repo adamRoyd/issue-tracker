@@ -4,7 +4,7 @@ import DropZone from 'react-dropzone';
 import SelectInput from '../common/SelectInput';
 import TextAreaInput from '../common/TextAreaInput';
 
-const CommentForm = ({comment,issue,errors,handleSubmit,users,onCommentChange,onIssueChange,status,onOpenClick}) => {
+const CommentForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChange,onIssueChange,status,onOpenClick}) => {
     return(
         <form className="form-horizontal" onSubmit={handleSubmit}>
             <TextAreaInput
@@ -20,7 +20,7 @@ const CommentForm = ({comment,issue,errors,handleSubmit,users,onCommentChange,on
                     name="assigned"
                     label="Assigned"
                     value={issue.assigned}
-                    options={users}
+                    options={assignees}
                     onChange={onIssueChange} 
                     error={errors.assigned}/>
                 <SelectInput
@@ -41,7 +41,7 @@ CommentForm.propTypes = {
     status : PropTypes.array.isRequired,
     issue : PropTypes.object.isRequired,
     changeStatus : PropTypes.func.isRequired,
-    users : PropTypes.array.isRequired,
+    assignees : PropTypes.array.isRequired,
     saveIssue : PropTypes.func.isRequired,
     user : PropTypes.string.isRequired
 };

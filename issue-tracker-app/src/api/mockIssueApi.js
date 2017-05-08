@@ -1,6 +1,5 @@
 import delay from './delay';
 import status from '../constants/status';
-import users from '../constants/users';
 import location from '../constants/locations';
 
 // This file mocks a web API by working with the hard-coded data below.

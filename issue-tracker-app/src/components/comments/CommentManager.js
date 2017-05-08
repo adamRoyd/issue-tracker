@@ -60,7 +60,7 @@ class CommentManager extends React.Component{
                     comment={this.state.comment}
                     errors={this.state.errors}
                     handleSubmit={this.handleSubmit}
-                    users={this.props.users}
+                    assignees={this.props.assignees}
                     onCommentChange={this.onCommentChange}
                     onIssueChange={this.onIssueChange}
                     status={this.props.status}
@@ -77,7 +77,7 @@ class CommentManager extends React.Component{
 
 CommentManager.propTypes = {
     issue : PropTypes.object.isRequired,
-    users : PropTypes.array.isRequired,
+    assignees : PropTypes.array.isRequired,
     status : PropTypes.array.isRequired,
     params : PropTypes.array.isRequired,
     addComment : PropTypes.func.isRequired,
