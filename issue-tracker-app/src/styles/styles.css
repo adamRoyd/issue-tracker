@@ -21,9 +21,8 @@ a{
     position: absolute;
     top: 40px;
     bottom: 0;
-    left: 3.5%;
-    width: 48%;
-    /*overflow-y: scroll; */
+    left: 3.1%;
+    width: 50%;
   }
   
   #issueManager {
@@ -79,53 +78,6 @@ a{
 
 .DropZoneOver{
     border: 3px dashed black;
-}
-
-/**********************Issues Table*****************************/
-.issueTable .summary{
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 180px;
-  text-overflow: ellipsis;
-}
-
-.issueTable .assigned{
-  display: inline-block;
-  overflow:hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 120px;
-}
-
-.table-hover tbody tr:hover td, 
-.table-hover tbody tr:hover th,
-.issueRowActive{
-  background: #C8C8C8;
-  cursor: pointer;
-}
-
-.table-fixed thead {
-  width: 100%;
-}
-.table-fixed tbody {
-  height: 530px;
-  overflow-y: auto;
-  width: 100%;
-}
-.table-fixed>tbody {
-  display: block;
-}
-.table-fixed tbody td, .table-fixed thead > tr> th {
-  float: left;
-  border-bottom-width: 0;
-}
-
-.table-fixed tbody td{
-  position:static;
-  display:table-cell;
-  float:none;
-  width:14.3%;
 }
 
 

@@ -6,6 +6,7 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import configureStore from './store/configureStore';
 import './styles/styles.css';
 import './styles/loginPage.css';
+import './styles/issueTable.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 //actions

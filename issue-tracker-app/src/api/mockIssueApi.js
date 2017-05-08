@@ -64,7 +64,7 @@ const issues = [
    },
    {
     "id":"6",
-    "screen":"Global",
+    "screen":"3_100",
     "location" : location[1],
     "summary" : "issue summary",
     "category":"Image",
@@ -75,7 +75,7 @@ const issues = [
    },
    {
     "id":"7",
-    "screen":"Splash",
+    "screen":"3_100",
     "location" : location[1],
     "summary" : "issue summary",
     "category":"Image",
@@ -86,7 +86,7 @@ const issues = [
    },
    {
     "id":"8",
-    "screen":"Menu",
+    "screen":"3_100",
     "location" : location[1],
     "summary" : "issue summary",
     "category":"Image",
@@ -97,7 +97,7 @@ const issues = [
    },
    {
     "id":"9",
-    "screen":"Bookmark",
+    "screen":"3_100",
     "location" : location[1],
     "summary" : "issue summary",
     "category":"Image",
@@ -108,7 +108,7 @@ const issues = [
    },
    {
     "id":"10",
-    "screen":"Exit",
+    "screen":"3_100",
     "location" : location[1],
     "summary" : "issue summary",
     "category":"Image",
@@ -119,7 +119,7 @@ const issues = [
    },
    {
     "id":"11",
-    "screen":"Glossary",
+    "screen":"3_100",
     "location" : location[1],
     "summary" : "issue summary",
     "category":"Image",
@@ -130,7 +130,7 @@ const issues = [
    },
    {
     "id":"12",
-    "screen":"Help",
+    "screen":"3_100",
     "location" : location[1],
     "summary" : "issue summary",
     "category":"Image",
@@ -141,7 +141,7 @@ const issues = [
    },
    {
     "id":"13",
-    "screen":"Print",
+    "screen":"3_100",
     "location" : location[1],
     "summary" : "issue summary",
     "category":"Image",
@@ -152,7 +152,7 @@ const issues = [
    },
    {
     "id":"14",
-    "screen":"Resources",
+    "screen":"3_100",
     "location" : location[1],
     "summary" : "issue summary",
     "category":"Image",

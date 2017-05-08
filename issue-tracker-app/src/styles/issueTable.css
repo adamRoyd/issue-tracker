@@ -1,0 +1,83 @@
+/**********************Issues Table*****************************/
+.issueTable div{
+  display: inline-block;
+  overflow: hidden;
+  width:100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.issueTable{
+    white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.table-hover tbody tr:hover td, 
+.table-hover tbody tr:hover th,
+.issueRowActive{
+  background: #C8C8C8;
+  cursor: pointer;
+}
+
+.table-fixed thead {
+  width: 100%;
+}
+.table-fixed tbody {
+  height: 700px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed>tbody {
+  display: block;
+}
+
+.table-fixed thead tr{
+    width:100%;
+}
+
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+
+.table-fixed tbody td{
+  position:static;
+  display:table-cell;
+  /*float:none;*/
+}
+
+.table-fixed tbody td:nth-child(1),
+.table-fixed thead th:nth-child(1){
+  width:35px !important;
+}
+
+.table-fixed tbody td:nth-child(2),
+.table-fixed thead th:nth-child(2){
+  width:35px !important;
+}
+
+.table-fixed tbody td:nth-child(3),
+.table-fixed thead th:nth-child(3){
+  width:65px !important;
+}
+
+.table-fixed tbody td:nth-child(4),
+.table-fixed thead th:nth-child(4){
+  width:120px !important;
+}
+
+.table-fixed tbody td:nth-child(5),
+.table-fixed thead th:nth-child(5){
+  width:100px !important;
+}
+
+.table-fixed tbody td:nth-child(6),
+.table-fixed thead th:nth-child(6){
+  width:243px !important;
+}
+
+.table-fixed tbody td:nth-child(7),
+.table-fixed thead th:nth-child(7){
+  width:160px !important;
+}
+
