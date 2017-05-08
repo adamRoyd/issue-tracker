@@ -8,7 +8,7 @@
 }
 
 .issueTable{
-    white-space: nowrap;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
@@ -19,20 +19,15 @@
   cursor: pointer;
 }
 
-.table-fixed thead {
-  width: 100%;
-}
+
 .table-fixed tbody {
   height: 700px;
   overflow-y: auto;
   width: 100%;
 }
-.table-fixed>tbody {
+.table-fixed>tbody,
+.table-fixed>thead {
   display: block;
-}
-
-.table-fixed thead tr{
-    width:100%;
 }
 
 .table-fixed tbody td, .table-fixed thead > tr> th {
@@ -46,38 +41,48 @@
   /*float:none;*/
 }
 
+.table-fixed tbody tr{
+  width:100%;
+  display:table !important;
+}
+
+.table-fixed thead tr{
+  width:98%;
+  display:table !important;
+}
+
 .table-fixed tbody td:nth-child(1),
 .table-fixed thead th:nth-child(1){
-  width:35px !important;
+  width:4% !important;
 }
 
 .table-fixed tbody td:nth-child(2),
 .table-fixed thead th:nth-child(2){
-  width:35px !important;
+  width:5% !important;
 }
 
 .table-fixed tbody td:nth-child(3),
 .table-fixed thead th:nth-child(3){
-  width:65px !important;
+  width:8% !important;
 }
 
 .table-fixed tbody td:nth-child(4),
 .table-fixed thead th:nth-child(4){
-  width:120px !important;
+  width:15% !important;
 }
 
 .table-fixed tbody td:nth-child(5),
 .table-fixed thead th:nth-child(5){
-  width:100px !important;
+  width:15% !important;
 }
 
 .table-fixed tbody td:nth-child(6),
 .table-fixed thead th:nth-child(6){
-  width:243px !important;
+  width:35% !important;
 }
 
 .table-fixed tbody td:nth-child(7),
 .table-fixed thead th:nth-child(7){
-  width:160px !important;
+  width:18% !important;
 }
 

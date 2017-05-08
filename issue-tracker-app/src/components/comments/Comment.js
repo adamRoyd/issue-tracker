@@ -7,14 +7,17 @@ class Comment extends React.Component{
         return(
             <div className="comment">
                 <div className="row">
-                    <div className="col-sm-10">
+                    <div className="col-sm-8">
                         <p><strong>{comment.user}</strong></p>
+                    </div>
+                    <div className="col-sm-4">
+                        <p>{comment.time}</p>
+                    </div>   
+                </div>
+                <div className="row">
+                    <div className="col-sm-12">
                         <p>{comment.text}</p>
                     </div>
-                    <div className="col-sm-2">
-                        <p>{comment.movement} {comment.time}</p>
-                        <p>Link to attachment</p>
-                    </div>   
                 </div>
             </div>
         );

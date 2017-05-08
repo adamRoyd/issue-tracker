@@ -37,7 +37,8 @@ a{
 
 #commentsBox{
     max-height:450px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #sideBar {
@@ -85,7 +86,7 @@ a{
 #issueDescription{
   height:200px;
   max-height:200px;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-bottom:20px;
   border-bottom:2px solid rgba(55,55,55,0.1);
   padding:0px 20px 0px 15px;
@@ -201,9 +202,9 @@ input[type="text"]{
   padding:10px !important;
 }
 
-.dropdown-menu .project-list{
+.project-list{
   max-height:400px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .list-group-item{
