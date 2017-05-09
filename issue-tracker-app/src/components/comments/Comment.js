@@ -7,11 +7,8 @@ class Comment extends React.Component{
         return(
             <div className="comment">
                 <div className="row">
-                    <div className="col-sm-8">
-                        <p><strong>{comment.user}</strong></p>
-                    </div>
-                    <div className="col-sm-4">
-                        <p>{comment.time}</p>
+                    <div className="col-sm-12">
+                        <p><strong>{comment.user}<span style={{float:'right'}}>{comment.time}&nbsp;</span></strong></p>
                     </div>   
                 </div>
                 <div className="row">

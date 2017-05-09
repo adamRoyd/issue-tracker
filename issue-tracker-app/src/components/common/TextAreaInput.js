@@ -7,17 +7,14 @@ const TextAreaInput = ({name, label, onChange, placeholder, value, error,wrapper
 
   return (
     <div className={wrapperClass}>
-      <label className="col-sm-2 col-form-label" htmlFor={name}>{label}</label>
-      <div className="col-sm-7 field">
         <textarea
           type="text"
           name={name}
-          className="form-control"
+          className="form-control row-2"
           placeholder={placeholder}
           value={value}
           onChange={onChange}/>
         {error && <div className="alert alert-danger">{error}</div>}
-      </div>
     </div>
   );
 };

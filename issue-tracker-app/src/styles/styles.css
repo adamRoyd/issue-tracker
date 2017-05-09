@@ -211,3 +211,10 @@ input[type="text"]{
   padding:5px 10px !important;
   border:none !important;
 }
+
+
+/**********************GENERAL****************************/
+.nopadding{
+  padding:0 !important;
+  margin:0 !important;
+}

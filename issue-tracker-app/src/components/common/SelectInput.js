@@ -4,7 +4,7 @@ const SelectInput = ({name, label, onChange, defaultOption, value, error, option
   return (
     <div className="form-group row">
       <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
-      <div className="col-sm-7 field">
+      <div className="col-sm-9 field">
         {/* Note, value is set here rather than on the option - docs: https://facebook.github.io/react/docs/forms.html */}
         <select
           name={name}
@@ -29,8 +29,8 @@ SelectInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   defaultOption: PropTypes.string,
   value: PropTypes.string,
-  error: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.object)
+  error: PropTypes.string
+  // options: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default SelectInput;

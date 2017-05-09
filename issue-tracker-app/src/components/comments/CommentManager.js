@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as commentActions from '../../actions/commentActions';
 import CommentForm from './CommentForm';
-import NewIssueModal from '../issues/NewIssueModal';
 
 class CommentManager extends React.Component{
     constructor(props){
@@ -12,19 +11,22 @@ class CommentManager extends React.Component{
         this.state = {
             errors : {},
             comment : {},
-            issue : Object.assign({},this.props.issue)
+            issue : Object.assign({},this.props.issue),
+            toggleOptions : false,
+            submitDisabled : true
         };
-        this.onOpenClick = this.onOpenClick.bind(this);
+        this.toggleAdvancedOptions = this.toggleAdvancedOptions.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.getDateTime = this.getDateTime.bind(this);
         this.onCommentChange = this.onCommentChange.bind(this);
         this.onIssueChange = this.onIssueChange.bind(this);
     }
-    onOpenClick() {
-        this.refs.dropzone.open();
+    toggleAdvancedOptions() {
+        return this.setState({toggleOptions : !this.state.toggleOptions});
     }
     handleSubmit(e){
         e.preventDefault();
+        console.log(this.state.issue);
         const {id} = this.props.params;
         const comment = this.state.comment.commentText;
         const time = this.getDateTime(); 
@@ -42,9 +44,11 @@ class CommentManager extends React.Component{
     onCommentChange(event){
         const field = event.target.name;
         let comment = this.state.comment;
-        console.log(this.state);
         comment[field] = event.target.value;
-        return this.setState({comment : comment});
+        return this.setState({
+            comment : comment,
+            submitDisabled : false
+        });
     }
     onIssueChange(event){
         const field = event.target.name;
@@ -64,12 +68,13 @@ class CommentManager extends React.Component{
                     onCommentChange={this.onCommentChange}
                     onIssueChange={this.onIssueChange}
                     status={this.props.status}
-                    onOpenClick={this.onOpenClick}/>
-                <button id="submitComment" onClick={this.handleSubmit} className="btn">Submit</button>  
-                <button id="attach" className="btn" onClick={this.onOpenClick}>Add attachment</button>
-                <NewIssueModal 
-                    buttonName="Edit issue"
-                    {...this.props}/>
+                    displayAdvancedOptions={this.state.toggleOptions}
+                    locations={this.props.locations}
+                    categories={this.props.categories}
+                    />
+                <button id="submitComment" onClick={this.handleSubmit} className="btn" disabled={this.state.submitDisabled}>Submit</button>  
+                <button id="attach" className="btn">Add attachment</button>
+                <button id="advancedOptions" className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>
             </div>
         );
     }
