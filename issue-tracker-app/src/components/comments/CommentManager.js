@@ -31,11 +31,10 @@ class CommentManager extends React.Component{
         const time = this.getDateTime(); 
         this.props.addComment(id,this.props.user,commentText,time);
         this.props.saveIssue(this.state.issue);
-        e.target.reset();
         return this.setState({
-            comment : {}
+            comment : {commentText : ''},
+            submitDisabled : true
         });
-        //this.refs.commentForm.reset();
     }
     getDateTime(){
         const d = new Date();

@@ -80,7 +80,6 @@ const CommentForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChang
                 }
             </div>
             </div>
-            <input type="submit" value="submitform"/>
         </form>
     );
 };
