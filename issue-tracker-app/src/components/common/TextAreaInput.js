@@ -10,7 +10,7 @@ const TextAreaInput = ({name, label, onChange, placeholder, value, error,wrapper
         <textarea
           type="text"
           name={name}
-          className="form-control row-2"
+          className="form-control expand"
           placeholder={placeholder}
           value={value}
           onChange={onChange}/>

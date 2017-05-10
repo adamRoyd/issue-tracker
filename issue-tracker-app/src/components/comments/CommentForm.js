@@ -15,6 +15,7 @@ const CommentForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChang
                     <h4>Issue Settings</h4>
                 </div>
             </div>
+            <div className="row displayTable">
             <TextAreaInput
                 name="commentText"
                 label=""
@@ -22,8 +23,8 @@ const CommentForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChang
                 placeholder="Enter a comment"
                 onChange={onCommentChange}
                 error=""
-                wrapperClass="col-sm-7 nopadding"/>
-            <div className="col-sm-5">
+                wrapperClass="col-sm-7 tableCell"/>
+            <div className="col-sm-5 tableCell">
                 <SelectInput
                     name="assigned"
                     label="Assigned"
@@ -77,6 +78,7 @@ const CommentForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChang
                 : 
                     <span/>
                 }
+            </div>
             </div>
         </form>
     );
