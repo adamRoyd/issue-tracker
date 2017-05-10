@@ -18,7 +18,7 @@ class IssueManager extends React.Component{
             <div>
                 {issue == undefined ? 
                     (
-                    <p></p>
+                    <span/>
                     )
                 :
                     (
@@ -38,7 +38,7 @@ class IssueManager extends React.Component{
 IssueManager.propTypes = {
     issues : PropTypes.array.isRequired,
     params : PropTypes.object.isRequired,
-    comments : PropTypes.array.isRequired
+    comments : PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

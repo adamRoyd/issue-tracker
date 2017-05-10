@@ -6,7 +6,7 @@ function IssueDescription ({issue}){
         <div id="descriptionHolder"> 
             <div id="issueDescription" className="row">
                 <p>{issue.description}</p>
-                <a>Image 1</a>
+                <a>{issue.image}</a>
 
             </div>
         </div>

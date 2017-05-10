@@ -87,7 +87,7 @@ a{
   height:200px;
   max-height:200px;
   overflow-y: auto;
-  margin-bottom:20px;
+  margin-bottom:5px;
   border-bottom:2px solid rgba(55,55,55,0.1);
   padding:0px 20px 0px 15px;
 }

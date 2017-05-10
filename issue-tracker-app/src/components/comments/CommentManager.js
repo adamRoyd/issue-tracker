@@ -26,12 +26,15 @@ class CommentManager extends React.Component{
     }
     handleSubmit(e){
         e.preventDefault();
-        console.log(this.state.issue);
         const {id} = this.props.params;
-        const comment = this.state.comment.commentText;
+        const commentText = this.state.comment.commentText;
         const time = this.getDateTime(); 
-        this.props.addComment(id,this.props.user,comment,time);
+        this.props.addComment(id,this.props.user,commentText,time);
         this.props.saveIssue(this.state.issue);
+        e.target.reset();
+        return this.setState({
+            comment : {}
+        });
         //this.refs.commentForm.reset();
     }
     getDateTime(){
