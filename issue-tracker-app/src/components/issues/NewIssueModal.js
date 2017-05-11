@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Modal} from 'react-bootstrap';
 import NewIssueForm from './NewIssueForm';
-
+import InsertImages from 'slate-drop-or-paste-images';
 
 class NewIssueModal extends React.Component{
     constructor(props){
