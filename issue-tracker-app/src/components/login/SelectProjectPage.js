@@ -8,12 +8,6 @@ class SelectProjectPage extends React.Component{
     constructor(props){
         super(props);
     }
-    componentWillReceiveProps(){
-        console.log('props received');
-    }
-    componentWillUpdate(){
-        console.log('component will update');
-    }
     handleClick(value){
         const projectCode = value.toLowerCase();
         browserHistory.push(`/${projectCode}/issue/All/`);

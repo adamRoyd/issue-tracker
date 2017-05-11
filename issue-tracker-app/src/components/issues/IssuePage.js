@@ -1,5 +1,6 @@
-import React from 'react';
+import React,{componentDidMount} from 'react';
 import PropTypes from 'prop-types';
+import { browserHistory } from 'react-router';
 import IssueList from '../issues/IssueList';
 import IssueManager from '../issues/IssueManager';
 import SideBar from '../common/SideBar';
@@ -7,6 +8,11 @@ import NavBar from '../common/NavBar';
 import NewIssueForm from '../issues/NewIssueForm';
 
 class IssuePage extends React.Component{
+    componentDidMount(){
+        if(this.props.user == ""){
+            //browserHistory.push(`/login`);
+        }
+    }
     render(){
         return(
             <div id="issuePage" className="container-fluid">

@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import {Modal} from 'react-bootstrap';
 import NewIssueForm from './NewIssueForm';
 
+
 class NewIssueModal extends React.Component{
     constructor(props){
         super(props);
