@@ -9,6 +9,9 @@ class ProjectPicker extends React.Component{
     constructor(props){
         super(props);
         this.state = {visibleprojects : [],dropdownIsOpen : false};
+        this.loadProjects = this.loadProjects.bind(this);
+        this.searchProjects = this.searchProjects.bind(this);
+        this.toggleDropdown = this.toggleDropdown.bind(this);
     }
     loadProjects(){
         this.toggleDropdown();
@@ -34,22 +37,19 @@ class ProjectPicker extends React.Component{
         //TO DO load issues
     }
     render(){
-        this.loadProjects = this.loadProjects.bind(this);
-        this.searchProjects = this.searchProjects.bind(this);
         return(
-            <Dropdown id="dropdown-custom-menu" open={this.state.dropdownIsOpen}>
+            <Dropdown id="dropdown-custom-menu" open={this.state.dropdownIsOpen} onToggle={this.toggleDropdown}>
                 <Button onClick={this.loadProjects} className="btn" bsRole="toggle">
                     Open Project
                 </Button>
-                <CustomMenu toggleDropdown={() => this.toggleDropdown()} listValues={this.state.visibleprojects} searchProjects={this.searchProjects} bsRole="menu"/>
+                <CustomMenu toggleDropdown={this.toggleDropdown} listValues={this.state.visibleprojects} searchProjects={this.searchProjects} bsRole="menu"/>
             </Dropdown> 
         );
     }
 }
 
 ProjectPicker.propTypes = {
-    projects : PropTypes.array.isRequired,
-    toggleDropdown : PropTypes.func.isRequired
+    projects : PropTypes.array.isRequired
 };
 
 export default ProjectPicker;

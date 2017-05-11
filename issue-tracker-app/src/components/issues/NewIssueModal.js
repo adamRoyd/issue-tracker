@@ -17,7 +17,7 @@ class NewIssueModal extends React.Component{
         this.updateIssueState = this.updateIssueState.bind(this);
         this.saveIssue = this.saveIssue.bind(this);
         this.open = this.open.bind(this);
-        this.close = this.close.bind(this);       
+        this.close = this.close.bind(this);
     }
     close() {
         this.setState({ showModal: false });
@@ -72,12 +72,12 @@ class NewIssueModal extends React.Component{
 }
 
 NewIssueModal.propTypes = {
-    issue : PropTypes.object.isRequired,
+    issue : PropTypes.object,
     user : PropTypes.string.isRequired,
     assignees : PropTypes.array.isRequired,
     locations : PropTypes.array.isRequired,
     buttonName : PropTypes.string,
-    params : PropTypes.array.isRequired,
+    params : PropTypes.object.isRequired,
     saveIssue : PropTypes.func.isRequired
 };
 

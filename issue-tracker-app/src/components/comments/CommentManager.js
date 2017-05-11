@@ -1,4 +1,4 @@
-import React,{getInitialState} from 'react';
+import React,{componentWillReceiveProps} from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -20,6 +20,9 @@ class CommentManager extends React.Component{
         this.getDateTime = this.getDateTime.bind(this);
         this.onCommentChange = this.onCommentChange.bind(this);
         this.onIssueChange = this.onIssueChange.bind(this);
+    }
+    componentWillReceiveProps(){
+        return this.setState({issue : Object.assign({},this.props.issue)});
     }
     toggleAdvancedOptions() {
         return this.setState({toggleOptions : !this.state.toggleOptions});
@@ -86,10 +89,12 @@ CommentManager.propTypes = {
     issue : PropTypes.object.isRequired,
     assignees : PropTypes.array.isRequired,
     status : PropTypes.array.isRequired,
-    params : PropTypes.array.isRequired,
+    params : PropTypes.object.isRequired,
     addComment : PropTypes.func.isRequired,
     saveIssue : PropTypes.func.isRequired,
-    user : PropTypes.string.isRequired
+    user : PropTypes.string.isRequired,
+    locations : PropTypes.array.isRequired,
+    categories : PropTypes.array.isRequired
 };
 
 function mapStateToProps(state){

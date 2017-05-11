@@ -1,4 +1,4 @@
-import React, {componentDidMount} from 'react';
+import React, {componentWillReceiveProps,componentWillUpdate} from 'react';
 import PropTypes from 'prop-types';
 import { Link, browserHistory } from 'react-router';
 import CustomMenu from '../common/CustomMenu';
@@ -7,6 +7,12 @@ import ProjectPicker from '../common/ProjectPicker';
 class SelectProjectPage extends React.Component{
     constructor(props){
         super(props);
+    }
+    componentWillReceiveProps(){
+        console.log('props received');
+    }
+    componentWillUpdate(){
+        console.log('component will update');
     }
     handleClick(value){
         const projectCode = value.toLowerCase();

@@ -38,7 +38,7 @@ class IssueManager extends React.Component{
 IssueManager.propTypes = {
     issues : PropTypes.array.isRequired,
     params : PropTypes.object.isRequired,
-    comments : PropTypes.object.isRequired
+    comments : PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
