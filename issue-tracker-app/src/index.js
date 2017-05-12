@@ -1,3 +1,4 @@
+/*eslint-disable import/default */
 import React from 'react';
 import 'babel-polyfill';
 import {render} from 'react-dom';
@@ -8,8 +9,6 @@ import './styles/styles.css';
 import './styles/loginPage.css';
 import './styles/issueTable.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-//actions
 import {loadAssignees} from './actions/assigneeActions';
 import {loadComments} from './actions/commentActions';
 import {loadProjects} from './actions/projectActions';
