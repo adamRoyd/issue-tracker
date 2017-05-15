@@ -11,10 +11,11 @@ export default function () {
     const content2 = `Lorem ipsum dolor sit amet.`;
 
     const issue1 = new Issue({
+        project: "DGO789",
         id: 1, 
         sco: 1, 
         screen: 100, 
-        location: "Current screen",
+        location: "Current Screen",
         summary: "Issue summary 1",
         category: "Functionality",
         description: content1,
@@ -23,10 +24,11 @@ export default function () {
     });
 
     const issue2 = new Issue({ 
-        id: 1, 
+        project: "PWC694",
+        id: 2,
         sco: 1, 
         screen: 100, 
-        location: "Current screen",
+        location: "Current Screen",
         summary: "Issue summary 1",
         category: "Functionality",
         description: content1,
