@@ -10,7 +10,7 @@ export default function () {
 
     const content2 = `Lorem ipsum dolor sit amet.`;
 
-    const issue1 = new Issue({ 
+    const issue1 = new Issue({
         id: 1, 
         sco: 1, 
         screen: 100, 
