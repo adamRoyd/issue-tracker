@@ -1,3 +1,5 @@
+import { ADD_ISSUES } from '../actions/IssueActions';
+
 // Initial State
 const initialState = { data: [] };
 
@@ -5,6 +7,10 @@ const IssueReducer = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;
+    case ADD_ISSUES:
+      return{
+        data: action.issues
+      };
   }
 };
 

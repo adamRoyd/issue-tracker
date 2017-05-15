@@ -20,6 +20,7 @@ class IssuePage extends Component {
     return (
       <div>
         <h1>Issue page</h1>
+        {this.props.issues.map((issue,i) => <p key={i}>{issue.id}</p>)}
       </div>
     );
   }
@@ -37,6 +38,7 @@ function mapStateToProps(state) {
 
 IssuePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  issues: PropTypes.array.isRequired
 };
 
 IssuePage.contextTypes = {

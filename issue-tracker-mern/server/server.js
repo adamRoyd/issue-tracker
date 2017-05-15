@@ -35,6 +35,7 @@ import { fetchComponentData } from './util/fetchData';
 import posts from './routes/post.routes';
 import issues from './routes/issue.routes';
 import dummyData from './dummyData';
+import dummyIssues from './dummyIssues';
 import serverConfig from './config';
 
 // Set native promises as mongoose promise
@@ -49,6 +50,7 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
 
   // feed some dummy data in DB.
   dummyData();
+  dummyIssues();
 });
 
 // Apply body Parser and server public assets and routes
