@@ -2,16 +2,16 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 // Import Components
-import PostList from '../../components/PostList';
-import PostCreateWidget from '../../components/PostCreateWidget/PostCreateWidget';
+import PostList from './PostList';
+import PostCreateWidget from './PostCreateWidget/PostCreateWidget';
 
 // Import Actions
-import { addPostRequest, fetchPosts, deletePostRequest } from '../../PostActions';
-import { toggleAddPost } from '../../../App/AppActions';
+import { addPostRequest, fetchPosts, deletePostRequest } from '../../actions/PostActions';
+import { toggleAddPost } from '../../actions/AppActions';
 
 // Import Selectors
-import { getShowAddPost } from '../../../App/AppReducer';
-import { getPosts } from '../../PostReducer';
+import { getShowAddPost } from '../../reducers/AppReducer';
+import { getPosts } from '../../reducers/PostReducer';
 
 class PostListPage extends Component {
   componentDidMount() {

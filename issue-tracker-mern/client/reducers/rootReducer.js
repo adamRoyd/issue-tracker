@@ -4,9 +4,9 @@
 import { combineReducers } from 'redux';
 
 // Import Reducers
-import app from './modules/App/AppReducer';
-import posts from './modules/Post/PostReducer';
-import intl from './modules/Intl/IntlReducer';
+import app from './AppReducer';
+import posts from './PostReducer';
+import intl from './IntlReducer';
 
 // Combine all reducers into one root reducer
 export default combineReducers({

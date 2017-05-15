@@ -2,8 +2,8 @@ import React from 'react';
 import test from 'ava';
 import sinon from 'sinon';
 import { FormattedMessage } from 'react-intl';
-import { PostCreateWidget } from '../../components/PostCreateWidget/PostCreateWidget';
-import { mountWithIntl, shallowWithIntl } from '../../../../util/react-intl-test-helper';
+import { PostCreateWidget } from '../../components/Post/PostCreateWidget/PostCreateWidget';
+import { mountWithIntl, shallowWithIntl } from '../../../util/react-intl-test-helper';
 
 const props = {
   addPost: () => {},

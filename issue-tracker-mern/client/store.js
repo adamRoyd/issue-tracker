@@ -3,8 +3,8 @@
  */
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import DevTools from './modules/App/components/DevTools';
-import rootReducer from './reducers';
+import DevTools from './components/App/DevTools';
+import rootReducer from './reducers/rootReducer';
 
 export function configureStore(initialState = {}) {
   // Middleware and store enhancers
@@ -22,8 +22,8 @@ export function configureStore(initialState = {}) {
   // For hot reloading reducers
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./reducers', () => {
-      const nextReducer = require('./reducers').default; // eslint-disable-line global-require
+    module.hot.accept('./reducers/rootReducer', () => {
+      const nextReducer = require('./reducers/rootReducer').default; // eslint-disable-line global-require
       store.replaceReducer(nextReducer);
     });
   }

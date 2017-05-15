@@ -1,7 +1,7 @@
 import React from 'react';
 import test from 'ava';
 import { shallow } from 'enzyme';
-import PostList from '../../components/PostList';
+import PostList from '../../components/Post/PostList';
 
 const posts = [
   { name: 'Prashant', title: 'Hello Mern', slug: 'hello-mern', cuid: 'f34gb2bh24b24b2', content: "All cats meow 'mern!'" },

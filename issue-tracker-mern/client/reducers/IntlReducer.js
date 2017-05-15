@@ -1,5 +1,5 @@
-import { enabledLanguages, localizationData } from '../../../Intl/setup';
-import { SWITCH_LANGUAGE } from './IntlActions';
+import { enabledLanguages, localizationData } from '../../Intl/setup';
+import { SWITCH_LANGUAGE } from '../actions/IntlActions';
 
 const initLocale = global.navigator && global.navigator.language || 'en';
 
