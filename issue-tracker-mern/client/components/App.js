@@ -6,9 +6,9 @@ import styles from './App.css';
 
 // Import Components
 import Helmet from 'react-helmet';
-import DevTools from './components/DevTools';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import DevTools from './App/DevTools';
+import Header from './App/Header/Header';
+import Footer from './App/Footer/Footer';
 
 // Import Actions
 import { toggleAddPost } from './AppActions';
