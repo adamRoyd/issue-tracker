@@ -15,10 +15,23 @@ export function addIssues(issues) {
   };
 }
 
+export function addIssue(issue) {
+  return {
+    type: types.ADD_ISSUE,
+    post,
+  };
+}
+
 export function fetchIssues() {
   return (dispatch) => {
     return callApi('(:projectCode)/issues').then(res => {
       dispatch(addIssues(res.issues));
     });
+  };
+}
+
+export function fetchIssue(id) {
+  return (dispatch) => {
+    return callApi(`(:projectCode)/issues/${id}`).then(res => dispatch(addPost(res.post)));
   };
 }

@@ -48,5 +48,13 @@ export default (
         });
       }}
     />
+    <Route
+      path="/(:projectCode)/issues/(:id)"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./components/Issue/IssuePage').default);
+        });
+      }}
+    />
   </Route>
 );

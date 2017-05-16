@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import IssueList from './IssueList';
 import SideBar from './SideBar';
 import NavBar from '../Common/NavBar';
+import IssueManager from '../Issue/IssueManager';
 
 // Import Actions
 import { fetchIssues } from '../../actions/IssueActions';
@@ -29,6 +30,9 @@ class IssuePage extends Component {
             </div>
             <div id="issuelist" className="col-sm-5">
                 <IssueList {...this.props}/>
+            </div>
+            <div id="issueManager" className="col-sm-6">
+                <IssueManager {...this.props}/>
             </div>
           </div>
         </div>

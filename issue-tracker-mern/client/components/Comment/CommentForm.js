@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DropZone from 'react-dropzone';
 import SelectInput from '../Common/SelectInput';
 import TextAreaInput from '../Common/TextAreaInput';
 

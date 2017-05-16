@@ -7,6 +7,8 @@ const IssueReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_ISSUES:
       return action.issues;
+    case types.ADD_ISSUE:
+      return [action.issue, ...state.issues]
     default:
       return state;
   }
@@ -18,7 +20,7 @@ const IssueReducer = (state = initialState, action) => {
 export const getIssues = state => state.issues;
 
 // Get issues by cuid
-export const getIssue = (state, cuid) => state.issues.filter(issues => issues.id === id)[0];
+export const getIssue = (state, id) => state.issues.filter(issues => issues.id === id)[0];
 
 // Export Reducer
 export default IssueReducer;

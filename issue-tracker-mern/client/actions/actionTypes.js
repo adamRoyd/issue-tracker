@@ -1,5 +1,6 @@
 export const TOGGLE_ADD_POST = 'TOGGLE_ADD_POST';
 export const ADD_ISSUES = 'ADD_ISSUES';
+export const ADD_ISSUE = 'ADD_ISSUE';
 export const SET_ISSUE_FILTER = 'SET_ISSUE_FILTER';
 
 export const SET_USER = 'SET_USER';

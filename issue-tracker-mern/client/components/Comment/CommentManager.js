@@ -2,7 +2,7 @@ import React,{componentWillReceiveProps} from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as commentActions from '../../actions/commentActions';
+import * as CommentActions from '../../actions/CommentActions';
 import CommentForm from './CommentForm';
 
 class CommentManager extends React.Component{
@@ -104,7 +104,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators(commentActions, dispatch);
+    return bindActionCreators(CommentActions, dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(CommentManager);
