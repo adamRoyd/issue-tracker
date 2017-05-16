@@ -1,21 +1,21 @@
-import { ADD_POST, ADD_POSTS, DELETE_POST } from '../actions/PostActions';
+import * as types from '../actions/actionTypes';
 
 // Initial State
 const initialState = { data: [] };
 
 const PostReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_POST :
+    case types.ADD_POST :
       return {
         data: [action.post, ...state.data],
       };
 
-    case ADD_POSTS :
+    case types.ADD_POSTS :
       return {
         data: action.posts,
       };
 
-    case DELETE_POST :
+    case types.DELETE_POST :
       return {
         data: state.data.filter(post => post.cuid !== action.cuid),
       };

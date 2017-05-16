@@ -70,7 +70,6 @@ IssueList.propTypes = {
     filter : PropTypes.string.isRequired,
     setActiveIssue : PropTypes.func.isRequired,
     sortIssue : PropTypes.func.isRequired,
-    loadIssues : PropTypes.func.isRequired,
     setIssueFilter : PropTypes.func.isRequired,
     params : PropTypes.object.isRequired,
     headers : PropTypes.array.isRequired

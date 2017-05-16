@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // Import Components
 import IssueList from './IssueList';
 import SideBar from './SideBar';
+import NavBar from '../Common/NavBar';
 
 // Import Actions
 import { fetchIssues } from '../../actions/IssueActions';
@@ -21,6 +22,7 @@ class IssuePage extends Component {
     return (
       <div>
         <div id="issuePage" className="container-fluid">
+          <NavBar {...this.props}/>
           <div className="row">
             <div id="sideBar">
                 <SideBar projectCode={this.props.params.projectCode} {...this.props}/>
@@ -41,7 +43,7 @@ IssuePage.need = [() => { return fetchIssues(); }];
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-    issues: getIssues(state),
+    issues: getIssues(state)
   };
 }
 

@@ -10,7 +10,6 @@
 .issueTable{
   white-space: nowrap;
   text-overflow: ellipsis;
-  background:blue;
 }
 
 .table-hover tbody tr:hover td, 

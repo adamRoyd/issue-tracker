@@ -1,14 +1,10 @@
 import callApi from '../util/apiCaller';
-
-// Export Constants
-export const ADD_POST = 'ADD_POST';
-export const ADD_POSTS = 'ADD_POSTS';
-export const DELETE_POST = 'DELETE_POST';
+import * as types from './actionTypes';
 
 // Export Actions
 export function addPost(post) {
   return {
-    type: ADD_POST,
+    type: types.ADD_POST,
     post,
   };
 }
@@ -27,7 +23,7 @@ export function addPostRequest(post) {
 
 export function addPosts(posts) {
   return {
-    type: ADD_POSTS,
+    type: types.ADD_POSTS,
     posts,
   };
 }
@@ -48,7 +44,7 @@ export function fetchPost(cuid) {
 
 export function deletePost(cuid) {
   return {
-    type: DELETE_POST,
+    type: types.DELETE_POST,
     cuid,
   };
 }

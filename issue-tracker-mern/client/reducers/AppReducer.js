@@ -1,5 +1,4 @@
-// Import Actions
-import { TOGGLE_ADD_POST } from '../actions/AppActions';
+import * as types from '../actions/actionTypes';
 
 // Initial State
 const initialState = {
@@ -8,7 +7,7 @@ const initialState = {
 
 const AppReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_ADD_POST:
+    case types.TOGGLE_ADD_POST:
       return {
         showAddPost: !state.showAddPost,
       };

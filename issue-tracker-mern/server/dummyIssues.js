@@ -11,7 +11,7 @@ export default function () {
     const content2 = `Lorem ipsum dolor sit amet.`;
 
     const issue1 = new Issue({
-        project: "DGO789",
+        project: "ABC123",
         id: 1, 
         sco: 1, 
         screen: 100, 
@@ -24,7 +24,7 @@ export default function () {
     });
 
     const issue2 = new Issue({ 
-        project: "PWC694",
+        project: "DEF456",
         id: 2,
         sco: 1, 
         screen: 100, 

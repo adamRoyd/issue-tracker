@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterLink from '../Common/FilterLink';
-import status from '../../constants/status';
+import FilterLink from '../../containers/FilterLink';
 
 class SideBar extends React.Component{
     constructor(props){
@@ -11,7 +10,7 @@ class SideBar extends React.Component{
     render(){
         return(
             <div>
-                {status.map((value,i) => <FilterLink projectCode={this.props.projectCode} key={i} value={value}/>)}
+                {this.props.status.map((value,i) => <FilterLink projectCode={this.props.projectCode} key={i} value={value}/>)}
             </div>
         );
     }

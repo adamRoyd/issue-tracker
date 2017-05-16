@@ -1,9 +1,7 @@
-// Export Constants
-export const TOGGLE_ADD_POST = 'TOGGLE_ADD_POST';
+import * as types from './actionTypes';
 
-// Export Actions
 export function toggleAddPost() {
   return {
-    type: TOGGLE_ADD_POST,
+    type: types.TOGGLE_ADD_POST,
   };
 }

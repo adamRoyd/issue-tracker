@@ -1,19 +1,15 @@
-import Post from './models/post';
+import Project from './models/project';
 
 export default function () {
-  Post.count().exec((err, count) => {
+  Project.count().exec((err, count) => {
     if (count > 0) {
       return;
     }
 
-    const content1 = `Sed ut perspiciatis unde omnis`;
+    const projectCode1 = new Project({ projectCode: 'ABC123'});
+    const projectCode2 = new Project({ projectCode: 'DEF456'});
 
-    const content2 = `Lorem ipsum dolor sit amet.`;
-
-    const post1 = new Post({ name: 'Admin', title: 'Hello MERN', slug: 'hello-mern', cuid: 'cikqgkv4q01ck7453ualdn3hd', content: content1 });
-    const post2 = new Post({ name: 'Admin', title: 'Lorem Ipsum', slug: 'lorem-ipsum', cuid: 'cikqgkv4q01ck7453ualdn3hf', content: content2 });
-
-    Post.create([post1, post2], (error) => {
+    Project.create([projectCode1, projectCode2], (error) => {
       if (!error) {
         // console.log('ready to go....');
       }
