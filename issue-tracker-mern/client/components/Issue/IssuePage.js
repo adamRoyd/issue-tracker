@@ -2,7 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 // Import Components
-
+import IssueList from './IssueList';
+import SideBar from './SideBar';
 
 // Import Actions
 import { fetchIssues } from '../../actions/IssueActions';
@@ -19,8 +20,16 @@ class IssuePage extends Component {
   render() {
     return (
       <div>
-        <h1>Issue page</h1>
-        {this.props.issues.map((issue,i) => <p key={i}>{issue.id}</p>)}
+        <div id="issuePage" className="container-fluid">
+          <div className="row">
+            <div id="sideBar">
+                <SideBar projectCode={this.props.params.projectCode} {...this.props}/>
+            </div>
+            <div id="issuelist" className="col-sm-5">
+                <IssueList {...this.props}/>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -30,7 +30,6 @@ class PostListPage extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <PostCreateWidget addPost={this.handleAddPost} showAddPost={this.props.showAddPost} />

@@ -7,6 +7,11 @@ import { AppContainer } from 'react-hot-loader';
 import App from './App';
 import { configureStore } from './store';
 
+import './styles/styles.css';
+import './styles/loginPage.css';
+import './styles/issueTable.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
 // Initialize store
 const store = configureStore(window.__INITIAL_STATE__);
 const mountApp = document.getElementById('root');
