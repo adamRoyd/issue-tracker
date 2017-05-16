@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
 // Import Style
-import styles from './Header.css';
+//import styles from './Header.css';
 
 export function Header(props, context) {
   const languageNodes = props.intl.enabledLanguages.map(

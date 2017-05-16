@@ -7,8 +7,6 @@ import Header from './Header';
 import { Link, browserHistory } from 'react-router';
 import * as IssueActions from '../../actions/IssueActions';
 import headers from '../../constants/headers';
-// Import Style
-import styles from '../../styles/issueTable.css';
 
 const getVisibleIssues = (issues, filter) => {
     switch(filter){
@@ -52,7 +50,7 @@ class IssueList extends React.Component{
     render(){
         return(
             <div>
-                <table className={styles["issueTable table table-fixed table-hover"]}>
+                <table className={"issueTable table table-fixed table-hover"}>
                     <thead>
                     <tr>
                         {this.props.headers.map((header,i) => <Header key={i} header={header} onClick={() => this.headerClick(i)}/>)}

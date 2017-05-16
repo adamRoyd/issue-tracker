@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 
 // Import Style
-import styles from './PostCreateWidget.css';
+//import styles from './PostCreateWidget.css';
 
 export class PostCreateWidget extends Component {
   addPost = () => {
