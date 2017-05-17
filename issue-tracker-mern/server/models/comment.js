@@ -6,7 +6,7 @@ const commentSchema = new Schema({
     issueId: {type: 'Number',required: true},
     text: { type: 'String', required: true },
     user: { type: 'String', required: true},
-    time: { type: 'String', required: true}
+    time: { type: 'Date', required: true}
 })
 
 export default mongoose.model('Comment', commentSchema);

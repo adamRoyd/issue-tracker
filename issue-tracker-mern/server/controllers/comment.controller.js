@@ -19,3 +19,34 @@ export function getComments(req, res) {
     res.json({ comments });
   });
 }
+/**
+ * Save a comment
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function addComment(req, res) {
+  console.log('ADD COMMENT CONTROLLER');
+  console.log(req.body.comment);
+  if (!req.body.comment.text) {
+    res.status(403).end();
+  }
+
+  const newComment = new Comment(req.body.comment);
+
+  // Let's sanitize inputs
+  newComment.project = sanitizeHtml(newComment.project);
+  newComment.issueId = sanitizeHtml(newComment.issueId);
+  newComment.text = sanitizeHtml(newComment.text);
+  newComment.user = sanitizeHtml(newComment.user);
+  newComment.time = sanitizeHtml(newComment.time);
+
+  //newComment.slug = slug(newComment.text.toLowerCase(), { lowercase: true });
+  //newComment.cuid = cuid();
+  newComment.save((err, saved) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ comment: saved });
+  });
+}

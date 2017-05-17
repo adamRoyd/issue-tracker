@@ -1,7 +1,7 @@
 import React,{componentWillReceiveProps} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import { addComment } from '../../actions/CommentActions';
+import { addCommentRequest } from '../../actions/CommentActions';
 import CommentForm from './CommentForm';
 
 class CommentManager extends React.Component{
@@ -27,11 +27,10 @@ class CommentManager extends React.Component{
         return this.setState({toggleOptions : !this.state.toggleOptions});
     }
     handleSubmit(e){
+        console.log('HANDLE SUBMIT');
+        console.log(this.state.comment);
         e.preventDefault();
-        const {id} = this.props.params;
-        const text = this.state.comment.text;
-        const time = this.getDateTime(); 
-        //this.props.addComment(id,this.props.user,text,time);
+        this.props.dispatch(addCommentRequest(this.state.comment));
         //this.props.saveIssue(this.state.issue);
         return this.setState({
             comment : {text : ''},
