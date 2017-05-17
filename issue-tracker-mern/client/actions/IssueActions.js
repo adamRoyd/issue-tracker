@@ -1,10 +1,10 @@
 import * as types from './actionTypes';
 import callApi from '../util/apiCaller';
 
-export function setIssueFilter(filter){
+export function setIssueFilter(issueFilter){
     return{
         type: types.SET_ISSUE_FILTER,
-        filter
+        issueFilter
     };
 }
 
@@ -24,7 +24,7 @@ export function addIssue(issue) {
 
 export function fetchIssues() {
   return (dispatch) => {
-    return callApi('(:projectCode)/issues').then(res => {
+    return callApi('(:projectCode)/issues/(:filter)').then(res => {
       dispatch(addIssues(res.issues));
     });
   };
@@ -32,6 +32,6 @@ export function fetchIssues() {
 
 export function fetchIssue(id) {
   return (dispatch) => {
-    return callApi(`(:projectCode)/issues/${id}`).then(res => dispatch(addPost(res.post)));
+    return callApi(`(:projectCode)/issues/(:filter)/${id}`).then(res => dispatch(addPost(res.post)));
   };
 }

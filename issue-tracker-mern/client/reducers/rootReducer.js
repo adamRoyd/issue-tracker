@@ -9,6 +9,7 @@ import intl from './IntlReducer';
 import issues from './IssueReducer';
 import projects from './ProjectReducer';
 import comments from './CommentReducer';
+import issueFilter from './IssueFilterReducer';
 
 export default combineReducers({
   app,
@@ -16,5 +17,6 @@ export default combineReducers({
   intl,
   projects,
   issues,
-  comments
+  comments,
+  issueFilter
 });

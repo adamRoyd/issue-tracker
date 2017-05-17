@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
-      browserHistory.push(`/${ownProps.projectCode}/issue/${ownProps.value}/`);
+      browserHistory.push(`/${ownProps.projectCode}/issues/${ownProps.value.toLowerCase().replace(/ /g,'')}/`);
       dispatch(setIssueFilter(ownProps.value));
     }
   };

@@ -62,7 +62,7 @@ app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist')));
-app.use(ExpressValidator);
+//app.use(ExpressValidator);
 app.use('/api',issues);
 app.use('/api',projects);
 app.use('/api',comments);

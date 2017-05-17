@@ -6,6 +6,7 @@ import Issue from './Issue';
 import Header from './Header';
 import { Link, browserHistory } from 'react-router';
 import * as IssueActions from '../../actions/IssueActions';
+import { getFilter } from '../../reducers/IssueFilterReducer';
 import headers from '../../constants/headers';
 
 const getVisibleIssues = (issues, filter) => {
@@ -32,15 +33,14 @@ const getVisibleIssues = (issues, filter) => {
 };
 
 class IssueList extends React.Component{
-    componentDidMount(){
-        //this.props.loadIssues();        
-        //this.props.setIssueFilter(this.props.params.filter);
+    componentDidMount(){  
+        this.props.setIssueFilter(this.props.params.filter);
         //TO DO setActiveIssue does not work as the state has not recieved the issues in time
         //this.props.setActiveIssue(this.props.params.id);
     }
     handleClick(i){
         const selectedIssue = this.props.issues[i];
-        browserHistory.push(`/${this.props.params.projectCode}/issue/${this.props.filter}/${selectedIssue.id}`);
+        browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.filter}/${selectedIssue.id}`);
         //this.props.setActiveIssue(selectedIssue,i);
     }
     headerClick(i){
@@ -78,7 +78,8 @@ IssueList.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         issues: getVisibleIssues(state.issues,state.filter),
-        headers
+        headers,
+        filter: state.issueFilter
     };
 }
 
