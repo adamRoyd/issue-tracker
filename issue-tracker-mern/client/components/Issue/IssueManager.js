@@ -10,7 +10,7 @@ import IssueDescription from './IssueDescription';
 
 class IssueManager extends React.Component{
     componentDidMount() {
-        this.props.dispatch(fetchComments(this.props.params.id));
+        this.props.dispatch(fetchComments(this.props.params.projectCode,this.props.params.id));
     }
     render(){
         const i = this.props.issues.findIndex((issue) => issue.id == this.props.params.id);
@@ -29,7 +29,7 @@ class IssueManager extends React.Component{
     }
 }
 
-IssueManager.need = [() => { return fetchComments(this.props.params.id); }];
+IssueManager.need = [() => { return fetchComments(this.props.params.projectCode,this.props.params.id); }];
 
 IssueManager.propTypes = {
     issues : PropTypes.array.isRequired,

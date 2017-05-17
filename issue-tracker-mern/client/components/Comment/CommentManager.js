@@ -1,12 +1,8 @@
 import React,{componentWillReceiveProps} from 'react';
 import PropTypes from 'prop-types';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as CommentActions from '../../actions/CommentActions';
+import { addComment } from '../../actions/CommentActions';
 import CommentForm from './CommentForm';
-import status from '../../constants/status';
-import categories from '../../constants/categories';
-import locations from '../../constants/locations';
 
 class CommentManager extends React.Component{
     constructor(props){
@@ -75,10 +71,10 @@ class CommentManager extends React.Component{
                     assignees={['adam','joe']} //TO DO 
                     onCommentChange={this.onCommentChange}
                     onIssueChange={this.onIssueChange}
-                    status={status}
+                    status={this.props.status}
                     displayAdvancedOptions={this.state.toggleOptions}
-                    locations={locations}
-                    categories={categories}
+                    locations={this.props.locations}
+                    categories={this.props.categories}
                     />
                 <button id="submitComment" onClick={this.handleSubmit} className="btn" disabled={this.state.submitDisabled}>Submit</button>  
                 <button id="attach" className="btn">Add attachment</button>

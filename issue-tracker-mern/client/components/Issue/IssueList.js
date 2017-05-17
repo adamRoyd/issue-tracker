@@ -6,6 +6,7 @@ import Issue from './Issue';
 import Header from './Header';
 import { Link, browserHistory } from 'react-router';
 import * as IssueActions from '../../actions/IssueActions';
+import { fetchComments } from '../../actions/CommentActions';
 import { getFilter } from '../../reducers/IssueFilterReducer';
 import headers from '../../constants/headers';
 
@@ -40,6 +41,7 @@ class IssueList extends React.Component{
     }
     handleClick(i){
         const selectedIssue = this.props.issues[i];
+        this.props.dispatch(fetchComments(this.props.params.projectCode,selectedIssue.id));
         browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.filter}/${selectedIssue.id}`);
         //this.props.setActiveIssue(selectedIssue,i);
     }

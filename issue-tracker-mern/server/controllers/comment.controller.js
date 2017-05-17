@@ -9,7 +9,10 @@ import sanitizeHtml from 'sanitize-html';
  * @returns void
  */
 export function getComments(req, res) {
-  Comment.find().sort('-dateAdded').exec((err, comments) => {
+  Comment.find({
+    project: req.params.projectCode,
+    issueId: req.params.id
+  }).sort('-dateAdded').exec((err, comments) => {
     if (err) {
       res.status(500).send(err);
     }
