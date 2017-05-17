@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import path from 'path';
 import IntlWrapper from '../client/components/Intl/IntlWrapper';
+import ExpressValidator from 'express-validator';
 
 // Webpack Requirements
 import webpack from 'webpack';
@@ -34,8 +35,10 @@ import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
 import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
+import comments from './routes/comment.routes';
 import dummyData from './dummyData';
 import dummyIssues from './dummyIssues';
+import dummyComments from './dummyComments';
 import serverConfig from './config';
 
 // Set native promises as mongoose promise
@@ -51,6 +54,7 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
   // feed some dummy data in DB.
   dummyData();
   dummyIssues();
+  dummyComments();
 });
 
 // Apply body Parser and server public assets and routes
@@ -58,8 +62,10 @@ app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist')));
+app.use(ExpressValidator);
 app.use('/api',issues);
 app.use('/api',projects);
+app.use('/api',comments);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

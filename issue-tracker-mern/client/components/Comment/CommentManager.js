@@ -4,6 +4,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as CommentActions from '../../actions/CommentActions';
 import CommentForm from './CommentForm';
+import status from '../../constants/status';
+import categories from '../../constants/categories';
+import locations from '../../constants/locations';
 
 class CommentManager extends React.Component{
     constructor(props){
@@ -30,12 +33,12 @@ class CommentManager extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         const {id} = this.props.params;
-        const commentText = this.state.comment.commentText;
+        const text = this.state.comment.text;
         const time = this.getDateTime(); 
-        this.props.addComment(id,this.props.user,commentText,time);
-        this.props.saveIssue(this.state.issue);
+        //this.props.addComment(id,this.props.user,text,time);
+        //this.props.saveIssue(this.state.issue);
         return this.setState({
-            comment : {commentText : ''},
+            comment : {text : ''},
             submitDisabled : true
         });
     }
@@ -69,13 +72,13 @@ class CommentManager extends React.Component{
                     comment={this.state.comment}
                     errors={this.state.errors}
                     handleSubmit={this.handleSubmit}
-                    assignees={this.props.assignees}
+                    assignees={['adam','joe']} //TO DO 
                     onCommentChange={this.onCommentChange}
                     onIssueChange={this.onIssueChange}
-                    status={this.props.status}
+                    status={status}
                     displayAdvancedOptions={this.state.toggleOptions}
-                    locations={this.props.locations}
-                    categories={this.props.categories}
+                    locations={locations}
+                    categories={categories}
                     />
                 <button id="submitComment" onClick={this.handleSubmit} className="btn" disabled={this.state.submitDisabled}>Submit</button>  
                 <button id="attach" className="btn">Add attachment</button>
@@ -103,8 +106,4 @@ function mapStateToProps(state){
     };
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators(CommentActions, dispatch);
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(CommentManager);
+export default connect(mapStateToProps)(CommentManager);

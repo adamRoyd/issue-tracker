@@ -230,6 +230,7 @@ textarea.form-control{
 
 div .displayTable{
   display:table;
+  width:100%;
 }
 
 div .tableCell{

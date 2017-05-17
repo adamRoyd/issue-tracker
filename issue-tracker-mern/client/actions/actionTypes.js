@@ -10,3 +10,5 @@ export const ADD_POSTS = 'ADD_POSTS';
 export const DELETE_POST = 'DELETE_POST';
 
 export const ADD_PROJECTS = 'ADD_PROJECTS';
+
+export const ADD_COMMENTS = 'ADD_COMMENTS';

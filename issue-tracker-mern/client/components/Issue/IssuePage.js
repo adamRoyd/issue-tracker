@@ -32,7 +32,12 @@ class IssuePage extends Component {
                 <IssueList {...this.props}/>
             </div>
             <div id="issueManager" className="col-sm-6">
-                <IssueManager {...this.props}/>
+                {this.props.params.id ? 
+                  <IssueManager {...this.props}/>
+                  : 
+                  <span/>
+                }
+                {/*<IssueManager {...this.props}/>*/}
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import TextAreaInput from '../Common/TextAreaInput';
 const CommentForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChange,onIssueChange,status,displayAdvancedOptions,locations,categories}) => {
     return(
         <form className="form-horizontal" onSubmit={handleSubmit}>
-            <div className="row">
+            <div className="row displayTable">
                 <div className="col-sm-7">
                     <h4>Add Comment</h4>
                 </div>
