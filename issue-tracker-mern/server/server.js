@@ -55,9 +55,9 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
   }
 
   // feed some dummy data in DB.
-  // dummyData();
-  // dummyIssues();
-  // dummyComments();
+  dummyData();
+  dummyIssues();
+  dummyComments();
   dummyAssignees();
 });
 
