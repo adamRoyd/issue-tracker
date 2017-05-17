@@ -11,8 +11,7 @@ class SelectProjectPage extends React.Component{
     }
     handleClick(value){
         const projectCode = value.toLowerCase();
-        browserHistory.push(`/${projectCode}/issues/`);
-        //TO DO load issues
+        browserHistory.push(`/${projectCode}/issues/all`);
     }
     render(){
         return(

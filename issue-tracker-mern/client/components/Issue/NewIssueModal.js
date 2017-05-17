@@ -57,9 +57,9 @@ class NewIssueModal extends React.Component{
                             errors={this.state.errors}
                             onChange={this.updateIssueState}
                             onSave={this.saveIssue}
-                            assignees={this.props.assignees}
+                            assignees={["adam","joe"]} //TO DO
                             locations={this.props.locations}
-                            categories={this.categoreis}
+                            categories={this.props.categories}
                             {...this.props}/>
                     </Modal.Body>
                     <Modal.Footer>

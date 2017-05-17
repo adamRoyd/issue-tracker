@@ -4,6 +4,7 @@ export const ADD_ISSUE = 'ADD_ISSUE';
 export const SET_ISSUE_FILTER = 'SET_ISSUE_FILTER';
 
 export const SET_USER = 'SET_USER';
+export const ADD_ASSIGNEES = 'ADD_ASSIGNEES';
 
 export const ADD_POST = 'ADD_POST';
 export const ADD_POSTS = 'ADD_POSTS';

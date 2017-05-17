@@ -2,7 +2,11 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const issueSchema = new Schema({
-    project: { type : 'String'},
+    project: { 
+        type : 'String',
+        lowercase: true,
+        required: true
+    },
     id: { type: 'Number', required: true },
     sco: { type: 'Number', required: true },
     screen: { type: 'Number', required: true },

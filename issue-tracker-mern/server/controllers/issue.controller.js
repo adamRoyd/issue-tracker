@@ -10,7 +10,7 @@ import sanitizeHtml from 'sanitize-html';
  * @returns void
  */
 export function getIssues(req, res) {
-  Issue.find().sort('-dateAdded').exec((err, issues) => {
+  Issue.find({project: req.params.projectCode}).sort('-dateAdded').exec((err, issues) => {
     if (err) {
       res.status(500).send(err);
     }

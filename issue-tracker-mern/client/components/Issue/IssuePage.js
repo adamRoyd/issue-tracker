@@ -6,17 +6,21 @@ import IssueList from './IssueList';
 import SideBar from './SideBar';
 import NavBar from '../Common/NavBar';
 import IssueManager from '../Issue/IssueManager';
-
+//Import constants
+import categories from '../../constants/categories';
+import locations from '../../constants/locations';
+import status from '../../constants/status';
 // Import Actions
 import { fetchIssues } from '../../actions/IssueActions';
-
+import { fetchAssignees } from '../../actions/AssigneeActions';
 // Import Selectors
 import { getIssues } from '../../reducers/IssueReducer';
 
 
 class IssuePage extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchIssues());
+    this.props.dispatch(fetchIssues(this.props.params.projectCode));
+    this.props.dispatch(fetchAssignees());
   }
 
   render() {
@@ -47,12 +51,15 @@ class IssuePage extends Component {
 }
 
 // Actions required to provide data for this component to render in sever side.
-IssuePage.need = [() => { return fetchIssues(); }];
+IssuePage.need = [() => { return fetchIssues(this.props.params.projectCode); }];
 
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-    issues: getIssues(state)
+    issues: getIssues(state),
+    status: status,
+    locations : locations,
+    categories : categories
   };
 }
 

@@ -22,9 +22,9 @@ export function addIssue(issue) {
   };
 }
 
-export function fetchIssues() {
+export function fetchIssues(projectCode) {
   return (dispatch) => {
-    return callApi('(:projectCode)/issues/(:filter)').then(res => {
+    return callApi(`${projectCode}/issues/(:filter)`).then(res => {
       dispatch(addIssues(res.issues));
     });
   };

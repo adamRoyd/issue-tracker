@@ -6,8 +6,8 @@ export default function () {
       return;
     }
 
-    const projectCode1 = new Project({ projectCode: 'ABC123'});
-    const projectCode2 = new Project({ projectCode: 'DEF456'});
+    const projectCode1 = new Project({ projectCode: 'abc123'});
+    const projectCode2 = new Project({ projectCode: 'def456'});
 
     Project.create([projectCode1, projectCode2], (error) => {
       if (!error) {

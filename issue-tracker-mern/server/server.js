@@ -36,10 +36,13 @@ import { fetchComponentData } from './util/fetchData';
 import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
 import comments from './routes/comment.routes';
+import assignees from './routes/assignee.routes';
+import serverConfig from './config';
+//dummy data
 import dummyData from './dummyData';
 import dummyIssues from './dummyIssues';
 import dummyComments from './dummyComments';
-import serverConfig from './config';
+import dummyAssignees from './dummyAssignees';
 
 // Set native promises as mongoose promise
 mongoose.Promise = global.Promise;
@@ -52,9 +55,10 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
   }
 
   // feed some dummy data in DB.
-  dummyData();
-  dummyIssues();
-  dummyComments();
+  // dummyData();
+  // dummyIssues();
+  // dummyComments();
+  dummyAssignees();
 });
 
 // Apply body Parser and server public assets and routes
@@ -66,6 +70,7 @@ app.use(Express.static(path.resolve(__dirname, '../dist')));
 app.use('/api',issues);
 app.use('/api',projects);
 app.use('/api',comments);
+app.use('/api',assignees);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
