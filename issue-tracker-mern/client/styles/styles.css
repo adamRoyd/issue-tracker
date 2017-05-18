@@ -141,6 +141,14 @@ input[type="text"]{
   background:rgba(255,255,255,1) !important;
 }
 
+.linkIcon #issueCount{
+  position:absolute;
+  top: 0px;
+  left: 30px;
+  color:black;
+  font-weight:bold;
+}
+
 .iconWhite{
   fill:rgba(64,83,93,1);
 }

@@ -5,22 +5,24 @@ import StatusIcon from '../../assets/StatusIcon';
 
 const Link = ({ value, onClick, active }) => {
   return (
-        <div 
-            href="#" 
-            data-tip={value}
-            data-delay-show="500"
-            filter={value}
-            className={active ? 'linkIconActive' : 'linkIcon'}
-            onClick={e => {
-                e.preventDefault();
-                onClick();
-            }}
-        >
-            <StatusIcon height="40" width="40" type={value} imageCssClass="iconWhite"/>
-            {/*<ReactTooltip className="potToolTip" offset={{top:0, left:-40}} place="right"/>*/}
-        </div> 
-
-
+        <div className={active ? 'linkIconActive' : 'linkIcon'}>
+            <div 
+                href="#" 
+                data-tip={value}
+                data-delay-show="500"
+                filter={value}
+                onClick={e => {
+                    e.preventDefault();
+                    onClick();
+                }}
+            >
+                <StatusIcon height="40" width="40" type={value} imageCssClass="iconWhite"/>
+                {/*<ReactTooltip className="potToolTip" offset={{top:0, left:-40}} place="right"/>*/}
+            </div>
+            <div id="issueCount">
+                <p>nn</p>
+            </div>
+        </div>
   );
 };
 
