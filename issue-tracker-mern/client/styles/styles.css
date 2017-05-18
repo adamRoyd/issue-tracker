@@ -126,7 +126,7 @@ input[type="text"]{
 
 .linkIcon{
   position:relative;
-  height:50px;
+  height:60px;
   width:100%;
 }
 
@@ -151,6 +151,7 @@ input[type="text"]{
 
 .iconWhite{
   fill:rgba(64,83,93,1);
+  margin-top: 15px;
 }
 
 .linkIconActive .iconWhite{
