@@ -8,13 +8,13 @@ export function addComment(comment) {
   };
 }
 
-export function addCommentRequest(comment) {
+export function addCommentRequest(comment,params) {
   return (dispatch) => {
     return callApi(`(:projectCode)/issues/(:filter)/(:id)`,'post', {
       comment: {
-        project: 'todo',
-        issueId: 1,
-        text: 'todo',
+        project: params.projectCode,
+        issueId: params.id,
+        text: comment.text,
         user: 'TO DO', //TO DO
         time: new Date()
       },

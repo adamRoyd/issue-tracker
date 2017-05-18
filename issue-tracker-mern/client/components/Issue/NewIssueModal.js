@@ -1,6 +1,6 @@
 import React,{getInitialState} from 'react';
 import PropTypes from 'prop-types';
-import {saveIssue} from '../../actions/IssueActions';
+import {addIssueRequest} from '../../actions/IssueActions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Modal} from 'react-bootstrap';
@@ -35,7 +35,8 @@ class NewIssueModal extends React.Component{
     }
     saveIssue(event){
         event.preventDefault();
-        this.props.saveIssue(this.state.issue);
+        console.log(this.state.issue,this.props.issues,this.props.projectCode);
+        this.props.dispatch(addIssueRequest(this.state.issue,this.props.issues));
         return this.setState({ showModal: false });
     }
     render(){
@@ -88,8 +89,4 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({saveIssue}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewIssueModal);
+export default connect(mapStateToProps)(NewIssueModal);

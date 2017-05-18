@@ -8,7 +8,7 @@ class Comments extends React.Component{
             <div id="commentsBox">
                 {this.props.issueComments.map((comment,i) =>
                     <Comment key={i} comment={comment}/>
-                ).reverse()}
+                )}
             </div>
         );
     }

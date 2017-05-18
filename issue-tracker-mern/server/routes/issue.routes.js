@@ -5,6 +5,6 @@ const router = new Router();
 // Get all Issues
 router.route('/(:projectCode)/issues/(:filter)').get(IssueController.getIssues);
 
-//router.route('/(:projectCode)/issues/(:id)').get(IssueController.getIssue);
+router.route('/(:projectCode)/issues/(:filter)').post(IssueController.addIssue);
 
 export default router;

@@ -25,22 +25,31 @@ export function getIssues(req, res) {
  * @returns void
  */
 export function addIssue(req, res) {
-  if (!req.body.issue.name || !req.body.issue.title || !req.body.issue.content) {
+  if (!req.body.issue.summary) {
     res.status(403).end();
   }
 
   const newIssue = new Issue(req.body.issue);
-
+  console.log(req.body);
+  console.log('ADD ISSUE CONTROLLER');
+  console.log(newIssue);
   // Let's sanitize inputs
-  newIssue.title = sanitizeHtml(newIssue.title);
-  newIssue.name = sanitizeHtml(newIssue.name);
-  newIssue.content = sanitizeHtml(newIssue.content);
-
-  newIssue.slug = slug(newIssue.title.toLowerCase(), { lowercase: true });
-  newIssue.cuid = cuid();
+  newIssue.project = sanitizeHtml(newIssue.project);
+  newIssue.id = sanitizeHtml(newIssue.id);
+  newIssue.location = sanitizeHtml(newIssue.location);
+  newIssue.sco = sanitizeHtml(newIssue.sco);
+  newIssue.screen = sanitizeHtml(newIssue.screen);
+  newIssue.category = sanitizeHtml(newIssue.category);
+  newIssue.assigned = sanitizeHtml(newIssue.assigned);
+  newIssue.description = sanitizeHtml(newIssue.description);
+  newIssue.summary = sanitizeHtml(newIssue.summary);
+  console.log('SANITISED');
+  console.log(newIssue);
+  //newIssue.slug = slug(newIssue.title.toLowerCase(), { lowercase: true });
+  //newIssue.cuid = cuid();
   newIssue.save((err, saved) => {
     if (err) {
-      res.status(500).send(err);
+      return res.status(500).send(err);
     }
     res.json({ issue: saved });
   });

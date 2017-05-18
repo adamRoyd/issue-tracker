@@ -16,9 +16,9 @@ const CommentForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChang
             </div>
             <div className="row displayTable">
             <TextAreaInput
-                name="commentText"
+                name="text"
                 label=""
-                value={comment.commentText}
+                value={comment.text}
                 placeholder="Enter a comment"
                 onChange={onCommentChange}
                 error=""

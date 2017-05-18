@@ -4,6 +4,8 @@ const initialState = [];
 
 const CommentReducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.ADD_COMMENT:
+      return [action.comment, ...state]
     case types.ADD_COMMENTS:
       return action.comments;
     default:

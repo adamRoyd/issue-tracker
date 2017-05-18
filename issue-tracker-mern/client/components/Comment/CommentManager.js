@@ -27,10 +27,8 @@ class CommentManager extends React.Component{
         return this.setState({toggleOptions : !this.state.toggleOptions});
     }
     handleSubmit(e){
-        console.log('HANDLE SUBMIT');
-        console.log(this.state.comment);
         e.preventDefault();
-        this.props.dispatch(addCommentRequest(this.state.comment));
+        this.props.dispatch(addCommentRequest(this.state.comment,this.props.params));
         //this.props.saveIssue(this.state.issue);
         return this.setState({
             comment : {text : ''},

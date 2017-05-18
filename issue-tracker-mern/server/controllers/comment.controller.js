@@ -26,8 +26,6 @@ export function getComments(req, res) {
  * @returns void
  */
 export function addComment(req, res) {
-  console.log('ADD COMMENT CONTROLLER');
-  console.log(req.body.comment);
   if (!req.body.comment.text) {
     res.status(403).end();
   }
@@ -45,7 +43,7 @@ export function addComment(req, res) {
   //newComment.cuid = cuid();
   newComment.save((err, saved) => {
     if (err) {
-      res.status(500).send(err);
+      return res.status(500).send(err);
     }
     res.json({ comment: saved });
   });
