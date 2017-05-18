@@ -39,9 +39,8 @@ class IssuePage extends Component {
                 {this.props.params.id ? 
                   <IssueManager {...this.props}/>
                   : 
-                  <span/>
+                  null
                 }
-                {/*<IssueManager {...this.props}/>*/}
             </div>
           </div>
         </div>

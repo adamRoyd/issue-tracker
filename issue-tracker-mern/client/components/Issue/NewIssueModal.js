@@ -6,7 +6,6 @@ import {bindActionCreators} from 'redux';
 import {Modal} from 'react-bootstrap';
 import NewIssueForm from './NewIssueForm';
 
-
 class NewIssueModal extends React.Component{
     constructor(props){
         super(props);
@@ -35,8 +34,7 @@ class NewIssueModal extends React.Component{
     }
     saveIssue(event){
         event.preventDefault();
-        console.log(this.state.issue,this.props.issues,this.props.projectCode);
-        this.props.dispatch(addIssueRequest(this.state.issue,this.props.issues));
+        this.props.dispatch(addIssueRequest(this.state.issue,this.props.issues,this.props.params.projectCode));
         return this.setState({ showModal: false });
     }
     render(){

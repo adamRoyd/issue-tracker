@@ -20,7 +20,6 @@ class NavBar extends React.Component{
                         ? <div></div>
                         : <NewIssueModal 
                             buttonName="New issue"
-                            projectCode={projectCode}
                             {...this.props}/>
                     }
                     <Link to={`/`}><button className="btn">Log out</button></Link>

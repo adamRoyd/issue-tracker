@@ -20,7 +20,8 @@ export default function () {
         category: "Functionality",
         description: content1,
         status: "New",
-        assigned: "adam.boothroyd@brightwave.co.uk"
+        assigned: "adam.boothroyd@brightwave.co.uk",
+        dateAdded: new Date()
     });
 
     const issue2 = new Issue({ 
@@ -33,7 +34,8 @@ export default function () {
         category: "Functionality",
         description: content1,
         status: "New",
-        assigned: "adam.boothroyd@brightwave.co.uk"
+        assigned: "adam.boothroyd@brightwave.co.uk",
+        dateAdded: new Date()
     });
 
     const issue3 = new Issue({ 
@@ -46,7 +48,8 @@ export default function () {
         category: "Functionality",
         description: content1,
         status: "New",
-        assigned: "adam.boothroyd@brightwave.co.uk"
+        assigned: "adam.boothroyd@brightwave.co.uk",
+        dateAdded: new Date()
     });
 
     Issue.create([issue1, issue2, issue3], (error) => {

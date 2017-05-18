@@ -35,7 +35,7 @@ export function addIssueRequest(issue,issues,projectCode) {
     console.log(projectCode);
     return callApi(`(:projectCode)/issues/(:filter)`,'post', {
       issue: {
-        project: "abc123",
+        project: projectCode,
         id: parseInt(issues[issues.length - 1].id) + 1,
         sco: issue.sco,
         screen: issue.screen,
@@ -44,7 +44,8 @@ export function addIssueRequest(issue,issues,projectCode) {
         category: issue.category,
         description: issue.description,        
         status: "New",
-        assigned: "to do assigned"
+        assigned: "to do assigned",
+        dateAdded : new Date()
       },
     }).then(res => dispatch(addIssue(res.issue)));
   };

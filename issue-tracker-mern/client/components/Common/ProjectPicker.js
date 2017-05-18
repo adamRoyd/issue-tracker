@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { Dropdown, Button } from 'react-bootstrap';
+import { getProjects } from '../../reducers/ProjectReducer';
 import CustomMenu from './CustomMenu';
 
 class ProjectPicker extends React.Component{
@@ -51,5 +53,10 @@ ProjectPicker.propTypes = {
     projects : PropTypes.array.isRequired
 };
 
-export default ProjectPicker;
-                    
+function mapStateToProps(state) {
+    return {
+        projects: getProjects(state)
+    };
+}
+
+export default connect(mapStateToProps)(ProjectPicker);

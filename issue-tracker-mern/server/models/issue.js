@@ -61,6 +61,7 @@ const issueSchema = new Schema({
         required: true
     },
     assigned: { type: 'String', required: true },
+    dateAdded : { type: 'Date', required: true}
 });
 
 export default mongoose.model('Issue', issueSchema);

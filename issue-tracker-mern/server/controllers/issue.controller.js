@@ -40,6 +40,7 @@ export function addIssue(req, res) {
   newIssue.description = sanitizeHtml(newIssue.description);
   newIssue.summary = sanitizeHtml(newIssue.summary);
   newIssue.status = sanitizeHtml(newIssue.status);
+  newIssue.dateAdded = sanitizeHtml(newIssue.dateAdded);
 
   newIssue.save((err, saved) => {
     if (err) {
