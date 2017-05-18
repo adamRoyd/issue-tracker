@@ -32,7 +32,6 @@ export function addIssue(issue) {
 
 export function addIssueRequest(issue,issues,projectCode) {
   return (dispatch) => {
-    console.log(projectCode);
     return callApi(`(:projectCode)/issues/(:filter)`,'post', {
       issue: {
         project: projectCode,

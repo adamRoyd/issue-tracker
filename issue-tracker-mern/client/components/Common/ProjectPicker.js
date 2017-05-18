@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { Dropdown, Button } from 'react-bootstrap';
 import { getProjects } from '../../reducers/ProjectReducer';
+import { fetchIssues } from '../../actions/IssueActions';
 import CustomMenu from './CustomMenu';
 
 class ProjectPicker extends React.Component{
@@ -13,6 +14,7 @@ class ProjectPicker extends React.Component{
         this.loadProjects = this.loadProjects.bind(this);
         this.searchProjects = this.searchProjects.bind(this);
         this.toggleDropdown = this.toggleDropdown.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
     loadProjects(){
         this.toggleDropdown();
@@ -21,9 +23,9 @@ class ProjectPicker extends React.Component{
         });
     }
     searchProjects(e){
-        let term = e.target.value.toUpperCase();
+        let term = e.target.value.toLowerCase();
         this.setState({
-            visibleprojects : this.props.projects.filter(project => project.includes(term))
+            visibleprojects : this.props.projects.filter(project => project.projectCode.includes(term))
         });
     }
     toggleDropdown(){
@@ -33,9 +35,9 @@ class ProjectPicker extends React.Component{
     }
     handleClick(value){
         const projectCode = value.toLowerCase();
-        this.props.toggleDropdown();
-        browserHistory.push(`/${projectCode}/issue/All/`);
-        //TO DO load issues
+        this.props.dispatch(fetchIssues(projectCode));
+        this.toggleDropdown();
+        browserHistory.push(`/${projectCode}/issues/all/`);
     }
     render(){
         return(
@@ -43,7 +45,13 @@ class ProjectPicker extends React.Component{
                 <Button onClick={this.loadProjects} className="btn" bsRole="toggle">
                     Open Project
                 </Button>
-                <CustomMenu toggleDropdown={this.toggleDropdown} listValues={this.state.visibleprojects} searchProjects={this.searchProjects} bsRole="menu"/>
+                <CustomMenu 
+                    toggleDropdown={this.toggleDropdown}
+                    listValues={this.state.visibleprojects}
+                    searchProjects={this.searchProjects}
+                    bsRole="menu"
+                    handleClick={this.handleClick}
+                />
             </Dropdown> 
         );
     }

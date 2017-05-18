@@ -86,7 +86,7 @@ CommentManager.propTypes = {
     assignees : PropTypes.array.isRequired,
     status : PropTypes.array.isRequired,
     params : PropTypes.object.isRequired,
-    addComment : PropTypes.func.isRequired,
+    addCommentRequest : PropTypes.func.isRequired,
     saveIssue : PropTypes.func.isRequired,
     user : PropTypes.string.isRequired,
     locations : PropTypes.array.isRequired,

@@ -79,7 +79,7 @@ IssueList.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        issues: getVisibleIssues(state.issues,state.filter),
+        issues: getVisibleIssues(state.issues,state.issueFilter),
         headers,
         filter: state.issueFilter
     };
