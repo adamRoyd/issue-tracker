@@ -24,7 +24,6 @@ export function fetchIssues(projectCode) {
 }
 
 export function addIssue(issue) {
-  console.log('ADD ISSUE');
   return {
     type: types.ADD_ISSUE,
     issue,
@@ -32,20 +31,20 @@ export function addIssue(issue) {
 }
 
 export function addIssueRequest(issue,issues,projectCode) {
-  console.log('ADD ISSUE REQUEST ACTION');
-
   return (dispatch) => {
+    console.log(projectCode);
     return callApi(`(:projectCode)/issues/(:filter)`,'post', {
       issue: {
         project: "abc123",
-        id: 9,//parseInt(issues[issues.length - 1]).id + 1,
-        location: issue.location,
+        id: parseInt(issues[issues.length - 1].id) + 1,
         sco: issue.sco,
         screen: issue.screen,
+        location: issue.location,
+        summary: issue.summary,
         category: issue.category,
-        assigned: "to do assigned",
-        description: issue.description,
-        summary: issue.summary
+        description: issue.description,        
+        status: "New",
+        assigned: "to do assigned"
       },
     }).then(res => dispatch(addIssue(res.issue)));
   };

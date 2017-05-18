@@ -28,11 +28,7 @@ export function addIssue(req, res) {
   if (!req.body.issue.summary) {
     res.status(403).end();
   }
-
   const newIssue = new Issue(req.body.issue);
-  console.log(req.body);
-  console.log('ADD ISSUE CONTROLLER');
-  console.log(newIssue);
   // Let's sanitize inputs
   newIssue.project = sanitizeHtml(newIssue.project);
   newIssue.id = sanitizeHtml(newIssue.id);
@@ -43,10 +39,8 @@ export function addIssue(req, res) {
   newIssue.assigned = sanitizeHtml(newIssue.assigned);
   newIssue.description = sanitizeHtml(newIssue.description);
   newIssue.summary = sanitizeHtml(newIssue.summary);
-  console.log('SANITISED');
-  console.log(newIssue);
-  //newIssue.slug = slug(newIssue.title.toLowerCase(), { lowercase: true });
-  //newIssue.cuid = cuid();
+  newIssue.status = sanitizeHtml(newIssue.status);
+
   newIssue.save((err, saved) => {
     if (err) {
       return res.status(500).send(err);

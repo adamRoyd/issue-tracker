@@ -8,7 +8,7 @@ const IssueReducer = (state = initialState, action) => {
     case types.ADD_ISSUES:
       return action.issues;
     case types.ADD_ISSUE:
-      return [...state.issues, action.issue]
+      return [...state, action.issue]
     default:
       return state;
   }
