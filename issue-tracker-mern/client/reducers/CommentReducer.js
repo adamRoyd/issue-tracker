@@ -1,8 +1,7 @@
 import * as types from '../actions/actionTypes';
+import initialState from './initialState';
 
-const initialState = [];
-
-const CommentReducer = (state = initialState, action) => {
+const CommentReducer = (state = initialState.comments, action) => {
   switch (action.type) {
     case types.ADD_COMMENT:
       return [action.comment, ...state]

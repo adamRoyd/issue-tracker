@@ -1,8 +1,7 @@
 import * as types from '../actions/actionTypes';
+import initialState from './initialState';
 
-const initialState = [];
-
-const AssigneeReducer = (state = initialState, action) => {
+const AssigneeReducer = (state = initialState.assignees, action) => {
   switch (action.type) {
     case types.ADD_ASSIGNEES:
       return action.assignees;

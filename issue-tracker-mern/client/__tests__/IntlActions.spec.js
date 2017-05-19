@@ -1,16 +1,16 @@
-import test from 'ava';
-import { actionTest } from 'redux-ava';
+// import test from 'ava';
+// import { actionTest } from 'redux-ava';
 
-import {
-  SWITCH_LANGUAGE,
-  switchLanguage,
-} from '../actions/IntlActions';
-import { localizationData } from '../../Intl/setup';
+// import {
+//   SWITCH_LANGUAGE,
+//   switchLanguage,
+// } from '../actions/IntlActions';
+// import { localizationData } from '../../Intl/setup';
 
-const lang = 'en';
+// const lang = 'en';
 
-test('should return the correct type for switchLanguage', actionTest(
-  switchLanguage,
-  lang,
-  { type: SWITCH_LANGUAGE, ...localizationData[lang] },
-));
+// test('should return the correct type for switchLanguage', actionTest(
+//   switchLanguage,
+//   lang,
+//   { type: SWITCH_LANGUAGE, ...localizationData[lang] },
+// ));

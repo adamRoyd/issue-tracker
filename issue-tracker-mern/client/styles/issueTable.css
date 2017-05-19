@@ -86,3 +86,6 @@
   width:18% !important;
 }
 
+.table-fixed thead th{
+  cursor: pointer;
+}

@@ -8,7 +8,7 @@ import { Link, browserHistory } from 'react-router';
 import * as IssueActions from '../../actions/IssueActions';
 import { fetchComments } from '../../actions/CommentActions';
 import { getFilter } from '../../reducers/IssueFilterReducer';
-import headers from '../../constants/headers';
+import { getHeaders } from '../../reducers/HeaderReducer';
 
 const getVisibleIssues = (issues, filter) => {
     switch(filter){
@@ -46,8 +46,8 @@ class IssueList extends React.Component{
         //this.props.setActiveIssue(selectedIssue,i);
     }
     headerClick(i){
-        // if(i != 0)
-        // this.props.sortIssue(i - 1,this.props.headers[i]);
+        if(i != 0)
+        this.props.sortIssues(i - 1,this.props.headers[i]);
     }
     render(){
         return(
@@ -71,7 +71,7 @@ IssueList.propTypes = {
     issues : PropTypes.array.isRequired,
     filter : PropTypes.string.isRequired,
     setActiveIssue : PropTypes.func.isRequired,
-    sortIssue : PropTypes.func.isRequired,
+    sortIssues : PropTypes.func.isRequired,
     setIssueFilter : PropTypes.func.isRequired,
     params : PropTypes.object.isRequired,
     headers : PropTypes.array.isRequired
@@ -80,7 +80,7 @@ IssueList.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         issues: getVisibleIssues(state.issues,state.issueFilter),
-        headers,
+        headers : getHeaders(state),
         filter: state.issueFilter
     };
 }

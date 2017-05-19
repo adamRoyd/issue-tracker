@@ -11,8 +11,7 @@ export function IntlWrapper(props) {
 }
 
 IntlWrapper.propTypes = {
-  children: PropTypes.element.isRequired,
-  intl: PropTypes.object.isRequired,
+
 };
 
 // Retrieve data from store as props

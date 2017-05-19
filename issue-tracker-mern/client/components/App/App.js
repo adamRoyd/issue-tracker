@@ -7,12 +7,8 @@ import { connect } from 'react-redux';
 // Import Components
 import Helmet from 'react-helmet';
 import DevTools from './DevTools';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
 
 // Import Actions
-import { toggleAddPost } from '../../actions/AppActions';
-import { switchLanguage } from '../../actions/IntlActions';
 
 export class App extends Component {
   constructor(props) {
@@ -47,7 +43,7 @@ App.propTypes = {
 // Retrieve data from store as props
 function mapStateToProps(store) {
   return {
-    intl: store.intl,
+
   };
 }
 

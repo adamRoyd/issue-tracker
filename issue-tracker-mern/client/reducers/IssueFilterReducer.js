@@ -1,6 +1,8 @@
 import * as types from '../actions/actionTypes';
+import initialState from './initialState';
 
-const IssueFilterReducer = (state = 'all', action) => {
+
+const IssueFilterReducer = (state = initialState.issueFilter, action) => {
   switch (action.type) {
     case types.SET_ISSUE_FILTER:
       return action.issueFilter;

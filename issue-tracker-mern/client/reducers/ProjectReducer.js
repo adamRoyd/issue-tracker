@@ -1,8 +1,7 @@
 import * as types from '../actions/actionTypes';
+import initialState from './initialState';
 
-const initialState = {};
-
-const ProjectReducer = (state = initialState, action) =>{
+const ProjectReducer = (state = initialState.projects, action) =>{
   switch (action.type) {
     default:
       return state;

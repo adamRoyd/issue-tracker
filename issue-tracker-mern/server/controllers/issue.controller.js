@@ -19,7 +19,7 @@ export function getIssues(req, res) {
 }
 
 /**
- * Save an issue
+ * Add an issue
  * @param req
  * @param res
  * @returns void
@@ -48,6 +48,34 @@ export function addIssue(req, res) {
     }
     res.json({ issue: saved });
   });
+}
+
+/**
+ * Get a single issue
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function getIssue(req, res) {
+  Issue.findOne({ cuid: req.params.cuid }).exec((err, issue) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ issue });
+  });
+}
+
+/**
+ * Save an issue
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function saveIssue(req, res) {
+  if (!req.body.issue.summary) {
+    res.status(403).end();
+  }
+  ///TO DO SAVE ISSUE HERE
 }
 
 /**

@@ -49,3 +49,40 @@ export function addIssueRequest(issue,issues,projectCode) {
     }).then(res => dispatch(addIssue(res.issue)));
   };
 }
+
+export function saveIssue(issue){
+  return {
+    type: types.SAVE_ISSUE,
+    issue
+  };  
+}
+
+export function saveIssueRequest(issue,issues,projectCode) {
+  return (dispatch) => {
+    return callApi(`(:projectCode)/issues/(:filter)`,'put', {
+      issue: {
+        project: projectCode,
+        id: issue.id,
+        sco: issue.sco,
+        screen: issue.screen,
+        location: issue.location,
+        summary: issue.summary,
+        category: issue.category,
+        description: issue.description,        
+        status: issue.status,
+        assigned: "to do assigned",
+        dateAdded : issue.dateAdded
+      },
+    }).then(res => dispatch(saveIssue(res.issue)));
+  };
+}
+
+
+export function sortIssues(index,header){
+    console.log('SORT ISSUES ACTION');
+    return{
+        type: types.SORT_ISSUES,
+        index,
+        header
+    };
+}
