@@ -51,27 +51,20 @@ export function addIssueRequest(issue,issues,projectCode) {
 }
 
 export function saveIssue(issue){
+  console.log('SAVE ISSUE ACTION');
+  console.log(issue);
   return {
     type: types.SAVE_ISSUE,
     issue
   };  
 }
 
-export function saveIssueRequest(issue,issues,projectCode) {
+export function saveIssueRequest(issue) {
+  console.log('SAVE ISSUE REQUEST');
   return (dispatch) => {
-    return callApi(`(:projectCode)/issues/(:filter)`,'put', {
+    return callApi(`(:projectCode)/issues/(:filter)/(:id)`,'put', {
       issue: {
-        project: projectCode,
-        id: issue.id,
-        sco: issue.sco,
-        screen: issue.screen,
-        location: issue.location,
-        summary: issue.summary,
-        category: issue.category,
-        description: issue.description,        
-        status: issue.status,
-        assigned: "to do assigned",
-        dateAdded : issue.dateAdded
+        id: 1
       },
     }).then(res => dispatch(saveIssue(res.issue)));
   };

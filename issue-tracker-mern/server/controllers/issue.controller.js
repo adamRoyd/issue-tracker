@@ -49,7 +49,6 @@ export function addIssue(req, res) {
     res.json({ issue: saved });
   });
 }
-
 /**
  * Get a single issue
  * @param req
@@ -64,28 +63,18 @@ export function getIssue(req, res) {
     res.json({ issue });
   });
 }
-
 /**
- * Save an issue
+ * Save issue
  * @param req
  * @param res
  * @returns void
  */
 export function saveIssue(req, res) {
-  if (!req.body.issue.summary) {
-    res.status(403).end();
-  }
-  ///TO DO SAVE ISSUE HERE
-}
-
-/**
- * Get a single issue
- * @param req
- * @param res
- * @returns void
- */
-export function getIssue(req, res) {
-  Issue.findOne({ cuid: req.params.cuid }).exec((err, issue) => {
+  console.log('SAVE ISSUE CONTROLLER');
+  Issue.findOneAndUpdate(
+    { "id": 1 },
+    { $set: {"description" : "abcabcabc"} }
+  ).exec((err, issue) => {
     if (err) {
       res.status(500).send(err);
     }

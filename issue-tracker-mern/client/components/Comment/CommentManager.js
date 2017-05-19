@@ -2,6 +2,7 @@ import React,{componentWillReceiveProps} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { addCommentRequest } from '../../actions/CommentActions';
+import { saveIssueRequest } from '../../actions/IssueActions';
 import CommentForm from './CommentForm';
 
 class CommentManager extends React.Component{
@@ -29,7 +30,7 @@ class CommentManager extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.dispatch(addCommentRequest(this.state.comment,this.props.params));
-        //this.props.saveIssue(this.state.issue);
+        this.props.dispatch(saveIssueRequest());
         return this.setState({
             comment : {text : ''},
             submitDisabled : true

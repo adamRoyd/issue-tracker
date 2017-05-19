@@ -1,5 +1,6 @@
 export const ADD_ISSUES = 'ADD_ISSUES';
 export const ADD_ISSUE = 'ADD_ISSUE';
+export const SAVE_ISSUE = 'SAVE_ISSUE';
 export const SET_ISSUE_FILTER = 'SET_ISSUE_FILTER';
 export const SORT_ISSUES = 'SORT_ISSUES';
 

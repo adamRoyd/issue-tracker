@@ -10,7 +10,7 @@ class NavBar extends React.Component{
         if(projectCode == null){projectCode = '';}
             return(
                 <div id="navBar" className="row">
-                    <Link to={`/${projectCode}/issue/All`}>
+                    <Link to={`/${projectCode}/issues/all`}>
                         <div className="col-sm-2 projectCode">
                             <h4 className="white">{projectCode.toUpperCase()}</h4>
                         </div>
