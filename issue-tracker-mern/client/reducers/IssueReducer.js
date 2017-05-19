@@ -9,9 +9,10 @@ const IssueReducer = (state = initialState.issues, action) => {
         return [...state, action.issue]
     case types.SAVE_ISSUE:
         console.log('SAVE ISSUE REDUCER');
+        console.log(action.issue);
         const existingIssueIndex = state.findIndex(a => a.id == action.issue.id)
         console.log(existingIssueIndex);
-        return state.splice(existingIssueIndex,1,action.issue);
+        return [...state, splice(existingIssueIndex,1,action.issue)];
     case types.SORT_ISSUES:
         if(action.header.filter == 0 || action.header.filter == 2){
             return [

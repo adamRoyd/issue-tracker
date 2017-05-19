@@ -73,11 +73,13 @@ export function saveIssue(req, res) {
   console.log('SAVE ISSUE CONTROLLER');
   Issue.findOneAndUpdate(
     { "id": 1 },
-    { $set: {"description" : "abcabcabc"} }
+    { $set: {"description" : "OIJOIJOIJOIJ"} }
   ).exec((err, issue) => {
     if (err) {
       res.status(500).send(err);
     }
+    console.log('API RESPONSE');
+    console.log(issue);
     res.json({ issue });
   });
 }
