@@ -8,16 +8,18 @@ const Link = ({ value, onClick, active, issues }) => {
         <div className={active ? 'linkIconActive' : 'linkIcon'}>
             <div 
                 href="#" 
-                data-tip={value}
-                data-delay-show="500"
+                data-tip data-for={value}
+                data-delay-show="0"
                 filter={value}
                 onClick={e => {
                     e.preventDefault();
                     onClick();
                 }}
             >
-                <StatusIcon height="40" width="40" type={value} imageCssClass="iconWhite"/>
-                <ReactTooltip className="potToolTip" offset={{top:0, left:-40}} place="right"/>
+                <StatusIcon height="35" width="35" type={value} imageCssClass="iconWhite"/>
+                <ReactTooltip id={value} className="potToolTip" offset={{top:0, left:-40}} place="right" effect='solid'>
+                    <span>{value}</span>
+                </ReactTooltip>
             </div>
             <div id="issueCount">
                 {issues.filter(t =>t.status == value).length}

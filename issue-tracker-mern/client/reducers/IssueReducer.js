@@ -19,7 +19,7 @@ const IssueReducer = (state = initialState.issues, action) => {
                 ...state.slice(0).sort(function(a,b) {
                     a = a[Object.keys(a)[action.index]];
                     b = b[Object.keys(b)[action.index]];
-                    if(parseFloat(a)){
+                    if(typeof a == 'number'){
                         return parseFloat(a) - parseFloat(b);
                     }   else{
                         return (a > b) ? 1 : ((b > a) ? -1 : 0);
@@ -31,7 +31,7 @@ const IssueReducer = (state = initialState.issues, action) => {
                 ...state.slice(0).sort(function(a,b) {
                     a = a[Object.keys(a)[action.index]];
                     b = b[Object.keys(b)[action.index]];
-                    if(parseFloat(a)){
+                    if(typeof a == 'number'){
                         return parseFloat(b) - parseFloat(a);
                     }   else{
                         return (a < b) ? 1 : ((b < a) ? -1 : 0);

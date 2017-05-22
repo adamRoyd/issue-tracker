@@ -71,9 +71,10 @@ export function getIssue(req, res) {
  */
 export function saveIssue(req, res) {
   console.log('SAVE ISSUE CONTROLLER');
+  console.log(req.body);
   Issue.findOneAndUpdate(
     { "id": 1 },
-    { $set: {"description" : "OIJOIJOIJOIJ"} }
+    { $set: {"description" : "test description"} }
   ).exec((err, issue) => {
     if (err) {
       res.status(500).send(err);

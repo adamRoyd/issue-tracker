@@ -9,7 +9,7 @@ function Issue ({onClick, issue}){
                 <td><div>{issue.sco + "_" + issue.screen}</div></td>
                 <td><div>{issue.location}</div></td>
                 <td><div>{issue.category}</div></td>
-                <td><div>{issue.summary}</div></td>
+                <td><div>{issue.description}</div></td>
                 <td><div>{issue.assigned}</div></td>
             </tr>
         );

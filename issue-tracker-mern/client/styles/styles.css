@@ -126,7 +126,7 @@ input[type="text"]{
 
 .linkIcon{
   position:relative;
-  height:60px;
+  height:55px;
   width:100%;
 }
 
@@ -143,15 +143,16 @@ input[type="text"]{
 
 .linkIcon #issueCount{
   position:absolute;
-  top: 0px;
-  left: 30px;
-  color:black;
+  top: 3px;
+  left: 33px;
+  color: #40535D;
   font-weight:bold;
 }
 
 .iconWhite{
   fill:rgba(64,83,93,1);
-  margin-top: 15px;
+  margin-top: 12px;
+  margin-left: 3px;
 }
 
 .linkIconActive .iconWhite{
@@ -159,8 +160,7 @@ input[type="text"]{
 }
 
 .potToolTip{
-  position:absolute !important;
-  left:100% !important;
+  margin-left:-32px !important;
 }
 
 .white{

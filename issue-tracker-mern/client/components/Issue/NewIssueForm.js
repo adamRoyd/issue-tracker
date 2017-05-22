@@ -6,13 +6,6 @@ import SelectInput from '../Common/SelectInput';
 const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,categories}) => {
         return(
             <form>
-                <TextInput
-                    name="summary"
-                    label="Summary"
-                    placeholder="Enter a summary of the issue"
-                    value={issue.summary}
-                    onChange={onChange}
-                    error=""/>
                 <SelectInput
                     name="location"
                     label="Location"

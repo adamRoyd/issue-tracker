@@ -30,7 +30,7 @@ class CommentManager extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.dispatch(addCommentRequest(this.state.comment,this.props.params));
-        this.props.dispatch(saveIssueRequest());
+        this.props.dispatch(saveIssueRequest(this.state.issue));
         return this.setState({
             comment : {text : ''},
             submitDisabled : true

@@ -5,7 +5,6 @@ const status = [
     "Fixed",
     "Returned",
     "Closed",
-    "Rejected",
     "All"
 ];
 
