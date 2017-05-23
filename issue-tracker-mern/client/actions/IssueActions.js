@@ -58,8 +58,6 @@ export function addIssueRequest(issue,issues,projectCode) {
 }
 
 export function saveIssue(issue){
-  console.log('SAVE ISSUE ACTION');
-  console.log(issue);
   return {
     type: types.SAVE_ISSUE,
     issue
@@ -67,8 +65,6 @@ export function saveIssue(issue){
 }
 
 export function saveIssueRequest(issue) {
-  console.log('SAVE ISSUE REQUEST');
-  console.log(issue);
   return (dispatch) => {
     return callApi(`(:projectCode)/issues/(:filter)/(:id)`,'put', {
       issue: {
@@ -80,7 +76,7 @@ export function saveIssueRequest(issue) {
         category: issue.category,
         description: issue.description,
         status: issue.status,
-        assigned: "to do"
+        assigned: issue.assigned
       },
     }).then(res => dispatch(saveIssue(res.issue)));
   };
@@ -88,7 +84,6 @@ export function saveIssueRequest(issue) {
 
 
 export function sortIssues(index,header){
-    console.log('SORT ISSUES ACTION');
     return{
         type: types.SORT_ISSUES,
         index,

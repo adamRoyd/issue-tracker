@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { addCommentRequest } from '../../actions/CommentActions';
 import { saveIssueRequest } from '../../actions/IssueActions';
+import { getAssignees } from '../../reducers/AssigneeReducer';
 import CommentForm from './CommentForm';
 
 class CommentManager extends React.Component{
@@ -66,7 +67,7 @@ class CommentManager extends React.Component{
                     comment={this.state.comment}
                     errors={this.state.errors}
                     handleSubmit={this.handleSubmit}
-                    assignees={['adam','joe']} //TO DO 
+                    assignees={this.props.assignees}
                     onCommentChange={this.onCommentChange}
                     onIssueChange={this.onIssueChange}
                     status={this.props.status}
@@ -96,7 +97,7 @@ CommentManager.propTypes = {
 
 function mapStateToProps(state){
     return{
-
+        assignees: getAssignees(state)
     };
 }
 

@@ -8,11 +8,15 @@ const IssueReducer = (state = initialState.issues, action) => {
     case types.ADD_ISSUE:
         return [...state, action.issue]
     case types.SAVE_ISSUE:
-        console.log('SAVE ISSUE REDUCER');
-        console.log(action.issue);
         const existingIssueIndex = state.findIndex(a => a.id == action.issue.id)
-        console.log(existingIssueIndex);
-        return [...state, splice(existingIssueIndex,1,action.issue)];
+        return [...state.map((issue,index) => {
+                if(index == existingIssueIndex){
+                    return Object.assign({},action.issue)
+                }   else{
+                    return issue
+                }
+            })
+        ];
     case types.SET_ACTIVE_ISSUE:
     return [
         ...state.map((issue,index) => {

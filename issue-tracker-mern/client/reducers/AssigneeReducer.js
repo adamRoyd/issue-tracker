@@ -10,6 +10,6 @@ const AssigneeReducer = (state = initialState.assignees, action) => {
   }
 };
 
-export const getAssignees = state => state.assignees;
+export const getAssignees = state => state.assignees.map(function(o) {return o.assignee});
 
 export default AssigneeReducer;

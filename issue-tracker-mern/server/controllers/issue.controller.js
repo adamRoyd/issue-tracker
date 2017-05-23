@@ -70,17 +70,23 @@ export function getIssue(req, res) {
  * @returns void
  */
 export function saveIssue(req, res) {
-  console.log('SAVE ISSUE CONTROLLER');
-  console.log(req.body);
+  const issueToSave = req.body.issue
   Issue.findOneAndUpdate(
-    { "id": 1 },
-    { $set: {"description" : "test description"} }
+    { id: issueToSave.id },
+    { $set: {
+        assigned : issueToSave.assigned,
+        status : issueToSave.status,
+        location : issueToSave.location,
+        sco : issueToSave.sco,
+        screen: issueToSave.screen,
+        category: issueToSave.category
+      } 
+    },
+    { new : true }
   ).exec((err, issue) => {
     if (err) {
       res.status(500).send(err);
     }
-    console.log('API RESPONSE');
-    console.log(issue);
     res.json({ issue });
   });
 }

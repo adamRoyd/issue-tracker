@@ -9,7 +9,7 @@ import sanitizeHtml from 'sanitize-html';
  * @returns void
  */
 export function getAssignees(req, res) {
-  Assignee.find().sort('-dateAdded').exec((err, assignees) => {
+  Assignee.find({},{ _id : 0, assignee: 1 }).sort( {assignee : 1} ).exec((err, assignees) => {
     if (err) {
       res.status(500).send(err);
     }

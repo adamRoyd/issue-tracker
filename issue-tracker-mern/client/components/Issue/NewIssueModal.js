@@ -1,9 +1,9 @@
 import React,{getInitialState} from 'react';
 import PropTypes from 'prop-types';
-import {addIssueRequest} from '../../actions/IssueActions';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {Modal} from 'react-bootstrap';
+import {addIssueRequest} from '../../actions/IssueActions';
+import { getAssignees } from '../../reducers/AssigneeReducer';
 import NewIssueForm from './NewIssueForm';
 
 class NewIssueModal extends React.Component{
@@ -56,7 +56,7 @@ class NewIssueModal extends React.Component{
                             errors={this.state.errors}
                             onChange={this.updateIssueState}
                             onSave={this.saveIssue}
-                            assignees={["adam","joe"]} //TO DO
+                            assignees={this.props.assignees}
                             locations={this.props.locations}
                             categories={this.props.categories}
                             {...this.props}/>
@@ -83,7 +83,7 @@ NewIssueModal.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        
+        assignees: getAssignees(state)
     };
 }
 
