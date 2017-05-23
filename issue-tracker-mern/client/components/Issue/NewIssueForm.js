@@ -1,4 +1,5 @@
 import React from 'react';
+import Browser from 'detect-browser';
 import PropTypes from 'prop-types';
 import TextInput from '../Common/TextInput';
 import SelectInput from '../Common/SelectInput';
@@ -6,6 +7,13 @@ import SelectInput from '../Common/SelectInput';
 const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,categories}) => {
         return(
             <form>
+                 <TextInput
+                    name="browser"
+                    label="Browser"
+                    value={issue.browser}
+                    placeholder={Browser.name + ' ' + Browser.version}
+                    onChange={onChange}
+                    error=""/>  
                 <SelectInput
                     name="location"
                     label="Location"
