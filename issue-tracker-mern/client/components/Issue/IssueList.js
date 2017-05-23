@@ -49,6 +49,9 @@ class IssueList extends React.Component{
         if(i != 0)
         this.props.sortIssues(i - 1,this.props.headers[i]);
     }
+    checkBoxClick(i){
+        this.props.selectIssueForBatch(this.props.issues[i]);
+    }
     render(){
         return(
             <div>
@@ -59,7 +62,14 @@ class IssueList extends React.Component{
                     </tr>
                     </thead>
                     <tbody>
-                        {this.props.issues.map((issue, i) => <Issue {...this.props} key={i} issue={issue} onClick={() => this.handleClick(i)}/>)}
+                        {this.props.issues.map((issue, i) => 
+                            <Issue 
+                                {...this.props} 
+                                key={i} 
+                                issue={issue} 
+                                onClick={() => this.handleClick(i)} 
+                                checkBoxClick={() => this.checkBoxClick(i)
+                                }/>)}
                     </tbody>
                 </table>
             </div>

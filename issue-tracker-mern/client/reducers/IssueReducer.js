@@ -57,8 +57,12 @@ const IssueReducer = (state = initialState.issues, action) => {
                 })   
             ];
         }
+    case types.SELECT_ISSUE_FOR_BATCH:
+        console.log('SELECT ISSUE BATCH REDUCER');
+        console.log(action.issue);
+        return state;
     default:
-      return state;
+        return state;
   }
 };
 

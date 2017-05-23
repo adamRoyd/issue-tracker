@@ -4,6 +4,7 @@ export const SAVE_ISSUE = 'SAVE_ISSUE';
 export const SET_ISSUE_FILTER = 'SET_ISSUE_FILTER';
 export const SET_ACTIVE_ISSUE = 'SET_ACTIVE_ISSUE';
 export const SORT_ISSUES = 'SORT_ISSUES';
+export const SELECT_ISSUE_FOR_BATCH = 'SELECT_ISSUE_FOR_BATCH';
 
 export const SET_USER = 'SET_USER';
 export const ADD_ASSIGNEES = 'ADD_ASSIGNEES';

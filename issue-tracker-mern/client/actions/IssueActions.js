@@ -92,3 +92,10 @@ export function sortIssues(index,header){
         header
     };
 }
+
+export function selectIssueForBatch(issue){
+  return{
+    type: types.SELECT_ISSUE_FOR_BATCH,
+    issue
+  }
+}
