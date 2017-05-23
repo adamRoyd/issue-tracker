@@ -50,7 +50,8 @@ export function addIssueRequest(issue,issues,projectCode) {
         category: issue.category,
         description: issue.description,        
         status: "New",
-        assigned: "to do assigned",
+        assigned: issue.assigned,
+        browser: issue.browser,
         dateAdded : new Date()
       },
     }).then(res => dispatch(addIssue(res.issue)));
@@ -65,6 +66,7 @@ export function saveIssue(issue){
 }
 
 export function saveIssueRequest(issue) {
+  console.log(issue);
   return (dispatch) => {
     return callApi(`(:projectCode)/issues/(:filter)/(:id)`,'put', {
       issue: {
