@@ -6,6 +6,7 @@ function IssueDescription ({issue}){
         <div id="descriptionHolder"> 
             <div id="issueDescription" className="row">
                 <p>{issue.description}</p>
+                <p>Browser: {issue.browser}</p>
                 <a>{issue.image}</a>
             </div>
         </div>

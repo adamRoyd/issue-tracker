@@ -27,7 +27,7 @@ const issueSchema = new Schema({
         ],
         required: true 
     },
-    summary: { type: 'String', required: true },
+    browser: { type: 'String', required: true },
     category: { 
         type: 'String',
         enum: [

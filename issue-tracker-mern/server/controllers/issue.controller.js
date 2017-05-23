@@ -25,7 +25,7 @@ export function getIssues(req, res) {
  * @returns void
  */
 export function addIssue(req, res) {
-  if (!req.body.issue.summary) {
+  if (!req.body.issue.id) {
     res.status(403).end();
   }
   const newIssue = new Issue(req.body.issue);
@@ -38,7 +38,7 @@ export function addIssue(req, res) {
   newIssue.category = sanitizeHtml(newIssue.category);
   newIssue.assigned = sanitizeHtml(newIssue.assigned);
   newIssue.description = sanitizeHtml(newIssue.description);
-  newIssue.summary = sanitizeHtml(newIssue.summary);
+  newIssue.browser = sanitizeHtml(newIssue.browser);
   newIssue.status = sanitizeHtml(newIssue.status);
   newIssue.dateAdded = sanitizeHtml(newIssue.dateAdded);
 
