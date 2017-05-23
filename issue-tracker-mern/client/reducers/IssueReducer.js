@@ -13,6 +13,20 @@ const IssueReducer = (state = initialState.issues, action) => {
         const existingIssueIndex = state.findIndex(a => a.id == action.issue.id)
         console.log(existingIssueIndex);
         return [...state, splice(existingIssueIndex,1,action.issue)];
+    case types.SET_ACTIVE_ISSUE:
+    return [
+        ...state.map((issue,index) => {
+            if(index == action.index){
+                return Object.assign({},action.issue,{
+                    active : true
+                });
+            } else{
+                return Object.assign({},issue,{
+                    active : false
+                });
+            }
+        })
+    ];
     case types.SORT_ISSUES:
         if(action.header.filter == 0 || action.header.filter == 2){
             return [

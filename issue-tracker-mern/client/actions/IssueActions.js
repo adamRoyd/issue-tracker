@@ -8,6 +8,14 @@ export function setIssueFilter(issueFilter){
     };
 }
 
+export function setActiveIssue(issue,index){
+    return{
+        type: types.SET_ACTIVE_ISSUE,
+        issue,
+        index
+    };
+}
+
 export function addIssues(issues) {
   return {
     type: types.ADD_ISSUES,

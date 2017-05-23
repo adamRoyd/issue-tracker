@@ -2,6 +2,7 @@ export const ADD_ISSUES = 'ADD_ISSUES';
 export const ADD_ISSUE = 'ADD_ISSUE';
 export const SAVE_ISSUE = 'SAVE_ISSUE';
 export const SET_ISSUE_FILTER = 'SET_ISSUE_FILTER';
+export const SET_ACTIVE_ISSUE = 'SET_ACTIVE_ISSUE';
 export const SORT_ISSUES = 'SORT_ISSUES';
 
 export const SET_USER = 'SET_USER';

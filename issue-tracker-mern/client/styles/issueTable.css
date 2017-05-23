@@ -89,3 +89,7 @@
 .table-fixed thead th{
   cursor: pointer;
 }
+
+.table-fixed td{
+  height:42px !important;
+}

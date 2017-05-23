@@ -7,7 +7,7 @@ import Link from './Link';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    active: ownProps.value === state.filter,
+    active: ownProps.value === state.issueFilter,
     issues: state.issues
   };
 };
