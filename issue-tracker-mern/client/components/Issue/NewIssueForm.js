@@ -59,7 +59,7 @@ const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,
                     label="Description"
                     value={issue.description}
                     onChange={onChange}
-                    error=""/>                   
+                    error={errors.description}/>                   
             </form>
         );
 };

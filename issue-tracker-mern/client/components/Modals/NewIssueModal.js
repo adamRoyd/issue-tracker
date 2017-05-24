@@ -18,6 +18,7 @@ class NewIssueModal extends React.Component{
         this.saveIssue = this.saveIssue.bind(this);
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
+        this.validate = this.validate.bind(this);
     }
     close() {
         this.setState({ showModal: false });
@@ -34,8 +35,21 @@ class NewIssueModal extends React.Component{
     }
     saveIssue(event){
         event.preventDefault();
-        this.props.dispatch(addIssueRequest(this.state.issue,this.props.issues,this.props.params.projectCode));
-        return this.setState({ showModal: false });
+        const errors = this.validate(this.state.issue);
+        if(Object.keys(errors).length === 0 && errors.constructor === Object){
+            this.props.dispatch(addIssueRequest(this.state.issue,this.props.issues,this.props.params.projectCode));
+            return this.setState({ showModal: false });           
+        }   else{
+            return this.setState({ errors: errors});
+        }
+    }
+    validate(issue){
+        const errors = {'sss': 'sss'}
+        
+        Object.keys(issue).forEach(key => {
+            console.log(key,issue[key]);
+        });
+        return errors
     }
     render(){
         return(
