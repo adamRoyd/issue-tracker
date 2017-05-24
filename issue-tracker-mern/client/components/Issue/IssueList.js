@@ -48,7 +48,6 @@ class IssueList extends React.Component{
         this.props.sortIssues(i - 1,this.props.headers[i]);
     }
     checkBoxClick(i){
-        console.log(this.props.issues[i]);
         this.props.toggleCheckedIssue(this.props.issues[i]);
         //this.props.addIssueToBatch(this.props.issues[i].id);
     }

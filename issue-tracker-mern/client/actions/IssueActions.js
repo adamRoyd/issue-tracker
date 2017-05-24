@@ -73,7 +73,6 @@ export function saveIssue(issue){
 }
 
 export function saveIssueRequest(issue) {
-  console.log(issue);
   return (dispatch) => {
     return callApi(`(:projectCode)/issues/(:filter)/(:id)`,'put', {
       issue: {
@@ -101,7 +100,6 @@ export function sortIssues(index,header){
 }
 
 export function addIssueToBatch(id){
-  console.log('ADD ISSUE TO BATCH');
   return{
     type: types.ADD_ISSUE_TO_BATCH,
     id

@@ -17,7 +17,7 @@ class SelectProjectPage extends React.Component{
         return(
             <div className="wrapper">
                 <div className="form-signin">
-                    <h4>Select a project to begin</h4>
+                    <h4>Select a project</h4>
                     <div className="project-list">
                         <ul className="list-group">
                            {this.props.projects.map((project, i) =>

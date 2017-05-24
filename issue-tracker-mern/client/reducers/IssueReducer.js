@@ -21,7 +21,7 @@ const IssueReducer = (state = initialState.issues, action) => {
         return [
             ...state.map((issue,index) => {
                 if(index == action.index){
-                    return Object.assign({},action.issue,{
+                    return Object.assign({},issue,{
                         active : true
                     });
                 } else{

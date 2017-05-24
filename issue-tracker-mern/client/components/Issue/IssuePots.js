@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterLink from '../../containers/FilterLink';
+import FilterLink from '../Common/FilterLink';
 
-class SideBar extends React.Component{
+class IssuePots extends React.Component{
     constructor(props){
         super(props);
 
@@ -16,9 +16,9 @@ class SideBar extends React.Component{
     }
 }
 
-SideBar.propTypes = {
+IssuePots.propTypes = {
     status : PropTypes.array.isRequired,
     projectCode : PropTypes.string.isRequired
 };
 
-export default SideBar;
+export default IssuePots;

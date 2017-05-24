@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import ProjectPicker from './ProjectPicker';
-import NewIssueModal from '../Issue/NewIssueModal';
+import NewIssueModal from '../Modals/NewIssueModal';
+import BatchIssuesModal from '../Modals/BatchIssuesModal';
 
 class NavBar extends React.Component{
     render(){
@@ -23,7 +24,9 @@ class NavBar extends React.Component{
                             {...this.props}/>
                     }
                     {(this.props.batchIssues.length > 0)
-                        ? <button>Batch issues</button>
+                        ? <BatchIssuesModal
+                            buttonName="Batch issues"
+                            {...this.props}/>
                         : null
                     }
                     <Link to={`/`}><button className="btn">Log out</button></Link>

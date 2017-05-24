@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 import {Modal} from 'react-bootstrap';
 import {addIssueRequest} from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
-import NewIssueForm from './NewIssueForm';
+import { getComments } from '../../reducers/CommentReducer';
 
-class NewIssueModal extends React.Component{
+class BatchIssuesModal extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -48,18 +48,10 @@ class NewIssueModal extends React.Component{
                 </button>
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
-                        <Modal.Title>New Issue for {this.props.user} {this.props.params.projectCode.toUpperCase()}</Modal.Title>
+                        <Modal.Title>Batch Issues</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <NewIssueForm 
-                            issue={this.state.issue}
-                            errors={this.state.errors}
-                            onChange={this.updateIssueState}
-                            onSave={this.saveIssue}
-                            assignees={this.props.assignees}
-                            locations={this.props.locations}
-                            categories={this.props.categories}
-                            {...this.props}/>
+
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn" onClick={this.close}>Close</button>
@@ -71,7 +63,7 @@ class NewIssueModal extends React.Component{
     }
 }
 
-NewIssueModal.propTypes = {
+BatchIssuesModal.propTypes = {
     issue : PropTypes.object,
     user : PropTypes.string.isRequired,
     assignees : PropTypes.array.isRequired,
@@ -83,8 +75,9 @@ NewIssueModal.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        assignees: getAssignees(state)
+        assignees: getAssignees(state),
+        comments : getComments(state)
     };
 }
 
-export default connect(mapStateToProps)(NewIssueModal);
+export default connect(mapStateToProps)(BatchIssuesModal);

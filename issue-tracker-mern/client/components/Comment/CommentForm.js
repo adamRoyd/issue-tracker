@@ -92,7 +92,7 @@ CommentForm.propTypes = {
     issue : PropTypes.object.isRequired,
     assignees : PropTypes.array.isRequired,
     status : PropTypes.array.isRequired,
-    displayAdvancedOptions : PropTypes.bool.isRequired
+    displayAdvancedOptions : PropTypes.bool
 };
 
 

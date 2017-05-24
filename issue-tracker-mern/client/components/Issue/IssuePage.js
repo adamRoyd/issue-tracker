@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // Import Components
 import IssueList from './IssueList';
-import SideBar from './SideBar';
+import IssuePots from './IssuePots';
 import NavBar from '../Common/NavBar';
 import IssueManager from '../Issue/IssueManager';
 //Import constants
@@ -30,8 +30,8 @@ class IssuePage extends Component {
         <div id="issuePage" className="container-fluid">
           <NavBar {...this.props}/>
           <div className="row">
-            <div id="sideBar">
-                <SideBar projectCode={this.props.params.projectCode} {...this.props}/>
+            <div id="IssuePots">
+                <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
             </div>
             <div id="issuelist" className="col-sm-5">
                 <IssueList {...this.props}/>

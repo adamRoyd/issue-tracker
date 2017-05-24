@@ -10,7 +10,7 @@ a{
 
 
 @media (min-width: 768px){
-#sideBar{
+#IssuePots{
     position: absolute;
     top: 40px;
     bottom: 0;
@@ -41,7 +41,7 @@ a{
     overflow-x: hidden;
 }
 
-#sideBar {
+#IssuePots {
   height:100%;
   background: #DEDEE1;
   color:white;

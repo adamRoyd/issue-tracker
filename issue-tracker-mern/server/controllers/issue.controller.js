@@ -41,7 +41,7 @@ export function addIssue(req, res) {
   newIssue.browser = sanitizeHtml(newIssue.browser);
   newIssue.status = sanitizeHtml(newIssue.status);
   newIssue.dateAdded = sanitizeHtml(newIssue.dateAdded);
-
+  
   newIssue.save((err, saved) => {
     if (err) {
       return res.status(500).send(err);
