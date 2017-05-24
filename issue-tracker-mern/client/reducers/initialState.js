@@ -7,4 +7,5 @@ export default({
     issues: [],
     headers : headers,
     issueFilter: "all",
+    batchIssues: []
 });

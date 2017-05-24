@@ -36,8 +36,6 @@ const getVisibleIssues = (issues, filter) => {
 class IssueList extends React.Component{
     componentDidMount(){  
         this.props.setIssueFilter(this.props.params.filter);
-        //TO DO setActiveIssue does not work as the state has not recieved the issues in time
-        //this.props.setActiveIssue(this.props.params.id);
     }
     handleClick(i){
         const selectedIssue = this.props.issues[i];
@@ -50,7 +48,9 @@ class IssueList extends React.Component{
         this.props.sortIssues(i - 1,this.props.headers[i]);
     }
     checkBoxClick(i){
-        this.props.selectIssueForBatch(this.props.issues[i]);
+        console.log(this.props.issues[i]);
+        this.props.toggleCheckedIssue(this.props.issues[i]);
+        //this.props.addIssueToBatch(this.props.issues[i].id);
     }
     render(){
         return(

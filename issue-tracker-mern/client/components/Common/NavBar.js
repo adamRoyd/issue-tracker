@@ -22,6 +22,10 @@ class NavBar extends React.Component{
                             buttonName="New issue"
                             {...this.props}/>
                     }
+                    {(this.props.batchIssues.length > 0)
+                        ? <button>Batch issues</button>
+                        : null
+                    }
                     <Link to={`/`}><button className="btn">Log out</button></Link>
                     <div className="nav-div right">
                         <h4 className="white">User: {this.props.user}</h4>

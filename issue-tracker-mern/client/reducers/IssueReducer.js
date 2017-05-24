@@ -18,19 +18,32 @@ const IssueReducer = (state = initialState.issues, action) => {
             })
         ];
     case types.SET_ACTIVE_ISSUE:
-    return [
-        ...state.map((issue,index) => {
-            if(index == action.index){
-                return Object.assign({},action.issue,{
-                    active : true
-                });
-            } else{
-                return Object.assign({},issue,{
-                    active : false
-                });
-            }
-        })
-    ];
+        return [
+            ...state.map((issue,index) => {
+                if(index == action.index){
+                    return Object.assign({},action.issue,{
+                        active : true
+                    });
+                } else{
+                    return Object.assign({},issue,{
+                        active : false
+                    });
+                }
+            })
+        ];
+    case types.TOGGLE_CHECKED_ISSUE:
+        return [
+            ...state.map((issue) =>{
+                if(issue == action.issue){
+                    return Object.assign({}, issue, {
+                        checked: !issue.checked
+                    });
+                } else{
+                    return issue
+                }
+            })
+        ]
+        return state;
     case types.SORT_ISSUES:
         if(action.header.filter == 0 || action.header.filter == 2){
             return [
@@ -57,10 +70,6 @@ const IssueReducer = (state = initialState.issues, action) => {
                 })   
             ];
         }
-    case types.SELECT_ISSUE_FOR_BATCH:
-        console.log('SELECT ISSUE BATCH REDUCER');
-        console.log(action.issue);
-        return state;
     default:
         return state;
   }
@@ -71,8 +80,7 @@ const IssueReducer = (state = initialState.issues, action) => {
 // Get all issues
 export const getIssues = state => state.issues;
 
-// Get issues by cuid
-export const getIssue = (state, id) => state.issues.filter(issues => issues.id === id)[0];
+export const getBatchIssues = state => state.issues.filter((issue) => issue.checked == true)
 
 // Export Reducer
 export default IssueReducer;

@@ -3,10 +3,10 @@ import initialState from './initialState';
 
 const ProjectReducer = (state = initialState.projects, action) =>{
   switch (action.type) {
-    default:
-      return state;
     case types.ADD_PROJECTS:
       return action.projects;
+    default:
+      return state;     
   }
 }
 

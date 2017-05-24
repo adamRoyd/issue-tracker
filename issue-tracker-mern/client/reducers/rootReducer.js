@@ -9,6 +9,7 @@ import comments from './CommentReducer';
 import assignees from './AssigneeReducer';
 import issueFilter from './IssueFilterReducer';
 import headers from './HeaderReducer';
+import batchIssues from './BatchIssueReducer';
 
 export default combineReducers({
   projects,
@@ -16,5 +17,6 @@ export default combineReducers({
   comments,
   assignees,
   issueFilter,
-  headers
+  headers,
+  batchIssues
 });

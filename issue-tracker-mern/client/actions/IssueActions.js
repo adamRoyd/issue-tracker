@@ -16,6 +16,13 @@ export function setActiveIssue(issue,index){
     };
 }
 
+export function toggleCheckedIssue(issue){
+  return{
+    type: types.TOGGLE_CHECKED_ISSUE,
+    issue
+  }
+}
+
 export function addIssues(issues) {
   return {
     type: types.ADD_ISSUES,
@@ -93,9 +100,10 @@ export function sortIssues(index,header){
     };
 }
 
-export function selectIssueForBatch(issue){
+export function addIssueToBatch(id){
+  console.log('ADD ISSUE TO BATCH');
   return{
-    type: types.SELECT_ISSUE_FOR_BATCH,
-    issue
+    type: types.ADD_ISSUE_TO_BATCH,
+    id
   }
 }

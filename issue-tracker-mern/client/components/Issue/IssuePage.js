@@ -15,6 +15,7 @@ import { fetchIssues } from '../../actions/IssueActions';
 import { fetchAssignees } from '../../actions/AssigneeActions';
 // Import Selectors
 import { getIssues } from '../../reducers/IssueReducer';
+import { getBatchIssues } from '../../reducers/IssueReducer';
 
 
 class IssuePage extends Component {
@@ -58,7 +59,8 @@ function mapStateToProps(state) {
     issues: getIssues(state),
     status: status,
     locations : locations,
-    categories : categories
+    categories : categories,
+    batchIssues: getBatchIssues(state)
   };
 }
 
