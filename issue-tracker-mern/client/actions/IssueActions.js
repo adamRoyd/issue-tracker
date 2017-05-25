@@ -105,3 +105,19 @@ export function addIssueToBatch(id){
     id
   }
 }
+
+export function batchIssueRequest(batchIssues, batchOptions){
+  console.log('BATCH ISSUES REQUEST');
+  return (dispatch) => {
+      return callApi(`(:projectCode)/issues/(:filter)/`,'put', {
+        issues: batchIssues,
+        options: batchOptions
+      }).then(res => dispatch(batchIssues(res.issues)));
+    };
+}
+
+export function batchIssues(issues){
+  console.log('BATCH ISSUES SUCCESS');
+  type: types.BATCH_ISSUES,
+  issues
+}

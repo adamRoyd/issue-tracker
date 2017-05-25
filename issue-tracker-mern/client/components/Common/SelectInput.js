@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-const SelectInput = ({name, label, onChange, value, error, options}) => {
+const SelectInput = ({name, label, onChange, value, error, options,defaultOption}) => {
   return (
     <div className="form-group row">
       <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
@@ -11,6 +11,10 @@ const SelectInput = ({name, label, onChange, value, error, options}) => {
           value={value}
           onChange={onChange}
           className="form-control">
+          {(defaultOption)
+            ? <option selected>{defaultOption}</option>
+            : null
+          }
           {options.map((option,i) => {
             return <option key={i} value={option}>{option}</option>;
           })

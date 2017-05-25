@@ -2,20 +2,21 @@ import React,{getInitialState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Modal} from 'react-bootstrap';
-import {addIssueRequest} from '../../actions/IssueActions';
+import { batchIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getComments } from '../../reducers/CommentReducer';
+import BatchIssueForm from '../Issue/BatchIssueForm';
 
 class BatchIssuesModal extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             showModal: false,
-            issue : Object.assign({},this.props.issue),
+            batchOptions : {},
             errors : {}
         };
-        this.updateIssueState = this.updateIssueState.bind(this);
-        this.saveIssue = this.saveIssue.bind(this);
+        this.updateBatchState = this.updateBatchState.bind(this);
+        this.batchIssues = this.batchIssues.bind(this);
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
     }
@@ -26,15 +27,15 @@ class BatchIssuesModal extends React.Component{
     open() {
         this.setState({ showModal: true });
     }
-    updateIssueState(event){
+    updateBatchState(event){
         const field = event.target.name;
-        let issue = this.state.issue;
-        issue[field] = event.target.value;
-        return this.setState({issue : issue});
+        let batchOptions = this.state.batchOptions;
+        batchOptions[field] = event.target.value;
+        return this.setState({batchOptions : batchOptions});
     }
-    saveIssue(event){
+    batchIssues(event){
         event.preventDefault();
-        this.props.dispatch(addIssueRequest(this.state.issue,this.props.issues,this.props.params.projectCode));
+        this.props.dispatch(batchIssueRequest(this.props.batchIssues,this.state.batchOptions));
         return this.setState({ showModal: false });
     }
     render(){
@@ -51,11 +52,18 @@ class BatchIssuesModal extends React.Component{
                         <Modal.Title>Batch Issues</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-
+                         <BatchIssueForm
+                            batchOptions={this.state.batchOptions}
+                            errors={this.state.errors}
+                            onChange={this.updateBatchState}
+                            onSave={this.batchIssues}
+                            assignees={this.props.assignees}
+                            pots={this.props.status}
+                            {...this.props}/>                       
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn" onClick={this.close}>Close</button>
-                        <button className="btn" onClick={this.saveIssue}>Save</button>
+                        <button className="btn" onClick={this.batchIssues}>Save</button>
                     </Modal.Footer>
                 </Modal>
             </div>
@@ -64,13 +72,11 @@ class BatchIssuesModal extends React.Component{
 }
 
 BatchIssuesModal.propTypes = {
-    issue : PropTypes.object,
     user : PropTypes.string.isRequired,
     assignees : PropTypes.array.isRequired,
-    locations : PropTypes.array.isRequired,
     buttonName : PropTypes.string,
     params : PropTypes.object.isRequired,
-    saveIssue : PropTypes.func.isRequired
+    batchIssues : PropTypes.func.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

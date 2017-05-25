@@ -108,5 +108,26 @@ export function deleteIssue(req, res) {
     });
   });
 }
-
+/**
+ * Batch issues
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function batchIssues(req, res) {
+  console.log('BATCH ISSUES CONTROLLER');
+  const issuesToSave = req.body.issues
+  const batchOptions = req.body.batchOptions
+  Issue.findAndModify({ 
+      query : {id: 1},
+      sort : {id: 1},
+      update: {$set: {assigned : "works"}},
+      upsert: true 
+  }).exec((err, issues) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ issues });
+  });
+}
 
