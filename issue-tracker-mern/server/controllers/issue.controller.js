@@ -118,16 +118,23 @@ export function batchIssues(req, res) {
   console.log('BATCH ISSUES CONTROLLER');
   const issuesToSave = req.body.issues
   const batchOptions = req.body.batchOptions
-  Issue.findAndModify({ 
-      query : {id: 1},
-      sort : {id: 1},
-      update: {$set: {assigned : "works"}},
-      upsert: true 
-  }).exec((err, issues) => {
+  Issue.findOneAndUpdate(
+    { id: issuesToSave.id },
+    { $set: {
+        assigned : issueToSave.assigned,
+        status : issueToSave.status,
+        location : issueToSave.location,
+        sco : issueToSave.sco,
+        screen: issueToSave.screen,
+        category: issueToSave.category
+      } 
+    },
+    { new : true }
+  ).exec((err, issue) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.json({ issues });
+    res.json({ issue });
   });
 }
 

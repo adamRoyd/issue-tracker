@@ -1,6 +1,7 @@
 import React,{componentWillReceiveProps} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import { browserHistory } from 'react-router';
 import { addCommentRequest } from '../../actions/CommentActions';
 import { saveIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
@@ -32,6 +33,8 @@ class CommentManager extends React.Component{
         e.preventDefault();
         this.props.dispatch(addCommentRequest(this.state.comment,this.props.params));
         this.props.dispatch(saveIssueRequest(this.state.issue));
+        console.log('HANDLE SUBMIT PUSH');
+        browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}/`);
         return this.setState({
             comment : {text : ''},
             submitDisabled : true

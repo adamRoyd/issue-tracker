@@ -20,8 +20,8 @@ class SelectProjectPage extends React.Component{
                     <h4>Select a project</h4>
                     <div className="project-list">
                         <ul className="list-group">
-                           {this.props.projects.map((project, i) =>
-                                <button type="button" className="list-group-item" key={i} onClick={() => this.handleClick(project.projectCode)}>{project.projectCode}</button>
+                           {this.props.projects.map((projectCode, i) =>
+                                <button type="button" className="list-group-item" key={i} onClick={() => this.handleClick(projectCode)}>{projectCode}</button>
                             )}
                         </ul>
                     </div>

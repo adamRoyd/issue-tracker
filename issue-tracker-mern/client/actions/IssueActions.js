@@ -118,6 +118,8 @@ export function batchIssueRequest(batchIssues, batchOptions){
 
 export function batchIssues(issues){
   console.log('BATCH ISSUES SUCCESS');
-  type: types.BATCH_ISSUES,
-  issues
+  return{
+    type: types.BATCH_ISSUES,
+    issues
+  }
 }

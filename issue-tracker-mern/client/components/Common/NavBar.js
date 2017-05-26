@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import ProjectPicker from './ProjectPicker';
 import NewIssueModal from '../Modals/NewIssueModal';
 import BatchIssuesModal from '../Modals/BatchIssuesModal';
+import OpenProjectModal from '../Modals/OpenProjectModal';
 
 class NavBar extends React.Component{
     render(){
@@ -16,7 +17,10 @@ class NavBar extends React.Component{
                             <h4 className="white">{projectCode.toUpperCase()}</h4>
                         </div>
                     </Link>
-                    <ProjectPicker {...this.props}/>
+                    <OpenProjectModal
+                        buttonName="Open Project"
+                        {...this.props}
+                        />
                     {(projectCode == '')
                         ? <div></div>
                         : <NewIssueModal 

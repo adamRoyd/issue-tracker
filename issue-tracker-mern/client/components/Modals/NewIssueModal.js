@@ -21,7 +21,7 @@ class NewIssueModal extends React.Component{
         this.validate = this.validate.bind(this);
     }
     close() {
-        this.setState({ showModal: false });
+        this.setState({ showModal: false, issue:{}, errors: {} });
     }
 
     open() {
@@ -29,9 +29,10 @@ class NewIssueModal extends React.Component{
     }
     updateIssueState(event){
         const field = event.target.name;
+        const errors = this.validate(this.state.issue);
         let issue = this.state.issue;
         issue[field] = event.target.value;
-        return this.setState({issue : issue});
+        return this.setState({issue : issue, errors: errors});
     }
     saveIssue(event){
         event.preventDefault();
@@ -44,11 +45,13 @@ class NewIssueModal extends React.Component{
         }
     }
     validate(issue){
-        const errors = {'sss': 'sss'}
-        
-        Object.keys(issue).forEach(key => {
-            console.log(key,issue[key]);
-        });
+        let errors = {}
+        if(issue.location == null){
+            errors = {
+                location : 'Select a location'
+            }
+        }
+        console.log(errors);
         return errors
     }
     render(){

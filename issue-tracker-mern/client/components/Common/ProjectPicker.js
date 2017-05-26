@@ -5,27 +5,18 @@ import { Link, browserHistory } from 'react-router';
 import { Dropdown, Button } from 'react-bootstrap';
 import { getProjects } from '../../reducers/ProjectReducer';
 import { fetchIssues } from '../../actions/IssueActions';
-import CustomMenu from './CustomMenu';
 
 class ProjectPicker extends React.Component{
     constructor(props){
         super(props);
-        this.state = {visibleprojects : [],dropdownIsOpen : false};
-        this.loadProjects = this.loadProjects.bind(this);
+        this.state = {visibleprojects : this.props.projects};
         this.searchProjects = this.searchProjects.bind(this);
-        this.toggleDropdown = this.toggleDropdown.bind(this);
         this.handleClick = this.handleClick.bind(this);
-    }
-    loadProjects(){
-        this.toggleDropdown();
-        this.setState({
-            visibleprojects : this.props.projects
-        });
     }
     searchProjects(e){
         let term = e.target.value.toLowerCase();
         this.setState({
-            visibleprojects : this.props.projects.filter(project => project.projectCode.includes(term))
+            visibleprojects : this.props.projects.filter(projectCode => projectCode.includes(term))
         });
     }
     toggleDropdown(){
@@ -36,23 +27,31 @@ class ProjectPicker extends React.Component{
     handleClick(value){
         const projectCode = value.toLowerCase();
         this.props.dispatch(fetchIssues(projectCode));
-        this.toggleDropdown();
         browserHistory.push(`/${projectCode}/issues/all/`);
     }
     render(){
         return(
-            <Dropdown id="dropdown-custom-menu" open={this.state.dropdownIsOpen} onToggle={this.toggleDropdown}>
-                <Button onClick={this.loadProjects} className="btn" bsRole="toggle">
-                    Open Project
-                </Button>
-                <CustomMenu 
-                    toggleDropdown={this.toggleDropdown}
-                    listValues={this.state.visibleprojects}
-                    searchProjects={this.searchProjects}
-                    bsRole="menu"
-                    handleClick={this.handleClick}
+            <div>
+                <input
+                type="text"
+                placeholder="Find a project..."
+                onChange={this.searchProjects}
                 />
-            </Dropdown> 
+                <div className="project-list">
+                    <ul className="list-group">
+                        {this.state.visibleprojects.map((projectCode, i) =>
+                        <button 
+                            type="button" 
+                            className="list-group-item" 
+                            key={i} 
+                            onClick={() => this.handleClick(projectCode)}
+                        >
+                            {projectCode}
+                        </button>
+                        )}
+                    </ul>
+                </div>
+            </div>
         );
     }
 }
