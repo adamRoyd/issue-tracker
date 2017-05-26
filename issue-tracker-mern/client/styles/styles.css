@@ -219,6 +219,7 @@ input[type="text"]{
 }
 
 .project-list{
+  margin-top:10px;
   max-height:400px;
   overflow-y: auto;
 }
@@ -226,6 +227,7 @@ input[type="text"]{
 .list-group-item{
   padding:5px 10px !important;
   border:none !important;
+  height:30px;
 }
 
 

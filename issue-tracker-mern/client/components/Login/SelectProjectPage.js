@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Link, browserHistory } from 'react-router';
 import { fetchProjects } from '../../actions/ProjectActions';
 import { getProjects } from '../../reducers/ProjectReducer';
+import ProjectPicker from '../Common/ProjectPicker';
 
 class SelectProjectPage extends React.Component{
     componentDidMount() {
@@ -18,13 +19,7 @@ class SelectProjectPage extends React.Component{
             <div className="wrapper">
                 <div className="form-signin">
                     <h4>Select a project</h4>
-                    <div className="project-list">
-                        <ul className="list-group">
-                           {this.props.projects.map((projectCode, i) =>
-                                <button type="button" className="list-group-item" key={i} onClick={() => this.handleClick(projectCode)}>{projectCode}</button>
-                            )}
-                        </ul>
-                    </div>
+                    <ProjectPicker {...this.props}/>
                 </div>
             </div>
         );

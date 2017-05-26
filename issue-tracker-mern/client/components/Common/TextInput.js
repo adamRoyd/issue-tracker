@@ -9,7 +9,7 @@ const TextInput = ({name, label, onChange, placeholder, value, error}) => {
   return (
     <div className={wrapperClass}>
       <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
-      <div className="col-sm-7 field">
+      <div className="col-sm-9 field">
         <input
           type="text"
           name={name}

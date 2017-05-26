@@ -36,6 +36,7 @@ class OpenProjectModal extends React.Component{
                     <Modal.Body>
                         <ProjectPicker
                         {...this.props}
+                        close={this.close}
                         />
                     </Modal.Body>
                     <Modal.Footer>

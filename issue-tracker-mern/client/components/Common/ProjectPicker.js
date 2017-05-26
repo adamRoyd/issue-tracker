@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { Link, browserHistory } from 'react-router';
@@ -12,6 +12,9 @@ class ProjectPicker extends React.Component{
         this.state = {visibleprojects : this.props.projects};
         this.searchProjects = this.searchProjects.bind(this);
         this.handleClick = this.handleClick.bind(this);
+    }
+    componentDidMount(){
+        this.nameInput.focus();
     }
     searchProjects(e){
         let term = e.target.value.toLowerCase();
@@ -28,13 +31,18 @@ class ProjectPicker extends React.Component{
         const projectCode = value.toLowerCase();
         this.props.dispatch(fetchIssues(projectCode));
         browserHistory.push(`/${projectCode}/issues/all/`);
+        if(this.props.close){
+            this.props.close();
+        }
     }
     render(){
         return(
             <div>
                 <input
+                ref={(input) => { this.nameInput = input; }}
                 type="text"
-                placeholder="Find a project..."
+                className="form-control"
+                placeholder="Search projects..."
                 onChange={this.searchProjects}
                 />
                 <div className="project-list">
@@ -46,7 +54,7 @@ class ProjectPicker extends React.Component{
                             key={i} 
                             onClick={() => this.handleClick(projectCode)}
                         >
-                            {projectCode}
+                            {projectCode.toUpperCase()}
                         </button>
                         )}
                     </ul>
