@@ -19,8 +19,8 @@ const IssueReducer = (state = initialState.issues, action) => {
         ];
     case types.SET_ACTIVE_ISSUE:
         return [
-            ...state.map((issue,index) => {
-                if(index == action.index){
+            ...state.map((issue) => {
+                if(issue.id == action.issue.id){
                     return Object.assign({},issue,{
                         active : true
                     });
@@ -43,7 +43,6 @@ const IssueReducer = (state = initialState.issues, action) => {
                 }
             })
         ]
-        return state;
     case types.SORT_ISSUES:
         if(action.header.filter == 0 || action.header.filter == 2){
             return [

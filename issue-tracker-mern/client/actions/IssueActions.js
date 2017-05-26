@@ -11,8 +11,7 @@ export function setIssueFilter(issueFilter){
 export function setActiveIssue(issue,index){
     return{
         type: types.SET_ACTIVE_ISSUE,
-        issue,
-        index
+        issue
     };
 }
 
