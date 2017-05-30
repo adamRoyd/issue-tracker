@@ -2,6 +2,9 @@ import Express from 'express';
 import compression from 'compression';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import passport from 'passport';
+import ExpressSession from 'express-session';
 import path from 'path';
 import IntlWrapper from '../client/components/Intl/IntlWrapper';
 import ExpressValidator from 'express-validator';
@@ -22,22 +25,6 @@ if (process.env.NODE_ENV === 'development') {
   app.use(webpackHotMiddleware(compiler));
 }
 
-//Configuring Passport
-import Passport from 'passport';
-import ExpressSession from 'express-session';
-app.use(ExpressSession({secret: 'mySecretKey'}));
-app.use(Passport.initialize());
-app.use(Passport.session());
-
-// Using the flash middleware provided by connect-flash to store messages in session
-// and displaying in templates
-import flash from 'connect-flash';
-app.use(flash());
-
-//Initialise passport
-import initPassport from './controllers/passport/init';
-initPassport(Passport);
-
 // React And Redux Setup
 import { configureStore } from '../client/store';
 import { Provider } from 'react-redux';
@@ -53,7 +40,7 @@ import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
 import comments from './routes/comment.routes';
 import assignees from './routes/assignee.routes';
-var passportRoutes = require('./routes/passport.routes')(Passport);
+var passportRoutes = require('./routes/passport.routes')(passport);
 import serverConfig from './config';
 //dummy data
 import dummyData from './dummyData';
@@ -82,7 +69,22 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
 app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
+app.use(cookieParser());
 app.use(Express.static(path.resolve(__dirname, '../dist')));
+
+//Configuring passport
+app.use(ExpressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
+// Using the flash middleware provided by connect-flash to store messages in session
+// and displaying in templates
+import flash from 'connect-flash';
+app.use(flash());
+
+//Initialise passport
+import initpassport from './controllers/passport/init';
+initpassport(passport);
+
 
 app.use('/api',issues);
 app.use('/api',projects);

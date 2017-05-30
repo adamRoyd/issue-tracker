@@ -6,6 +6,6 @@ export default({
     assignees: [],
     issues: [],
     headers : headers,
-    issueFilter: "all",
+    issueFilter: "All",
     batchIssues: []
 });
