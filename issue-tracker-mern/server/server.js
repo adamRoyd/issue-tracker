@@ -22,6 +22,22 @@ if (process.env.NODE_ENV === 'development') {
   app.use(webpackHotMiddleware(compiler));
 }
 
+//Configuring Passport
+import Passport from 'passport';
+import ExpressSession from 'express-session';
+app.use(ExpressSession({secret: 'mySecretKey'}));
+app.use(Passport.initialize());
+app.use(Passport.session());
+
+// Using the flash middleware provided by connect-flash to store messages in session
+// and displaying in templates
+import flash from 'connect-flash';
+app.use(flash());
+
+//Initialise passport
+import initPassport from './controllers/passport/init';
+initPassport(Passport);
+
 // React And Redux Setup
 import { configureStore } from '../client/store';
 import { Provider } from 'react-redux';
@@ -37,6 +53,7 @@ import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
 import comments from './routes/comment.routes';
 import assignees from './routes/assignee.routes';
+var passportRoutes = require('./routes/passport.routes')(Passport);
 import serverConfig from './config';
 //dummy data
 import dummyData from './dummyData';
@@ -66,11 +83,12 @@ app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist')));
-//app.use(ExpressValidator);
+
 app.use('/api',issues);
 app.use('/api',projects);
 app.use('/api',comments);
 app.use('/api',assignees);
+app.use('/api',passportRoutes);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

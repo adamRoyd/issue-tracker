@@ -19,6 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./components/Login/LoginPage');
   require('./components/Login/SelectProjectPage');
   require('./components/Issue/IssuePage');
+  require('./components/Login/RegistrationPage');
 }
 
 // react-router setup with code-splitting
@@ -32,6 +33,14 @@ export default (
         });
       }}
     />
+    <Route
+      path="/signup"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./components/Login/RegistrationPage').default);
+        });
+      }}
+    />    
     <Route
       path="/selectproject"
       getComponent={(nextState, cb) => {

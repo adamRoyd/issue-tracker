@@ -7,6 +7,7 @@ export const SORT_ISSUES = 'SORT_ISSUES';
 export const TOGGLE_CHECKED_ISSUE = 'TOGGLE_CHECKED_ISSUE';
 
 export const SET_USER = 'SET_USER';
+export const SAVE_USER = 'SAVE_USER';
 export const ADD_ASSIGNEES = 'ADD_ASSIGNEES';
 
 export const ADD_POST = 'ADD_POST';
