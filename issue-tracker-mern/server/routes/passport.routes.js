@@ -1,6 +1,5 @@
 var express = require('express');
-import { Router } from 'express';
-const router = new Router();
+var router = express.Router();
 
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler 
@@ -14,10 +13,10 @@ var isAuthenticated = function (req, res, next) {
 
 module.exports = function(passport){
 	/* Handle Registration POST */
-	router.post('/signup', passport.authenticate('signup', {
+	router.post('/signup/(:username)/(:password)', passport.authenticate('signup', {
 		successRedirect: '/home',
-		failureRedirect: '/signup',
-		failureFlash : true  
+		failureRedirect: '/test',
+		failureFlash : true
 	}));
 
 	/* Handle Login POST */
@@ -33,11 +32,9 @@ module.exports = function(passport){
 		res.redirect('/');
 	});
 
-	router.route('/signup').post(passport.authenticate('signup', {
-		successRedirect: '/home',
-		failureRedirect: '/signup',
-		failureFlash : true  
-	}));
+	router.get('/test', function (req, res) {
+		res.send('Birds home page')
+	})
 
 	return router;
 }

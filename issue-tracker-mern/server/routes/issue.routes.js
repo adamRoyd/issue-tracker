@@ -8,7 +8,10 @@ router.route('/(:projectCode)/issues/(:filter)').post(IssueController.addIssue);
 
 router.route('/(:projectCode)/issues/(:filter)').put(IssueController.batchIssues);
 
-
 router.route('/(:projectCode)/issues/(:filter)/(:id)').put(IssueController.saveIssue);
+
+// router.get('/test', function (req, res) {
+//     res.send('Birds home page')
+// })
 
 export default router;

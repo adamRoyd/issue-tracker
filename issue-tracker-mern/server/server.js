@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
+import morgan from 'morgan';
 import ExpressSession from 'express-session';
 import path from 'path';
 import IntlWrapper from '../client/components/Intl/IntlWrapper';
@@ -40,7 +41,6 @@ import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
 import comments from './routes/comment.routes';
 import assignees from './routes/assignee.routes';
-var passportRoutes = require('./routes/passport.routes')(passport);
 import serverConfig from './config';
 //dummy data
 import dummyData from './dummyData';
@@ -71,6 +71,7 @@ app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(cookieParser());
 app.use(Express.static(path.resolve(__dirname, '../dist')));
+app.use(morgan('dev'));
 
 //Configuring passport
 app.use(ExpressSession({secret: 'mySecretKey'}));
@@ -84,13 +85,13 @@ app.use(flash());
 //Initialise passport
 import initpassport from '../config/passport/init';
 initpassport(passport);
+var passportRoutes = require('./routes/passport.routes')(passport);
 
-
+app.use('/api',passportRoutes);
 app.use('/api',issues);
 app.use('/api',projects);
 app.use('/api',comments);
 app.use('/api',assignees);
-app.use('/api',passportRoutes);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

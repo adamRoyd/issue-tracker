@@ -11,8 +11,8 @@ class RegistrationPage extends React.Component{
         const username = this.refs.userName.value;
         const password = this.refs.password.value;
         const user = {username,password}
-        this.props.dispatch(saveUserRequest(user));
-        browserHistory.push(`/login`);
+        this.props.dispatch(saveUserRequest('adam','testpassword'));
+        //browserHistory.push(`/login`);
     }
     render(){
         this.handleSubmit = this.handleSubmit.bind(this);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import StatusIcon from '../../assets/StatusIcon';
 import ReactTooltip from 'react-tooltip';
 
-const Link = ({ value, onClick, active, issues }) => {
+const Link = ({ value, onClick, active, issues, numberOfIssues }) => {
   return (
         <div className={active ? 'linkIconActive' : 'linkIcon'}>
             <div 
@@ -22,7 +22,7 @@ const Link = ({ value, onClick, active, issues }) => {
                 </ReactTooltip>
             </div>
             <div id="issueCount">
-                {issues.filter(t =>t.status == value).length}
+                {numberOfIssues}
             </div>
         </div>
   );
