@@ -81,5 +81,28 @@ export const getIssues = state => state.issues;
 
 export const getBatchIssues = state => state.issues.filter((issue) => issue.checked == true)
 
+export const getVisibleIssues = (issues, filter) => {
+    switch(filter){
+        case 'SHOW_ALL':
+            return issues;
+        case 'New':
+            return issues.filter(t => t.status == 'New');
+        case 'On Hold':
+            return issues.filter(t => t.status == 'On Hold');
+        case 'Ready To Fix':
+            return issues.filter(t => t.status == 'Ready To Fix');
+        case 'Fixed':
+            return issues.filter(t => t.status == 'Fixed');
+        case 'Returned':
+            return issues.filter(t => t.status == 'Returned');
+        case 'Closed':
+            return issues.filter(t => t.status == 'Closed');
+        case 'Rejected':
+            return issues.filter(t => t.status == 'Rejected');        
+        default:
+            return issues;
+    }
+};
+
 // Export Reducer
 export default IssueReducer;

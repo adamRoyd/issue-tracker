@@ -82,7 +82,7 @@ import flash from 'connect-flash';
 app.use(flash());
 
 //Initialise passport
-import initpassport from './controllers/passport/init';
+import initpassport from '../config/passport/init';
 initpassport(passport);
 
 

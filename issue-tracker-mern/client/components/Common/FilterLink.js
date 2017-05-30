@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { setIssueFilter } from '../../actions/IssueActions';
+import { getVisibleIssues } from '../../reducers/IssueReducer';
 import Link from './Link';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     active: ownProps.value === state.issueFilter,
-    issues: state.issues
+    issues: state.issues,
+    numberOfIssues: getVisibleIssues(state.issues,ownProps.value).length
   };
 };
 

@@ -7,31 +7,10 @@ import Header from './Header';
 import { Link, browserHistory } from 'react-router';
 import * as IssueActions from '../../actions/IssueActions';
 import { fetchComments } from '../../actions/CommentActions';
+import { getVisibleIssues } from '../../reducers/IssueReducer';
 import { getFilter } from '../../reducers/IssueFilterReducer';
 import { getHeaders } from '../../reducers/HeaderReducer';
 
-const getVisibleIssues = (issues, filter) => {
-    switch(filter){
-        case 'SHOW_ALL':
-            return issues;
-        case 'New':
-            return issues.filter(t => t.status == 'New');
-        case 'On Hold':
-            return issues.filter(t => t.status == 'On Hold');
-        case 'Ready To Fix':
-            return issues.filter(t => t.status == 'Ready To Fix');
-        case 'Fixed':
-            return issues.filter(t => t.status == 'Fixed');
-        case 'Returned':
-            return issues.filter(t => t.status == 'Returned');
-        case 'Closed':
-            return issues.filter(t => t.status == 'Closed');
-        case 'Rejected':
-            return issues.filter(t => t.status == 'Rejected');        
-        default:
-            return issues;
-    }
-};
 
 class IssueList extends React.Component{
     componentDidMount(){  
