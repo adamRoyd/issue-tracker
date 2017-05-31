@@ -4,7 +4,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
-import IntlWrapper from './components/Intl/IntlWrapper';
 
 // Import Routes
 import routes from './routes';

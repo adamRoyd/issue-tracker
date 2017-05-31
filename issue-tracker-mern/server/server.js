@@ -7,7 +7,6 @@ import passport from 'passport';
 import morgan from 'morgan';
 import ExpressSession from 'express-session';
 import path from 'path';
-import IntlWrapper from '../client/components/Intl/IntlWrapper';
 import ExpressValidator from 'express-validator';
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -16,6 +15,9 @@ import webpack from 'webpack';
 import config from '../webpack.config.dev';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+
+
+
 
 // Initialize the Express App
 const app = new Express();
@@ -166,9 +168,7 @@ app.use((req, res, next) => {
       .then(() => {
         const initialView = renderToString(
           <Provider store={store}>
-            <IntlWrapper>
               <RouterContext {...renderProps} />
-            </IntlWrapper>
           </Provider>
         );
         const finalState = store.getState();
