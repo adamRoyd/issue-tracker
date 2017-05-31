@@ -9,6 +9,7 @@ import ExpressSession from 'express-session';
 import path from 'path';
 import IntlWrapper from '../client/components/Intl/IntlWrapper';
 import ExpressValidator from 'express-validator';
+var LocalStrategy = require('passport-local').Strategy;
 
 // Webpack Requirements
 import webpack from 'webpack';
@@ -37,6 +38,7 @@ import Helmet from 'react-helmet';
 // Import required modules
 import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
+import passportRoutes from './routes/passport.routes';
 import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
 import comments from './routes/comment.routes';
@@ -82,16 +84,21 @@ app.use(passport.session());
 import flash from 'connect-flash';
 app.use(flash());
 
-//Initialise passport
-import initpassport from '../config/passport/init';
-initpassport(passport);
-var passportRoutes = require('./routes/passport.routes')(passport);
+// //Initialise passport
+// import initpassport from '../config/passport/init';
+// initpassport(passport);
 
 app.use('/api',passportRoutes);
 app.use('/api',issues);
 app.use('/api',projects);
 app.use('/api',comments);
 app.use('/api',assignees);
+
+//passport config
+var User = require ('./models/user');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

@@ -13,14 +13,12 @@ export function saveUser(user){
 export function saveUserRequest(username,password) {
     console.log('SAVE USER REQUEST');
     return (dispatch) => {
-        return callApi(`signup/${username}/${password}`,'post', {
-        user: {
+        return callApi(`signup`,'post', {
             username: 'username',
             password: 'password',
             email: 'email',
             firstName: 'firstName',
             lastName: 'lastName'
-        },
         }).then(res => dispatch(saveUser(res.user)));
   };
 }
