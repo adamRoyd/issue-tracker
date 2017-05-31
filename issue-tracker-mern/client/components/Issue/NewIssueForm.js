@@ -1,19 +1,13 @@
 import React from 'react';
-import Browser from 'detect-browser';
 import PropTypes from 'prop-types';
 import TextInput from '../Common/TextInput';
+import TextAreaInput from '../Common/TextAreaInput';
 import SelectInput from '../Common/SelectInput';
+import DropZone from '../Common/DropZone';
 
-const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,categories}) => {
+const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,categories,onDrop,files}) => {
         return(
-            <form>
-                 <TextInput
-                    name="browser"
-                    label="Browser"
-                    value={issue.browser}
-                    placeholder={Browser.name + ' ' + Browser.version}
-                    onChange={onChange}
-                    error=""/>  
+            <form> 
                 <SelectInput
                     name="location"
                     label="Location"
@@ -54,12 +48,18 @@ const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,
                     options={assignees}
                     onChange={onChange} 
                     error={errors.assigned}/>
-                 <TextInput
+                 <TextAreaInput
                     name="description"
                     label="Description"
                     value={issue.description}
                     onChange={onChange}
-                    error={errors.description}/>                   
+                    error={errors.description}
+                    width="col-sm-9"/>
+                <DropZone
+                    name="attachment"
+                    label="Attachment"
+                    onDrop={onDrop}
+                    files={files}/>          
             </form>
         );
 };

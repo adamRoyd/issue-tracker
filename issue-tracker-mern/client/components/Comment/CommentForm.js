@@ -17,12 +17,12 @@ const CommentForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChang
             <div className="row displayTable">
             <TextAreaInput
                 name="text"
-                label=""
                 value={comment.text}
                 placeholder="Enter a comment"
                 onChange={onCommentChange}
                 error=""
-                wrapperClass="col-sm-7 tableCell"/>
+                wrapperClass="col-sm-7 tableCell"
+                width="col-sm-12"/>
             <div className="col-sm-5 tableCell">
                 <SelectInput
                     name="assigned"

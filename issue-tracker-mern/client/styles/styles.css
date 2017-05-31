@@ -72,16 +72,6 @@ a{
 }
 
 
-/************************ DropZone *****************************/
-.DropZone{
-    border: 3px dashed transparent;
-}
-
-.DropZoneOver{
-    border: 3px dashed black;
-}
-
-
 /***********************************Description and Form ************************************/
 #issueDescription{
   height:200px;
@@ -92,7 +82,10 @@ a{
   padding:0px 20px 0px 15px;
 }
 
-
+.form-group .row .has-error{
+  background:red !important;
+  color:red !important;
+}
 
 /*Comments*/
 .comment{
@@ -120,6 +113,14 @@ input[type="text"]{
 .col-form-label{
   text-align:right !important;
   padding:5px 0 0 0 !important;
+}
+
+.dashed{
+  border: 1px dashed #444444 !important;
+}
+
+.modal-dialog{
+  width:700px !important;
 }
 
 /* SIDE BAR */
@@ -238,12 +239,8 @@ input[type="text"]{
 }
 
 textarea.form-control{
-    position:absolute !important;
-    width:95% !important;
-    height: 95% !important;
-   -webkit-box-sizing: border-box; 
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    resize: vertical !important;
+    min-height:200px;
 }
 
 div .displayTable{

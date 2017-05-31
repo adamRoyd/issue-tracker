@@ -2,6 +2,7 @@ import React,{getInitialState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Modal} from 'react-bootstrap';
+import Browser from 'detect-browser';
 import {addIssueRequest} from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import NewIssueForm from '../Issue/NewIssueForm';
@@ -11,14 +12,24 @@ class NewIssueModal extends React.Component{
         super(props);
         this.state = {
             showModal: false,
-            issue : Object.assign({},this.props.issue),
-            errors : {}
+            issue : {
+                location: null,
+                sco: null,
+                screen: null,
+                category: null,
+                assigned: null,
+                description: null,
+                browser: Browser.name + ' ' + Browser.version
+            },
+            errors : {},
+            files: []
         };
         this.updateIssueState = this.updateIssueState.bind(this);
         this.saveIssue = this.saveIssue.bind(this);
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
         this.validate = this.validate.bind(this);
+        this.onDrop = this.onDrop.bind(this);
     }
     close() {
         this.setState({ showModal: false, issue:{}, errors: {} });
@@ -44,13 +55,26 @@ class NewIssueModal extends React.Component{
             return this.setState({ errors: errors});
         }
     }
+    onDrop(files){
+        this.setState({
+            files
+        });
+    }
     validate(issue){
         let errors = {}
-        if(issue.location == null){
-            errors = {
-                location : 'Select a location'
+        Object.keys(issue).forEach(item =>{
+            console.log(item);
+            if(issue[item] == null){
+                errors = {
+                   item : 'BLAAAAAH'
+               }
             }
-        }
+        })
+        // if(issue.location == null){
+        //     errors = {
+        //         location : 'Select a location'
+        //     }
+        // }
         console.log(errors);
         return errors
     }
@@ -76,11 +100,13 @@ class NewIssueModal extends React.Component{
                             assignees={this.props.assignees}
                             locations={this.props.locations}
                             categories={this.props.categories}
+                            onDrop={this.onDrop}
+                            files={this.state.files}
                             {...this.props}/>
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn" onClick={this.close}>Close</button>
-                        <button className="btn" onClick={this.saveIssue}>Save</button>
+                        <button className="btn" onClick={this.saveIssue}>Create issue</button>
                     </Modal.Footer>
                 </Modal>
             </div>

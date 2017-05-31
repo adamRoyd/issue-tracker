@@ -1,8 +1,13 @@
 import React, {PropTypes} from 'react';
 
 const SelectInput = ({name, label, onChange, value, error, options,defaultOption}) => {
+  let wrapperClass = 'form-group row';
+  if (error && error.length > 0) {
+    wrapperClass += " " + 'has-error';
+  }
+
   return (
-    <div className="form-group row">
+    <div className={wrapperClass}>
       <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
       <div className="col-sm-9 field">
         {/* Note, value is set here rather than on the option - docs: https://facebook.github.io/react/docs/forms.html */}
@@ -20,7 +25,7 @@ const SelectInput = ({name, label, onChange, value, error, options,defaultOption
           })
           }
         </select>
-        {error && <div className="alert alert-danger">{error}</div>}
+        {/*{error && <div className="alert alert-danger">{error}</div>}*/}
       </div>
     </div>
   );
