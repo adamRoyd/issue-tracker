@@ -1,20 +1,50 @@
 import User from '../models/user';
+const express = require('express');
+const passport = require('passport');
 import cuid from 'cuid';
 import slug from 'limax';
 import sanitizeHtml from 'sanitize-html';
-
-export function validateLogin(req, res, next){
-    req.checkBody('email','That email is not valid').isEmail();
-    req.sanitizeBody('email').normalizeEmail({
-        remove_dots: false,
-        remove_extension: false,
-        gmail_remove_subaddress: false
+/**
+ * Register user
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function signup(req, res, next) {
+    User.register(new User({ username : req.body.username, isClient: req.body.isClient }), req.body.password, (err, account) => {
+        if (err) {
+          return res.send('error');
+        }
+        passport.authenticate('local')(req, res, () => {
+            req.session.save((err) => {
+                if (err) {
+                    return next(err);
+                }
+                console.log('SIGNUP RESPONSE');
+                console.log(res.json);
+                res.redirect('/');
+            });
+        });
     });
-    req.checkBody('password','Password Cannot be Blank!').notEmpty();
-    
-    const errors = req.validatationErrors();
-    if(error){
-        //DO SOMETHING
-    }
-
-}
+};
+/**
+ * Login user
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function login(req, res) {
+    console.log('USER CONTROLLER LOGIN');
+    console.log(req.body);
+    passport.authenticate('local', { failureRedirect: '/fail', failureFlash: true }), (req, res, next) => {
+        console.log('USER CONTROLLER LOGIN GETS HERE!');
+        req.session.save((err) => {
+            if (err) {
+                return next(err);
+            }
+            console.log('done');
+            console.log(res.user);
+            res.redirect('/');
+        });
+    };
+};

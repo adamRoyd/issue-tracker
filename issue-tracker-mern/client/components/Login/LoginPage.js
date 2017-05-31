@@ -1,21 +1,16 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import { fetchProjects } from '../../actions/ProjectActions';
-import {setUser} from '../../actions/loginActions';
+import { loginUserRequest } from '../../actions/UserActions';
 import { Link, browserHistory } from 'react-router';
 
 class LoginPage extends React.Component{
-    componentDidMount() {
-        this.props.fetchProjects();
-    }
     handleSubmit = (e) => {
         e.preventDefault();
-        const userName = this.refs.userName.value;
-        const passWord = this.refs.password.value;
-        this.props.setUser(userName);
-        browserHistory.push(`/selectproject`);
+        const username = this.refs.userName.value;
+        const password = this.refs.password.value;
+        this.props.dispatch(loginUserRequest(username,password))
+        //browserHistory.push(`/selectproject`);
     }
     render(){
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +30,7 @@ class LoginPage extends React.Component{
 }
 
 LoginPage.propTypes = {
-    setUser : PropTypes.func.isRequired
+
 };
 
 function mapStateToProps(state){
@@ -44,8 +39,5 @@ function mapStateToProps(state){
     };
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators({setUser,fetchProjects}, dispatch);
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps)(LoginPage);

@@ -38,7 +38,7 @@ import Helmet from 'react-helmet';
 // Import required modules
 import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
-import passportRoutes from './routes/passport.routes';
+import users from './routes/user.routes';
 import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
 import comments from './routes/comment.routes';
@@ -88,7 +88,7 @@ app.use(flash());
 // import initpassport from '../config/passport/init';
 // initpassport(passport);
 
-app.use('/api',passportRoutes);
+app.use('/api',users);
 app.use('/api',issues);
 app.use('/api',projects);
 app.use('/api',comments);

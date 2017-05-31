@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {setUser} from '../../actions/loginActions';
-import { saveUserRequest } from '../../actions/userActions';
+import { saveUserRequest } from '../../actions/UserActions';
 import { Link, browserHistory } from 'react-router';
 
 class RegistrationPage extends React.Component{
