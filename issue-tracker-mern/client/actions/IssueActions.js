@@ -44,7 +44,11 @@ export function addIssue(issue) {
   };
 }
 
-export function addIssueRequest(issue,issues,projectCode) {
+export function addIssueRequest(issue,files,issues,projectCode) {
+  console.log('ADD ISSUE REQUEST');
+  let data = new FormData();
+  data.append(files,document);
+  console.log(data);
   return (dispatch) => {
     return callApi(`(:projectCode)/issues/(:filter)`,'post', {
       issue: {
@@ -60,6 +64,7 @@ export function addIssueRequest(issue,issues,projectCode) {
         browser: issue.browser,
         dateAdded : new Date()
       },
+      file : files
     }).then(res => dispatch(addIssue(res.issue)));
   };
 }
