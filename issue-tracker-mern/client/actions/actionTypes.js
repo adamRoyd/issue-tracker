@@ -24,3 +24,5 @@ export const ADD_COMMENT = 'ADD_COMMENT';
 
 export const ADD_ISSUE_TO_BATCH = 'ADD_ISSUE_TO_BATCH';
 export const BATCH_ISSUES = 'BATCH_ISSUES';
+
+export const UPLOAD_FILE_SUCCESS = 'UPLOAD_FILE_SUCCESS';

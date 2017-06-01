@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import callApi from '../util/apiCaller';
+import callApiUpload from '../util/apiUpload';
 
 export function setIssueFilter(issueFilter){
     return{
@@ -125,5 +126,21 @@ export function batchIssues(issues){
   return{
     type: types.BATCH_ISSUES,
     issues
+  }
+}
+
+export function uploadFileRequest(file){
+  console.log('UPLOAD FILE REQUEST');
+  console.log(file);
+  return (dispatch) => {
+      return callApiUpload(`/upload`,'post',{
+        file
+      }).then(res => dispatch(uploadFileSuccess()));
+    };
+}
+
+export function uploadFileSuccess(){
+  return{
+    type: types.UPLOAD_FILE_SUCCESS,
   }
 }

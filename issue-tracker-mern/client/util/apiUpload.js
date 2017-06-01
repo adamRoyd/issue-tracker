@@ -5,10 +5,14 @@ export const API_URL = (typeof window === 'undefined' || process.env.NODE_ENV ==
   process.env.BASE_URL || (`http://localhost:${process.env.PORT || Config.port}/api`) :
   '/api';
 
-export default function callApi(endpoint, method = 'get', body) {
+export default function callApiUpload(endpoint, method = 'get', file) {
+  const data = new FormData();
+  data.append('file',file);
+  console.log('FORM DATA');
+  console.log(data);
   return fetch(`${API_URL}/${endpoint}`, {
     method,
-    body: JSON.stringify(body)
+    body: data
   })
   .then(response => response.json().then(json => ({ json, response })))
   .then(({ json, response }) => {

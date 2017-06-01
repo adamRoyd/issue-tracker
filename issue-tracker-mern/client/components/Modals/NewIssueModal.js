@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Modal} from 'react-bootstrap';
 import Browser from 'detect-browser';
-import {addIssueRequest} from '../../actions/IssueActions';
+import { addIssueRequest, uploadFileRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import NewIssueForm from '../Issue/NewIssueForm';
 
@@ -59,6 +59,7 @@ class NewIssueModal extends React.Component{
         this.setState({
             files
         });
+        this.props.dispatch(uploadFileRequest(files))
     }
     validate(issue){
         let errors = {}

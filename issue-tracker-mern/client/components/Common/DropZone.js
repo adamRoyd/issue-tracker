@@ -11,7 +11,7 @@ const DropZone = ({name, label, onDrop, files }) => {
         </Dropzone>
         <ul>
             {
-                files.map(f => <li>{f.name} - {f.size} bytes</li>)
+                files.map((f,i) => <li key={i}>{f.name} - {f.size} bytes</li>)
             }
         </ul>
       </div>
