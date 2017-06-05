@@ -9,8 +9,7 @@ class RegistrationPage extends React.Component{
         e.preventDefault();
         const username = this.refs.userName.value;
         const password = this.refs.password.value;
-        const user = {username,password}
-        this.props.dispatch(saveUserRequest('adam','testpassword'));
+        this.props.dispatch(saveUserRequest(username,password));
         //browserHistory.push(`/login`);
     }
     render(){

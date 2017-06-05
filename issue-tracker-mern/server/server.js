@@ -16,9 +16,6 @@ import config from '../webpack.config.dev';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-
-
-
 // Initialize the Express App
 const app = new Express();
 
@@ -86,10 +83,6 @@ app.use(passport.session());
 import flash from 'connect-flash';
 app.use(flash());
 
-// //Initialise passport
-// import initpassport from '../config/passport/init';
-// initpassport(passport);
-
 app.use('/api',users);
 app.use('/api',issues);
 app.use('/api',projects);
@@ -101,6 +94,11 @@ var User = require ('./models/user');
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// app.get('/', function(req, res, next) {
+//   var sess = req.session
+//   console.log(sess);
+// })
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
