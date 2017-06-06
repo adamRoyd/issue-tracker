@@ -8,7 +8,9 @@ export const TOGGLE_CHECKED_ISSUE = 'TOGGLE_CHECKED_ISSUE';
 
 export const SET_USER = 'SET_USER';
 export const SAVE_USER = 'SAVE_USER';
-export const LOGIN_USER = 'LOGIN_USER';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const ADD_ASSIGNEES = 'ADD_ASSIGNEES';
 
 export const ADD_POST = 'ADD_POST';

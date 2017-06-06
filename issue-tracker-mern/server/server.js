@@ -5,10 +5,12 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import morgan from 'morgan';
+import cors from 'cors';
 import ExpressSession from 'express-session';
 import path from 'path';
 import ExpressValidator from 'express-validator';
 var LocalStrategy = require('passport-local').Strategy;
+
 
 // Webpack Requirements
 import webpack from 'webpack';
@@ -69,7 +71,8 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
 // Apply body Parser and server public assets and routes
 app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
-app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
+app.use(bodyParser.urlencoded({ limit: '20mb', extended: true }));
+app.use(cors());
 app.use(cookieParser());
 app.use(Express.static(path.resolve(__dirname, '../dist')));
 app.use(morgan('dev'));

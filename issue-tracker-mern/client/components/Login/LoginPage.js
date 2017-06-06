@@ -1,15 +1,25 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import { loginUserRequest } from '../../actions/UserActions';
 import { Link, browserHistory } from 'react-router';
+import { loginUser } from '../../actions/UserActions';
+import { getUser } from '../../reducers/UserReducer';
 
 class LoginPage extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault();
         const username = this.refs.userName.value;
         const password = this.refs.password.value;
-        this.props.dispatch(loginUserRequest(username,password))
+        const creds = {
+            username,
+            password
+        }
+        this.props.dispatch(loginUser(creds))
+    }
+    componentWillUpdate(nextProps,nextState){
+        if(this.props.user != null){
+            browserHistory.push('/selectproject');
+        }
     }
     render(){
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +44,7 @@ LoginPage.propTypes = {
 
 function mapStateToProps(state){
     return{
-
+        user: getUser(state)
     };
 }
 

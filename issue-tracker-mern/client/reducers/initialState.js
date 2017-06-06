@@ -7,5 +7,6 @@ export default({
     issues: [],
     headers : headers,
     issueFilter: "All",
-    batchIssues: []
+    batchIssues: [],
+    user: ""
 });

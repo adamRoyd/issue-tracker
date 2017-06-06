@@ -4,7 +4,14 @@ const passport = require('passport');
 import cuid from 'cuid';
 import slug from 'limax';
 import sanitizeHtml from 'sanitize-html';
+import _ from 'lodash';
+import jwt from 'jsonwebtoken';
+import config from '../config';
 
+
+function createToken(user) {
+  return jwt.sign(_.omit(user, 'password'), config.secret, { expiresIn: "7d" });
+}
 /**
  * Login user
  * @param req
@@ -13,11 +20,17 @@ import sanitizeHtml from 'sanitize-html';
  */
 export function login(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
+
     if (err) { return next(err); }
-    if (!user) { return res.json(info.message); }
+
+    if (!user) { return res.json("loginError"); }
+
     req.logIn(user, function(err) {
-      if (err) { return next(err); }
-      return res.json(user.username);
+        if (err) { return next(err); }
+
+        res.status(201).send({
+            id_token: createToken(user)
+        });
     });
   })(req, res, next);
 };
@@ -28,8 +41,6 @@ export function login(req, res, next) {
  * @returns void
  */
 export function signup(req, res, next) {
-    console.log('SIGN UP CONTROLLER');
-    console.log(req.body);
     User.register(new User({ username : req.body.username, isClient: req.body.isClient }), req.body.password, (err, account) => {
         if (err) {
           return res.send('error');
@@ -39,8 +50,6 @@ export function signup(req, res, next) {
                 if (err) {
                     return next(err);
                 }
-                console.log('SIGNUP RESPONSE');
-                console.log(res.json);
                 res.redirect('/');
             });
         });
