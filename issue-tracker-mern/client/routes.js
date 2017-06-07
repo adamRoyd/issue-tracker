@@ -23,8 +23,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function authCheck(){
-  //const token = localStorage.getItem('id_token');
-  //console.log(token);
+  var isNode = typeof module !== 'undefined';
+  if(!isNode){
+    const token = localStorage.getItem('id_token');
+    console.log(token);
+  }
+
 
 }
 

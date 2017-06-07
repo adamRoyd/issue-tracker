@@ -2,6 +2,7 @@ import Issue from '../models/issue';
 import cuid from 'cuid';
 import slug from 'limax';
 import sanitizeHtml from 'sanitize-html';
+import mail from '../handlers/mail';
 
 /**
  * Get all issues
@@ -70,7 +71,13 @@ export function getIssue(req, res) {
  * @returns void
  */
 export function saveIssue(req, res) {
+  console.log('SAVE ISSUE GONNA SEND THAT MAIL');
   const issueToSave = req.body.issue
+  mail.send({
+    username: issueToSave.assigned,
+    subject: 'An issue has been assigned to you',
+    url: req.route.path
+  })
   Issue.findOneAndUpdate(
     { id: issueToSave.id },
     { $set: {
