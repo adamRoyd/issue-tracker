@@ -15,6 +15,8 @@ class LoginPage extends React.Component{
         this.props.dispatch(loginUser(creds))
     }
     componentWillUpdate(nextProps,nextState){
+        console.log('COMPONENT WILL UPDATE');
+        console.log(this.props.user != null);
         if(this.props.user != null){
             browserHistory.push('/selectproject');
         }
@@ -42,7 +44,8 @@ LoginPage.propTypes = {
 
 function mapStateToProps(state){
     return{
-        user: getUser(state)
+        username: getUser(state).username,
+        isAuthenticated: getUser(state).isAuthenticated
     };
 }
 

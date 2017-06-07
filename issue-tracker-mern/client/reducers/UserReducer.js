@@ -1,23 +1,23 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
-const UserReducer = (state = {
-    isFetching: false,
-    isAuthenticated: localStorage.getItem('id_token') ? true : false
-  }, action) =>{
+const UserReducer = (state = initialState.user, action) =>{
   switch (action.type) {
     case types.LOGIN_SUCCESS:
         console.log('LOGIN SUCCESS REDUCER');
         return Object.assign({}, state, {
             isFetching: false,
             isAuthenticated: true,
+            username: action.username,
             errorMessage: ''
         })
-    case types.LOGIN_FAIL:
-        return state;
+    case types.LOGIN_FAILURE:
+        return Object.assign({}, state, {
+            isFetching: false,
+            isAuthenticated: false,
+            errorMessage: action.message
+        })
     default:
-        console.log('FIRED');
-        console.log(state);
         return state;
   }
 }

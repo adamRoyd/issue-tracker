@@ -20,16 +20,18 @@ function createToken(user) {
  */
 export function login(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
-
     if (err) { return next(err); }
 
-    if (!user) { return res.json("loginError"); }
+    if (!user) { return res.status(400).send({
+        message: "You must send the username and the password"
+    }); }
 
     req.logIn(user, function(err) {
         if (err) { return next(err); }
 
         res.status(201).send({
-            id_token: createToken(user)
+            id_token: createToken(user),
+            username: req.user.username
         });
     });
   })(req, res, next);

@@ -28,13 +28,12 @@ function requestLogin(creds) {
 }
 
 function receiveLogin(user) {
-    console.log('RECIEVE LOGIN - set to local storage');
-    localStorage.setItem('id_token', user.id_token)
   return {
     type: types.LOGIN_SUCCESS,
     isFetching: false,
     isAuthenticated: true,
-    id_token: user.id_token
+    id_token: user.id_token,
+    username: user.username
   }
 }
 
@@ -53,6 +52,14 @@ export function loginUser(creds) {
         return callApi(`login`,'post', {
             username : creds.username,
             password : creds.password
-        }).then(res => dispatch(receiveLogin(res)));
+        }).then(res => {
+          console.log(res);
+          if(!res.username){
+            dispatch(loginError(res))
+          } else{
+            localStorage.setItem('id_token', res.id_token)
+            dispatch(receiveLogin(res))
+          }
+        });
   };
 }

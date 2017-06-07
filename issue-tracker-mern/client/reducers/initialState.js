@@ -6,5 +6,10 @@ export default({
     assignees: [],
     issues: [],
     headers : headers,
-    issueFilter: "All"
+    issueFilter: "All",
+    user: {
+        isFetching: false,
+        isAuthenticated: false,
+        username: ""
+    }
 });

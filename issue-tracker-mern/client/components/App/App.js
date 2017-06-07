@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { getUser } from '../../reducers/UserReducer';
 
 // Import Style
 //import styles from './App.css';
@@ -40,9 +41,10 @@ App.propTypes = {
 };
 
 // Retrieve data from store as props
-function mapStateToProps(store) {
+function mapStateToProps(state) {
   return {
-
+    username : getUser(state).username,
+    isAuthenticated: getUser(state).isAuthenticated
   };
 }
 
