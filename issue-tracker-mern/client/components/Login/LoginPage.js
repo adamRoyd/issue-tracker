@@ -8,9 +8,7 @@ import { getUser } from '../../reducers/UserReducer';
 
 class LoginPage extends React.Component{
     componentWillMount(){
-        console.log('COMPONENT WILL MOUNT');
         const l = localStorage.getItem('id_token')
-        console.log(l);
     }
     componentWillUpdate(nextProps,nextState){
         if(nextProps.user.isAuthenticated){

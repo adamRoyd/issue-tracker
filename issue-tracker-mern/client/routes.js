@@ -23,7 +23,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function authCheck(){
-  console.log('AUTH CHECKER');
   //const token = localStorage.getItem('id_token');
   //console.log(token);
 

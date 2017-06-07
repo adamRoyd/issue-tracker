@@ -33,7 +33,6 @@ class CommentManager extends React.Component{
         e.preventDefault();
         this.props.dispatch(addCommentRequest(this.state.comment,this.props.params));
         this.props.dispatch(saveIssueRequest(this.state.issue));
-        console.log('HANDLE SUBMIT PUSH');
         browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}/`);
         return this.setState({
             comment : {text : ''},

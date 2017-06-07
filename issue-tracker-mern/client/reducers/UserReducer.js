@@ -4,7 +4,6 @@ import initialState from './initialState';
 const UserReducer = (state = initialState.user, action) =>{
   switch (action.type) {
     case types.LOGIN_SUCCESS:
-        console.log('LOGIN SUCCESS REDUCER');
         return Object.assign({}, state, {
             isFetching: false,
             isAuthenticated: true,

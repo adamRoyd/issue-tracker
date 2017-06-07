@@ -46,10 +46,8 @@ export function addIssue(issue) {
 }
 
 export function addIssueRequest(issue,files,issues,projectCode) {
-  console.log('ADD ISSUE REQUEST');
   let data = new FormData();
   data.append(files,document);
-  console.log(data);
   return (dispatch) => {
     return callApi(`(:projectCode)/issues/(:filter)`,'post', {
       issue: {
@@ -112,7 +110,6 @@ export function addIssueToBatch(id){
 }
 
 export function batchIssueRequest(batchIssues, batchOptions){
-  console.log('BATCH ISSUES REQUEST');
   return (dispatch) => {
       return callApi(`(:projectCode)/issues/(:filter)/`,'put', {
         issues: batchIssues,
@@ -122,7 +119,6 @@ export function batchIssueRequest(batchIssues, batchOptions){
 }
 
 export function batchIssues(issues){
-  console.log('BATCH ISSUES SUCCESS');
   return{
     type: types.BATCH_ISSUES,
     issues
@@ -130,8 +126,6 @@ export function batchIssues(issues){
 }
 
 export function uploadFileRequest(file){
-  console.log('UPLOAD FILE REQUEST');
-  console.log(file);
   return (dispatch) => {
       return callApiUpload(`/upload`,'post',{
         file

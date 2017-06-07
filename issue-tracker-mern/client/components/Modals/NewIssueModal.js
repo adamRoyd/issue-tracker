@@ -64,7 +64,6 @@ class NewIssueModal extends React.Component{
     validate(issue){
         let errors = {}
         Object.keys(issue).forEach(item =>{
-            console.log(item);
             if(issue[item] == null){
                 errors = {
                    item : 'BLAAAAAH'
@@ -76,7 +75,6 @@ class NewIssueModal extends React.Component{
         //         location : 'Select a location'
         //     }
         // }
-        console.log(errors);
         return errors
     }
     render(){
