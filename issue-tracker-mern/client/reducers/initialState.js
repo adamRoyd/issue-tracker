@@ -1,12 +1,10 @@
 import headers from '../constants/headers';
 
-export default({
+export default({ 
     projects: [],
     comments: [],
     assignees: [],
     issues: [],
     headers : headers,
-    issueFilter: "All",
-    batchIssues: [],
-    user: ""
+    issueFilter: "All"
 });

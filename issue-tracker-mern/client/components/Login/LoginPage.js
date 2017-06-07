@@ -8,11 +8,9 @@ import { getUser } from '../../reducers/UserReducer';
 class LoginPage extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault();
-        const username = this.refs.userName.value;
-        const password = this.refs.password.value;
         const creds = {
-            username,
-            password
+            username : this.refs.userName.value,
+            password : this.refs.password.value
         }
         this.props.dispatch(loginUser(creds))
     }
