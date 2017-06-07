@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 import React from 'react';
-import { Route, IndexRoute, IndexRedirect, onEnter, browserHistory } from 'react-router';
+import { Route, IndexRoute, IndexRedirect, onEnter, Redirect } from 'react-router';
 import App from './components/App/App';
 
 // require.ensure polyfill for node
@@ -23,19 +23,20 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function authCheck(){
-  const token = localStorage.getItem('id_token');
-  if(token){
-    
-  }
+  console.log('AUTH CHECKER');
+  //const token = localStorage.getItem('id_token');
+  //console.log(token);
+
 }
 
 // react-router setup with code-splitting
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
 export default (
-  <Route path="/" component={App} onEnter={authCheck}>
-    {/*<IndexRedirect to="/login"/>*/}
+  <Route path="/" component={App} onEnter={authCheck()}>
+    <IndexRedirect to="/login"/>
     <Route
       path="/login"
+      onEnter={authCheck()}
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./components/Login/LoginPage').default);

@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { Link, browserHistory } from 'react-router';
+import { fetchProjects } from '../../actions/ProjectActions';
 import { loginUser } from '../../actions/UserActions';
 import { getUser } from '../../reducers/UserReducer';
 
@@ -12,12 +13,11 @@ class LoginPage extends React.Component{
             username : this.refs.userName.value,
             password : this.refs.password.value
         }
+        this.props.dispatch(fetchProjects());
         this.props.dispatch(loginUser(creds))
     }
     componentWillUpdate(nextProps,nextState){
-        console.log('COMPONENT WILL UPDATE');
-        console.log(this.props.user != null);
-        if(this.props.user != null){
+        if(nextProps.user.isAuthenticated){
             browserHistory.push('/selectproject');
         }
     }
@@ -31,6 +31,10 @@ class LoginPage extends React.Component{
                         <input type="text" className="form-control" ref="userName" placeholder="Email Address" required="" autoFocus="" />
                         <input type="password" className="form-control" ref="password" placeholder="Password" required=""/>
                         <button className="btn login-button" type="submit">Login</button>
+                        {(this.props.user.errorMessage)
+                            ? <p style={{color:'red'}}>{this.props.user.errorMessage.message}</p>
+                            : <p></p>
+                        }
                     </form>
                 </div>
             </div>
@@ -44,8 +48,7 @@ LoginPage.propTypes = {
 
 function mapStateToProps(state){
     return{
-        username: getUser(state).username,
-        isAuthenticated: getUser(state).isAuthenticated
+        user: getUser(state)
     };
 }
 
