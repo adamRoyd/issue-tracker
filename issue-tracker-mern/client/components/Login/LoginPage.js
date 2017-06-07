@@ -7,6 +7,16 @@ import { loginUser } from '../../actions/UserActions';
 import { getUser } from '../../reducers/UserReducer';
 
 class LoginPage extends React.Component{
+    componentWillMount(){
+        console.log('COMPONENT WILL MOUNT');
+        const l = localStorage.getItem('id_token')
+        console.log(l);
+    }
+    componentWillUpdate(nextProps,nextState){
+        if(nextProps.user.isAuthenticated){
+            browserHistory.push('/selectproject');
+        }
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         const creds = {
@@ -15,11 +25,6 @@ class LoginPage extends React.Component{
         }
         this.props.dispatch(fetchProjects());
         this.props.dispatch(loginUser(creds))
-    }
-    componentWillUpdate(nextProps,nextState){
-        if(nextProps.user.isAuthenticated){
-            browserHistory.push('/selectproject');
-        }
     }
     render(){
         this.handleSubmit = this.handleSubmit.bind(this);
