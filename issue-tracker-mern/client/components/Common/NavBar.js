@@ -23,7 +23,7 @@ class NavBar extends React.Component{
                         />
                     {(projectCode == '')
                         ? <div></div>
-                        : <NewIssueModal 
+                        : <NewIssueModal
                             buttonName="New issue"
                             {...this.props}/>
                     }

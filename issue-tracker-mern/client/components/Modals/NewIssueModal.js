@@ -88,7 +88,7 @@ class NewIssueModal extends React.Component{
                 </button>
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
-                        <Modal.Title>New Issue for {this.props.user} {this.props.params.projectCode.toUpperCase()}</Modal.Title>
+                        <Modal.Title>New Issue for {this.props.username} {this.props.params.projectCode.toUpperCase()}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <NewIssueForm 
@@ -115,7 +115,7 @@ class NewIssueModal extends React.Component{
 
 NewIssueModal.propTypes = {
     issue : PropTypes.object,
-    user : PropTypes.string.isRequired,
+    username : PropTypes.string.isRequired,
     assignees : PropTypes.array.isRequired,
     locations : PropTypes.array.isRequired,
     buttonName : PropTypes.string,

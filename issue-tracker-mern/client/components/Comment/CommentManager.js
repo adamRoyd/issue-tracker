@@ -90,9 +90,6 @@ CommentManager.propTypes = {
     assignees : PropTypes.array.isRequired,
     status : PropTypes.array.isRequired,
     params : PropTypes.object.isRequired,
-    addCommentRequest : PropTypes.func.isRequired,
-    saveIssueRequest : PropTypes.func.isRequired,
-    user : PropTypes.string.isRequired,
     locations : PropTypes.array.isRequired,
     categories : PropTypes.array.isRequired
 };

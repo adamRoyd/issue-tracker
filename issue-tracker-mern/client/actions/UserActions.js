@@ -53,7 +53,6 @@ export function loginUser(creds) {
             username : creds.username,
             password : creds.password
         }).then(res => {
-          console.log(res);
           if(!res.username){
             dispatch(loginError(res))
           } else{

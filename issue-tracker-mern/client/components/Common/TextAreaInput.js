@@ -27,7 +27,7 @@ const TextAreaInput = ({name, label, onChange, placeholder, value, error, wrappe
 
 TextAreaInput.propTypes = {
   name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   value: PropTypes.string,
