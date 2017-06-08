@@ -125,9 +125,12 @@ export function batchIssues(issues){
   }
 }
 
-export function uploadFileRequest(file){
+export function uploadFileRequest(files){
+  console.log('FILES TO UPLOAD');
+  const file = files[0]
+  console.log(file);
   return (dispatch) => {
-      return callApiUpload(`/upload`,'post',{
+      return callApiUpload(`upload`,'post',{
         file
       }).then(res => dispatch(uploadFileSuccess()));
     };

@@ -90,6 +90,15 @@ app.use('/api',projects);
 app.use('/api',comments);
 app.use('/api',assignees);
 
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
+app.post('/api/upload', upload.single('photo'), function (req, res, next) {
+  // req.file is the `avatar` file
+  console.log('MULTER UPLOAD FILE');
+  console.log(req.file);
+  // req.body will hold the text fields, if there were any
+})
+
 //passport config
 var User = require ('./models/user');
 passport.use(new LocalStrategy(User.authenticate()));

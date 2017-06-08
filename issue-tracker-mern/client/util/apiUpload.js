@@ -6,8 +6,10 @@ export const API_URL = (typeof window === 'undefined' || process.env.NODE_ENV ==
   '/api';
 
 export default function callApiUpload(endpoint, method = 'get', file) {
-  const data = new FormData();
-  data.append('file',file);
+  let data = new FormData();
+  data.append('file', file);
+  data.append('name', 'photo');
+  console.log(data);
   return fetch(`${API_URL}/${endpoint}`, {
     method,
     body: data
