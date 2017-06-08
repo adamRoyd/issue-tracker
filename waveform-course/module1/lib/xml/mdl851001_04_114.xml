@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	<events>
+		<!-- 	
+		<event id="onEnterScrollView">	
+			<media id="anim" action="play" />
+		</event>
+		 -->
+		<event id="onExitScrollView">		
+			<event id="closeHotspot"/>
+		</event>	
+	
+		<event id="init">
+			<event id="closeHotspot"/>
+		</event>		
+		
+		<event id="hotspot">
+			<anim type="alpha" animtime="0.2">[ITEM]_reveal</anim>
+			<translate scale="1" animtime="0.2">[ITEM]_reveal</translate>
+		</event>
+		
+		<event id="closeHotspot">
+			<!-- <anim type="alphaout" animtime="0.2">[ITEM]_reveal</anim>			 -->
+			<anim type="alphaout" animtime="0.2">hotspot1_reveal</anim>			
+			<translate scale="0" animtime="0.2">hotspot1_reveal</translate>			
+		</event>
+	</events>
+	
+	<!-- 	
+	<timeline id="animTimeline" autoplay="false" xtime="1">
+		<tween element="car" time="2" delay="1"><![CDATA[ x:600, ease:Power2.easeOut  ]]></tween>
+	</timeline>
+	 -->
+	
+	<!-- 
+	width of cell = 897
+	width of cell + screen = 1911
+	cell leftEdge = 2875
+	leftEdge - screen = 1861
+	 -->
+	 
+	<timeline id="scrollTimeline" control="scroll" scrollaxis="x" useparent="true" autoplay="false" offset="enterScreen" >
+		<tween element="layer0" time="1911" ><![CDATA[ x:1911, ease:Power0.easeNone]]></tween>
+		<tween element="layer10" time="1911" ><![CDATA[ x:1203, ease:Power0.easeNone]]></tween>
+		<tween element="layer20" time="1911" ><![CDATA[ x:700, ease:Power0.easeNone]]></tween>
+		<tween element="layer30" time="1911" ><![CDATA[ x:300, ease:Power0.easeNone]]></tween>
+	</timeline>
+
+	<box id="bg" width="100%" height="100%" bgcol="#00B1C8"/>
+	
+	<box id="layer0" x="-1020">
+		<image><![CDATA[lib/images/content/mdl851001_04_114_sky.png]]></image>
+	</box>
+	
+	<box id="layer10" x="-650">
+		<image id="city" x="0" y="10" ><![CDATA[lib/images/content/mdl851001_04_114_winow_city.png]]></image>
+	</box>
+	
+	<box id="layer20" x="0">
+		<image id="window" x="-405" y="-35" ><![CDATA[lib/images/content/mdl851001_04_114_window.png]]></image>
+	</box>
+		
+	<box id="layer30" x="0">
+		<image id="desk" x="-160" y="110" ><![CDATA[lib/images/content/mdl851001_04_114_reception.png]]></image>
+	</box>
+	
+	<box id="top">
+		<image id="plant" x="10" y="372" ><![CDATA[lib/images/content/mdl851001_04_114_plant.png]]></image>
+		<image id="people" x="490" y="130" ><![CDATA[lib/images/content/mdl851001_04_114_meeting.png]]></image>
+	</box>
+	
+	<box id="hotspot1" class="scrollRevealHotspot" width="30" height="30" x="630" y="160" event="hotspot"/>		
+	
+	<box id="hotspot1_reveal" class="scrollReveal" x="50" y="150" width="800" anim="hidden">
+		<box class="titleBar">
+			<text class="titleText">
+				<![CDATA[<p>Time to focus on what's important</p>]]>
+			</text>
+			<box class="closeBtn" width="20" height="20" event="closeHotspot"/>
+		</box>
+		<image class="revealImage"><![CDATA[lib/images/content/mdl851001_04_114_reveal.jpg]]></image>
+		<text class="content">
+			<![CDATA[
+				<p>"A great benefit of WiSE is that it saves us time. For example, I can use it to plan and prepare for my store visits more easily. That means I can spend more time with my customers and make sure each store is just right."</p>
+			]]>
+		</text>
+	</box>	
+	
+	
+	<text id="titleTxt" class="scrollRevealTitle dark" x="40" y="45" width="250">
+		<![CDATA[<p>Time to focus on what's important</p>]]>
+	</text>		
+	
+</data> 

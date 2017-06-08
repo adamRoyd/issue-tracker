@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data>
+
+
+  <!-- navigation btns -->
+    <text id="dialogue_close_label"><![CDATA[<p>Close</p>]]></text>
+    
+    <text id="transcript_label"><![CDATA[<p>Transcript</p>]]></text>
+    
+</data>

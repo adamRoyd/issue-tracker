@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+	<events>
+		<event id="glossary_biscuit">
+			<log>glossary_biscuit</log>
+		</event>
+		
+		<event id="glossary_grapes">
+			<log>glossary_grapes</log>
+		</event>
+	</events>
+	
+	<text x="140" y="215" width="305">
+	<![CDATA[
+		<p class="title">Glossary link test</p>
+		<p>This is a glossary test screen. You can click the word 
+		<a class="selectable" data-glossary="biscuit" href="#">biscuit</a> 
+		or this other word 
+		<a class="selectable" data-glossary="radish" href="#">radish</a> 
+		to open the glossary dialogue and have it scroll to the chosen word.</p>
+		<p><a class="selectable" data-glossary="grape" href="#">Grape!</a> </p>
+		]]>
+	</text>
+
+	
+</data> 

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<course 
+engine="waveform 1.7.3"
+version="0.2.0.0" 
+title="Mondelēz EBR" 
+bitprjcode="mdl851002" 
+lmstracking="scorm1.2" 
+
+devmode="true" 
+devunlockmode="true"
+devunlockscreenmode="false"
+showlmsalert="false" 
+cheatmode="false"
+clientbitmode="false" 
+
+desktoplayout="fixed" 
+responsive="false"
+desktopbrowserspec="ff|ch|ie10"
+devicespec ="desktop|mac|ipad|androidtab|iphone|androidphone"
+hasVideo="true"
+
+menu="true"
+autotopicx="1"
+
+navbetweentopics="false" 
+completionmode="pass" 
+
+maintaincomplete="true" 
+bookmark="true" 
+splashdialogue="intro_video"
+>
+<!-- devicespec (to be implemented) ="desktop|mac|ipad|androidtab|iphone|androidphone" -->
+<!-- desktopbrowserspec = ff|ch|ie9 -->
+<!-- autotopic="1"  -->
+<!-- splashdialogue="introDialogue" -->
+<!-- desktoplayout: scroll | fixed -->
+<!-- responsive: true | false -->
+<!-- 
+	<dialogue id="exit" 	closebtn="false" width="290" height="200" xml="lib/xml/dialogue_exit.xml" />
+-->
+	<dialogue id="bookmark" closebtn="false" width="325" height="250" xml="lib/xml/dialogue_bookmark.xml" />
+	<dialogue id="help" width="980" height="600" xml="lib/xml/dialogue_help.xml" />
+	<dialogue id="resources" width="680" height="420" xml="lib/xml/dialogue_resources.xml" />
+	<dialogue id="glossary" width="680" height="610" xml="lib/xml/dialogue_glossary.xml" src="glossary"/>
+	<dialogue id="intro_video" width="1014" height="644" xml="lib/xml/dialogue_video_intro.xml" topbar="false" closebtn="false" />
+	<dialogue id="intro_revisit" width="1014" height="644" xml="lib/xml/dialogue_video_intro_revisit.xml" topbar="false" closebtn="false" />
+
+	<menu id="menuscreen" 	xml="lib/xml/menu_screen.xml" src="scrollmanager"/>
+	<navigation id="navscreen" xml="lib/xml/nav_screen.xml" phonexml="lib/xml/nav_screen_phone.xml" />
+
+
+	<topic id="1" label="The Role of RDQ" duration="5">
+		<!-- from module001 -->
+		<screen id="4_110" xml="lib/xml/mdl851001_04_110.xml" src="scrollmanager"/>				
+	</topic>
+	
+	<topic id="2" label="Global Collaboration" duration="10">
+		<screen id="2_100" xml="lib/xml/placeholder.xml" />	
+	</topic>
+	
+	<topic id="3" label="Seeking Solutions" duration="7">
+		<screen id="3_100" xml="lib/xml/placeholder.xml" />	
+	</topic>
+	
+	<topic id="4" label="Resources Room" duration="1" class="resourceScreen" required="false">
+		<screen id="4_100" xml="lib/xml/placeholder.xml" />	
+	</topic>
+
+
+</course>

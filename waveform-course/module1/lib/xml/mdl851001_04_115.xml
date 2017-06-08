@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	<events>
+		<!-- 	
+		<event id="onEnterScrollView">	
+			<media id="anim" action="play" />
+		</event>
+		 -->
+		<event id="onExitScrollView">		
+			<event id="closeHotspot"/>
+		</event>		
+	
+		<event id="init">
+			<event id="closeHotspot"/>
+		</event>		
+		
+		<event id="hotspot">
+			<anim type="alpha" animtime="0.2">[ITEM]_reveal</anim>
+			<translate scale="1" animtime="0.2">[ITEM]_reveal</translate>
+		</event>
+		
+		<event id="closeHotspot">
+			<!-- <anim type="alphaout" animtime="0.2">[ITEM]_reveal</anim>			 -->
+			<anim type="alphaout" animtime="0.2">hotspot1_reveal</anim>			
+			<translate scale="0" animtime="0.2">hotspot1_reveal</translate>			
+		</event>
+	</events>
+	
+	<!-- 	
+	<timeline id="animTimeline" autoplay="false" xtime="1">
+		<tween element="car" time="2" delay="1"><![CDATA[ x:600, ease:Power2.easeOut  ]]></tween>
+	</timeline>
+	 -->
+		 
+<!-- 	 
+	 OFFSET SETTINGS
+	 offset="enterScreen" left edge enters the screen
+	 offset="onScreen" left edge at left side of screen
+ -->
+	 
+	<timeline id="scrollTimeline" control="scroll" scrollaxis="x" useparent="true" autoplay="false" offset="enterScreen" >
+		<tween element="layer10" time="2050" ><![CDATA[ x:500, ease:Power0.easeNone]]></tween>
+	</timeline>
+	
+	<box id="layer10" x="0">
+		<image id="wall" x="-245" y="-50" ><![CDATA[lib/images/content/mdl851001_04_115_market.png]]></image>
+	</box>
+	
+	<box id="top">
+		<image id="man" x="240" y="168" ><![CDATA[lib/images/content/mdl851001_04_115_market_man.png]]></image>
+	</box>
+
+	<box id="hotspot1" class="scrollRevealHotspot" width="30" height="30" x="420" y="330" event="hotspot"/>			
+	
+	<box id="hotspot1_reveal" class="scrollReveal" x="110" y="130" width="800" anim="hidden">
+		<box class="titleBar">
+			<text class="titleText">
+				<![CDATA[<p>Tracking success</p>]]>
+			</text>
+			<box class="closeBtn" width="20" height="20" event="closeHotspot"/>
+		</box>
+		<image class="revealImage"><![CDATA[lib/images/content/mdl851001_04_115_reveal.jpg]]></image>
+		<text class="content">
+			<![CDATA[
+				<p>"I can even use image recognition to audit stores in a flash. By taking photos of shelves using the Planorama app I can audit a store and get live results back in less than 10 minutes. And I can use augmented reality to show the customer how a point of sale display will look in store. Amazing!"</p>
+			]]>
+		</text>
+	</box>	
+	
+	
+	<text id="titleTxt" class="scrollRevealTitle dark" x="40" y="50" width="250">
+		<![CDATA[<p>Tracking success</p>]]>
+	</text>			
+	
+</data> 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	<events>
+		<event id="linkTest">
+			<link>lib/docs/example.pdf</link>
+		</event>
+	</events>
+	
+	<var id="dialogue_title"><![CDATA[Resources]]></var>
+	
+	<text id="intro" x="15" y="75" width="600">
+		<![CDATA[
+		<p>This is the Resources panel which is available from every screen.</p>
+		<p>It can contain links to further information held on your intranet, on the internet, or links to download files that can be included with the course.</p>
+		]]>
+	</text>
+  
+    <box id="scrollingbox" x="15" y="160" height="240" width="645" scroll="true">
+	
+		<text x="10" y="10" width="600"><![CDATA[
+			<ul>
+				<li><a href="http://www.brightwave.co.uk" target="_blank">Select this link to visit Brightwave's website.</a></li>
+				<li><a href="http://www.brightwavegroup.com/userfiles/manifesto_v12_web.pdf" target="_blank">Select this link to download Brightwave's manifesto for campaign-based learning.</a></li>
+				<li><a href="../module1/lib/docs/example.docx" target="_blank">Example word document.</a></li>
+			</ul>
+		]]></text>
+	
+	
+		<button id="link" x="0" y="0" width="150" anim="alpha" event="linkTest"><![CDATA[<p class="genericBtn">test</p>]]></button>
+	</box>
+
+</data>

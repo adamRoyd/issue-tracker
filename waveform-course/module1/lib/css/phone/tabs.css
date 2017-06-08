@@ -1,0 +1,82 @@
+
+
+.screenElement.tabs{
+	height: 100% !important;
+}
+
+.tabs .clickholder{
+	text-align: center;
+}
+.tabs .click
+{
+	position: relative;
+	display: block;
+	padding: 5px 10px;
+	background: #98C13D;
+	border-top: 1px solid white;
+	width: calc( 100% - 10px  ) !important;
+	box-sizing: border-box;
+	margin:  5px;
+}
+.tabs .click:after
+{
+	content: '+';
+	position:absolute;
+	right: 3px;
+	top: 50%;
+	margin-top: -15px;
+	color: white;
+	font-size: 35px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+}
+.tabs .click.selected:after
+{
+	content: '-';
+}
+.tabs .click p{
+	margin: 5px 0;
+	color: white;
+	text-align: left;
+}
+
+.tabs .click.selected
+{
+	background: #018BA9;
+	margin-bottom: -5px;
+}
+
+.tabs .revealholder{
+	position: relative;
+	margin: 0;
+	left: 0;
+	width: calc( 100% - 10px );
+	height: auto !important;
+	bottom: 0px;
+	margin: 5px;
+	/* margin-top:  -5px; */
+}
+
+.tabs .reveal{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	border: 1px solid #018BA9;
+	text-align: left;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto !important;
+	background: white;
+	overflow: visible;
+	padding: 5px;
+}
+
+.tabs .reveal.inactive{
+	display: none !important;
+}
+
+.tabs .reveal .screenElement{
+	position: relative !important;
+}

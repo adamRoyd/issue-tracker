@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+.screenElement.video .transcriptHolder
+{
+	clear:  right;
+	position: relative;
+	/* top: 0; */
+	/* right: 0; */
+	width: 100%;
+	/* height:  100%; */
+	/* overflow:  hidden; */
+}
+
+.screenElement.video .transcriptBtn
+{
+	display:block;
+	background: #333333;
+	width: 35px;
+	height: 35px;
+	float: right;
+	/* right: 0; */
+	/* bottom: -35px; */
+	position: relative;
+	padding: 4px;
+	box-sizing: border-box;
+}
+
+.screenElement.video .transcriptBtn .tooltip
+{
+	display: none;
+}
+
+.transcript_icon
+{
+	fill: transparent;
+	stroke: white;
+	stroke-width: 3px;
+}
+
+
+.screenElement.video,
+.screenElement.video .transcriptHolder
+{
+	width: 100% !important;
+}
+
+.screenElement.video .transcriptHolder .transcript
+{
+	background: #333333;
+	position: relative;
+	display:block;
+	width: 100% !important;
+	height: 100%;
+	overflow-y: auto !important;
+	padding:  10px;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+.screenElement.video .transcriptHolder .transcript p
+{
+	color: #FFFFFF;
+}

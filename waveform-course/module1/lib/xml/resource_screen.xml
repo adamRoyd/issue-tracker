@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+	<events>
+		<event id="init">
+			<stagger animtime="0.3" offset="0.1" alpha="1" display="block" y="0" completeall="animend">.resourceBtn</stagger>
+		</event>
+		
+		<event id="watch">
+			<dialogue width="ATTR_resourceWidth" height="ATTR_resourceHeight" src="resource_video" xml="ATTR_resourceXml" resource="ATTR_resource" title="ATTR_title"/>
+		</event>
+				
+		<event id="visit">
+			<link>ATTR_resource</link>
+		</event>
+						
+		<event id="read">
+			<link>ATTR_resource</link>
+		</event>
+		
+	</events>
+
+	<image id="bg" y="17" ><![CDATA[lib/images/ui/media_wall_bg.jpg]]></image>
+	
+	<box id="resourceBtnBg"/>
+	<box id="resourceBtnHolder">
+		<text class="resourceBtn instructionText" anim="hidden">
+			<![CDATA[
+				<p class="title">Want to know more?</p>
+				<p>Here you can watch, read, visit and learn from a selection of resources.</p>
+			]]>
+		</text>
+		<screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden"
+			resourceType="visit" 
+			resource="https://intranet.mdlz.com/sites/Procurement/Pages/ProcIdentity.aspx" 
+			title="Procurement: Fearless business leaders and trusted partners. " 
+			description=" " 
+			image="lib/images/content/mdl851011_07_100_01.jpg"/>	
+		
+		<screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden"
+			resourceType="visit" 
+			resource="https://www.cocoalife.org/" 
+			title="Cocoa Life website" 
+			description=" " 
+			image="lib/images/content/mdl851011_07_100_02.jpg"/>	
+		
+		<screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden"
+			resourceType="visit" 
+			resource="https://intranet.mdlz.com/xxxxxxxxxxxxxxxxxxx" 
+			title="Develop &amp; Grow in Procurement" 
+			description="RDQ Academy" 
+			image="lib/images/content/mdl851011_07_100_03.png"/>
+			
+	</box>
+	
+</data>
+

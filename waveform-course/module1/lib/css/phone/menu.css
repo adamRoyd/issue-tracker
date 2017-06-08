@@ -1,0 +1,85 @@
+
+/* MENU */
+#menuholder{	
+	width:100%;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	padding: 0 10px;
+	padding-top: 60px;
+}
+
+.menulogo .svg{
+	height: 40vw !important;
+}
+
+.menuTopicBtnDiv.hover{
+	background: #ff0000;
+}
+
+.menuSection{
+	top: 100px;
+	position: absolute;
+	width:182px;
+	height: 544px;
+	border-right: 1px solid white;
+}
+
+
+.topicbutton.screenElement {
+	height: 150px !important;
+	margin-bottom: 10px !important;
+	overflow: hidden !important;
+	position:relative;
+}
+
+
+.topicbutton .screenElement{
+	position:absolute;
+}
+
+.topicbutton .screenElement.image{
+	width: 100% !important;
+}
+.topicbutton>.screenElement.box{
+	height: 28% !important;
+	width: 100% !important;
+	overflow: hidden !important;
+	top: auto !important;
+	bottom: 0;
+}
+.topicbutton .screenElement.text{
+	padding-top:0 !important;
+}
+.topicbutton .screenElement.svg{
+	position:absolute;
+	left: auto !important;
+	top: 50% !important;
+	margin-top: -10px;
+	/* bottom: 5px; */
+	right: 10px;
+	width: 20px !important;
+	height: 20px !important;
+}
+
+
+.topicbutton .notattempted,
+.topicbutton .incomplete,
+.topicbutton .completed,
+.topicbutton .locked{
+	display: none !important;
+}
+
+.topicbutton.notattempted .notattempted,
+.topicbutton.incomplete .incomplete,
+.topicbutton.completed .completed,
+.topicbutton.locked .locked{
+	display: block !important;
+}
+
+.topicbutton.locked .invisibutton{
+	display: none !important;
+}
+
+
+/* end MENU */

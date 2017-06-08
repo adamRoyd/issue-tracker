@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+.choices_game>.custom {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	background: #555555;
+}
+
+.choices_game .custom p {
+	color: white;
+}
+
+.choices_game .screenHolder{
+	background: none;
+}
+
+.choices_game .custom .banks{
+	position: absolute;
+	overflow: visible;
+	height: 100%;
+	width: 100%;
+}
+.choices_game .custom .bank{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.choices_game .custom .bank>.screenElement.screen{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.choices_game .custom .bank>.screenElement.screen.notloaded{
+	display: none !important;
+}

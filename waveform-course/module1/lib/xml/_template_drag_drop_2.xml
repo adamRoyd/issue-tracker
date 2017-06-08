@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<events>
+	
+		<event id="drag">
+			<log>drag</log>
+		</event>
+		<event id="drop_in">
+			<log>drop_in</log>
+		</event>
+		<event id="drop_out">
+			<log>drop_out</log>
+		</event>
+		<event id="drag1dropped">
+			<log>drag 1 dropped in target</log>
+		</event>
+	
+	
+		<event id="drop_in_1">
+			<log>drop_in 1</log>
+		</event>
+		<event id="drop_in_2">
+			<log>drop_in 2</log>
+		</event>
+		<event id="drop_in_3">
+			<log>drop_in 3</log>
+		</event>
+		<event id="drop_in_4">
+			<log>drop_in 4</log>
+		</event>
+		<event id="drop_in_5">
+			<log>drop_in 5</log>
+		</event>
+
+	
+		<event id="myanswers">
+			<log>myanswers</log>
+			<hide>smaBtn</hide>
+			<show>scaBtn</show>
+		</event>
+		<event id="correctanswers">
+			<log>correctanswers</log>
+			<hide>scaBtn</hide>
+			<show>smaBtn</show>
+		</event>
+	
+		<event id="pass">
+			<show>feedback_pass</show>
+		</event>
+		
+		<event id="partial">
+			<show>resetBtn</show>
+			<show>scaBtn</show>
+			<show>feedback_partial</show>
+		</event>
+		
+		<event id="fail">
+			<show>resetBtn</show>
+			<show>scaBtn</show>
+			<show>feedback_fail</show>
+		</event>
+		
+		<event id="fail_attempt">			
+			<show>feedback_fail_attempt</show>
+		</event>
+		
+		<event id="reset">
+			<show>submitBtn</show>
+			<hide>resetBtn</hide>
+			<hide>scaBtn</hide>
+			<hide>smaBtn</hide>
+			<hide delay="0.3">feedbackHolder</hide>
+			<translate x="370" animtime="0.3">feedbackHolder</translate>
+			<hide delay="0.3">feedback_pass</hide>
+			<hide delay="0.3">feedback_partial</hide>
+			<hide delay="0.3">feedback_fail</hide>
+			<hide delay="0.3">feedback_fail_attempt</hide>
+		</event>
+		
+		<event id="submit">
+			<hide>submitBtn</hide>
+			<log>submit</log>
+			<translate x="370">feedbackHolder</translate>
+			<show>feedbackHolder</show>
+			<translate x="0" animtime="0.5">feedbackHolder</translate>
+		</event>
+				
+	</events>
+
+	
+    <text x="25" y="75" width="600">
+		<![CDATA[
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in blandit erat. Nam rutrum est sed nisi adipiscing, eu bibendum purus eleifend. Etiam elementum lorem tortor, quis scelerisque arcu imperdiet at.</p>
+		<p class="prompt">Select your answers, then Confirm.</p>
+		]]>
+	</text>
+	
+	<box id="buttonbox" x="25" y="570" width="150" height="150" >
+		<button id="resetBtn" x="0" y="0" 	width="140"	enabled="false" anim="hidden" func="reset"><![CDATA[<p>Reset</p>]]></button>
+		<button id="submitBtn" x="0" y="0" 	width="140"		enabled="false" func="submit"><![CDATA[<p>Confirm</p>]]></button>
+		<button id="smaBtn" x="150" y="0" width="260" 	enabled="false" anim="hidden" func="showMyAnswers"><![CDATA[<p>Show my answers</p>]]></button>
+		<button id="scaBtn" x="150" y="0" width="260" 	enabled="false" anim="hidden" func="showAnswers"><![CDATA[<p>Show answers</p>]]></button>
+	</box>
+	
+	<box id="dropArea1" class="dropArea" x="25" y="235" width="310" height="315" bgcol="DFDFDF">
+		<box width="100%" height="40" bgcol="006883">
+			<text x="10" y="10" >
+				<![CDATA[<p>Lorem ipsum dolor sit amet</p>]]>
+			</text>
+		</box>
+	</box>
+	
+	<box id="dropArea2" class="dropArea" x="355" y="235" width="310" height="315" bgcol="DFDFDF">
+		<box width="100%" height="40" bgcol="006883">
+			<text x="10" y="10" >
+				<![CDATA[<p>Duis in blandit erat.</p>]]>
+			</text>
+		</box>
+	</box>
+	
+	
+	<!-- Dropboxes  -->
+	<box id="dropBox1" x="25"  y="275" width="310" height="270" linewidth="0" linecol="ff0000" />
+	<box id="dropBox2" x="355" y="275" width="310" height="270" linewidth="0" linecol="ff0000" />
+	
+	<!-- Drag items -->
+	<box id="drag1" x="710" y="90 " width="270" height="60" class="dragBox">
+		<text><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>]]></text>
+	</box>
+	<box id="drag2" x="710" y="160" width="270" height="60" class="dragBox">
+		<text width="100%" height="100%"><![CDATA[<p>Duis in blandit erat. </p>]]></text>
+	</box>
+	<box id="drag3" x="710" y="230" width="270" height="60" class="dragBox">
+		<text><![CDATA[<p>Nam rutrum est sed nisi adipiscing, eu bibendum purus eleifend. </p>]]></text>
+	</box>
+	<box id="drag4" x="710" y="300" width="270" height="60" class="dragBox">
+		<text><![CDATA[<p>Etiam elementum lorem tortor, quis scelerisque arcu imperdiet at.</p>]]></text>
+	</box>
+	<box id="drag5" x="710" y="370" width="270" height="60" class="dragBox">
+		<text><![CDATA[<p>Lorem ipsum dolor sit amet, eu bibendum purus eleifend. </p>]]></text>
+	</box>
+
+		
+	<!-- Drop settings  -->
+    <custom id="dragdrop">
+        <settings dropscale="1" />
+        <drag id="1" match="1">drag1</drag>
+        <drag id="2" match="2">drag2</drag>
+        <drag id="3" match="1">drag3</drag>
+        <drag id="4" match="2">drag4</drag>
+        <drag id="5" match="1">drag5</drag>
+
+
+        <drop id="1" maxdrop="3" stackpaddingv="20" stackpaddingh="5" xoffset="20" yoffset="25">dropBox1</drop>
+        <drop id="2" maxdrop="3" stackpaddingv="20" stackpaddingh="5" xoffset="20" yoffset="25">dropBox2</drop>				
+    </custom>
+	
+	<box id="feedbackHolder" x="670" y="50" width="365" height="595" anim="hidden">
+		<box id="feedback_pass" x="30" y="50" width="280" anim="hidden">
+			<text>
+				<![CDATA[
+				<p>Feedback - passed!</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in blandit erat. Nam rutrum est sed nisi adipiscing, eu bibendum purus eleifend. Etiam elementum lorem tortor, quis scelerisque arcu imperdiet at.</p>
+				<p>Duis in blandit erat. Nam rutrum est sed nisi adipiscing, eu bibendum purus eleifend. Etiam elementum lorem tortor, quis scelerisque arcu imperdiet at.</p>
+				]]>
+			</text>
+		</box>
+		<box id="feedback_partial" x="30" y="50" width="280" anim="hidden">
+			<text>
+				<![CDATA[
+				<p>Feedback - partial!</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in blandit erat. Nam rutrum est sed nisi adipiscing, eu bibendum purus eleifend. Etiam elementum lorem tortor, quis scelerisque arcu imperdiet at.</p>
+				<p>Duis in blandit erat. Nam rutrum est sed nisi adipiscing, eu bibendum purus eleifend. Etiam elementum lorem tortor, quis scelerisque arcu imperdiet at.</p>
+				]]>
+			</text>
+		</box>
+		<box id="feedback_fail" x="30" y="50" width="280" anim="hidden">
+			<text>
+				<![CDATA[
+				<p>Feedback - failed!</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in blandit erat. Nam rutrum est sed nisi adipiscing, eu bibendum purus eleifend. Etiam elementum lorem tortor, quis scelerisque arcu imperdiet at.</p>
+				<p>Duis in blandit erat. Nam rutrum est sed nisi adipiscing, eu bibendum purus eleifend. Etiam elementum lorem tortor, quis scelerisque arcu imperdiet at.</p>
+				]]>
+			</text>
+		</box>
+		<box id="feedback_fail_attempt" x="30" y="50" width="280" anim="hidden">
+			<text>
+				<![CDATA[<p>
+				Feedback - fail attempt!</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in blandit erat. Nam rutrum est sed nisi adipiscing, eu bibendum purus eleifend. Etiam elementum lorem tortor, quis scelerisque arcu imperdiet at.</p>
+				<p>Duis in blandit erat. Nam rutrum est sed nisi adipiscing, eu bibendum purus eleifend. Etiam elementum lorem tortor, quis scelerisque arcu imperdiet at.</p>
+				]]>
+			</text>
+		</box>
+	</box>
+	
+	
+	
+</data>
+

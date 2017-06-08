@@ -1,0 +1,97 @@
+
+.resourceBtn
+{
+	box-sizing: border-box;
+	border: solid 2px white;
+	border-radius: 3px;
+	width: 295px;
+	height: 162px;
+	position: relative !important;
+	float: left;
+	overflow: hidden !important;
+	margin: 3px;
+}
+
+.resourceBtn .resourceBtnInner
+{
+	width: 100%;
+	height: 100%;
+}
+
+.resourceBtn .descriptionBox
+{
+	bottom: 0px;
+	width: 100%;
+	height: 25%;
+}
+
+.resourceBtn .descriptionBox .descriptionText
+{
+	padding: 1.5% 4% 0% 4%;
+}
+
+.resourceBtn .descriptionBox .descriptionText p
+{
+	color: white;
+	font-size: 100%	
+}
+
+.resourceBtn .descriptionBox .descriptionText p.title
+{
+	color: white;
+	font-size: 14px;
+	margin-bottom: 1.5em;
+}
+
+.resourceBtn .resourceImage,
+.resourceBtn .resourceImage > .last-child,
+.resourceBtn .resourceImage > .last-child img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.resourceBtn .visitState
+{
+    display: none !important;
+    right: 5px;
+    top: 5px;
+    width: 25px;
+    height: 25px;
+}
+
+.resourceBtn .visited .visitState
+{
+   display: block !important;
+}
+
+.resourceBtn .visited .visitState .st0{opacity:0.25;fill:#020202;}
+.resourceBtn .visited .visitState .st1{fill:none;stroke:#FFFFFF;stroke-width:0.7043;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+.resourceBtn .visited .visitState .st2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+
+
+.visit .descriptionBox
+{
+	background: #F95602;
+}
+
+.watch .descriptionBox
+{
+	background: #00B7C6;
+}
+
+.read .descriptionBox
+{
+    background: #522573;
+}
+
+.instructionText
+{
+	padding: 10px;
+	background: #0036A3;
+}
+
+.instructionText p
+{
+	color: white;	
+}

@@ -13,12 +13,12 @@ class NewIssueModal extends React.Component{
         this.state = {
             showModal: false,
             issue : {
-                location: null,
-                sco: null,
-                screen: null,
-                category: null,
-                assigned: null,
-                description: null,
+                location: "",
+                sco: "",
+                screen: "",
+                category: "",
+                assigned: "",
+                description: "",
                 browser: Browser.name + ' ' + Browser.version
             },
             errors : {},

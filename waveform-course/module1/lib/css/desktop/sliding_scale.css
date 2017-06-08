@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.sliding_scale .slidertrack{
+	width: 100%;
+	height: 4px;
+	background: #BBBBBB;
+	border-radius: 2px;
+}
+
+.sliding_scale .slidertrack .slider{
+	content: ' ';
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: #1B9DED;
+	top: -9px;
+	left: -9px;
+	position:  absolute;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+
+.sliding_scale .optionholder{
+	width: 100%;
+	top: 20px;
+	position: absolute;
+}
+.sliding_scale .option{
+	position: absolute;
+}
+
+.sliding_scale .option p{
+	text-align:center;
+	font-weight: bold;
+	/* font-size: 20px; */
+}

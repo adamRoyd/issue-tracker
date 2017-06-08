@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	
+	<events>
+		<event id="onEnterScrollView">			
+			<media id="animTimeline" action="play" />
+		</event>
+		
+		<event id="onExitScrollView">		
+			<media id="animTimeline" action="reverse" />
+		</event>
+	</events>
+	
+	<timeline id="animTimeline" autoplay="false" time="1">
+		<tween element="leftDoor" time="0.5" delay="1"><![CDATA[ x:-98%, ease:Linear.easeNone  ]]></tween>
+		<tween element="rightDoor" time="0.5"  delay="1"><![CDATA[ x:98%, ease:Linear.easeNone  ]]></tween>
+	</timeline>
+	
+	<image><![CDATA[lib/animations/menu_lift/mdl851002_menu_1_1.png]]></image>
+	
+	<box id="liftDoorHolder" x="9" width="243" y="16" height="311" class="overflowHidden">
+		<box id="leftDoor" width="50%" height="100%" class="liftDoor"/>
+		<box id="rightDoor" x="50%" width="50%" height="100%" class="liftDoor"/>
+	</box>
+	
+	<image><![CDATA[lib/animations/menu_lift/mdl851002_menu_1_3.png]]></image>
+	
+	
+</data>

@@ -1,0 +1,31 @@
+﻿<data>
+	<events>
+		<event id="animClick">
+			<anim type="alpha" animtime="0.2">anim2</anim>
+			<media id="anim1" action="play" />
+		</event>
+		<event id="animClick2">
+			<media id="anim1" action="pause" />
+		</event>
+		<event id="btn1">
+			<click>
+				<media id="anim2" action="play" />				
+			</click>
+			<rollover>
+				<media id="btn1" action="play" frame="2"/>			
+			</rollover>
+			<rollout>
+				<media id="btn1" action="play" frame="13"/>
+			</rollout>
+		</event>
+				
+	</events>
+		
+	<box id="bg" x="0" y="0" width="1014" height="644" bgcol="#5DBDE4"/>
+		
+	<svganim id="anim1" src="lib/animations/graphics/graphics.json" x="0" y="0" width="550" height="400" event="animClick"/>
+	<svganim id="anim2" src="lib/animations/graphics2/graphics.json" x="550" y="0" width="550" height="400" anim="hidden" autoplay="false" event="animClick2"/>		
+	<svganim id="btn1" src="lib/animations/burstBtn.json" x="470" y="410" width="100" height="64" event="btn1" autoplay="false"/>		
+	<svganim id="osc" src="lib/animations/svg_anim_test_01.json" x="0" y="410" width="227" height="191" />		
+	
+</data>

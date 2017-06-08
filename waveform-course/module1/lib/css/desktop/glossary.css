@@ -1,0 +1,118 @@
+@charset "utf-8";
+/* CSS Document */
+
+.glossary
+{
+	overflow-x: hidden ;
+	overflow-y: auto ;
+}
+
+.glossary_holder 
+{
+	/* overflow: visible ; */
+	background: red;
+}
+
+.glossary_nav_holder
+{
+
+}
+
+.glossary_content_holder
+{
+
+}
+
+.glossaryButtonHolder
+{
+	width: 60%;
+	top: 55px !important;
+}
+
+
+.glossaryButton
+{
+	position: relative !important;
+	float: left;
+	width: 25% ;
+}
+
+.glossaryButton .text
+{
+	position: relative !important;
+	background: #F26524;
+	border: #F26524 solid 2px ;
+	width:  90%;
+	padding:  5px 0px;	
+	margin: 0px 10% ;
+	box-sizing: border-box ;
+}
+
+.glossaryButton.over .text
+{
+	background: white ;
+}
+
+
+.glossaryButton p
+{
+	color: white; 
+	text-align: center;
+	margin-bottom: 0px ;
+}
+
+.glossaryButton.over .text p
+{
+	color: #F26524;
+}
+
+.letterBlock
+{
+	position: relative ;
+	background: blue;
+}
+
+.term
+{
+	position: relative ;
+	background: #FFFFFF;
+}
+
+.term .term_title
+{
+	position: relative ;
+	margin-left: 0px ;
+	background-color: #EAEAEA ;
+}
+
+.term .term_title p
+{
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 0px;
+	padding-left:  9px;
+}
+
+.term .term_title.selected
+{
+	background-color: #028BA9 ;
+}
+
+.term .term_title p.selected 
+{
+	color: white ;
+}
+
+.term .definition
+{
+	position: relative ;
+	margin-left: 20px;
+	padding: 13px;
+}
+
+.term .SECImage
+{
+	position: relative ;
+	margin-left: 20px;
+	padding: 13px;
+}

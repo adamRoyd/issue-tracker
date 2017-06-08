@@ -1,0 +1,190 @@
+/*
+	*	brightwave colour and size adaptations to jplayer skin
+ */
+.jp-flat-video, .jp-flat-audio {
+	/* define your text color here */
+	color: #ffffff;
+	background: #333333;
+	overflow: hidden;
+}
+
+.jp-flat-video .jp-jplayer video {
+	background-color: #000;
+}
+
+video::-webkit-media-text-track-container {
+	bottom: 35px !important;
+}
+
+video::-moz-media-text-track-container {
+	bottom: 35px !important;
+}
+
+.jp-flat-video.jp-video-auto .jp-gui, .jp-flat-audio .jp-gui, .jp-flat-audio {
+	height: 34px;
+	min-width: 150px;
+}
+
+.jp-flat-video.jp-video-auto .jp-control, .jp-flat-audio .jp-control {
+	width: 34px;
+	height: 34px;
+}
+
+.jp-flat-video .jp-control, .jp-flat-audio .jp-control {
+	/* define your pause/play and fullscreen/restore button background color here */
+	background-color: #CC0000;
+}
+
+.jp-flat-video.jp-video-auto .jp-button, .jp-flat-audio .jp-button {
+	font-size: 24px;
+	line-height: 34px;
+	display: block;
+}
+
+.jp-button.jp-full-screen{
+	display: block;
+}
+
+.jp-flat-video .jp-button, .jp-flat-audio .jp-button {
+	/* define your pause/play and fullscreen/restore button icon color here */
+	background: #CC0000;
+	color: #FFFFFF;
+}
+
+.jp-flat-video .jp-button:hover, .jp-flat-audio .jp-button:hover {
+	/* define your pause/play and fullscreen/restore button icon color here */
+	background: #FFFFFF;
+	color: #CC0000;
+}
+
+.jp-flat-video .jp-pause, .jp-flat-video .jp-restore-screen , .jp-flat-audio .jp-pause {
+	display: none;
+}
+
+.jp-flat-video.jp-video-auto .jp-button:before, .jp-flat-audio .jp-button:before {
+	width: 34px;
+	line-height: 34px;
+}
+
+.jp-flat-video.jp-video-auto .jp-bar {
+	left: 34px;
+	right: 34px;
+}
+
+.jp-flat-audio .jp-bar {
+	left: 34px;
+	right: 0;
+}
+
+.jp-flat-video .jp-bar, .jp-flat-audio .jp-bar {
+	/* define your unplayed progress bar background color here */
+	background-color: #515151;
+}
+
+.jp-flat-video .jp-play-bar, .jp-flat-audio .jp-play-bar {
+	/* define your played progress bar background color here */
+	background-color: #7B7B7B;
+	border-right: 1px solid #FFFFFF;
+}
+
+.jp-flat-video.jp-video-auto .jp-details, .jp-flat-video.jp-video-auto .jp-timing, .jp-flat-audio .jp-details, .jp-flat-audio .jp-timing {
+	padding: 1px 10px;
+	font-size: 10px;
+	line-height: 34px;
+}
+
+.jp-flat-video.jp-video-auto .jp-title, .jp-flat-video.jp-video-auto .jp-duration, .jp-flat-video.jp-video-auto .jp-current-time, .jp-flat-audio .jp-title, .jp-flat-audio .jp-duration, .jp-flat-audio .jp-current-time {
+	font-size: 16px;
+	line-height: 34px;
+}
+
+.jp-flat-video .jp-no-solution, .jp-audio .jp-no-solution {
+	/* define your error message text color here */
+	color: #000000;
+	/* define your error message background color here */
+	background-color: #b28282;
+}
+
+/* video closed caption buitton */
+.ccbutton {
+	background: #CC0000;
+	width: 35px;
+	height: 35px;
+	right: -35px;
+	top: 0;
+	position: absolute;
+	box-sizing: border-box;
+	padding: 4px;
+	top: 0;
+	right: 0;
+}
+
+.screenElement.video .ccbutton .tooltip{
+	position:absolute;
+	width: 100px;
+	top: 40px;
+	right: 3px;
+	z-index: 100;
+}
+
+.screenElement.video .ccbutton .tooltip:after{
+	left: 85px;
+}
+
+.screenElement.video .ccbutton.over{
+	background: #FFFFFF;
+}
+
+.ccbutton.on {
+	background: #FFFFFF;
+}
+.ccbutton.on svg.video_transcript .st0
+{
+	fill: #CC0000;
+}
+
+div.jp-closed-captions {
+	position: absolute;
+	bottom: 40px;
+	width: 100% !important;
+	text-align: center;
+	z-index: 1 !important;
+}
+
+div.jp-closed-captions p {
+	display: inline-block;
+	background: black;
+	color: white;
+	padding: 0 15px;
+	line-height: 1.5em !important;
+	font-size: 20px !important;
+}
+
+div.jp-flat-video-full {
+	background: black;
+}
+
+div.jp-flat-video-full div.ccbutton {
+	z-index: 1001 !important;
+}
+
+.fullscreenvideo .ccbutton .invisibutton {
+	display: block !important;
+	visibility: visible;
+}
+
+div.jp-flat-video-full div.jp-closed-captions {
+	position: absolute;
+	bottom: 100px;
+	width: 100% !important;
+	text-align: center;
+	z-index: 1001 !important;
+}
+
+div.jp-flat-video-full div.jp-closed-captions p {
+	font-size: 50px !important;
+}
+
+.lte8.ie div.jp-flat-video-full div.jp-closed-captions p {
+	font-size: 20px !important;
+}

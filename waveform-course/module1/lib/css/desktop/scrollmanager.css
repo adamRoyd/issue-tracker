@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+
+.scrollManager
+{
+	/* width: 100% ; */
+	/* height: 100%; */
+}
+
+.screenHolder.scrollManager 
+{
+	overflow-x: auto !important;
+	overflow-y: hidden;
+}
+
+.progressTracker
+{
+		background: rgba( 238,242,243,0.7 );
+		width: 12px;
+		height: auto;
+		right: 50px;
+		left:  auto;
+		position: absolute;
+		padding: 5px 5px 10px 5px;
+		top: 40vh;
+		bottom: auto;
+		border-radius: 19px;
+}
+
+.progressTracker .icon
+{
+	position: relative;
+	background: white;
+	width: 10px;
+	height: 10px;
+	margin-top: 8px;
+	border-radius: 100%;
+	border: 1px solid #868686 ;
+}
+
+.progressTracker .icon.over
+{
+	background: #4B4F54;	
+	border: 1px solid white ;
+}
+
+.progressTracker .icon.active
+{
+	background: #4B4F54;	
+	border: 1px solid white ;
+}
+
+.screens
+{
+	margin-bottom: 100px;
+	overflow-x: visible;
+}
+
+.topBufferMarker,
+.bottomBufferMarker
+{
+	width: 100%;
+	height: 1px;
+	border: solid 1px red;
+	bottom: 300px;
+	position: absolute;
+}	
+
+.bottomBufferMarker
+{
+	border: solid 1px green;
+}
+
+.scrollmanager_box
+{
+	background: purple;
+	width: 30px ;
+	height: 30px ;
+}
+
+
+
+.animationTrigger
+{
+	/* background: rgba( 255,0,0,0.5); */
+	z-index: 0;
+}
+
+.animationTrigger .screenHolder
+{
+	background: transparent;
+}

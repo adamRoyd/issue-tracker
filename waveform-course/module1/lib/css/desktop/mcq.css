@@ -1,0 +1,126 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.mcq .option
+{
+	min-height: 55px;
+	position:relative;
+	padding: 10px 15px 10px 65px;
+	border-radius:5px;
+	width : 100%;
+	margin-bottom: 10px !important;
+	box-sizing: border-box;
+	background: #00B7C7;
+	display: table;
+}
+
+.mcq .option.selected,
+.mcq .option.animover
+{
+	background: #4F2070;
+}
+
+.radio{
+	position: absolute;
+	top: 50%;
+	left:15px;
+	width: 25px;
+	height: 25px;
+	margin-top: -16px;
+	border: 3px solid white;
+	border-radius: 50%;
+}
+
+.screenElement.radio{
+	margin-top: 0px;
+}
+
+.radio.checkbox{
+	border-radius: 0%;
+	width: 20px;
+	height: 20px;
+	margin-top: -12px;
+	left: 16px;
+}
+
+.option .radio:after {
+	position: absolute;
+	content: ' ';
+	border-radius: 50%;
+	background: transparent;
+	top: 5px;
+	left: 5px;
+	width: 15px;
+	height: 15px;
+}
+
+.option.over .radio:after{
+	background: rgba(255,255,255,0.7);
+}
+.option.selected .radio:after {
+	background: white;
+}
+
+
+.option .radio.checkbox:after {
+	border-radius:0;
+	top: 5px;
+	left: 5px;
+	width: 10px;
+	height: 10px;
+}
+
+.mcq .tick{
+	top: 3px;
+	left: -50px;
+}
+
+.mcq .button{
+	background-color:#CE1127;
+	border-radius:5px;
+}
+
+.mcq .button.over{
+	background-color: #4F2070;
+}
+
+.mcq .feedbackHolder
+{
+	background: url(../../images/ui/color_bg/mdl851_bkg_purple_d_8.jpg) center no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.mcq_feedback
+{
+	position: relative !important ;	
+	margin-bottom: 5px ;
+	background: orange ;
+	padding: 8px ;
+}
+
+.mcq_feedback.event
+{
+	background: MediumSeaGreen  ;
+}
+
+.mcq_feedback.index
+{
+	background: SlateBlue    ;
+}
+
+.mcq_feedback_text
+{
+	position: relative !important ;	
+	text-align: center ;
+
+}
+
+.mcq_feedback_text p
+{
+	color: white ;	
+	margin-bottom: 0 ;
+}

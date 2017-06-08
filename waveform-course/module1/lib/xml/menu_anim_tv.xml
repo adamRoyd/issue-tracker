@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	
+	<events>
+		<event id="onEnterScrollView">			
+			<media id="animTimeline" action="play" />
+		</event>
+		
+		<event id="onExitScrollView">		
+			<media id="animTimeline" action="pause" />
+		</event>
+	</events>
+	
+	<timeline id="animTimeline" autoplay="false" time="1" repeat="-1">
+		<tween element="pattern" time="100"><![CDATA[ rotation:360, ease:Power0.easeNone  ]]></tween>		
+	</timeline>
+	
+	<image><![CDATA[lib/animations/menu_tv/mdl851002_menu_4_1.png]]></image>
+	
+	<box id="liftDoorHolder" x="9" y="9" width="245" height="141" class="overflowHidden" bgcol="00ff00" bgalpha="0">
+		<image id="pattern" x="-100" y="-200"><![CDATA[lib/animations/menu_tv/mdl851002_menu_4_2.png]]></image>
+	</box>
+	
+</data>

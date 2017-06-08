@@ -1,0 +1,21 @@
+@import url("font-awesome.min.css");
+@import url("fonts.css");
+@import url("svg.css");
+
+#courseholder{
+	display: none;
+}
+#svgholder{
+	height: 0;
+	overflow: hidden;
+}
+/* usefulStuff */
+body.releaseMode .devModeOnly{
+	display:none!important;
+}
+body.desktop .phoneOnly,
+body.phone .desktopOnly,
+html.no-touch .touchOnly,
+.printOnly{
+	display:none!important
+}

@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+
+.screenlist .screen_btn{
+	position:relative;
+	margin-bottom: 15px;
+}
+.screenlist .screen_btn.animover{
+	left: 5px;
+}
+
+.screenlist .screen_btn:before{
+	content: ' ';
+	position:absolute;
+	width:  17px;
+	height: 17px;
+	top:  3px;
+	background: url('../../images/ui/screenlist_arrow.png') no-repeat;
+}
+.screenlist .screen_btn.current:before{
+	border-radius: 50%;
+	background: #F26524;
+
+	/* temporary icon..  */
+	content: '●';
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	line-height: 15px;
+	padding-left: 1px;
+	box-sizing: border-box;
+}
+
+.screenlist .screenlabel{
+	margin-left: 30px;
+}
+
+.screenlist .screen_btn p{
+	margin-bottom: 0;
+	color: #018BA9;
+	font-weight: bold;
+	/* font-size: 17px; */
+}

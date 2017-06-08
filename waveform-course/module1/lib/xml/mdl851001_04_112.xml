@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	<events>
+	
+		<event id="onEnterScrollView">	
+			<media id="cat" action="play" />
+			<media id="steam" action="play" />
+		</event>
+		
+		<event id="onExitScrollView">		
+			<media id="cat" action="stop" />		
+			<media id="steam" action="stop" />		
+			<event id="closeHotspot"/>
+		</event>
+		
+		<event id="init">
+			<event id="closeHotspot"/>
+		</event>		
+		
+		<event id="hotspot">
+			<anim type="alpha" animtime="0.2">[ITEM]_reveal</anim>
+			<translate scale="1" animtime="0.2">[ITEM]_reveal</translate>
+		</event>
+		
+		<event id="closeHotspot">
+			<!-- <anim type="alphaout" animtime="0.2">[ITEM]_reveal</anim>			 -->
+			<anim type="alphaout" animtime="0.2">hotspot1_reveal</anim>			
+			<translate scale="0" animtime="0.2">hotspot1_reveal</translate>			
+		</event>
+		
+	</events>
+	
+	<!-- 	
+	<timeline id="animTimeline" autoplay="false" xtime="1">
+		<tween element="car" time="2" delay="1"><![CDATA[ x:600, ease:Power2.easeOut  ]]></tween>
+	</timeline>
+	 -->
+		 
+<!-- 	 
+	 OFFSET SETTINGS
+	 offset="enterScreen" left edge enters the screen
+	 offset="onScreen" left edge at left side of screen
+ -->
+	 
+	<timeline id="scrollTimeline" control="scroll" scrollaxis="x" useparent="true" autoplay="false" offset="enterScreen" >
+		<tween element="layer10" time="1921" ><![CDATA[ x:200, ease:Power0.easeNone]]></tween>
+	</timeline>
+
+	<box id="bg" width="100%" height="100%" bgcol="#00B1C8"/>
+	<box id="floor" width="100%" height="100" y="494" bgcol="#045F66"/>
+	
+	<box id="layer10" x="">
+		<image id="bookcase" x="-20" y="214" ><![CDATA[lib/images/content/mdl851001_04_112_bookcase.png]]></image>
+		<image id="wall" x="500" y="130" ><![CDATA[lib/images/content/mdl851001_04_112_home_office_wall.png]]></image>
+	</box>
+	
+	
+	<box id="top">
+		<image id="desk" x="240" y="202" ><![CDATA[lib/images/content/mdl851001_04_112_desk.png]]></image>
+		<svganim id="cat" src="lib/animations/mdl851001_04_112_cat.json" fps="12" width="197" height="97" x="570" y="266" loop="true" autoplay="false" disableTM="true"/>		
+		<svganim id="steam" src="lib/animations/mdl851001_04_112_steam.json" fps="24" width="28" height="93" x="260" y="250" loop="true" autoplay="false" disableTM="true"/>		
+		<box id="hotspot1" class="scrollRevealHotspot" width="30" height="30" x="460" y="302" event="hotspot"/>		
+	</box>
+
+	<box id="hotspot1_reveal" class="scrollReveal" x="80" y="100" width="800" anim="hidden">
+		<box class="titleBar">
+			<text class="titleText">
+				<![CDATA[<p>WiSE</p>]]>
+			</text>
+			<box class="closeBtn" width="20" height="20" event="closeHotspot"/>
+		</box>
+		<image class="revealImage"><![CDATA[lib/images/content/mdl851001_04_112_reveal.jpg]]></image>
+		<text class="content">
+			<![CDATA[
+				<p>"WiSE is our Winning in Sales Execution tool. It helps with every aspect of field sales, because it connects me to adatabase with all sorts of useful information to help me sell and improve execution of our sales priorities."</p>
+			]]>
+		</text>
+	</box>	
+	
+	<text id="titleTxt" class="scrollRevealTitle" x="40" y="50">
+		<![CDATA[<p>WiSE</p>]]>
+	</text>
+	
+</data> 

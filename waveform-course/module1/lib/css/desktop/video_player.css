@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+
+.screenElement.video .transcriptHolder
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0%;
+	bottom: 34px;
+	overflow:  hidden;
+}
+
+.screenElement.video .transcriptBtn
+{
+	display:block;
+	background: #CC0000;
+	width: 35px;
+	height: 35px;
+	right: -35px;
+	top: 0;
+	position:  absolute;
+	padding: 4px;
+	box-sizing: border-box;
+}
+
+
+.screenElement.video .transcriptBtn .tooltip{
+	position:absolute;
+	width: 110px;
+	top: 40px;
+	left: 3px;
+	z-index: 100;
+}
+.screenElement.video .transcriptBtn .tooltip:after{
+	left: 15px;
+}
+
+.transcript_icon
+{
+	fill: transparent;
+	stroke: #FFFFFF;
+	stroke-width: 2px;
+}
+
+.screenElement.video .transcriptBtn.over{
+	background: #FFFFFF;
+}
+.over svg.video_transcript .st0
+{
+	fill: #CC0000 !important;
+}
+
+
+.screenElement.video .transcriptHolder .transcript
+{
+	background: #333333;
+	position: absolute;
+	display:block;
+	width: 320px;
+	height: 100%;
+	overflow-y: auto !important;
+	padding:  10px;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+
+.screenElement.video .transcriptHolder .transcript p{
+	color: white;
+}
+
+.jp-flat-video .jp-gui {
+	z-index: 1;
+}
+
+
+.transcript_open  .jp-gui{
+	display: block !important;
+	opacity: 1 !important;
+}

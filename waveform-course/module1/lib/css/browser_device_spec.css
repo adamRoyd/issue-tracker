@@ -1,0 +1,98 @@
+
+/* error bar */
+#errorBar{
+	overflow:hidden;
+	bottom:0;
+	display:block!important;
+	overflow:hidden;
+    position: fixed;
+	width:100%;
+    background:rgb(0,0,0);
+    background: transparent\9;
+    background:rgba(0,0,0,0.9);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#e5000000,endColorstr=#e5000000);
+    zoom: 1;
+	z-index:1105;
+}
+#errorBar:nth-child(n) {
+    filter:none;
+}
+#errorBar #errorContent{
+    padding: 20px 60px 0px 20px;
+	box-sizing:border-box;
+	display:none;
+	max-width:1014px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#errorBar.pluginError #errorContent,
+#errorBar.browserError #errorContent,
+#errorBar.ieCompatibilityModeError #errorContent,
+#errorBar.deviceError #errorContent,
+#errorBar.screenOrientationError #errorContent{
+	display:block;
+}
+#errorBar .errorMsg{
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:20px;
+}
+#errorBar .closeBtn{
+	position:absolute;
+    right: 15px;
+    top: 15px;
+	cursor:pointer;
+}
+#errorBar .closeBtn:after{
+	font: normal normal normal 30px/1 FontAwesome;
+	content: '\f00d';
+	color: white;
+}
+#errorBar .closeBtn:hover:after{
+	color: #cccccc;
+}
+
+#errorBar .errorMsg{
+	display:none;
+}
+#errorBar.pluginError .errorMsg#pluginError,
+#errorBar.browserError .errorMsg#browserError,
+#errorBar.ieCompatibilityModeError .errorMsg#ieCompatibilityModeError,
+#errorBar.deviceError .errorMsg#deviceError,
+#errorBar.screenOrientationError .errorMsg#screenOrientationError{
+	display:block;
+}
+/* 
+#errorBar .errorMsg p{
+    opacity: 0;
+}
+#errorBar.pluginError .errorMsg#pluginError p,
+#errorBar.browserError .errorMsg#browserError p,
+#errorBar.deviceError .errorMsg#deviceError p,
+#errorBar.screenOrientationError .errorMsg#screenOrientationError p{
+    opacity: 1;
+	-webkit-transition:all 1s;
+	transition:all 1s;
+    -webkit-transition-delay: 1.1s;
+    transition-delay: 1.1s;	
+}
+ */
+body.ie8 #errorBar p{
+	margin-bottom:0;
+}
+body.ie8 #errorBar #errorContent{
+	padding-bottom:20px;
+}
+#errorBar .errorMsg p{font-family:Arial;color:white;}
+#errorBar .errorMsg p.prompt{font-family:Arial;color:white;font-weight:bold!important;}
+
+@media (max-width: 500px) {
+	#errorBar #errorContent{
+		padding: 60px 20px 0px 20px;
+	}
+	#errorBar .closeBtn{
+		right: 20px;
+		top: 20px;
+	}
+}

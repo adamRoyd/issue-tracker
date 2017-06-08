@@ -15,7 +15,8 @@ const SelectInput = ({name, label, onChange, value, error, options,defaultOption
           name={name}
           value={value}
           onChange={onChange}
-          className="form-control">
+          className="form-control"
+          >
           {(defaultOption)
             ? <option selected>{defaultOption}</option>
             : null

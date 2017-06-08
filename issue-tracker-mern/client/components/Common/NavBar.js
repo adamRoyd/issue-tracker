@@ -35,7 +35,7 @@ class NavBar extends React.Component{
                     }
                     <Link to={`/`}><button className="btn">Log out</button></Link>
                     <div className="nav-div right">
-                        <h4 className="white">User: {this.props.user}</h4>
+                        <h4 className="white">User: {this.props.username}</h4>
                     </div>
                 </div>
             );
@@ -44,7 +44,7 @@ class NavBar extends React.Component{
 
 NavBar.propTypes = {
     params : PropTypes.object.isRequired,
-    user : PropTypes.string.isRequired
+    username : PropTypes.string.isRequired
 };
 
 

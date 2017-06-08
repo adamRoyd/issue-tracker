@@ -1,0 +1,96 @@
+body.scrolling_layout
+{
+	overflow: auto;
+}
+
+body.scrolling_layout .fixed
+{
+	position: fixed;
+}
+
+
+.scrolling_layout #BIT {
+	position: fixed !important;
+}
+
+.scrolling_layout #floater
+{
+	text-align:center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	float: none;
+    position: fixed;
+	box-sizing: border-box;
+}
+.scrolling_layout #floater:after{
+	content: ' ';
+	display: block;
+	box-sizing: border-box;
+	background: white;
+	margin: auto;
+	width: 1014px;
+	height: 100%;
+}
+
+.scrolling_layout #courseholder{
+	box-sizing: border-box;
+	border: none;
+	background: transparent;
+	clear: none;
+	position: relative;
+	margin: 0px auto;
+	width: 1014px;
+	height: 100%;
+	overflow: visible;
+	/* overflow-x: hidden; */
+	display:  block;
+}
+
+.scrolling_layout #menuholder
+{
+	position: relative;
+	width:100%;
+	height: auto;
+}
+
+
+.scrolling_layout #navholder
+{	
+	display: none;
+	position: fixed;
+	width:100%;
+	height:0px;
+	overflow: visible;
+	margin: auto;
+	z-index: 1050;
+	text-align:center;
+}
+.scrolling_layout #navholder .screenHolder
+{
+	width: 1014px !important;
+	margin: auto;
+	position: relative;
+}
+
+.scrolling_layout #contentholder
+{
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	top: 0;
+	left: 0;
+}
+
+
+.scrolling_layout #contentholder>.screenHolder
+{
+	position: absolute;
+	width: 100%;
+	height: 100% !important;
+	overflow: visible;
+	background: transparent !important;
+}

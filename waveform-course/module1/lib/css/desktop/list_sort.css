@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.list_sort_item {
+	position: relative;
+	height: 43px;
+	margin-bottom: 8px;
+}
+
+.list_sort_item .inner{
+	box-sizing: border-box;
+	position: relative;
+	z-index: 100 !important;
+	overflow: hidden;
+	height: 43px;
+	width: 100%;
+	background: #F5F5F5 !important;
+	border: 2px solid #D9D9D9;
+	padding: 10px;
+}
+
+.list_sort_item.dragging{
+}
+.list_sort_item.dragging .inner{
+	position: absolute !important;
+	z-index: 1000 !important;
+	background: grey !important;
+}
+.list_sort_item.dragging p{
+	color: white;
+}
+.list_sort_item p{
+	color: #018BA9;
+	font-weight: bold;
+}

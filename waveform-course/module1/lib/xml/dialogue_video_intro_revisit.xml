@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	
+	<events>
+		<event id="closeDialogue">
+			<function name="closeDialogue"/>
+		</event>
+		<event id="end_event">
+
+		</event>
+	</events>
+
+	<image id="bg"><![CDATA[lib/images/content/mdl851002_video_intro.jpg]]></image>
+ 
+	<text id="title" x="170" y="40" width="200">
+		<![CDATA[
+			<p class="title">Welcome</p>
+		]]>
+	</text>	 
+ 
+ 	<button id="continue" x="calc(50% - 90px)" y="500" width="180" enabled="true" anim="alpha" event="closeDialogue"><![CDATA[<p>Enter RDQ</p>]]></button>
+ 
+	<video id="vid" x="170" y="90" width="676" height="380" autoplay="true" controls="true" autorewind="false" src="lib/video/BW_day_in_life.mp4">
+
+		<transcript width="400">
+			<![CDATA[
+			<p>Welcome to the high-tech Research, Development and Quality building. We call this function RDQ for short.</p>
+			<p>Our visit here will take about half an hour. During that time you'll see how the global RDQ teams discover the science and technology to meet our consumers' needs. You'll find out how they develop delicious new products and then deploy them into markets across the world.</p>
+			<p>Here at RDQ our teams don't just create our tasty snacks, they also design the processes to make them. We develop and create all the packaging too.</p> 
+			<p>Most importantly, we make sure our products are safe, comply with local regulations, and meet the high quality consumers expect.</p>
+			<p>You can leave the tour at any time and come back whenever you like. You'll start at the same point you left.</p>
+			<p>Let's go in!</p>
+			]]>
+		</transcript>
+
+	</video>
+	
+	
+</data>

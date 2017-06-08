@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	<events>
+		<event id="1">
+			<function name="glossaryScrollTo">A</function>
+		</event>
+		
+		<event id="2">
+			<function name="glossaryScrollTo">G</function>
+		</event>
+		
+		<event id="3">
+			<function name="glossaryScrollTo">M</function>
+		</event>
+		
+		<event id="4">
+			<function name="glossaryScrollTo">R</function>
+		</event>
+		
+		<event id="5">
+			<!-- <link>lib/docs/kpg604_glossary.pdf</link> -->
+			<log>pdf link</log>
+		</event>
+		
+	</events>
+	
+	
+	<!-- <text id="title" x="15" y="15" width="280"><![CDATA[<p class="title">Glossary</p>]]></text> -->
+	<var id="dialogue_title"><![CDATA[Glossary]]></var>
+	
+	
+	<box id="glossaryButtonHolder" >
+		<box class="glossaryButton" event="1">
+			<text>
+				<![CDATA[<p>A - F</p>]]>
+			</text>
+		</box>
+		<box class="glossaryButton" event="2">
+			<text>
+				<![CDATA[<p>G - L</p>]]>
+			</text>
+		</box>
+		<box class="glossaryButton" event="3">
+			<text>
+				<![CDATA[<p>M - Q</p>]]>
+			</text>
+		</box>
+		<box class="glossaryButton" event="4">
+			<text>
+				<![CDATA[<p>R - Z</p>]]>
+			</text>
+		</box>
+		
+	</box>
+	
+	
+<!-- 		<box class="glossaryButton" event="5">
+			<text>
+				<![CDATA[<p>PDF version</p>]]>
+			</text>		
+		</box>
+ -->	
+	
+	<custom id="glossary" x="10" y="100" width="660" height="500" anim="alpha" animtime="0.5" animdelay="0.1">
+		<settings />
+		
+		<letter_block id="A">
+			<term id="Apple">			
+				<text class="term_title">
+					<![CDATA[<p >Apple</p>]]>
+				</text>
+				
+				<text class="definition">
+					<![CDATA[
+					<p>A nice apple.</p>
+					]]>
+				</text>
+			</term>
+			
+
+		</letter_block>
+	 	
+		<letter_block id="B">
+			<term id="biscuit">			
+				<text class="term_title">
+					<![CDATA[<p >Biscuit</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>A tasty biscuit.</p>
+					]]>
+				</text>
+			</term>
+
+			<term id="balloon">			
+				<text class="term_title">
+					<![CDATA[<p >Balloon</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>A big, blue balloon.</p>
+					]]>
+				</text>
+			</term>
+		</letter_block>	
+		
+		<letter_block id="C" >
+			<term id="cherry">			
+				<text class="term_title">
+					<![CDATA[<p >Cherry</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>A fine bunch of cherries.</p>
+					]]>
+				</text>
+			</term>
+		</letter_block>
+		
+		<letter_block id="D" />
+		<letter_block id="E" />
+		<letter_block id="F" >
+			<term id="French Fancy">			
+				<text class="term_title">
+					<![CDATA[<p >French Fancy</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>A funny little cake.</p>
+					]]>
+				</text>
+			</term>
+		</letter_block>
+		<letter_block id="G" >
+			<term id="grape">			
+				<text class="term_title">
+					<![CDATA[<p >Grape</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>Juicy fruit that comes in a bunch. A nice fruity snack, or squash them to make wine!</p>
+					]]>
+				</text>
+			</term>
+		</letter_block>
+		<letter_block id="H" >
+			<term id="Hamster">			
+				<text class="term_title">
+					<![CDATA[<p >Hamster</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>A furry, small creature.</p>
+					]]>
+				</text>
+			</term>
+		</letter_block>
+		<letter_block id="I" />
+		<letter_block id="J" />
+		<letter_block id="K" />
+		<letter_block id="L" >
+			<term id="lemon">			
+				<text class="term_title">
+					<![CDATA[<p >Lemon</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>A yellow, sour fruit.</p>
+					]]>
+				</text>
+			</term>
+			<term id="lime">			
+				<text class="term_title">
+					<![CDATA[<p >Lime</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>Bright green and friendly. The lime is a lovely little fruit.</p>
+					]]>
+				</text>
+			</term>
+		</letter_block>
+		<letter_block id="M" >
+			<term id="merignue">			
+				<text class="term_title">
+					<![CDATA[<p >Meringue</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>All fluffed up and weird. Who'd have thought it's made from eggs!</p>
+					]]>
+				</text>
+			</term>
+		</letter_block>
+		<letter_block id="N" >
+			<term id="nuts">			
+				<text class="term_title">
+					<![CDATA[<p >Nuts</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>There are loads of different ones, like:</p>
+					<ul>
+					<li>Peanuts</li>
+					<li>Cashew nuts</li>
+					<li>Macadamia nuts</li>
+					<li>Pistachio nuts</li>
+					<li>Brazil nuts</li>
+					</ul>
+					<p>There are others too.</p>
+					]]>
+				</text>
+			</term>
+		</letter_block>
+		<letter_block id="O" />
+		<letter_block id="P">
+			<term id="pickles">			
+				<text class="term_title">
+					<![CDATA[<p >Pickles</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>Pickle me this - onions, cucumbers, even eggs! Pop them in vinegar and a-pickling you will be.</p>
+					]]>
+				</text>
+			</term>
+			<term id="prawn">			
+				<text class="term_title">
+					<![CDATA[<p >Prawn</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>Bug of the sea.</p>
+					]]>
+				</text>
+			</term>
+		</letter_block>
+		<letter_block id="Q" />
+		<letter_block id="R" >
+			<term id="radish">			
+				<text class="term_title">
+					<![CDATA[<p >Radish</p>]]>
+				</text>				
+				<text class="definition">
+					<![CDATA[
+					<p>Rooty and peppery, a refreshing addition to your salad, or have them on their own with a bit of salt.</p>
+					]]>
+				</text>
+			</term>
+		</letter_block>
+		<letter_block id="S" />
+		<letter_block id="T" />
+		<letter_block id="U" />
+		<letter_block id="V" />
+		<letter_block id="W" />
+		<letter_block id="X" />
+		<letter_block id="Y" />
+		<letter_block id="Z" />
+			
+	</custom>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</data>
