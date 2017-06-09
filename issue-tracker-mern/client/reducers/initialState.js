@@ -11,5 +11,6 @@ export default({
         isFetching: false,
         isAuthenticated: false,
         username: ""
-    }
+    },
+    attachments: []
 });

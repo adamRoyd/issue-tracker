@@ -5,21 +5,23 @@ export const API_URL = (typeof window === 'undefined' || process.env.NODE_ENV ==
   process.env.BASE_URL || (`http://localhost:${process.env.PORT || Config.port}/api`) :
   '/api';
 
-export default function callApiUpload(endpoint, method = 'get', file) {
-  let data = new FormData();
+export default function callApiUpload(endpoint, method = 'post', file) {
+  console.log('CALL API UPLOAD');
+  console.log(file);
+  var data = new FormData();
   data.append('file', file);
-  data.append('name', 'photo');
-  console.log(data);
+  console.log(data.file);
   return fetch(`${API_URL}/${endpoint}`, {
     method,
-    body: data
+    body: data,
   })
   .then(response => response.json().then(json => ({ json, response })))
   .then(({ json, response }) => {
     if (!response.ok) {
       return Promise.reject(json);
     }
-
+    console.log('UPLOAD RESPONSE');
+    console.log(response.body);
     return json;
   })
   .then(

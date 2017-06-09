@@ -10,6 +10,7 @@ import assignees from './AssigneeReducer';
 import issueFilter from './IssueFilterReducer';
 import headers from './HeaderReducer';
 import user from './UserReducer';
+import attachments from './AttachmentReducer';
 
 export default combineReducers({
   projects,
@@ -18,5 +19,6 @@ export default combineReducers({
   assignees,
   issueFilter,
   headers,
-  user
+  user,
+  attachments
 });

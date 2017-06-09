@@ -36,7 +36,7 @@ function authCheck(){
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
 export default (
   <Route path="/" component={App} onEnter={authCheck()}>
-    <IndexRedirect to="/login"/>
+    <IndexRedirect to="/selectproject"/>
     <Route
       path="/login"
       onEnter={authCheck()}

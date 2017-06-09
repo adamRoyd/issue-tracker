@@ -5,6 +5,7 @@ import {Modal} from 'react-bootstrap';
 import Browser from 'detect-browser';
 import { addIssueRequest, uploadFileRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
+import { getAttachments } from '../../reducers/AttachmentReducer';
 import NewIssueForm from '../Issue/NewIssueForm';
 
 class NewIssueModal extends React.Component{
@@ -124,7 +125,8 @@ NewIssueModal.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        assignees: getAssignees(state)
+        assignees: getAssignees(state),
+        attachments: getAttachments(state)
     };
 }
 

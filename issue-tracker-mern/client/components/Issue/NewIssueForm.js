@@ -5,7 +5,7 @@ import TextAreaInput from '../Common/TextAreaInput';
 import SelectInput from '../Common/SelectInput';
 import DropZone from '../Common/DropZone';
 
-const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,categories,onDrop,files}) => {
+const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,categories,onDrop,files,attachments}) => {
         return(
             <form> 
                 <SelectInput
@@ -59,7 +59,8 @@ const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,
                     name="attachment"
                     label="Attachment"
                     onDrop={onDrop}
-                    files={files}/>          
+                    files={files}
+                    attachments={attachments}/>          
             </form>
         );
 };

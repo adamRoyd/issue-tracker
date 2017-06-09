@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react';
 import Dropzone from 'react-dropzone';
 
-const DropZone = ({name, label, onDrop, files }) => {
+
+const DropZone = ({name, label, onDrop, files, attachments }) => {
   return (
     <div className="form-group row">
       <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
@@ -11,7 +12,7 @@ const DropZone = ({name, label, onDrop, files }) => {
         </Dropzone>
         <ul>
             {
-                files.map((f,i) => <li key={i}>{f.name} - {f.size} bytes</li>)
+                files.map((f,i) => <img src={f.preview}  width="30px" height="30px"/>)
             }
         </ul>
       </div>
