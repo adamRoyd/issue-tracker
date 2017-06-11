@@ -75,7 +75,7 @@ export function saveIssue(req, res) {
   const issueToSave = req.body.issue
   mail.send({
     username: issueToSave.assigned,
-    subject: 'An issue has been assigned to you',
+    subject: 'A BIT issue has been assigned to you',
     url: req.route.path
   })
   Issue.findOneAndUpdate(

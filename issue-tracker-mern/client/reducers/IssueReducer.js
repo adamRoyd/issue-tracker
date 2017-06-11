@@ -83,21 +83,19 @@ export const getBatchIssues = state => state.issues.filter((issue) => issue.chec
 
 export const getVisibleIssues = (issues, filter) => {
     switch(filter){
-        case 'SHOW_ALL':
-            return issues;
-        case 'New':
+        case 'new':
             return issues.filter(t => t.status == 'New');
-        case 'On Hold':
+        case 'onhold':
             return issues.filter(t => t.status == 'On Hold');
-        case 'Ready To Fix':
+        case 'readytofix':
             return issues.filter(t => t.status == 'Ready To Fix');
-        case 'Fixed':
+        case 'fixed':
             return issues.filter(t => t.status == 'Fixed');
-        case 'Returned':
+        case 'returned':
             return issues.filter(t => t.status == 'Returned');
-        case 'Closed':
+        case 'closed':
             return issues.filter(t => t.status == 'Closed');
-        case 'Rejected':
+        case 'rejected':
             return issues.filter(t => t.status == 'Rejected');        
         default:
             return issues;

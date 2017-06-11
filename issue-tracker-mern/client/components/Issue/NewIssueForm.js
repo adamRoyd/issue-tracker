@@ -54,7 +54,8 @@ const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,
                     value={issue.description}
                     onChange={onChange}
                     error={errors.description}
-                    width="col-sm-9"/>
+                    width="col-sm-9"
+                     textAreaClass="form-control new-issue"/>
                 <DropZone
                     name="attachment"
                     label="Attachment"

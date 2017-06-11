@@ -21,8 +21,8 @@ import { getUser } from '../../reducers/UserReducer';
 
 class IssuePage extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchIssues(this.props.params.projectCode));
-    this.props.dispatch(fetchAssignees());
+     this.props.dispatch(fetchIssues(this.props.params.projectCode));
+     this.props.dispatch(fetchAssignees());
   }
 
   render() {
@@ -50,9 +50,6 @@ class IssuePage extends Component {
     );
   }
 }
-
-// Actions required to provide data for this component to render in sever side.
-IssuePage.need = [() => { return fetchIssues(this.props.params.projectCode); }];
 
 // Retrieve data from store as props
 function mapStateToProps(state) {

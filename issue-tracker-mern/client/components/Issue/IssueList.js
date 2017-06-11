@@ -32,25 +32,23 @@ class IssueList extends React.Component{
     }
     render(){
         return(
-            <div>
-                <table className={"issueTable table table-fixed table-hover"}>
-                    <thead>
-                    <tr>
-                        {this.props.headers.map((header,i) => <Header key={i} header={header} onClick={() => this.headerClick(i)}/>)}
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {this.props.issues.map((issue, i) => 
-                            <Issue 
-                                {...this.props} 
-                                key={i} 
-                                issue={issue} 
-                                onClick={() => this.handleClick(i)} 
-                                checkBoxClick={() => this.checkBoxClick(i)
-                                }/>)}
-                    </tbody>
-                </table>
-            </div>
+            <table className={"issueTable table table-fixed table-hover"}>
+                <thead>
+                <tr>
+                    {this.props.headers.map((header,i) => <Header key={i} header={header} onClick={() => this.headerClick(i)}/>)}
+                </tr>
+                </thead>
+                <tbody>
+                    {this.props.issues.map((issue, i) => 
+                        <Issue 
+                            {...this.props} 
+                            key={i} 
+                            issue={issue} 
+                            onClick={() => this.handleClick(i)} 
+                            checkBoxClick={() => this.checkBoxClick(i)
+                            }/>)}
+                </tbody>
+            </table>
         );
     }
 }

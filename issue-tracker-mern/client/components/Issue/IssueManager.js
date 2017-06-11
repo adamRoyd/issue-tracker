@@ -17,19 +17,17 @@ class IssueManager extends React.Component{
         const issue = this.props.issues[i];
         const issueComments = this.props.comments;
         return(
-            <div>
-                <div>
-                    <h4>Issue description</h4>
-                    <IssueDescription issue={issue}/>
-                    <CommentManager {...this.props} issue={issue}/>
-                    <Comments issueComments={issueComments}/>
-                </div>
+            <div className="col-sm-12 no-gutter">
+                <h4>Issue description</h4>
+                <IssueDescription {...this.props} issue={issue}/>
+                <CommentManager {...this.props} issue={issue}/>
+                <Comments issueComments={issueComments}/>
             </div>
         );
     }
 }
 
-IssueManager.need = [() => { return fetchComments(this.props.params.projectCode,this.props.params.id); }];
+// IssueManager.need = [() => { return fetchComments(this.props.params.projectCode,this.props.params.id); }];
 
 IssueManager.propTypes = {
     issues : PropTypes.array.isRequired,

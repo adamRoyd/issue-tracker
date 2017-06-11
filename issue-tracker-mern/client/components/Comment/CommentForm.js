@@ -22,7 +22,8 @@ const CommentForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChang
                 onChange={onCommentChange}
                 error=""
                 wrapperClass="col-sm-7 tableCell"
-                width="col-sm-12"/>
+                width="col-sm-12"
+                textAreaClass="form-control comment-box"/>
             <div className="col-sm-5 tableCell">
                 <SelectInput
                     name="assigned"

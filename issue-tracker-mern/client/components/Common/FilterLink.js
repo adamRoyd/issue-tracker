@@ -8,17 +8,17 @@ import Link from './Link';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    active: ownProps.value === state.issueFilter,
+    active: ownProps.filter === state.issueFilter,
     issues: state.issues,
-    numberOfIssues: getVisibleIssues(state.issues,ownProps.value).length
+    numberOfIssues: getVisibleIssues(state.issues,ownProps.filter).length
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
-      browserHistory.push(`/${ownProps.projectCode}/issues/${ownProps.value.toLowerCase().replace(/ /g,'')}/`);
-      dispatch(setIssueFilter(ownProps.value));
+      browserHistory.push(`/${ownProps.projectCode}/issues/${ownProps.filter}`);
+      dispatch(setIssueFilter(ownProps.filter));
     }
   };
 };

@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-const TextAreaInput = ({name, label, onChange, placeholder, value, error, wrapperClass, width }) => {
+const TextAreaInput = ({name, label, onChange, placeholder, value, error, wrapperClass, width, textAreaClass }) => {
   if (error && error.length > 0) {
     wrapperClass += " " + 'has-error';
   }
@@ -15,7 +15,7 @@ const TextAreaInput = ({name, label, onChange, placeholder, value, error, wrappe
           <textarea
             type="text"
             name={name}
-            className="form-control"
+            className={textAreaClass}
             placeholder={placeholder}
             value={value}
             onChange={onChange}/>

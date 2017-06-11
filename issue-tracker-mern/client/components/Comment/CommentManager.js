@@ -5,6 +5,7 @@ import { browserHistory } from 'react-router';
 import { addCommentRequest } from '../../actions/CommentActions';
 import { saveIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
+import { getPots } from '../../reducers/IssueFilterReducer';
 import CommentForm from './CommentForm';
 
 class CommentManager extends React.Component{
@@ -72,7 +73,7 @@ class CommentManager extends React.Component{
                     assignees={this.props.assignees}
                     onCommentChange={this.onCommentChange}
                     onIssueChange={this.onIssueChange}
-                    status={this.props.status}
+                    status={this.props.pots}
                     displayAdvancedOptions={this.state.toggleOptions}
                     locations={this.props.locations}
                     categories={this.props.categories}
@@ -96,7 +97,8 @@ CommentManager.propTypes = {
 
 function mapStateToProps(state){
     return{
-        assignees: getAssignees(state)
+        assignees: getAssignees(state),
+        pots: getPots()
     };
 }
 

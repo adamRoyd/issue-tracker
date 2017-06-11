@@ -79,7 +79,6 @@ a{
   overflow-y: auto;
   margin-bottom:5px;
   border-bottom:2px solid rgba(55,55,55,0.1);
-  padding:0px 20px 0px 15px;
 }
 
 .form-group .row .has-error{
@@ -136,8 +135,10 @@ input[type="text"]{
 .linkIcon #issueCount,
 .linkIconActive #issueCount{
   position:absolute;
+  width:20px;
   top: 3px;
-  left: 33px;
+  left: 25px;
+  text-align: right;
   color: #40535D;
   font-weight:bold;
 }
@@ -175,6 +176,14 @@ input[type="text"]{
   color:white;
 }
 
+.form-control.comment-box{
+  margin-left:15px;
+  width:90%;
+}
+
+.form-control.new-issue{
+  min-height:200px;
+}
 
 /**************************** NAV *******************************/
 #navBar{
@@ -240,7 +249,7 @@ input[type="text"]{
 
 textarea.form-control{
     resize: vertical !important;
-    min-height:200px;
+    /*min-height:200px;*/
 }
 
 div .displayTable{
@@ -252,3 +261,22 @@ div .tableCell{
     float: none;
     display: table-cell;
 }
+
+.inheritHeight{
+  height:100%;
+}
+
+[class*='col-'] .no-gutter {
+    padding-right:0;
+    padding-left:0;
+}
+
+#issueStats td{
+  padding:5px;
+}
+
+#issueStats td:nth-child(odd){
+  font-weight:bold;
+}
+
+

@@ -10,7 +10,7 @@ class IssuePots extends React.Component{
     render(){
         return(
             <div>
-                {this.props.status.map((value,i) => <FilterLink projectCode={this.props.projectCode} key={i} value={value}/>)}
+                {this.props.status.map((pot,i) => <FilterLink projectCode={this.props.projectCode} key={i} name={pot.name} filter={pot.filter}/>)}
             </div>
         );
     }

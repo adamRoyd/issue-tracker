@@ -6,7 +6,7 @@ export default({
     assignees: [],
     issues: [],
     headers : headers,
-    issueFilter: "All",
+    issueFilter: "all",
     user: {
         isFetching: false,
         isAuthenticated: false,

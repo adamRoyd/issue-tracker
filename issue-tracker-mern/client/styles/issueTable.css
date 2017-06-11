@@ -1,8 +1,7 @@
 /**********************Issue Table*****************************/
-.issueTable div{
-  display: inline-block;
+.issueTable td{
   overflow: hidden;
-  width:100%;
+  max-width: 270px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
