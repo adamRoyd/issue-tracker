@@ -7,6 +7,7 @@ import { saveIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getPots } from '../../reducers/IssueFilterReducer';
 import CommentForm from './CommentForm';
+import IssueForm from '../Issue/IssueForm';
 
 class CommentManager extends React.Component{
     constructor(props){
@@ -65,6 +66,19 @@ class CommentManager extends React.Component{
     render(){
         return(
             <div>
+                <IssueForm
+                    issue={this.state.issue}
+                    comment={this.state.comment}
+                    errors={this.state.errors}
+                    handleSubmit={this.handleSubmit}
+                    assignees={this.props.assignees}
+                    onCommentChange={this.onCommentChange}
+                    onIssueChange={this.onIssueChange}
+                    status={this.props.pots}
+                    displayAdvancedOptions={this.state.toggleOptions}
+                    locations={this.props.locations}
+                    categories={this.props.categories}
+                    />
                 <CommentForm
                     issue={this.state.issue}
                     comment={this.state.comment}

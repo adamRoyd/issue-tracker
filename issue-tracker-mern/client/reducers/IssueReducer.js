@@ -75,11 +75,9 @@ const IssueReducer = (state = initialState.issues, action) => {
 };
 
 /* Selectors */
-
-// Get all issues
 export const getIssues = state => state.issues;
 
-export const getBatchIssues = state => state.issues.filter((issue) => issue.checked == true)
+export const getBatchIssues = state => state.issues.filter((issue) => issue.checked == true);
 
 export const getVisibleIssues = (issues, filter) => {
     switch(filter){

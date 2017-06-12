@@ -6,7 +6,6 @@ import { fetchComments } from '../../actions/CommentActions';
 import Issue from './Issue';
 import Comments from '../Comment/Comments';
 import CommentManager from '../Comment/CommentManager';
-import IssueDescription from './IssueDescription';
 
 class IssueManager extends React.Component{
     componentDidMount() {
@@ -18,8 +17,6 @@ class IssueManager extends React.Component{
         const issueComments = this.props.comments;
         return(
             <div className="col-sm-12 no-gutter">
-                <h4>Issue description</h4>
-                <IssueDescription {...this.props} issue={issue}/>
                 <CommentManager {...this.props} issue={issue}/>
                 <Comments issueComments={issueComments}/>
             </div>

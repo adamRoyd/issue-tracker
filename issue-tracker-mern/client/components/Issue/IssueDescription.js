@@ -1,36 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-function IssueDescription ({issue}){
-    return(
-        <div id="issueDescription"> 
+class IssueDescription extends React.Component{
+    render(){
+        return(
             <div className="col-sm-7 no-gutter">
-                <p>{issue.description}</p>
-            </div>
-            <table id="issueStats" className="col-sm-4 no-gutter">
+                <p>{this.props.issue.description}</p>
+            {/*<table id="issueStats" className="col-sm-4 no-gutter">
                 <tr>
                     <td>Id</td>
-                    <td>{issue.id}</td>
+                    <td>{this.props.issue.id}</td>
                 </tr>
                 <tr>
                     <td>Screen</td>
-                    <td>{issue.sco + "_" + issue.screen}</td>
+                    <td>{this.props.issue.sco + "_" + this.props.issue.screen}</td>
                 </tr>
                 <tr>
                     <td>Location</td>
-                    <td>{issue.location}</td>
+                    <td>{this.props.issue.location}</td>
                 </tr>
                 <tr>
                     <td>Category</td>
-                    <td>{issue.category}</td>
+                    <td>{this.props.issue.category}</td>
                 </tr>
                 <tr>
                     <td>Browser</td>
-                    <td>{issue.browser}</td>
+                    <td>{this.props.issue.browser}</td>
                 </tr>
-            </table>
-        </div>
-    );
+            </table>*/}
+            </div>
+
+        );
+    }
 }
 
 IssueDescription.propTypes = {
