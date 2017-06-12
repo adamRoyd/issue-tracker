@@ -61,6 +61,7 @@ const issueSchema = new Schema({
         required: true
     },
     assigned: { type: 'String', required: true },
+    attachments: [],
     dateAdded : { type: 'Date', required: true}
 });
 

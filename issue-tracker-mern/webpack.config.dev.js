@@ -42,7 +42,7 @@ module.exports = {
         exclude: [/node_modules/, /.+\.config.js/],
         loader: 'babel',
       }, {
-        test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)$/i,
+        test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/i,
         loader: 'url-loader?limit=10000',
       }, {
         test: /\.json$/,

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import IssueList from './IssueList';
 import IssuePots from './IssuePots';
 import NavBar from '../Common/NavBar';
-import IssueManager from '../Issue/IssueManager';
+import EditIssuePage from '../Issue/EditIssuePage';
 //Import constants
 import categories from '../../constants/categories';
 import locations from '../../constants/locations';
@@ -37,9 +37,9 @@ class IssuePage extends Component {
             <div id="issuelist" className="col-sm-5">
                 <IssueList {...this.props}/>
             </div>
-            <div id="issueManager" className="col-sm-6">
+            <div id="EditIssuePage" className="col-sm-6">
                 {this.props.params.id ? 
-                  <IssueManager {...this.props}/>
+                  <EditIssuePage {...this.props}/>
                   : 
                   null
                 }
