@@ -42,7 +42,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
       }, {
-        test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/i,
+        test: /\.(jp?g|png|woff|woff2|eot|ttf|svg)$/i,
         loader: 'url-loader?limit=10000',
       }, {
         test: /\.json$/,
