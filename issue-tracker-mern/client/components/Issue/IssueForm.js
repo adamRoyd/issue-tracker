@@ -2,22 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SelectInput from '../Common/SelectInput';
 import TextAreaInput from '../Common/TextAreaInput';
-import IssueDescription from './IssueDescription';
+import TextStatic from '../Common/TextStatic';
 
 const IssueForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChange,onIssueChange,status,displayAdvancedOptions,locations,categories}) => {
     return(
         <form className="form-horizontal" onSubmit={handleSubmit}>
-            <div className="row displayTable">
-                <div className="col-sm-7">
-                    <h4>Issue Description</h4>
-                </div>
-                <div className="col-sm-5">
-                    <h4>Issue Settings</h4>
-                </div>
-            </div>
-            <div className="row displayTable">
-                <IssueDescription issue={issue}/>
-                <div className="col-sm-5 tableCell">
+                <div className="col-sm-4 tableCell">
                     <SelectInput
                         name="assigned"
                         label="Assigned"
@@ -45,7 +35,7 @@ const IssueForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChange,
                             error={errors.location}/>
                         <SelectInput
                             name="sco"
-                            label="Sco ID"
+                            label="Sco"
                             value={issue.sco}
                             defaultOption= "Select a Sco ID"
                             options={[...Array(50).keys()]}
@@ -53,7 +43,7 @@ const IssueForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChange,
                             error={errors.sco}/>
                         <SelectInput
                             name="screen"
-                            label="Screen ID"
+                            label="Screen"
                             value={issue.screen}
                             defaultOption= "Select a Screen ID"
                             options={[...Array(1000).keys()]}
@@ -67,11 +57,13 @@ const IssueForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChange,
                             options={categories}
                             onChange={onIssueChange} 
                             error={errors.category}/>
+                        <TextStatic
+                            label="Browser"
+                            value={issue.browser}/>
                         </div>
                     : 
                         <span/>
                     }
-                </div>
             </div>
         </form>
     );

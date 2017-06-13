@@ -5,7 +5,11 @@ body, html {
 }
 
 a{
-    color:white;
+  color:white;
+}
+
+h5{
+  font-weight:bold !important;
 }
 
 
@@ -75,10 +79,8 @@ a{
 /***********************************Description and Form ************************************/
 #issueDescription{
   height:200px;
-  max-height:200px;
   overflow-y: auto;
   margin-bottom:5px;
-  border-bottom:2px solid rgba(55,55,55,0.1);
 }
 
 .form-group .row .has-error{
@@ -278,5 +280,3 @@ div .tableCell{
 #issueStats td:nth-child(odd){
   font-weight:bold;
 }
-
-

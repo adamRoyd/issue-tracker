@@ -6,11 +6,8 @@ export const API_URL = (typeof window === 'undefined' || process.env.NODE_ENV ==
   '/api';
 
 export default function callApiUpload(endpoint, method = 'post', file) {
-  console.log('CALL API UPLOAD');
-  console.log(file);
   var data = new FormData();
   data.append('file', file);
-  console.log(data.file);
   return fetch(`${API_URL}/${endpoint}`, {
     method,
     body: data,
@@ -20,8 +17,6 @@ export default function callApiUpload(endpoint, method = 'post', file) {
     if (!response.ok) {
       return Promise.reject(json);
     }
-    console.log('UPLOAD RESPONSE');
-    console.log(response.body);
     return json;
   })
   .then(

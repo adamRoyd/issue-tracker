@@ -7,6 +7,7 @@ import { saveIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getPots } from '../../reducers/IssueFilterReducer';
 import CommentForm from '../Comment/CommentForm';
+import IssueDescription from './IssueDescription';
 import IssueForm from '../Issue/IssueForm';
 
 class IssueManager extends React.Component{
@@ -66,32 +67,44 @@ class IssueManager extends React.Component{
     render(){
         return(
             <div>
-                <IssueForm
-                    issue={this.state.issue}
-                    comment={this.state.comment}
-                    errors={this.state.errors}
-                    handleSubmit={this.handleSubmit}
-                    assignees={this.props.assignees}
-                    onCommentChange={this.onCommentChange}
-                    onIssueChange={this.onIssueChange}
-                    status={this.props.pots}
-                    displayAdvancedOptions={this.state.toggleOptions}
-                    locations={this.props.locations}
-                    categories={this.props.categories}
-                    />
-                <CommentForm
-                    issue={this.state.issue}
-                    comment={this.state.comment}
-                    errors={this.state.errors}
-                    handleSubmit={this.handleSubmit}
-                    assignees={this.props.assignees}
-                    onCommentChange={this.onCommentChange}
-                    onIssueChange={this.onIssueChange}
-                    status={this.props.pots}
-                    displayAdvancedOptions={this.state.toggleOptions}
-                    locations={this.props.locations}
-                    categories={this.props.categories}
-                    />
+                <div className="row displayTable">
+                    <div className="col-sm-8">
+                        <h4>Issue Description</h4>
+                    </div>                 
+                </div>
+                <div className="row displayTable">
+                    <div className="col-sm-8">
+                        <IssueDescription issue={this.state.issue}/>
+                        <CommentForm
+                            issue={this.state.issue}
+                            comment={this.state.comment}
+                            errors={this.state.errors}
+                            handleSubmit={this.handleSubmit}
+                            assignees={this.props.assignees}
+                            onCommentChange={this.onCommentChange}
+                            onIssueChange={this.onIssueChange}
+                            status={this.props.pots}
+                            displayAdvancedOptions={this.state.toggleOptions}
+                            locations={this.props.locations}
+                            categories={this.props.categories}
+                            />
+                    </div>
+                    <IssueForm
+                        issue={this.state.issue}
+                        comment={this.state.comment}
+                        errors={this.state.errors}
+                        handleSubmit={this.handleSubmit}
+                        assignees={this.props.assignees}
+                        onCommentChange={this.onCommentChange}
+                        onIssueChange={this.onIssueChange}
+                        status={this.props.pots}
+                        displayAdvancedOptions={this.state.toggleOptions}
+                        locations={this.props.locations}
+                        categories={this.props.categories}
+                        />                        
+                </div>
+               
+
                 <button id="submitComment" onClick={this.handleSubmit} className="btn" disabled={this.state.submitDisabled}>Submit</button>  
                 <button id="attach" className="btn">Add attachment</button>
                 <button id="advancedOptions" className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>

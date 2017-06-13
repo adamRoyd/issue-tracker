@@ -5,9 +5,8 @@ var url = require("file-loader!../../../uploads/test.png");
 
 class IssueDescription extends React.Component{
     render(){
-        console.log(url);
         return(
-            <div className="col-sm-7">
+            <div id="issueDescription">
                 <p>{this.props.issue.description}</p>
                 {/*<img src={require('../../../test.png')} width="50" height="50"/>*/}
             {/*<table id="issueStats" className="col-sm-4 no-gutter">
