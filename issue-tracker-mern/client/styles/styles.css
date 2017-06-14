@@ -39,10 +39,25 @@ h5{
   }
 }
 
+.full-height{
+  min-height:100% !important;
+  height:auto !important;
+  height:100%;
+
+}
+
 #commentsBox{
-    max-height:450px;
+    position:fixed;
+    height:40%;
+    bottom: 0;
+    width:47%;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.commentDate{
+  float:right;
+  margin-right:5px;
 }
 
 #IssuePots {
@@ -78,8 +93,8 @@ h5{
 
 /***********************************Description and Form ************************************/
 #issueDescription{
-  min-height:200px;
-  max-height:200px;
+  min-height:140px;
+  max-height:140px;
   overflow-y: auto;
   margin-bottom:5px;
 }
@@ -284,6 +299,8 @@ div .tableCell{
 
 #issueAttachments{
   height:40px;
+  position:absolute;
+  bottom:140px;
 }
 
 .inline-block{

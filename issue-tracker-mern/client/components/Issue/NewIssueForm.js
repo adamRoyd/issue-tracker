@@ -4,8 +4,9 @@ import TextInput from '../Common/TextInput';
 import TextAreaInput from '../Common/TextAreaInput';
 import SelectInput from '../Common/SelectInput';
 import DropZone from '../Common/DropZone';
+import TextEditor from '../Common/TextEditor';
 
-const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,categories,onDrop,files,attachments}) => {
+const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,categories,onDrop,files,attachments,onCommentChange}) => {
         return(
             <form> 
                 <SelectInput
@@ -48,14 +49,23 @@ const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,
                     options={assignees}
                     onChange={onChange} 
                     error={errors.assigned}/>
-                 <TextAreaInput
+                <div className="form-group row">
+                    <label className="col-sm-3 col-form-label" htmlFor="description">Description</label>
+                    <div className="col-sm-9 field">
+                        <TextEditor
+                            name="description"
+                            onCommentChange={onCommentChange}
+                            value={issue.description}/>
+                    </div>
+                </div>
+                 {/*<TextAreaInput
                     name="description"
                     label="Description"
                     value={issue.description}
                     onChange={onChange}
                     error={errors.description}
                     width="col-sm-9"
-                     textAreaClass="form-control new-issue"/>
+                     textAreaClass="form-control new-issue"/>*/}
                 <DropZone
                     name="attachment"
                     label="Attachment"

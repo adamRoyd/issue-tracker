@@ -27,7 +27,7 @@ class Comment extends React.Component{
             <div className="comment">
                 <div className="row">
                     <div className="col-sm-12">
-                        <p><strong>{comment.user}<span style={{float:'right'}}>{dateText}</span></strong></p>
+                        <p><strong>{comment.user}<span className="commentDate">{dateText}</span></strong></p>
                     </div>
                 </div>
                 <div className="row">

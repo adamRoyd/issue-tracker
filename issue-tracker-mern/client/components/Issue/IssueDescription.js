@@ -6,10 +6,8 @@ import Attachment from '../common/Attachment';
 class IssueDescription extends React.Component{
     render(){
         return(
-            <div>
-                <div id="issueDescription">
-                    <p>{this.props.issue.description}</p>
-                </div>
+            <div id="issueDescription">
+                <div dangerouslySetInnerHTML={{__html: this.props.issue.description}}/>
                 <div id="issueAttachments">
                     {this.props.issue.attachments.map((a,i) => {
                         return <Attachment key={i} path={a}/>

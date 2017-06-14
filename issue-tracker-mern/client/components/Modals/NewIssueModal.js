@@ -26,6 +26,7 @@ class NewIssueModal extends React.Component{
             files: []
         };
         this.updateIssueState = this.updateIssueState.bind(this);
+        this.onCommentChange = this.onCommentChange.bind(this);
         this.saveIssue = this.saveIssue.bind(this);
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
@@ -40,11 +41,17 @@ class NewIssueModal extends React.Component{
         this.setState({ showModal: true });
     }
     updateIssueState(event){
+        console.log(this.state.issue);
         const field = event.target.name;
         const errors = this.validate(this.state.issue);
         let issue = this.state.issue;
         issue[field] = event.target.value;
         return this.setState({issue : issue, errors: errors});
+    }
+    onCommentChange(html){
+        let issue = this.state.issue;
+        issue['description'] = html;
+        return this.setState({issue : issue});
     }
     saveIssue(event){
         event.preventDefault();
@@ -96,6 +103,7 @@ class NewIssueModal extends React.Component{
                             issue={this.state.issue}
                             errors={this.state.errors}
                             onChange={this.updateIssueState}
+                            onCommentChange={this.onCommentChange}
                             onSave={this.saveIssue}
                             assignees={this.props.assignees}
                             locations={this.props.locations}

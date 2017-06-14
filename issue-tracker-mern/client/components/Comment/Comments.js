@@ -11,7 +11,10 @@ class Comments extends React.Component{
         return(
             <div id="commentsBox">
                 {comments.map((comment,i) =>
-                    <Comment key={i} comment={comment}/>
+                    <Comment 
+                        key={i} 
+                        comment={comment}
+                        issue={this.props.issue}/>
                 )}
             </div>
         );
