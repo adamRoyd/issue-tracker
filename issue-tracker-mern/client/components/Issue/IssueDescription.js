@@ -1,38 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Attachment from '../common/Attachment';
 //import img from '../../../test.png'
-var url = require("file-loader!../../../uploads/test.png");
 
 class IssueDescription extends React.Component{
     render(){
         return(
-            <div id="issueDescription">
-                <p>{this.props.issue.description}</p>
-                {/*<img src={require('../../../test.png')} width="50" height="50"/>*/}
-            {/*<table id="issueStats" className="col-sm-4 no-gutter">
-                <tr>
-                    <td>Id</td>
-                    <td>{this.props.issue.id}</td>
-                </tr>
-                <tr>
-                    <td>Screen</td>
-                    <td>{this.props.issue.sco + "_" + this.props.issue.screen}</td>
-                </tr>
-                <tr>
-                    <td>Location</td>
-                    <td>{this.props.issue.location}</td>
-                </tr>
-                <tr>
-                    <td>Category</td>
-                    <td>{this.props.issue.category}</td>
-                </tr>
-                <tr>
-                    <td>Browser</td>
-                    <td>{this.props.issue.browser}</td>
-                </tr>
-            </table>*/}
+            <div>
+                <div id="issueDescription">
+                    <p>{this.props.issue.description}</p>
+                </div>
+                <div>
+                {this.props.issue.attachments.map((a,i) => {
+                    return <Attachment key={i} path={a}/>
+                })}
+                </div>
             </div>
-
         );
     }
 }

@@ -280,3 +280,9 @@ div .tableCell{
 #issueStats td:nth-child(odd){
   font-weight:bold;
 }
+
+#issueAttachments{
+    vertical-align:top;
+    display: inline-block;
+    margin-right: 10px;
+}

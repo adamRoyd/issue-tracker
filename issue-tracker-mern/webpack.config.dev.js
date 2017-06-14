@@ -43,7 +43,7 @@ module.exports = {
         loader: 'babel',
       }, {
         test: /\.(jp?g|png|woff|woff2|eot|ttf|svg)$/i,
-        loader: 'url-loader?limit=10000',
+        loader: 'url-loader?limit=5000',
       }, {
         test: /\.json$/,
         loader: 'json-loader',

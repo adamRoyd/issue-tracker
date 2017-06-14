@@ -10,10 +10,10 @@ class TextEditor extends React.Component {
     this.onChange = (editorState) => this.setState({editorState});
   }
   render() {
-      console.log('CONTENT STATE');
-      let contentstate = this.state.editorState.getCurrentContent();
-      let html = stateToHTML(contentstate);
-      console.log(html);
+      // console.log('CONTENT STATE');
+      // let contentstate = this.state.editorState.getCurrentContent();
+      // let html = stateToHTML(contentstate);
+      // console.log(html);
     return (
       <Editor editorState={this.state.editorState} onChange={this.onChange} />
     );
