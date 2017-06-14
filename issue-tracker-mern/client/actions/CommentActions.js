@@ -15,7 +15,7 @@ export function addCommentRequest(comment,params) {
         project: params.projectCode,
         issueId: params.id,
         text: comment.text,
-        user: 'TO DO', //TO DO
+        user: "adam.boothroyd@brightwavegroup.com",
         time: new Date()
       },
     }).then(res => dispatch(addComment(res.comment)));

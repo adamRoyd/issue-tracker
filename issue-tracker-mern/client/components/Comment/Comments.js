@@ -4,9 +4,13 @@ import Comment from './Comment';
 
 class Comments extends React.Component{
     render(){
+        //sort comments by date added
+        const comments = this.props.issueComments.sort((a,b) => {
+            return new Date(b.time) - new Date(a.time);
+        })
         return(
             <div id="commentsBox">
-                {this.props.issueComments.reverse().map((comment,i) =>
+                {comments.map((comment,i) =>
                     <Comment key={i} comment={comment}/>
                 )}
             </div>

@@ -71,13 +71,13 @@ export function getIssue(req, res) {
  * @returns void
  */
 export function saveIssue(req, res) {
-  console.log('SAVE ISSUE GONNA SEND THAT MAIL');
+  console.log('SAVE ISSUE SEND MAIL');
   const issueToSave = req.body.issue
-  mail.send({
-    username: issueToSave.assigned,
-    subject: 'A BIT issue has been assigned to you',
-    url: req.route.path
-  })
+  // mail.send({
+  //   username: issueToSave.assigned,
+  //   subject: 'A BIT issue has been assigned to you',
+  //   url: req.route.path
+  // })
   Issue.findOneAndUpdate(
     { id: issueToSave.id },
     { $set: {
@@ -122,7 +122,6 @@ export function deleteIssue(req, res) {
  * @returns void
  */
 export function batchIssues(req, res) {
-  console.log('BATCH ISSUES CONTROLLER');
   const issuesToSave = req.body.issues
   const batchOptions = req.body.batchOptions
   Issue.findOneAndUpdate(

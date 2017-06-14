@@ -78,7 +78,8 @@ h5{
 
 /***********************************Description and Form ************************************/
 #issueDescription{
-  height:200px;
+  min-height:200px;
+  max-height:200px;
   overflow-y: auto;
   margin-bottom:5px;
 }
@@ -282,7 +283,11 @@ div .tableCell{
 }
 
 #issueAttachments{
-    vertical-align:top;
-    display: inline-block;
-    margin-right: 10px;
+  height:40px;
+}
+
+.inline-block{
+  vertical-align:top;
+  display: inline-block;
+  margin-right: 10px;
 }

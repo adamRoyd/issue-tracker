@@ -22,7 +22,6 @@ class IssueManager extends React.Component{
         };
         this.toggleAdvancedOptions = this.toggleAdvancedOptions.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.getDateTime = this.getDateTime.bind(this);
         this.onCommentChange = this.onCommentChange.bind(this);
         this.onIssueChange = this.onIssueChange.bind(this);
     }
@@ -36,25 +35,19 @@ class IssueManager extends React.Component{
         e.preventDefault();
         this.props.dispatch(addCommentRequest(this.state.comment,this.props.params));
         this.props.dispatch(saveIssueRequest(this.state.issue));
-        browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}/`);
+        //browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}/`);
         return this.setState({
             comment : {text : ''},
             submitDisabled : true
         });
     }
-    getDateTime(){
-        const d = new Date();
-        const curr_date = d.getDate();
-        const curr_month = d.getMonth();
-        const curr_year = d.getFullYear();
-        return (curr_date + "-" + curr_month + "-" + curr_year);
-    }
-    onCommentChange(event){
-        const field = event.target.name;
+    onCommentChange(html){
         let comment = this.state.comment;
-        comment[field] = event.target.value;
         return this.setState({
-            comment : comment,
+            comment : {
+                user: this.props.username,
+                text: html
+            },
             submitDisabled : false
         });
     }

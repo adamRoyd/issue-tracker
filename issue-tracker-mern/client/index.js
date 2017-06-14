@@ -8,6 +8,7 @@ import App from './App';
 import { configureStore } from './store';
 
 import './styles/styles.css';
+import './styles/RichEditor.css';
 import './styles/loginPage.css';
 import './styles/issueTable.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';

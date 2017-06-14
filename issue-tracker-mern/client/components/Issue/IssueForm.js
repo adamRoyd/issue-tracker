@@ -9,12 +9,52 @@ const IssueForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChange,
         <form className="form-horizontal" onSubmit={handleSubmit}>
                 <div className="col-sm-4 tableCell">
                     <SelectInput
+                        name="location"
+                        label="Location"
+                        value={issue.location}
+                        defaultOption= "Select a location"
+                        options={locations}
+                        onChange={onIssueChange} 
+                        error={errors.location}
+                        isStatic={displayAdvancedOptions}/>
+                    <SelectInput
+                        name="sco"
+                        label="Sco"
+                        value={issue.sco}
+                        defaultOption= "Select a Sco ID"
+                        options={[...Array(50).keys()]}
+                        onChange={onIssueChange} 
+                        error={errors.sco}
+                        isStatic={displayAdvancedOptions}/>
+                    <SelectInput
+                        name="screen"
+                        label="Screen"
+                        value={issue.screen}
+                        defaultOption= "Select a Screen ID"
+                        options={[...Array(1000).keys()]}
+                        onChange={onIssueChange} 
+                        error={errors.screen}
+                        isStatic={displayAdvancedOptions}/>
+                    <SelectInput
+                        name="category"
+                        label="Category"
+                        value={issue.category}
+                        defaultOption= "Select a category"
+                        options={categories}
+                        onChange={onIssueChange} 
+                        error={errors.category}
+                        isStatic={displayAdvancedOptions}/>
+                    <TextStatic
+                        label="Browser"
+                        value={issue.browser}/>
+                    <SelectInput
                         name="assigned"
                         label="Assigned"
                         value={issue.assigned}
                         options={assignees}
                         onChange={onIssueChange} 
-                        error={errors.assigned}/>
+                        error={errors.assigned}
+                        />
                     <SelectInput
                         name="status"
                         label="Status"
@@ -22,48 +62,6 @@ const IssueForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChange,
                         options={status}
                         onChange={onIssueChange} 
                         error={errors.status}/>
-                    {(displayAdvancedOptions)
-                    ? 
-                        <div>
-                        <SelectInput
-                            name="location"
-                            label="Location"
-                            value={issue.location}
-                            defaultOption= "Select a location"
-                            options={locations}
-                            onChange={onIssueChange} 
-                            error={errors.location}/>
-                        <SelectInput
-                            name="sco"
-                            label="Sco"
-                            value={issue.sco}
-                            defaultOption= "Select a Sco ID"
-                            options={[...Array(50).keys()]}
-                            onChange={onIssueChange} 
-                            error={errors.sco}/>
-                        <SelectInput
-                            name="screen"
-                            label="Screen"
-                            value={issue.screen}
-                            defaultOption= "Select a Screen ID"
-                            options={[...Array(1000).keys()]}
-                            onChange={onIssueChange} 
-                            error={errors.screen}/>
-                        <SelectInput
-                            name="category"
-                            label="Category"
-                            value={issue.category}
-                            defaultOption= "Select a category"
-                            options={categories}
-                            onChange={onIssueChange} 
-                            error={errors.category}/>
-                        <TextStatic
-                            label="Browser"
-                            value={issue.browser}/>
-                        </div>
-                    : 
-                        <span/>
-                    }
             </div>
         </form>
     );
