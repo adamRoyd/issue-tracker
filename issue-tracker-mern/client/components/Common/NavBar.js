@@ -35,7 +35,7 @@ class NavBar extends React.Component{
                     }
                     <Link to={`/`}><button className="btn">Log out</button></Link>
                     <div className="nav-div right">
-                        <h4 className="white">User: {this.props.username}</h4>
+                        <h4 className="white">{this.props.username}</h4>
                     </div>
                 </div>
             );

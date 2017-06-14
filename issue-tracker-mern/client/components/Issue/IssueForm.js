@@ -7,7 +7,7 @@ import TextStatic from '../Common/TextStatic';
 const IssueForm = ({comment,issue,errors,handleSubmit,assignees,onCommentChange,onIssueChange,status,displayAdvancedOptions,locations,categories}) => {
     return(
         <form className="form-horizontal" onSubmit={handleSubmit}>
-                <div className="col-sm-4 tableCell">
+                <div className="col-sm-4 tableCell no-gutter">
                     <SelectInput
                         name="location"
                         label="Location"

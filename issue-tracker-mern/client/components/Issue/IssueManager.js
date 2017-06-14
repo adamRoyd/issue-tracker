@@ -35,6 +35,7 @@ class IssueManager extends React.Component{
         e.preventDefault();
         this.props.dispatch(addCommentRequest(this.state.comment,this.props.params));
         this.props.dispatch(saveIssueRequest(this.state.issue));
+        //TO DO - if pot status has changed, execute the below line.
         //browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}/`);
         return this.setState({
             comment : {text : ''},
