@@ -22,6 +22,6 @@ const UserReducer = (state = initialState.user, action) =>{
 }
 
 /* Selectors */
-export const getUser = state => 'adam.boothroyd@brightwavegroup.com';
+export const getUser = state => state.user;
 
 export default UserReducer;

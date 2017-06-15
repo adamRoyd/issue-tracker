@@ -27,11 +27,14 @@ class Comment extends React.Component{
             <div className="comment">
                 <div className="row">
                     <div className="col-sm-12">
-                        <p><strong>{comment.user}<span className="commentDate">{dateText}</span></strong></p>
+                        <p><strong>{comment.user}<span className="right-align">{dateText}</span></strong></p>
                     </div>
                 </div>
                 <div className="row">
-                    <div dangerouslySetInnerHTML={{__html: comment.text}} className="col-sm-12"/>
+                    <div dangerouslySetInnerHTML={{__html: comment.text}} className="col-sm-7"/>
+                    <div className="col-sm-5">
+                        <p className="right-align"><strong>{comment.status}</strong></p>
+                    </div>
                 </div>
             </div>
         );

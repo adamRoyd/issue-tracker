@@ -46,6 +46,8 @@ export function addIssue(issue) {
 }
 
 export function addIssueRequest(issue,files,issues,projectCode) {
+  console.log('add issue request');
+  console.log(issue);
   let data = new FormData();
   data.append(files,document);
   return (dispatch) => {
@@ -60,6 +62,7 @@ export function addIssueRequest(issue,files,issues,projectCode) {
         description: issue.description,        
         status: "New",
         assigned: issue.assigned,
+        type: issue.type,
         browser: issue.browser,
         dateAdded : new Date()
       },

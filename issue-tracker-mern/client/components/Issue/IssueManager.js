@@ -33,7 +33,7 @@ class IssueManager extends React.Component{
     }
     handleSubmit(e){
         e.preventDefault();
-        this.props.dispatch(addCommentRequest(this.state.comment,this.props.params));
+        this.props.dispatch(addCommentRequest(this.state.comment,this.state.issue.status,this.props.params));
         this.props.dispatch(saveIssueRequest(this.state.issue));
         if(this.props.issue.status != this.state.issue.status){
             browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}/`);
@@ -62,41 +62,33 @@ class IssueManager extends React.Component{
         return this.setState({issue : issue});
     }
     render(){
-        console.log('ORIGINAL STATUS');
-        console.log(this.props.issue.status);
         return(
-            <div>
-                <div className="row displayTable">
-                    <div className="col-sm-8">
-                        <h4>Issue Description</h4>
-                    </div>                 
+            <div className="testDiv">
+                <h4>Issue Description</h4>
+                <IssueDescription issue={this.state.issue}/>
+                <CommentForm
+                    comment={this.state.comment}
+                    errors={this.state.errors}
+                    onCommentChange={this.onCommentChange}
+                    />
+               <IssueForm
+                    issue={this.state.issue}
+                    comment={this.state.comment}
+                    errors={this.state.errors}
+                    handleSubmit={this.handleSubmit}
+                    assignees={this.props.assignees}
+                    onCommentChange={this.onCommentChange}
+                    onIssueChange={this.onIssueChange}
+                    status={this.props.pots}
+                    displayAdvancedOptions={this.state.toggleOptions}
+                    locations={this.props.locations}
+                    categories={this.props.categories}
+                    />
+                <div id="issueManagerButtons" className="anchor-bottom">
+                    <button id="submitComment" onClick={this.handleSubmit} className="btn" disabled={this.state.submitDisabled}>Submit</button>  
+                    <button id="attach" className="btn">Add attachment</button>
+                    <button id="advancedOptions" className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>
                 </div>
-                <div className="row displayTable">
-                    <div className="col-sm-8">
-                        <IssueDescription issue={this.state.issue}/>
-                        <CommentForm
-                            comment={this.state.comment}
-                            errors={this.state.errors}
-                            onCommentChange={this.onCommentChange}
-                            />
-                    </div>
-                    <IssueForm
-                        issue={this.state.issue}
-                        comment={this.state.comment}
-                        errors={this.state.errors}
-                        handleSubmit={this.handleSubmit}
-                        assignees={this.props.assignees}
-                        onCommentChange={this.onCommentChange}
-                        onIssueChange={this.onIssueChange}
-                        status={this.props.pots}
-                        displayAdvancedOptions={this.state.toggleOptions}
-                        locations={this.props.locations}
-                        categories={this.props.categories}
-                        />                        
-                </div>
-                <button id="submitComment" onClick={this.handleSubmit} className="btn" disabled={this.state.submitDisabled}>Submit</button>  
-                <button id="attach" className="btn">Add attachment</button>
-                <button id="advancedOptions" className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>
             </div>
         );
     }

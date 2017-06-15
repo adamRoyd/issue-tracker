@@ -7,16 +7,13 @@ import TextEditor from '../Common/TextEditor';
 
 const CommentForm = ({comment,errors,onCommentChange}) => {
     return(
-        <form className="form-horizontal">
-            <div className="row displayTable">
-                <div className="col-sm-12">
-                    <TextEditor
-                        onCommentChange={onCommentChange}
-                        placeholder="Enter a comment..."
-                        value={comment.text}/>
-                </div>
-            </div>
-        </form>
+        <div className="commentBox">
+            <TextEditor
+                onCommentChange={onCommentChange}
+                placeholder="Enter a comment..."
+                value={comment.text}
+                />
+        </div>
     );
 };
 

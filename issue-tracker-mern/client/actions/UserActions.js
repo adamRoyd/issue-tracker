@@ -28,6 +28,8 @@ function requestLogin(creds) {
 }
 
 function receiveLogin(user) {
+  console.log('RECIEVE LOGIN');
+  console.log(user);
   return {
     type: types.LOGIN_SUCCESS,
     isFetching: false,
@@ -47,6 +49,7 @@ function loginError(message) {
 }
 
 export function loginUser(creds) {
+    console.log('LOGIN USER ACTION');
     return (dispatch) => {
         dispatch(requestLogin(creds))
         return callApi(`login`,'post', {

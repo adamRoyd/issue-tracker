@@ -37,6 +37,7 @@ export function addComment(req, res) {
   newComment.issueId = sanitizeHtml(newComment.issueId);
   newComment.text = sanitizeHtml(newComment.text);
   newComment.user = sanitizeHtml(newComment.user);
+  newComment.status = sanitizeHtml(newComment.status);
   newComment.time = sanitizeHtml(newComment.time);
 
   //newComment.slug = slug(newComment.text.toLowerCase(), { lowercase: true });

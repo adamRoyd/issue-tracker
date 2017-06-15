@@ -62,6 +62,15 @@ const issueSchema = new Schema({
     },
     assigned: { type: 'String', required: true },
     attachments: [],
+    type: { 
+        type: 'String', 
+        enum:[
+            "Not sure",
+            "Change request",
+            "Error"
+        ],
+        required: true
+    },
     dateAdded : { type: 'Date', required: true}
 });
 

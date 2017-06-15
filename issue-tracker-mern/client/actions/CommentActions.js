@@ -8,7 +8,7 @@ export function addComment(comment) {
   };
 }
 
-export function addCommentRequest(comment,params) {
+export function addCommentRequest(comment,status,params) {
   return (dispatch) => {
     return callApi(`(:projectCode)/issues/(:filter)/(:id)`,'post', {
       comment: {
@@ -16,6 +16,7 @@ export function addCommentRequest(comment,params) {
         issueId: params.id,
         text: comment.text,
         user: "adam.boothroyd@brightwavegroup.com",
+        status: status,
         time: new Date()
       },
     }).then(res => dispatch(addComment(res.comment)));

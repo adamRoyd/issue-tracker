@@ -104,7 +104,6 @@ class NewIssueModal extends React.Component{
                             errors={this.state.errors}
                             onChange={this.updateIssueState}
                             onCommentChange={this.onCommentChange}
-                            onSave={this.saveIssue}
                             assignees={this.props.assignees}
                             locations={this.props.locations}
                             categories={this.props.categories}

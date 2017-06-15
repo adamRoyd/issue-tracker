@@ -16,8 +16,9 @@ class EditIssuePage extends React.Component{
         const issue = this.props.issues[i];
         const issueComments = this.props.comments;
         return(
-            <div className="col-sm-12 no-gutter full-height">
+            <div>
                 <IssueManager {...this.props} issue={issue}/>
+                <div id="commentsHeader"><h4>Comments</h4></div>
                 <Comments issueComments={issueComments} issue={issue}/>
             </div>
         );

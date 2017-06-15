@@ -10,7 +10,7 @@ export default({
     user: {
         isFetching: false,
         isAuthenticated: false,
-        username: ""
+        username: "adam.boothroyd@brightwave.co.uk"
     },
     attachments: []
 });

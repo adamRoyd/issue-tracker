@@ -17,8 +17,7 @@ class TextEditor extends React.Component {
 
   render() {
     return (
-      <div style={styles.root}>
-        <div style={styles.editor} onClick={this.focus}>
+        <div id="textEditor" onClick={this.focus}>
           <Editor
             editorState={this.state.editorState}
             onChange={this.onChange}
@@ -26,7 +25,6 @@ class TextEditor extends React.Component {
             ref="editor"
           />
         </div>
-      </div>
     );
   }
 }
@@ -35,7 +33,6 @@ const styles = {
   editor: {
     border: '1px solid #ccc',
     cursor: 'text',
-    minHeight: 80,
     padding: 10,
   }
 };

@@ -55,7 +55,7 @@ h5{
     overflow-x: hidden;
 }
 
-.commentDate{
+.right-align{
   float:right;
   margin-right:5px;
 }
@@ -92,11 +92,8 @@ h5{
 
 
 /***********************************Description and Form ************************************/
-#issueDescription{
-  min-height:140px;
-  max-height:140px;
-  overflow-y: auto;
-  margin-bottom:5px;
+.form-group{
+  margin-bottom: 10px !important;
 }
 
 .form-group .row .has-error{
@@ -192,6 +189,16 @@ input[type="text"]{
 
 .white{
   color:white;
+}
+
+.form-control{
+  line-height: normal !important;
+}
+
+.form-control.static{
+  border:0px !important;
+  margin-bottom: -10px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
 }
 
 .form-control.comment-box{
@@ -307,4 +314,55 @@ div .tableCell{
   vertical-align:top;
   display: inline-block;
   margin-right: 10px;
+}
+
+.testDiv{
+  width:100%;
+  height:50%;
+  position:absolute;
+}
+
+.anchor-bottom{
+  position:absolute;
+  bottom:0px;
+}
+
+.commentBox{
+  width:50%;
+  position:absolute;
+  height:23%;
+  bottom:10%;
+}
+
+#issueDescription{
+  position:absolute;
+  height:55%;
+  overflow-y: auto;
+  width:50%;
+  bottom:35%;
+  padding-right:12px;
+}
+
+#commentsHeader{
+  position:absolute;
+  bottom:44%;
+  width:100%;
+  border-bottom: 2px solid rgba(120,120,120,0.2);
+}
+
+#issueForm{
+  top:0px;
+  position:absolute;
+  width:40%;
+  left:55%;
+  margin-right:10px;
+}
+
+#textEditor{
+  border: 1px solid #ccc;
+  cursor: text;
+  padding: 10px;
+  overflow-y: scroll;
+  overflow-wrap:break-word;
+  height:100%;
 }

@@ -6,6 +6,20 @@ const commentSchema = new Schema({
     issueId: {type: 'Number',required: true},
     text: { type: 'String', required: true },
     user: { type: 'String', required: true},
+    status: { 
+    type: 'String', 
+    enum:[
+        "New",
+        "On Hold",
+        "Ready To Fix",
+        "Fixed",
+        "Returned",
+        "Closed",
+        "Rejected",
+        "All"
+    ],
+    required: true
+    },
     time: { type: 'Date', required: true}
 })
 
