@@ -7,13 +7,13 @@ import DropZone from '../Common/DropZone';
 import TextEditor from '../Common/TextEditor';
 import TextStatic from '../Common/TextStatic';
 
-const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,categories,onDrop,files,attachments,onCommentChange}) => {
+const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categories,onDrop,files,attachments,onCommentChange}) => {
     return(
         <form> 
             <TextStatic
                 name="username"
                 label="Username"
-                value={this.props.username}/>
+                value='adam.boothroyd@brightwave.co.uk'/>
             <SelectInput
                 name="location"
                 label="Location"
@@ -24,7 +24,7 @@ const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,
                 error={errors.location}/>
             <SelectInput
                 name="sco"
-                label="Sco ID"
+                label="Topic ID"
                 value={issue.sco}
                 defaultOption= "Select a Sco ID"
                 options={[...Array(50).keys()]}
@@ -32,7 +32,7 @@ const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,
                 error={errors.sco}/>
             <SelectInput
                 name="screen"
-                label="Screen ID"
+                label="Page ID"
                 value={issue.screen}
                 defaultOption= "Select a Screen ID"
                 options={[...Array(1000).keys()]}
@@ -46,6 +46,13 @@ const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,
                 options={categories}
                 onChange={onChange} 
                 error={errors.category}/>
+            <SelectInput
+                name="type"
+                label="Change / Error"
+                value={issue.type}
+                options={["Not sure","Change request","Error"]}
+                onChange={onChange} 
+                error={errors.type}/>
             <SelectInput
                 name="assigned"
                 label="Assigned to"
@@ -61,17 +68,10 @@ const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,
                         name="description"
                         placeholder="Enter a description..."
                         onCommentChange={onCommentChange}
-                        value={issue.description}/>
+                        value={issue.description}
+                        />
                 </div>
             </div>
-                {/*<TextAreaInput
-                name="description"
-                label="Description"
-                value={issue.description}
-                onChange={onChange}
-                error={errors.description}
-                width="col-sm-9"
-                    textAreaClass="form-control new-issue"/>*/}
             <DropZone
                 name="attachment"
                 label="Attachment"
@@ -85,7 +85,6 @@ const NewIssueForm = ({issue,onChange,onSave,loading,errors,assignees,locations,
 NewIssueForm.propTypes = {
     issue : PropTypes.object.isRequired,
     onChange : PropTypes.func.isRequired,
-    onSave : PropTypes.func.isRequired,
     loading : React.PropTypes.bool,
     errors : PropTypes.object,
     assignees : PropTypes.array.isRequired,
