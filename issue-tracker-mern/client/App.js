@@ -11,7 +11,6 @@ import routes from './routes';
 // Base stylesheet
 require('./main.css');
 require('./styles/styles.css');
-require('./styles/RichEditor.css');
 require('./styles/issueTable.css');
 require('./styles/loginPage.css');
 

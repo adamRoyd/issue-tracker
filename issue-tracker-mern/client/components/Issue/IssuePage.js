@@ -13,16 +13,19 @@ import status from '../../constants/status';
 // Import Actions
 import { fetchIssues } from '../../actions/IssueActions';
 import { fetchAssignees } from '../../actions/AssigneeActions';
+import { fetchProjects } from '../../actions/ProjectActions';
 // Import Selectors
 import { getIssues } from '../../reducers/IssueReducer';
 import { getBatchIssues } from '../../reducers/IssueReducer';
 import { getUser } from '../../reducers/UserReducer';
+import { getProjects } from '../../reducers/ProjectReducer';
 
 
 class IssuePage extends Component {
   componentDidMount() {
      this.props.dispatch(fetchIssues(this.props.params.projectCode));
      this.props.dispatch(fetchAssignees());
+     this.props.dispatch(fetchProjects());
   }
 
   render() {
@@ -59,7 +62,8 @@ function mapStateToProps(state) {
     locations : locations,
     categories : categories,
     batchIssues: getBatchIssues(state),
-    username : getUser(state).username
+    username : getUser(state).username,
+    projects: getProjects(state)
   };
 }
 

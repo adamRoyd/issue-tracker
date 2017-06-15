@@ -70,7 +70,7 @@ ProjectPicker.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        //projects: getProjects(state)
+        projects: getProjects(state)
     };
 }
 

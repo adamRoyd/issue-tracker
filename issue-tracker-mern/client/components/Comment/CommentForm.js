@@ -12,6 +12,7 @@ const CommentForm = ({comment,errors,onCommentChange}) => {
                 <div className="col-sm-12">
                     <TextEditor
                         onCommentChange={onCommentChange}
+                        placeholder="Enter a comment..."
                         value={comment.text}/>
                 </div>
             </div>

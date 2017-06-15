@@ -5,6 +5,7 @@ import ProjectPicker from './ProjectPicker';
 import NewIssueModal from '../Modals/NewIssueModal';
 import BatchIssuesModal from '../Modals/BatchIssuesModal';
 import OpenProjectModal from '../Modals/OpenProjectModal';
+import { DropdownButton, MenuItem } from 'react-bootstrap';
 
 class NavBar extends React.Component{
     render(){
@@ -33,10 +34,14 @@ class NavBar extends React.Component{
                             {...this.props}/>
                         : null
                     }
-                    <Link to={`/`}><button className="btn">Log out</button></Link>
-                    <div className="nav-div right">
-                        <h4 className="white">{this.props.username}</h4>
-                    </div>
+                    <Link to={`/`}><button className="btn"></button></Link>
+                    <DropdownButton title="Profile" id="bg-nested-dropdown" className="nav-div right">
+                        <p>{this.props.username}</p>
+                        <MenuItem eventKey="1">Dropdown link</MenuItem>
+                        <MenuItem eventKey="2">Log out</MenuItem>
+                    </DropdownButton>
+                                                
+                            
                 </div>
             );
         }

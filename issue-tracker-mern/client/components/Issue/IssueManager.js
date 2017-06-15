@@ -17,7 +17,7 @@ class IssueManager extends React.Component{
             errors : {},
             comment : {},
             issue : Object.assign({},this.props.issue),
-            toggleOptions : false,
+            toggleOptions : true,
             submitDisabled : true
         };
         this.toggleAdvancedOptions = this.toggleAdvancedOptions.bind(this);
@@ -45,6 +45,8 @@ class IssueManager extends React.Component{
     }
     onCommentChange(html){
         let comment = this.state.comment;
+        console.log('COMMENT CHANGE');
+        console.log(this.state.comment);
         return this.setState({
             comment : {
                 user: this.props.username,
@@ -73,17 +75,9 @@ class IssueManager extends React.Component{
                     <div className="col-sm-8">
                         <IssueDescription issue={this.state.issue}/>
                         <CommentForm
-                            issue={this.state.issue}
                             comment={this.state.comment}
                             errors={this.state.errors}
-                            handleSubmit={this.handleSubmit}
-                            assignees={this.props.assignees}
                             onCommentChange={this.onCommentChange}
-                            onIssueChange={this.onIssueChange}
-                            status={this.props.pots}
-                            displayAdvancedOptions={this.state.toggleOptions}
-                            locations={this.props.locations}
-                            categories={this.props.categories}
                             />
                     </div>
                     <IssueForm
@@ -100,8 +94,6 @@ class IssueManager extends React.Component{
                         categories={this.props.categories}
                         />                        
                 </div>
-               
-
                 <button id="submitComment" onClick={this.handleSubmit} className="btn" disabled={this.state.submitDisabled}>Submit</button>  
                 <button id="attach" className="btn">Add attachment</button>
                 <button id="advancedOptions" className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>
