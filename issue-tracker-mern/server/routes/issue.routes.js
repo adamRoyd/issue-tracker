@@ -42,12 +42,4 @@ router.post('/upload', upload.single('file'), function(req,res){
 //     res.send('Birds home page')
 // })
 
-router.get('/download', function (req, res) {
-    console.log('REQUEST DOWNLOAD');
-    var filePath = "./uploads/"; // Or format the path using the `id` rest param
-    var fileName = "test.jpg"; // The default name the browser will use
-
-    res.download(filePath, fileName);    
-});
-
 export default router;

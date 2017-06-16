@@ -144,15 +144,4 @@ export function batchIssues(req, res) {
     res.json({ issue });
   });
 }
-/**
- * Download attachments
- * @param req
- * @param res
- * @returns void
- */
-export function downloadAttachment(req, res){
-    var filePath = "./uploads/"; // Or format the path using the `id` rest param
-    var fileName = "test.jpg"; // The default name the browser will use
 
-    res.download(filePath, fileName);  
-}
