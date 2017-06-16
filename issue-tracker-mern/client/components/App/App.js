@@ -40,7 +40,6 @@ App.propTypes = {
   dispatch: PropTypes.func.isRequired
 };
 
-// Retrieve data from store as props
 function mapStateToProps(state) {
   return {
     username : getUser(state).username,

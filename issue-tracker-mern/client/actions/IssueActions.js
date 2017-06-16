@@ -141,3 +141,11 @@ export function uploadFileSuccess(file){
     file
   }
 }
+
+export function downloadFileRequest(){
+  const test = ['doo','ray']
+  console.log('DOWNLOAD FILE REQUEST');
+  return (dispatch) => {
+      return callApi(`download`,'get',test).then(res => dispatch(uploadFileSuccess(res)));
+    };
+}
