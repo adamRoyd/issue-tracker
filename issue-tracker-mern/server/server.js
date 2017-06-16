@@ -73,6 +73,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(Express.static(path.resolve(__dirname, '../dist')));
+app.use(Express.static(path.resolve(__dirname, '../uploads')));
 app.use(morgan('dev'));
 
 //Configuring passport
