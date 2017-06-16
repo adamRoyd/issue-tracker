@@ -6,7 +6,7 @@ class Attachment extends React.Component {
     return (
       <div className="inline-block">
           <img src={require("../../../uploads/test.png")} width="30px" height="30px"/>
-          <a href="http://localhost:8000/test.png" target="_blank">{this.props.path}</a>
+          <a href={`http://localhost:8000/${this.props.path}`} target="_blank">{this.props.path}</a>
       </div>
     );
   }

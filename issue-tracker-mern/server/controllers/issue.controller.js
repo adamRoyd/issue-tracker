@@ -43,6 +43,7 @@ export function addIssue(req, res) {
   newIssue.status = sanitizeHtml(newIssue.status);
   newIssue.dateAdded = sanitizeHtml(newIssue.dateAdded);
   newIssue.type = sanitizeHtml(newIssue.type);
+  newIssue.attachments = sanitizeHtml(newIssue.attachments);
   
   newIssue.save((err, saved) => {
     if (err) {

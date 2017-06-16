@@ -57,7 +57,7 @@ class NewIssueModal extends React.Component{
         event.preventDefault();
         const errors = this.validate(this.state.issue);
         if(Object.keys(errors).length === 0 && errors.constructor === Object){
-            this.props.dispatch(addIssueRequest(this.state.issue,this.state.files,this.props.issues,this.props.params.projectCode));
+            this.props.dispatch(addIssueRequest(this.state.issue,this.props.attachments,this.props.issues,this.props.params.projectCode));
             return this.setState({ showModal: false });           
         }   else{
             return this.setState({ errors: errors});

@@ -45,11 +45,7 @@ export function addIssue(issue) {
   };
 }
 
-export function addIssueRequest(issue,files,issues,projectCode) {
-  console.log('add issue request');
-  console.log(issue);
-  let data = new FormData();
-  data.append(files,document);
+export function addIssueRequest(issue,attachments,issues,projectCode) {
   return (dispatch) => {
     return callApi(`(:projectCode)/issues/(:filter)`,'post', {
       issue: {
@@ -64,9 +60,9 @@ export function addIssueRequest(issue,files,issues,projectCode) {
         assigned: issue.assigned,
         type: issue.type,
         browser: issue.browser,
-        dateAdded : new Date()
-      },
-      file : files
+        attachments: attachments,
+        dateAdded: new Date()
+      }
     }).then(res => dispatch(addIssue(res.issue)));
   };
 }
@@ -136,8 +132,9 @@ export function uploadFileRequest(files){
 }
 
 export function uploadFileSuccess(file){
+  const filename = file.filename;
   return{
     type: types.UPLOAD_FILE_SUCCESS,
-    file
+    filename
   }
 }
