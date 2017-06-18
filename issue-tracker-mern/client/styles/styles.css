@@ -126,7 +126,7 @@ input[type="text"]{
 
 .col-form-label{
   text-align:right !important;
-  padding:5px 0 0 0 !important;
+  padding:5px 15px 0 15px !important;
 }
 
 .dashed{
@@ -365,4 +365,9 @@ div .tableCell{
   overflow-y: scroll;
   overflow-wrap:break-word;
   height:100%;
+}
+
+.row{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }

@@ -20,6 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./components/Login/SelectProjectPage');
   require('./components/Issue/IssuePage');
   require('./components/Login/RegistrationPage');
+  require('./components/Issue/NewIssuePage');
 }
 
 function authCheck(){
@@ -58,6 +59,22 @@ export default (
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./components/Login/SelectProjectPage').default);
+        });
+      }}
+    />
+    <Route
+      path="/(:projectCode)/new/"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./components/Issue/NewIssuePage').default);
+        });
+      }}
+    />
+    <Route
+      path="/(:projectCode)/new/(:topic)/(:page)"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./components/Issue/NewIssuePage').default);
         });
       }}
     />
