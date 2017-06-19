@@ -9,6 +9,7 @@ import status from '../../constants/status';
 import { addIssueRequest, uploadFileRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getAttachments } from '../../reducers/AttachmentReducer';
+import { getIssues } from '../../reducers/IssueReducer';
 import NewIssueForm from '../Issue/NewIssueForm';
 
 class NewIssuePage extends React.Component{
@@ -90,7 +91,7 @@ class NewIssuePage extends React.Component{
     }
     render(){
         return(
-            <div className="col-sm-8 col-sm-offset-2">
+            <div id="newIssuePage" className="col-sm-8 col-sm-offset-2">
                 <h3>New issue for {this.props.params.projectCode}</h3>
                 <NewIssueForm 
                     issue={this.state.issue}

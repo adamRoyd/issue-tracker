@@ -239,6 +239,18 @@ input[type="text"]{
 .nav-div.right{
   float:right;
   margin-right:10px;
+  width:100%;
+  text-align: left;
+}
+
+.dropdown.btn-group{
+  float:right;
+  width:250px;
+  height:100%;
+}
+
+.btn-default{
+  border-color:transparent !important;
 }
 
 #projectPicker{
@@ -370,4 +382,8 @@ div .tableCell{
 .row{
   margin-left: 0px !important;
   margin-right: 0px !important;
+}
+
+#newIssuePage{
+  overflow-y: scroll;
 }
