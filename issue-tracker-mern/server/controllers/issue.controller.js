@@ -26,9 +26,10 @@ export function getIssues(req, res) {
  * @returns void
  */
 export function addIssue(req, res) {
-  if (!req.body.issue.id) {
+  if (!req.body.issue.project) {
     res.status(403).end();
   }
+
   const newIssue = new Issue(req.body.issue);
   // Let's sanitize inputs
   newIssue.project = sanitizeHtml(newIssue.project);

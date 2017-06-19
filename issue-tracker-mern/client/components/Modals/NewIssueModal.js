@@ -6,6 +6,7 @@ import Browser from 'detect-browser';
 import { addIssueRequest, uploadFileRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getAttachments } from '../../reducers/AttachmentReducer';
+import { getIssues } from '../../reducers/IssueReducer';
 import NewIssueForm from '../Issue/NewIssueForm';
 
 class NewIssueModal extends React.Component{
@@ -58,7 +59,7 @@ class NewIssueModal extends React.Component{
         const errors = this.validate(this.state.issue);
         if(Object.keys(errors).length === 0 && errors.constructor === Object){
             this.props.dispatch(addIssueRequest(this.state.issue,this.props.attachments,this.props.issues,this.props.params.projectCode));
-            return this.setState({ showModal: false });           
+            return this.setState({ showModal: false });
         }   else{
             return this.setState({ errors: errors});
         }
@@ -96,7 +97,7 @@ class NewIssueModal extends React.Component{
                 </button>
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
-                        <Modal.Title>New Issue for {this.props.username} {this.props.params.projectCode.toUpperCase()}</Modal.Title>
+                        <Modal.Title>New Issue for {this.props.params.projectCode.toUpperCase()}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <NewIssueForm 

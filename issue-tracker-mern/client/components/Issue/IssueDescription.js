@@ -7,8 +7,10 @@ class IssueDescription extends React.Component{
     render(){
         console.log(this.props.issue.attachments);
         return(
-            <div id="issueDescription">
-                <div dangerouslySetInnerHTML={{__html: this.props.issue.description}}/>
+            <div>
+                <div id="issueDescription">
+                    <div dangerouslySetInnerHTML={{__html: this.props.issue.description}}/>
+                </div>
                 <div id="issueAttachments">
                     {this.props.issue.attachments.map((a,i) => {
                         return <Attachment key={i} number={i} path={a}/>

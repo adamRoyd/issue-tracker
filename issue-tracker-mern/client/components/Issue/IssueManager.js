@@ -86,8 +86,8 @@ class IssueManager extends React.Component{
                     />
                 <div id="issueManagerButtons" className="anchor-bottom">
                     <button id="submitComment" onClick={this.handleSubmit} className="btn" disabled={this.state.submitDisabled}>Submit</button>  
-                    <button id="attach" className="btn">Add attachment</button>
-                    <button id="advancedOptions" className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>
+                    {/*<button id="attach" className="btn">Add attachment</button>
+                    <button id="advancedOptions" className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>*/}
                 </div>
             </div>
         );

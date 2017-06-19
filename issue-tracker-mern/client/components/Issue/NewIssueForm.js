@@ -63,7 +63,7 @@ const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categor
                 error={errors.assigned}/>
             <div className="form-group row">
                 <label className="col-sm-3 col-form-label" htmlFor="description">Description</label>
-                <div className="col-sm-9 field">
+                <div className="col-sm-9 field" style={{height:'160px'}}>
                     <TextEditor
                         name="description"
                         placeholder="Enter a description..."

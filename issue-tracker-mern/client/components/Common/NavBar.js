@@ -35,7 +35,7 @@ class NavBar extends React.Component{
                         : null
                     }
                     <Link to={`/`}><button className="btn"></button></Link>
-                    <DropdownButton title="Profile" id="bg-nested-dropdown" className="nav-div right">
+                    <DropdownButton title="User options" id="bg-nested-dropdown" className="nav-div right">
                         <p>{this.props.username}</p>
                         <MenuItem eventKey="1">Dropdown link</MenuItem>
                         <MenuItem eventKey="2">Log out</MenuItem>

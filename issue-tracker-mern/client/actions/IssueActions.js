@@ -1,6 +1,7 @@
 import * as types from './actionTypes';
 import callApi from '../util/apiCaller';
 import callApiUpload from '../util/apiUpload';
+import { getIssues } from '../reducers/IssueReducer';
 
 export function setIssueFilter(issueFilter){
     return{
@@ -52,7 +53,7 @@ export function addIssueRequest(issue,attachments,issues,projectCode) {
     return callApi(`(:projectCode)/issues/(:filter)`,'post', {
       issue: {
         project: projectCode,
-        id: parseInt(issues[issues.length - 1].id) + 1,
+        id: issues.length + 1,
         sco: issue.sco,
         screen: issue.screen,
         location: issue.location,
