@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><data>
+
+	<settings autocomplete="true" resizereload="true"/>
+
+	<events>
+	
+		<event id="reset">
+			<anim animtime="0.25" type="alphaout">reveal_hotspot1</anim>
+			<enable>hotspot1</enable>
+			<anim animtime="0.25" type="alphaout">reveal_hotspot2</anim>
+			<enable>hotspot2</enable>
+			<anim animtime="0.25" type="alphaout">reveal_hotspot3</anim>
+			<enable>hotspot3</enable>
+		</event>
+
+		<event id="showreveal">
+			<anim animtime="0.3" type="alpha">reveal_[ITEM]</anim>
+			<disable>[ITEM]</disable>
+		</event>
+
+	</events>
+
+	<image id="bg" y="16"><![CDATA[lib/images/content/mdl851003_01_110.jpg]]></image>
+	
+    <text class="white" id="introText" width="615" x="25" y="100"><![CDATA[  <p>Our work in Finance covers three main areas, or critical capabilities. </p>   <p class="prompt">Select each of the critical capabilities to find out more.</p> ]]></text>
+
+	<!-- <box id="labelHolder"> -->
+		<!-- <text class="hotspotLabel" id="hotspotLabel1" x="50" y="250"><![CDATA[  <p>Value Creation </p> ]]></text> -->
+		<!-- <text class="hotspotLabel" id="hotspotLabel2" x="160" y="250"><![CDATA[  <p>Controllership &amp; Risk Mgmt</p> ]]></text> -->
+		<!-- <text class="hotspotLabel" id="hotspotLabel3" x="310" y="250"><![CDATA[  <p>Talent Development</p> ]]></text> -->
+	<!-- </box> -->
+	
+	<box id="hotspotHolder">
+		<box class="hotspot" event="reset,showreveal" height="30" id="hotspot1" width="30" x="610" y="264"/>	
+		<box class="hotspot" event="reset,showreveal" height="30" id="hotspot2" width="30" x="720" y="277"/>	
+		<box class="hotspot" event="reset,showreveal" height="30" id="hotspot3" width="30" x="676" y="413"/>	
+	</box>
+	
+	<box id="revealHolder">
+		<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="300" id="reveal_hotspot1" width="340" x="70" y="230">
+			<box bgcol="0036A3" height="40" id="title1banner" width="100%">
+				<text class="revealtitle" id="reveal1title" x="20" y="10"><![CDATA[  <p>Value Creation </p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal1text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  
+				<p><b>Partners in Value Creation</b></p> 
+				<p>We're a business co-pilot, providing exemplary financial insight, business judgement and thought leadership across all functions at Mondelēz International. Our holistic strategic mindset helps us build collaborative business partnerships focused on driving value for the organization. We're not afraid to ask tough questions!</p> ]]>
+			</text>
+			<box id="reveal1media" x="20" y="60"></box>
+		</box>
+		
+		<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="300" id="reveal_hotspot2" width="340" x="70" y="230">
+			<box bgcol="0036A3" height="40" id="title2banner" width="100%">
+				<text class="revealtitle" id="reveal2title" x="20" y="10"><![CDATA[  <p>Controllership &amp; Risk Mgmt</p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal2text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  
+				<p><b>Expert Controllership and Risk Management</b></p> 
+				<p>As a guardian of shareholder value, we're accountable for the controls, accuracy and integrity of all Mondelēz International financials and for protecting the company's assets. </p> ]]>
+			</text>
+			<box id="reveal2media" x="20" y="60"></box>
+		</box>
+
+		<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="300" id="reveal_hotspot3" width="340" x="70" y="230">
+			<box bgcol="0036A3" height="40" id="title3banner" width="100%">
+				<text class="revealtitle" id="reveal3title" x="20" y="10"><![CDATA[  <p>Talent Development</p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal3text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  
+				<p><b>Champions of Talent Development</b></p> 
+				<p>We're respected as a world-class finance organization, always on the lookout for the best and brightest talent. We respect and nurture each individual in our diverse population of talent and offer exciting career opportunities, training and leadership development to our employees. </p> 
+				<p>]]>
+			</text>
+			<box id="reveal3media" x="20" y="60"></box>
+		</box>
+	</box>
+
+
+</data>

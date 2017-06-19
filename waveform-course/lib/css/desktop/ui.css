@@ -1,0 +1,844 @@
+@import url("timer.css");
+@import url("navigation.css");
+@import url("tabs.css");
+@import url("menu.css");
+@import url("screentypes.css");
+@import url("fonts.css");
+@import url("custom.css");
+@import url("video_player.css");
+@import url("course_layout_scroll.css");
+@import url("course_layout_fixed.css");
+
+body.ie.lte8 *{
+		
+}
+
+body{
+	font-family:Arial;
+	color:#000000;
+	background:#EEEEEE;
+	overflow:hidden;
+	height:100%;
+	background: url('../../images/ui/dots.png') fixed;
+}
+
+
+html{
+	height:100%;
+	margin:0; 
+	padding:0;
+}
+
+.fullscreenvideo #courseholder{
+	height: 0;
+}
+
+.fullscreenvideo .invisibutton,
+.fullscreenvideo #navholder {
+	display: none !important;
+	visibility: hidden;
+}
+
+.screenElement.relative{
+	position: relative !important;
+}
+
+#floater {
+    float: left;
+    height: 50%;
+    margin-bottom: -322px;
+    position: relative;
+    width: 1px;
+}
+
+#courseholder{
+	border: 1px solid #AAAAAA;
+	background: white;
+	clear: both;
+	position: relative;
+	margin: 0px auto;
+	width: 1014px;
+	height: 644px;
+	overflow: hidden;
+	display:  block;
+}
+
+#contentholder
+{
+	display: none;
+	position: absolute;
+	width: 100%; 
+	height: 100%;
+	overflow: visible;
+	top: 0;
+	left: 0;
+}
+
+.in-topic #contentholder
+{
+	display: block !important;
+}
+
+.transparentBg > .screenHolder
+{
+	background: none;
+}
+
+.screenHolder
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	background: #FFFFFF;
+}
+#contentholder .screenHolder
+{
+	overflow:  hidden;
+}
+
+#navholder .screenHolder{
+	top:  0;
+	left: 0;
+}
+
+.lte8 .screenHolder
+{
+    border-radius: 0px!important;
+}
+
+.dialogueOpen #menuholder .invisibutton,
+.dialogueOpen #contentholder .invisibutton,
+.screenHolder.disabled .invisibutton
+{
+    display: none !important;
+}
+
+#introholder
+{	
+	display: none;
+	position: absolute;
+	height:644px;
+	width:914px;
+	top: 0px;
+	left: 0px;
+	overflow: visible;	
+}
+
+#dialogueholder
+{
+	display: none;
+	position: fixed;
+	width:100px;
+	height:50px;
+	top: 50% !important;
+	left: 50% !important;
+	z-index: 1101 !important;
+	transform: translate(-50%,-50%);
+}
+
+#dialoguemask
+{
+    z-index: 1100;
+	display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+	top: 0px;
+	left: 0px;
+	background: rgba( 0, 0, 0, 0.5 );
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#66000000', endColorstr='#66000000');
+	 /* IE */
+}
+
+.dialogueCloseBtn
+{
+	background-image: url('../../images/ui/ui_reveal_close_icon.svg');
+	width: 20px;
+	height: 20px;
+	right: 10px;
+	top: 5px !important;
+	cursor: pointer !important;
+}
+
+.dialogueCloseBtn p
+{
+	position: absolute;
+	left: -50px;
+	display: none;
+}
+
+.dialogueCloseBtn.over
+{	
+	
+}
+
+.dialogueCloseBtn.over p
+{
+	display: block;
+}
+
+.screenElement .bitbutton{
+	position: absolute !important;
+	display:block;
+	right:0;
+	bottom:0;
+	background: blue;
+	color: white;
+	padding: 5px;
+	border: none;
+	font-size: 12px;
+	z-index: 1;
+}
+
+#BIT 
+{
+	position: fixed !important;
+	display:block;
+	left:0;
+	top:0;
+}
+
+#BIT button{
+	
+	background: blue;
+	color: white;
+	padding: 5px;
+	float: left;
+	border: none;
+	font-size: 12px;	
+}
+
+#BIT p
+{	
+	background: white;
+	color: black;
+	padding: 5px;
+	float: left;
+	border: black 1px solid;
+	font-size: 12px;	
+}
+
+.BITtextInput
+{	
+	width:50px;
+	height:20px;
+	font-size: 12px;
+	resize : none ;	
+}
+
+.bitGo
+{	
+	position: absolute;
+	left: 80px ;
+}
+
+
+
+/* ui elements */
+*{
+	
+	margin:0;
+	padding:0;	
+}
+
+.disabled .showOnDisabled{
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.disabled .hideOnDisabled{
+    display: none !important;
+}
+
+.screenElement{
+	position: absolute;
+}
+
+.screenElement.image{
+	line-height:0;
+}
+
+.frame{
+	overflow:hidden;
+}
+
+.screenElement.svg div.last-child,
+.screenElement.svg svg{
+	width: 100%;
+	height: 100%;
+}
+
+.scrolling{
+	overflow: auto;
+}
+.scrolling-y{
+	overflow: auto;
+	overflow-x: hidden;
+}
+.scrolling-x{
+	overflow: auto;
+	overflow-y: hidden;
+}
+
+button.invisibutton 
+{
+    cursor: pointer;
+	cursor: hand;
+	position: absolute;
+	top:0;
+	left:0;
+	border:none !important;
+	padding:0 !important;
+	margin: 0 !important;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";	
+}
+
+
+
+button.invisibutton 
+{	
+    width:100% !important;
+	height:100% !important;	
+}
+
+
+
+button.invisibutton:disabled {
+	
+    cursor: default !important;
+	
+}
+
+
+
+button.invisibutton.tabbed{
+	
+	opacity: 1;
+	filter: alpha(opacity=1);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	background: transparent;
+	border:3px solid yellow !important;
+	
+}
+
+.screenElement.screen
+{
+	overflow: hidden;
+	/* border: 1px dashed red; */
+}
+
+.screenElement.screen.scrolling
+{
+	overflow: auto;
+}
+
+.button 
+{
+	padding: 10px 20px;
+	box-sizing: border-box;
+	background: #F26524;
+}
+.button.disabled {
+	background: #BFBFBF !important;
+}
+.button.hidden {
+	opacity:0 !important;
+	display:none !important;
+	filter:alpha(opacity=0) !important;
+}
+
+.button.disabled .invisibutton{
+	display: none;
+}
+
+.lte8 .button {
+	border-radius: 0;
+}
+
+.button.over 
+{	
+	background: #018BA9;
+}
+
+
+.button.over p
+{	
+	color: #FFFFFF;	
+}
+
+
+.tick
+{
+	position: absolute;
+	top: 3px;
+	left: -25px;
+	background: url('../../images/ui/tick.svg') no-repeat;
+	width: 25px;
+	height: 25px;
+}
+
+.text.reveal{
+	background: #333333;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.box.reveal
+{
+	background: rgba(1, 139, 169, 0.9);
+}
+/* 
+.box.reveal .text{
+	padding: 40px;
+}
+ */
+.click{
+	background:#4F2070;
+	border-radius:50%;
+	display: table !important;		
+	position: absolute;
+	z-index:1;
+	box-shadow: 2px 2px 0 8px rgba(120,120,120,0.3);
+}
+
+.click.over,
+.click.disabled{
+	background:#FFFFFF;
+}
+
+.click .text{
+	position: relative;
+	display: table-cell !important;
+	vertical-align: middle;
+	padding: 10px;
+}
+
+.click .text p{
+	color:white;
+	font-weight: bold;
+	text-align: center;
+}
+
+.click.over .text p,
+.click.disabled .text p{
+	color:#4F2070;
+}
+
+.clickHotspot
+{
+	background:#FB0112;
+	border-radius: 8px;
+}
+
+.click.over .clickHotspot,
+.click.disabled .clickHotspot{
+	background:#4F2070;
+}
+
+.hotspot .after,
+.clickHotspot .after
+{
+	position:absolute;
+	left: 5px;
+	top: 5px;
+	width:20px;
+	height:20px;
+	background-image: url(../../images/ui/ui_hotspot_icon.svg);
+}
+
+.hotspot
+{
+	background:#FB0112;
+	border:4px solid white;
+	border-radius: 8px;
+}
+
+.hotspot.over,
+.hotspot.disabled{
+	border-color:#FB0112;
+}
+
+.hotspotLabel{
+	background:#0036a3;
+	padding:10px;
+	border: 2px solid white;
+	border-radius:8px;	
+	display:table;
+}
+
+.hotspotLabel .after{
+	display:none;
+}
+
+.hotspotLabel p{
+  color:white;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.hotspotLabel.dark{
+	background:#32004b;
+	border:none;
+}
+
+.image.click{
+	box-sizing:border-box;
+	border: 5px solid #98C13D;
+}
+.image.click.active,
+.image.click.over{
+	border-color: white;
+}
+
+.over .hotspot .st0,
+.hotspot.over .st0,
+.hotspot.active .st0{
+	fill: #0035A4;
+
+}
+
+.hotspot.active .st1.plus{display: none !important;}
+.hotspot.active .st1.minus{display: block !important;}
+
+.revealtitle p{
+	font-weight:bold;
+	color: white !important;
+}
+
+.pointer .arrow
+{
+	width:  0;
+	height:  0;
+	border: solid red;
+}
+
+.pointer.reveal .arrow
+{
+	border: 10px solid rgba(1, 139, 169, 0.9);
+	/* border: 10px solid rgba(155, 0, 200, 0.9); */
+}
+
+.pointer.up .arrow
+{
+	border-top:0 !important;
+	border-right-color:transparent !important;
+	border-left-color:transparent !important;
+}
+
+.pointer.down .arrow
+{
+	border-bottom:0 !important;
+	border-right-color:transparent !important;
+	border-left-color:transparent !important;
+}
+.pointer.left .arrow
+{
+	border-left: 0px !important;
+	border-top-color:transparent !important;
+	border-bottom-color:transparent !important;
+}
+.pointer.right .arrow
+{
+	border-right:0 !important;
+	border-top-color:transparent !important;
+	border-bottom-color:transparent !important;
+}
+
+.shadow{
+	-webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.5);
+	-moz-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.5);
+}
+
+
+#loaderholder{
+	position: absolute;
+    
+	z-index: 1050;
+}
+
+.preloader{
+	
+	box-sizing: border-box;
+	position: relative;
+	left: 507px;
+	margin-left: -75px;
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.8);
+	padding: 5px;
+	border-radius: 25px;
+	border: 1px solid #1B9DED;
+}
+
+.screenElement.screen .preloader{
+	top: 50%;
+	left: 50%;
+	margin-left: -75px;
+	margin-top: -25px;
+}
+
+.lte8 #preloader,
+.lte8 .preloader{
+	border-radius: 0px;
+	background: rgb(255, 255, 255);
+}
+
+
+.preloader img{
+	
+	position: absolute;
+	left: 105px;
+	top: 8px;
+}
+
+
+
+.loadbarcontainer{
+	
+	position: absolute;
+	top: 10px;
+	left:10px;
+	width: 80px;
+	height: 25px;
+	border: 1px solid #1B9DED;
+	border-radius: 22px;
+	background: white;
+	overflow: hidden;
+}
+
+
+
+.loadbar{
+	
+	background: #1B9DED;
+	height: 25px;
+	width: 50%;
+	border-radius: 22px;
+	
+}
+
+.wipes .click
+{
+	position: relative;
+	display: block;
+	padding: 5px 20px;
+	background: #FFFFFF;
+	border: 1px solid #E0E0E0;
+	height: 36px !important;
+}
+
+.wipes .click:before
+{
+	content: ' ';
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	top: 13px;
+	left: 8px;
+	
+}
+.wipes .click p{
+    margin: 10px 0;
+	color: #787878;
+    font-size: 20px;
+}
+.wipes .click.animover,
+.wipes .click.selected,
+.wipes .click.disabled
+{
+	background: #E8E8E8;
+}
+
+
+.wipes .click.animover p,
+.wipes .click.selected p,
+.wipes .click.disabled p
+{
+	color: #C83C87;	
+}
+
+.wipes .revealholder{
+	position: relative;
+	margin: 0;
+	left: 0;
+	width: 100%;
+	height: auto !important;
+	bottom: 0px;
+}
+
+.wipes .wipeContent{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	text-align: left;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto !important;
+	background: #F6F6F6 ;
+	overflow: visible;
+	padding: 30px 5px;
+	border: 1px solid #E0E0E0;
+	position:relative;
+}
+
+.wipes .wipeContent.inactive{
+	display: none !important;
+}
+
+.wipes .wipeContent .screenElement{
+	position: relative !important;
+}
+.wipes .wipeContent .screenElement.absolute{
+	position:absolute!important;
+}
+
+.wipes .click .invisibutton
+{
+	z-index: 1;
+}
+
+.horizontalScroll
+{
+	overflow-x: scroll;
+}
+
+.noMouse
+{
+	pointer-events : none;	
+}
+
+.scrollScreens > .screenElement
+{
+	position: relative !important;
+	float: left;
+}
+
+.scrollScreens > .leftMargin
+{
+	border-color: #424242 !important;
+	border: 0px;
+	border-left: 35px;
+	border-style: solid;
+}
+
+.scrollRevealHotspot
+{
+	background:#FB0112;
+	border-radius: 8px;
+}
+
+.scrollRevealHotspot.over
+{
+	background:#ff6e78;	
+}
+
+.scrollRevealHotspot .after
+{
+	position:absolute;
+	left: 3px;
+	top: 3px;
+	width:25px;
+	height:25px;
+	background-image: url(../../images/ui/ui_hotspot_icon.svg);
+}
+
+.scrollReveal
+{
+	background: white;
+}
+
+.scrollReveal .titleBar
+{
+	position: relative;
+	background: #0036A3;
+	height: 28px;
+	width:  100%;
+}
+
+.scrollReveal .titleBar .titleText
+{
+	height: 100%;
+	display: table  !important;
+}
+
+.scrollReveal .titleBar .titleText p
+{
+	font-size: 16px;
+	padding: 0px 0px 0px 20px;
+	color: white;
+	display: table-cell !important;
+	vertical-align: middle;
+	margin-bottom: 0px !important;
+}
+
+.scrollReveal .revealImage
+{
+	position: relative;
+	float: right;
+	margin-left: 20px;
+}
+
+.scrollReveal .content
+{
+	position: relative;
+	padding: 20px;
+}
+
+.scrollReveal .content p
+{
+	font-size: 16px;
+}
+
+.scrollReveal .closeBtn
+{
+	background-image: url('../../images/ui/ui_reveal_close_icon.svg');
+	right: 10px;
+	top: 4px
+}
+
+.scrollReveal .closeBtn .st2
+{
+	fill: #FFFFFF;
+}
+
+.resourceScreen .progressBar,
+.resourceScreen .pagenavbuttons
+{
+	display: none !important;
+}
+
+
+.complete .prompt.hideOnComplete
+{
+	display: none;	
+}
+
+.prompt.showOnComplete
+{
+	display: none;
+}
+
+.complete .prompt.showOnComplete 
+{
+	display: block;
+}
+
+.audioIcon{
+	background-image: url('../../images/ui/ui_audio_icon.png');
+}
+
+.audioIcon.over{
+	background-image: url('../../images/ui/ui_audio_icon_over.png');
+}
+
+.fixedPosition
+{
+	position: fixed !important;
+}

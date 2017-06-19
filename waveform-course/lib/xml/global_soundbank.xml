@@ -1,0 +1,7 @@
+﻿<data>
+	<audio id="menuAudio" controls="false" autoplay="false" stopothers="false" src="lib/audio/mdl851003_menu_01.mp3" />	
+	<audio id="music" controls="false" autoplay="false" stopothers="true" src="lib/audio/mdl851_menu_music.mp3" />	
+	
+	
+			
+</data>

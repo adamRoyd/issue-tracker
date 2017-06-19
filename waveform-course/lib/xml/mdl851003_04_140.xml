@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><data>	
+
+	<events>
+
+		<event id="init">
+				<media action="play" id="audio1"/>
+		</event>	
+	
+		<event id="pass">
+			<media action="play" id="pass"/>		
+			<show>feedback_pass</show>
+		</event>
+		
+		<event id="partial">
+			<media action="play" id="partial"/>		
+			<show>feedback_partial</show>
+		</event>
+		
+		<event id="fail">
+			<media action="play" id="fail"/>		
+			<show>feedback_fail</show>
+		</event>
+		
+		<event id="fail_attempt">			
+			<show>feedback_fail_attempt</show>
+		</event>
+		
+		<event id="reset">
+
+			<hide delay="0.3">feedback_pass</hide>
+			<hide delay="0.3">feedback_partial</hide>
+			<hide delay="0.3">feedback_fail</hide>
+			<hide delay="0.3">feedback_fail_attempt</hide>
+		</event>
+		
+		<event id="submit">
+			<log>submit</log>
+
+			<show>feedbackHolder</show>
+
+		</event>
+		
+		<event id="playScreenAudio">
+			<media action="play" id="audio1"/>
+		</event>		
+		
+	</events>
+	
+	<audio autoplay="false" controls="false" id="audio1" src="lib/audio/finance_04_140_question.mp3" stopothers="true" width="250" x="480" y="140"/>		
+	
+    <text id="introText" width="600" x="25" y="100"><![CDATA[
+  <p>Which Finance team should ISC call?</p> 
+  <p class="prompt">Select your answer, then Confirm. </p> ]]></text>
+
+	<custom id="mcq" width="570" x="55" y="200">
+		<settings optwidth="345" radiomode="true" randomise="false"/>
+		<option correct="false"><![CDATA[  <p>Treasury</p> ]]></option>
+		<option correct="false"><![CDATA[  <p>Commercial Finance</p> ]]></option>
+	<option correct="false"><![CDATA[  <p>Taxes</p> ]]></option>
+        <option correct="true"><![CDATA[  <p>ISC Finance</p> ]]></option>
+        <option correct="false"><![CDATA[  <p>Risk Management and Insurance</p> ]]></option>
+    </custom>
+	
+	<audio autoplay="false" controls="false" id="pass" src="lib/audio/finance_04_140_correct.mp3" stopothers="true" width="250" x="480" y="140"/>
+	<audio autoplay="false" controls="false" id="partial" src="lib/audio/finance_04_140_incorrect.mp3" stopothers="true" width="250" x="480" y="140"/>
+	<audio autoplay="false" controls="false" id="fail" src="lib/audio/finance_04_140_incorrect.mp3" stopothers="true" width="250" x="480" y="140"/>		
+	
+	<box id="btns" x="55" y="550">		
+		<button enabled="false" func="reset" id="resetBtn" x="150" y="0"><![CDATA[<p>Reset</p>]]></button>
+		<button enabled="false" func="submit" id="submitBtn" x="0" y="0"><![CDATA[<p>Confirm</p>]]></button>
+	</box>	
+
+	<box anim="alpha" height="595" id="feedbackHolder" width="365" x="655" y="50">
+		<box anim="hidden" id="feedback_pass" width="265" x="30" y="50">
+			<text id="text_pass"><![CDATA[  <p>That's right! When looking at new initiatives to either reduce our cost profile or to support volume growth, ISC Finance work with all functions who want to make changes to a financial process. However, depending on the project other Finance teams may be involved too.</p> 
+  
+  ]]></text>
+		</box>
+		<box anim="hidden" id="feedback_partial" width="265" x="30" y="50">
+			<text id="text_partial">
+				<![CDATA[
+				<p>FEEDBACK_PARTIAL/p>
+				]]>
+			</text>
+		</box>
+		<box anim="hidden" id="feedback_fail" width="265" x="30" y="50">
+			<text id="text_fail"><![CDATA[  <p>That's not strictly right. ISC Finance would be the first department to contact in this type of scenario. They will help any function who wants to make an improvement to a financial process. But, depending on the project other Finance teams may offer support in other areas.</p> 
+ 
+ ]]></text>
+		</box>
+
+	</box>
+		
+	<image event="playScreenAudio" id="audioIcon" x="940" y="80"><![CDATA[lib/images/ui/ui_audio_icon.png]]></image>	
+	
+</data>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>	
+	<events>
+		<event id="pass">
+			<show>feedback_pass</show>
+			<screenevent id="onPass" target="parent" /> 
+			<show>nextBtn</show>		
+			<media id="success" action="play" />	
+		</event>
+		
+		<event id="partial">
+			<event id="fail"/>
+		</event>
+		
+		<event id="fail_attempt">
+			<show>feedback_fail</show>
+			<show>resetBtn</show>
+			<media id="fail1" action="play" />
+		</event>		
+		
+		<event id="fail">
+			<show>feedback_fail2</show>
+			<screenevent id="onPass" target="parent" /> 
+			<show>nextBtn</show>		
+			<media id="fail2" action="play" />	
+		</event>
+		
+		<event id="onReset">
+			<function name="reset"/>
+		</event>
+		
+		<event id="onForceReset">
+			<function name="forceReset"/>		
+		</event>		
+		
+		<event id="reset">
+			<anim type="alpha" animtime="0.2">questionText</anim>
+			<anim type="alpha" animtime="0.2">mcqOptions</anim>		
+			<hide>feedbackHolder</hide>
+			<hide>feedback_success</hide>
+			<hide>feedback_pass</hide>
+			<hide>feedback_fail</hide>
+		    <hide>feedback_fail2</hide>
+			<show>submitBtn</show>
+			<hide>resetBtn</hide>
+			<hide>nextBtn</hide>
+			<hide>.feedbackText.incorrect</hide>
+		</event>
+		
+		<event id="onShow">
+			<anim type="right" animtime="0.5">mcqOptions</anim>		
+			<media id="audio1" action="play" />	
+		</event>
+		
+		<event id="onHide">
+			<event id="onForceReset"/>		
+		</event>
+		
+		<event id="submit">
+			<anim type="alphaout" animtime="0.2">questionText</anim>
+			<anim type="alphaout" animtime="0.2">mcqOptions</anim>
+			<show>feedbackHolder</show>
+			<hide>submitBtn</hide>
+		</event>
+		
+		<event id="next">
+			<screenevent id="onNext" target="parent" /> 
+		</event>
+		
+	</events>
+
+	<audio id="audio1" controls="false" autoplay="false" stopothers="true" x="480" y="140" width="250" src="lib/audio/mdl851003_03_130_question_1.mp3" />
+	
+	<audio id="success" controls="false" autoplay="false" stopothers="true" x="480" y="140" width="250" src="lib/audio/mdl851003_03_130_Q1_correct.mp3" />
+	<audio id="fail1" controls="false" autoplay="false" stopothers="true" x="480" y="140" width="250" src="lib/audio/mdl851003_03_130_Q1_incorrect_att1.mp3" />
+	<audio id="fail2" controls="false" autoplay="false" stopothers="true" x="480" y="140" width="250" src="lib/audio/mdl851003_03_130_Q1_incorrect_att2.mp3" />
+	
+	
+    <text id="questionText" x="40" y="45" width="510">
+		<![CDATA[
+			<p>Which team helps to serve sales and our customers?</p>
+			<p class="prompt">Select your answer, then Confirm.</p>
+		]]>
+	</text>
+	
+	<custom id="mcqOptions" x="40" y="165" width="430">
+		<settings radiomode="true" randomise="false" max_attempts="1" correctremain="true"/>
+		<option correct="false"><![CDATA[	<p>Category Finance</p>]]></option>
+		<option correct="false" ><![CDATA[ <p>Taxes</p>]]></option>
+		<option correct="true" ><![CDATA[ <p>Commercial Finance</p>]]></option>
+		<option correct="false" ><![CDATA[ <p>Treasury</p>]]></option>
+		<option correct="false" ><![CDATA[ <p>ISC Finance</p>]]></option>	
+	</custom>
+
+	<box id="btns" x="40" y="500">		
+		<button id="submitBtn" 	x="0" 	y="0" enabled="false" func="submit"><![CDATA[<p>Confirm</p>]]></button>
+		<button id="resetBtn" 	width="120" x="0" 	y="0" enabled="false" event="onReset" anim="hidden"><![CDATA[<p>Try again</p>]]></button>
+		<button id="nextBtn" 	width="250" x="0" 	y="0" event="next" anim="hidden"><![CDATA[<p>Move on to the next step</p>]]></button>
+	</box>
+	
+	<box id="feedbackHolder" x="40" y="40" width="440" height="445" anim="hidden">
+	
+		<box id="feedback_pass" width="100%" anim="hidden">
+			<text class="feedbackText">
+				<![CDATA[
+					<p class="title large">Correct!</p>
+					<p>Commercial Finance tell you: </p>
+					<p>"Sales data is critical for delivering and understanding the drivers of the revenue, and key in steering the business."</p>
+				]]>
+			</text>
+		</box>
+		
+		<box id="feedback_fail" width="100%" anim="hidden">
+		
+			<text class="feedbackText">
+				<![CDATA[
+				<p class="title large">Sorry.</p>				
+				<p>That's not the correct Finance team. Try again.</p>
+				]]>
+			</text>
+								
+		</box>
+				
+		<box id="feedback_fail2" width="100%" anim="hidden">
+		
+			<text class="feedbackText">
+				<![CDATA[
+					<p>The team you needed was <b>Commercial Finance.</b></p>
+					<p>They tell you this about their work: </p>
+					<p><b>"Sales data is critical for delivering and understanding the drivers of the revenue, and key in steering the business." </b></p>
+				]]>
+			</text>
+								
+		</box>
+		
+		
+	</box>
+	
+	
+</data>

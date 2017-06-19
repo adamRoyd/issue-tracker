@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+
+.dragBox
+{
+
+	background: none ;
+	border-radius:5px;
+}
+
+.dragBox.dragging 
+{
+	/* box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); */
+}
+
+.dragBox.in_target
+{
+/* 	
+	background: rgba(2,139,169,0.7)!important;
+	 */
+}
+
+
+.dragBox .text 
+{
+	display: table !important;
+	height: 100%;	
+}
+
+.dragBox .text p 
+{
+	display: table-cell;
+	vertical-align: middle;	
+	text-align: left;
+	font-weight:bold;
+	padding: 10px;
+}
+
+.dropArea
+{
+	border-radius: 5px;
+	background:none;
+/* 	
+	background: url(../../images/ui/color_bg/mdl851_bkg_grey_l_4.jpg) center no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	 */
+}
+
+.dropArea .box{
+  border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.dropArea .text p{
+	color:white;
+}
+
+.drag_drop .button{
+	background-color:#CE1127;
+	border-radius:5px;
+}
+
+.drag_drop .button.over{
+	background-color: #4F2070;
+}
+
+.drag_drop .feedbackHolder{
+	background-color: #4F2070;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;	
+}

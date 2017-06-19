@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><data>
+
+	<image id="image1" y="74"><![CDATA[lib/images/content/mdl851003_04_100.jpg]]></image>
+	
+	<!--
+		For quoteText there are:
+		3 sizes: large,medium,small
+		3 positions: right, center, left 
+	-->
+	<text class="white" id="quoteText" width="430" x="550" y="170"/>	
+	
+	<text class="white" id="screentext" width="450" x="80" y="100"><![CDATA[  <p>Now we've shown you how we work here in Finance it's time to put what you've learned to the test. </p> 
+  <p>In this topic we're going to give you a series of questions and challenges, and you'll have to identify which activities are covered by each area of Finance. </p> 
+  <p>]]></text>
+
+</data>

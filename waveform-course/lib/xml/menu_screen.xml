@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+	<events>
+		<event id="init">
+			<translate alpha="0" animtime="0" height="0%">2_topicTxt</translate>
+			<translate alpha="0" animtime="0" height="0%">3_topicTxt</translate>
+			<translate alpha="0" animtime="0" height="0%">4_topicTxt</translate>
+			<translate scale="0.6" animtime="0.4" animease="Power2.easeIn">1.bg</translate>
+			<translate scale="0.6" animtime="0.4" animease="Power2.easeIn">2.bg</translate>
+			<translate scale="0.6" animtime="0.4" animease="Power2.easeIn">3.bg</translate>
+			<translate scale="0.6" animtime="0.4" animease="Power2.easeIn">4.bg</translate>
+		</event>
+
+		<event id="in_topic">
+			<show>menu_overlay</show>
+			<media id="audio1" action="stop" />
+			<media id="music" action="stop" />
+		</event>
+
+		<event id="in_menu">
+			<function delay="0.1" name="scrollToCurrent" />
+			<hide delay="0.1">menu_overlay</hide>
+		</event>
+		
+		<!-- THIS GETS TRIGGERED AFTER THE INTRO POPUP IS CLOSED -->
+		<event id="onStartMenu">
+			<function name="forceUpdate"/>
+			<log>START_MENU</log>
+			<event id="topic1_activate"/>
+			<check dataId="courseVisit" hasDataOf="1" eventFalse="onFirstTime" eventNoDataset="onFirstTime"  />
+			<media id="music" action="play" />
+		</event>
+		
+		<event id="showMenu">
+			<media id="music" action="play" />
+		</event>
+
+		<event id="onFirstTime">
+			<dataset saveToLMS="true" dataId="courseVisit">1</dataset>
+			<dialogue id="help" delay="1.5"/>
+		</event>
+		
+		<event id="onDialogueClose_help">
+			<check dataId="menuAudio" hasDataOf="1" eventFalse="playMenuAudio" eventNoDataset="playMenuAudio"  />
+		</event>
+		
+		<event id="playMenuAudio">
+			<dataset saveToLMS="true" dataId="menuAudio">1</dataset>
+			<media id="audio1" action="play" />
+		</event>
+
+		<event id="openIntroVideo">
+			<dialogue id="intro_video_revisit"/>
+		</event>
+
+		<event id="topicbutton">
+			<rollover>
+				<translate scale="1" animtime="0.4">[ITEM].bg</translate>
+			</rollover>
+			<rollout>
+				<translate scale="0.6" animtime="0.4" animease="Power2.easeIn">[ITEM].bg</translate>
+			</rollout>
+<!--
+			<init>
+				<translate scale="0.6" animtime="0.4" animease="Power2.easeIn">[ITEM].bg</translate>
+			</init>
+			 -->
+		</event>
+
+		<event id="scrollPrompt_deactivate">
+			<anim type="alphaout" animtime="0.5">scrollPrompt</anim>
+		</event>
+
+		<event id="1_activate">
+			<media id="1_burst" action="play" />
+			<translate alpha="1" animtime="1.5" animease="Power2.easeOut" height="100%">1_topicTxt</translate>
+		</event>
+
+		<event id="1_deactivate">
+			<media id="1_burst" action="reverse" />
+			<translate alpha="0" animtime="1.5" animease="Power2.easeOut" height="0%">1_topicTxt</translate>
+		</event>
+
+		<event id="2_activate">
+			<media id="2_burst" action="play" />
+			<translate alpha="1" animtime="1.5" animease="Power2.easeOut" height="100%">2_topicTxt</translate>
+		</event>
+
+		<event id="2_deactivate">
+			<media id="2_burst" action="reverse" />
+			<translate alpha="1" animtime="1.5" animease="Power2.easeOut" height="0%">2_topicTxt</translate>
+		</event>
+
+		<event id="3_activate">
+			<media id="3_burst" action="play" />
+			<translate alpha="1" animtime="1.5" animease="Power2.easeOut" height="100%">3_topicTxt</translate>
+		</event>
+
+		<event id="3_deactivate">
+			<media id="3_burst" action="reverse" />
+			<translate alpha="1" animtime="1.5" animease="Power2.easeOut" height="0%">3_topicTxt</translate>
+		</event>
+
+		<event id="4_activate">
+			<media id="4_burst" action="play" />
+			<translate alpha="1" animtime="1.5" animease="Power2.easeOut" height="100%">4_topicTxt</translate>
+		</event>
+
+		<event id="4_deactivate">
+			<media id="4_burst" action="reverse" />
+			<translate alpha="1" animtime="1.5" animease="Power2.easeOut" height="1%">4_topicTxt</translate>
+		</event>
+
+		<event id="5_activate">
+			<media id="5_burst" action="play" />
+			<translate alpha="1" animtime="1.5" animease="Power2.easeOut" height="100%">5_topicTxt</translate>
+		</event>
+		
+		<event id="5_deactivate">
+			<media id="5_burst" action="reverse" />
+			<translate alpha="1" animtime="1.5" animease="Power2.easeOut" height="1%">5_topicTxt</translate>
+		</event>
+
+	</events>
+
+
+	<timeline id="scrollTimeline" control="scroll" scrollaxis="x" autoplay="false" time="5930">
+		<!-- <tween element="distant" time="5330" ><![CDATA[ x:600, ease:Power0.easeNone]]></tween> -->
+		<tween element="layer10" time="5930" ><![CDATA[ x:-600, ease:Power0.easeNone]]></tween>
+		<tween element="layer20" time="5930" ><![CDATA[ x:-1000, ease:Power0.easeNone]]></tween>
+		<tween element="layer30" time="5930" ><![CDATA[ x:-1000, ease:Power0.easeNone]]></tween>
+		<tween element="window1_outside" timeoffset="4930" time="900" ><![CDATA[ x:250, ease:Power0.easeNone]]></tween>
+		<tween element="window2_outside" timeoffset="3000" time="1000" ><![CDATA[ x:218, ease:Power0.easeNone]]></tween>
+	</timeline>
+
+	<audio id="audio1" controls="false" autoplay="false" stopothers="false" x="480" y="140" width="250" src="lib/audio/mdl851003_menu_01.mp3" />
+
+	
+	<audio id="music" controls="false" autoplay="false" stopothers="true" loop="true" x="480" y="140" width="250" src="lib/audio/mdl851_menu_music.mp3" />
+			
+	<box id="layer0" width="5930" height="644" class="overflowHidden">
+
+		<box id="bgTiles" >
+			<image x="0"><![CDATA[lib/images/ui/menu/mdl851003_menu_bkg_01.png]]></image>
+			<image x="1000"><![CDATA[lib/images/ui/menu/mdl851003_menu_bkg_02.png]]></image>
+			<image x="2000"><![CDATA[lib/images/ui/menu/mdl851003_menu_bkg_03.png]]></image>
+			<image x="3000"><![CDATA[lib/images/ui/menu/mdl851003_menu_bkg_04.png]]></image>
+			<image x="4000"><![CDATA[lib/images/ui/menu/mdl851003_menu_bkg_05.png]]></image>
+			<image x="5000"><![CDATA[lib/images/ui/menu/mdl851003_menu_bkg_06.png]]></image>
+		</box>
+
+		<box id="layer1">
+			<box id="window2" class="overflowHidden" x="3246" y="-40" width="228" height="421">
+				<image id="window2_outside" x="-239" y="10"><![CDATA[lib/images/ui/menu/mdl851003_menu_sky_02.png]]></image>
+				<image><![CDATA[lib/images/ui/menu/mdl851003_menu_window_02.png]]></image>
+			</box>		
+		</box>
+
+		<box id="layer10" x="0" y="0" width="1014" height="644">
+
+			<image id="midLayer"><![CDATA[lib/images/ui/menu/mdl851003_menu_mid.png]]></image>
+
+			<box id="layer11"/>
+
+			<box id="window1" class="overflowHidden" x="5615" y="140" width="243" height="224">
+				<image id="window1_outside" x="-259" y="10"><![CDATA[lib/images/ui/menu/mdl851003_menu_sky_01.png]]></image>
+				<image><![CDATA[lib/images/ui/menu/mdl851003_menu_window_01.png]]></image>
+			</box>
+			
+		</box>
+
+		<box id="layer20" x="0" width="1014" height="644" class="noMouse">
+			<image id="topLayer" ><![CDATA[lib/images/ui/menu/mdl851003_menu_top.png]]></image>
+		</box>
+
+		<box id="layer30" class="noMouse">
+		</box>
+
+		<box id="topicButtons"/>
+	</box>
+
+
+	<svg id="replayIntro" class="navBtn" x="50" y="60" width="65" height="90" src="lib/images/ui/nav_buttons/replay.svg" event="openIntroVideo" />
+	<text target="replayIntro" class="tooltip" x="-28" y="85" width="120" height="40">
+		<![CDATA[<p>Replay video</p>]]>
+	</text>
+	
+	<box class="audioIcon" x="925" y="70" width="72" height="87" target="menuscreen" event="playMenuAudio" />	
+
+	<custom>
+		<settings scrolldirection="horizontal" scrollwidth="3440" updateonready="false"/>
+
+		<text id="scrollPrompt" x="700" y="80" width="200" target="layer1" class="animationTrigger" bufferoffset="300">
+			<![CDATA[
+				<p>Scroll to the right to see all the areas. Select a burst to enter an area.</p>
+			]]>
+		</text>
+
+		<screen id="anim1" x="282" y="321" width="24" height="30" xml="lib/xml/menu_anim/menu_anim_01.xml" target="layer11" class="animationTrigger" bufferoffset="-100"/>		
+		<screen id="anim2" x="1480" y="101" width="772" height="409" xml="lib/xml/menu_anim/menu_anim_02.xml" target="layer1" class="animationTrigger" bufferoffset="-100"/>		
+		<screen id="anim3" x="4040" y="271" width="652" height="340" xml="lib/xml/menu_anim/menu_anim_03.xml" target="layer11" class="animationTrigger" bufferoffset="-100"/>		
+		<screen id="anim4" x="2979" y="166" width="118" height="92" xml="lib/xml/menu_anim/menu_anim_04.xml" target="layer1" class="animationTrigger" bufferoffset="-100"/>		
+		<screen id="tvAnim" x="5410" y="197" width="283" height="326" xml="lib/xml/menu_anim/menu_anim_tv.xml" target="layer1" class="animationTrigger" bufferoffset="-100"/>
+
+		<topicbutton id="1" topic="1" x="250" y="80" width="120" height="150" event="topicbutton" class="animationTrigger" bufferoffset="30" target="topicButtons">
+			<box class="bg"/>
+			<status id="1_status" topic="1" />
+			<svganim id="1_burst" src="lib/animations/burst_animation.json" width="110" height="70" loop="false" autoplay="false" fps="40"/>
+			<text id="1_topicTxt" class="topicButtonText" x="120" y="0" width="120" height="100%" >
+				<![CDATA[
+					<p class="title"><span class="wf-topic-longlabel"></span></p>
+					<p class="topicTime"><span class="wf-topic-duration">5</span> MINS</p>
+				]]>
+			</text>
+		</topicbutton>
+
+		<topicbutton id="2" topic="2" x="1750" y="400" width="100" height="150" event="topicbutton" class="animationTrigger" bufferoffset="100" target="topicButtons">
+			<box class="bg"/>
+			<status id="2_status" topic="2" />
+			<svganim id="2_burst" src="lib/animations/burst_animation.json" width="110" height="70" loop="false" autoplay="false" fps="40"/>
+			<text id="2_topicTxt" class="topicButtonText" x="110" y="0" width="240" height="100%" >
+				<![CDATA[
+					<p class="title"><span class="wf-topic-longlabel"></span></p>
+					<p class="topicTime"><span class="wf-topic-duration">5</span> MINS</p>
+				]]>
+			</text>
+		</topicbutton>
+
+		<topicbutton id="3" topic="3" x="2560" y="60" width="100" height="150" event="topicbutton" class="animationTrigger" bufferoffset="100" target="topicButtons">
+			<box class="bg"/>
+			<status id="3_status" topic="3" />
+			<svganim id="3_burst" src="lib/animations/burst_animation.json" width="110" height="70" loop="false" autoplay="false" fps="40"/>
+			<text id="3_topicTxt" class="topicButtonText light" x="110" y="0" width="240" height="100%" >
+				<![CDATA[
+					<p class="title"><span class="wf-topic-longlabel"></span></p>
+					<p class="topicTime"><span class="wf-topic-duration">5</span> MINS</p>
+				]]>
+			</text>
+		</topicbutton>
+
+		<topicbutton id="4" topic="4" x="3870" y="120" width="100" height="150" event="topicbutton" class="animationTrigger" bufferoffset="100" target="topicButtons">
+			<box class="bg"/>
+			<status id="4_status" topic="4" />
+			<svganim id="4_burst" src="lib/animations/burst_animation.json" width="110" height="70" loop="false" autoplay="false" fps="40"/>
+			<text id="4_topicTxt" class="topicButtonText" x="110" y="0" width="160" height="100%" >
+				<![CDATA[
+					<p class="title"><span class="wf-topic-longlabel"></span></p>
+					<p class="topicTime"><span class="wf-topic-duration">5</span> MINS</p>					
+				]]>
+			</text>
+		</topicbutton>
+
+		<topicbutton id="5" topic="5" x="5320" y="90" width="100" height="150" event="topicbutton" class="animationTrigger" bufferoffset="100" target="topicButtons">			
+			<box class="bg"/>			
+			<status id="5_status" topic="5" />
+			<svganim id="5_burst" src="lib/animations/burst_animation.json" width="110" height="70" loop="false" autoplay="false" fps="40"/>				
+			<text id="5_topicTxt" class="topicButtonText light" x="110" y="0" width="240" height="100%" >
+				<![CDATA[
+					<p class="title"><span class="wf-topic-longlabel"></span></p>
+				]]>
+			</text>				
+		</topicbutton>			
+		
+	</custom>
+
+	<box id="menu_overlay" x="0" y="0" width="3440" height="644" bgcol="FFFFFF" />
+	
+	
+</data>

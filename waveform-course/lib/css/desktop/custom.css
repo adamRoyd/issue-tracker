@@ -1,0 +1,75 @@
+p.wfversion
+{
+	text-align: center;
+	color: #018BA9;
+	font-size: 20px;
+}
+
+
+.scrollingbox{
+    border: 1px silver solid;
+}
+
+.subscreentextbox{
+    box-sizing: border-box;
+    padding:  10px;
+    background: rgba( 255,255,255,0.8 );
+}
+
+.screenElement.score{
+    box-sizing: border-box;
+    background: rgba( 0,0,0,0.8 );
+}
+.screenElement.score .bar{
+    box-sizing: border-box;
+    background: rgba(0, 174, 246, 0.83);
+    height: 100%;
+    width: 0;
+    position:  absolute;
+}
+.screenElement.score .content{
+    position:  absolute;
+}
+
+.paddedBox
+{
+	background: hotpink; 
+}
+
+.paddedBox p
+{
+	padding: 20px ;
+	
+}
+
+.parentElementTest
+{
+	background: purple ;
+	width: 100px ;
+	height: 100px ;
+}
+
+.parentElementTest.active
+{
+	background: BlueViolet  ;
+}
+
+.childElementTest
+{
+	background: orange ;
+	width: 20px ;
+	height: 20px ;
+}
+
+.overflowHidden,
+.svganim
+{
+	overflow: hidden;
+}
+
+.cls-1{fill:#404147;}
+.cls-2{fill:#bac405;}
+.cls-3{fill:#00b7c6;}
+.cls-4{fill:#4f2170;}
+.cls-5{fill:#ce1126;}
+.cls-6{fill:#0036a3;}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	
+	<events>
+
+		<event id="closeDialogue">
+			<function name="initAudio"/>
+			<function name="closeDialogue"/>
+			<function name="startMenu"/>
+			
+		</event>
+		<event id="end_event">
+
+		</event>
+	</events>
+
+	<image id="bg"><![CDATA[lib/images/content/mdl851002_video_intro.jpg]]></image>
+ 
+	<text id="title" x="170" y="40" width="200">
+		<![CDATA[
+			<p class="title">Welcome</p>
+		]]>
+	</text>	 
+ 
+ 	<button id="continue" x="calc(50% - 90px)" y="500" width="180" enabled="true" anim="alpha" event="closeDialogue"><![CDATA[<p>Enter Finance</p>]]></button>
+ 
+	<video id="vid" x="170" y="90" width="676" height="380" autoplay="true" controls="true" autorewind="false" src="lib/video/mon_busdriver_finance_v03.mp4">
+
+		<transcript width="400">
+			<![CDATA[
+			<p>Welcome to the Finance function. It's a very grand and impressive building; it looks a bit like a bank, and the teams here are really friendly. We're going to find out about the role Finance plays across Mondelēz International and which other functions they collaborate with. We'll take a closer look at the different teams within Finance and you'll learn which ones can help you with your job.</p> <p>Our visit here will last about 30 minutes. If you need to stop and leave at any point, no problem! Come back  another time and you can re-join the tour at the same place.</p>
+			<p>Let's go up the steps and inside.</p>
+			]]>
+		</transcript>
+
+	</video>
+	
+	
+</data>

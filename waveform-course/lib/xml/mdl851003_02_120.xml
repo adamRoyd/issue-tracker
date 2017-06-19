@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><data>
+
+	<settings autocomplete="false"/>
+
+	<events>
+		<event id="init">
+			<media action="play" id="audio1"/>
+			<function name="forceEnableNext"/>
+		</event>
+	
+		<event id="update">
+			<log>UPDATE</log>
+		</event>
+		
+		<event id="onContentNotSeen">
+			<anim animtime="0.2" type="alpha">contentWarning</anim>
+		</event>
+		
+		<event id="closeWarning">
+			<anim animtime="0.2" type="alphaout">contentWarning</anim>
+		</event>
+		
+		<trigger events="cell0,cell1,cell2,cell3,cell4,cell5,cell6" id="triggerId" retrigger="-1">
+			<screencompleted/>
+		</trigger>
+		
+		<event id="cell0"/>	
+		<event id="cell1"/>
+		<event id="cell2"/>
+		<event id="cell3"/>
+		<event id="cell4"/>
+        <event id="cell5"/>
+        <event id="cell6"/>
+		
+    </events>
+
+	<custom height="442" id="photostory1" width="922" x="45" y="100">
+		<settings autocomplete="false" autox="5" buttonnumbers="true" buttony="450" dragnav="true" overridenav="false" progressnav="true" startframe="0" transition="fade" transitiontime="0.5"/>
+	
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_02_120_01.png]]></image>
+			<text id="cell1text" width="380" x="40" y="45"><![CDATA[
+				<p><b>What are the main goals of each department?</b></p><br/>
+				<p>Commercial Finance support the Sales, Marketing and Category Planning teams, providing a key link to understanding the detail of net revenue delivery, especially with regard to pricing. </p> 
+				<p class="prompt">Select the numbers below to see the key outputs of other Finance teams.</p> ]]>
+			</text>
+		</cell>
+		
+		<cell>
+			<image><![CDATA[lib/images/content/mdl851003_02_120_02.png]]></image>
+			<text id="cell2text" width="320" x="80" y="45"><![CDATA[
+				<p>Among other things, Category Finance are responsible for the annual plan, strategic plan, forecast updates, financial analysis and post-evaluations, and recommending price increases. They'll also take on other analyses where required. </p> ]]>
+			</text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_02_120_03.png]]></image>
+			<text id="cell3text" width="330" x="80" y="45"><![CDATA[
+				<p>The ISC Finance team helps identify the most effective actions to reduce cost across our supply chain network. They drive process improvement, harmonization and standardization, and they advise other functions how to reduce risk. </p> ]]> 
+			</text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_02_120_04.png]]></image>
+			<text id="cell4text" width="320" x="80" y="45"><![CDATA[
+				<p>FP&amp;A support the business with the strategic plan, annual contract, quarterly forecast and performance management updates. They'll also provide business analysis to support the delivery of top tier financial results.</p> ]]>
+			</text>
+		</cell>
+		
+		<cell>
+			<image><![CDATA[lib/images/content/mdl851003_02_120_05.png]]></image>
+			<text id="cell5text" width="330" x="80" y="45"><![CDATA[
+				<p>The Treasury team securely manages the liquidity of all Mondelēz International cash across more than 80 markets. It's their work that enables the business to run smoothly despite fluctuating exchange rates. They provide cost-effective financing and risk management advice to support the Mondelēz International strategy. </p> ]]>
+			</text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_02_120_06.png]]></image>
+			<text id="cell6text" width="320" x="80" y="45"><![CDATA[
+				<p>Risk Management and Insurance produce internal audit reports, internal controls advisory reports and special investigation reports. They also provide controls and risk training activities, global risk and control frameworks by process, and action plan status reports. </p> ]]>
+			</text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_02_120_07.png]]></image>
+			<text id="cell7text" width="320" x="80" y="45"><![CDATA[
+				<p>The Tax department is responsible for accurate income tax returns and for ensuring income tax impacts are properly documented both worldwide and locally. They minimize cash tax payments by taking tax positions and defending these positions during audits across all countries and regions. </p> ]]>
+			</text>
+		</cell>
+    </custom>
+	
+	<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="220" id="contentWarning" width="420" x="305" y="200">
+		<box bgcol="0036A3" height="40" width="100%">
+<!-- 			<text id="revealtitle" x="20" y="10"><![CDATA[<p>There is still more to see</p>]]></text>	 -->	
+			<svg class="navBtn" event="closeWarning" height="20" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+		</box>
+		<text width="380" x="20" y="70"><![CDATA[
+			<p>There's more information for you here. Select each of the numbers to see everything about this subject.</p>
+		]]></text>
+	</box>	
+
+</data>

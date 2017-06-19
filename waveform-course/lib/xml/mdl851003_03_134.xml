@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>	
+	<events>
+		<event id="pass">
+			<show>feedback_pass</show>
+			<screenevent id="onPass" target="parent" /> 
+			<media id="pass" action="play" />
+		</event>
+		
+		<event id="showSuccess">
+			<!-- <screenevent id="onNext" target="parent" />  -->
+		    <hide>feedback_pass</hide>
+		    <hide>feedback_fail2</hide>
+			<anim type="alpha" animtime="0.3">feedback_success</anim>
+			<show>nextBtn</show>		
+			<show>playBtn</show>
+			<media id="success" action="play" />	
+		</event>		
+		
+		<event id="partial">
+			<show>feedback_partial</show>
+			<show>resetBtn</show>
+		
+		</event>
+				
+		<event id="fail_attempt">
+			<show>feedback_fail</show>
+			<show>resetBtn</show>
+			<media id="fail1" action="play" />
+		</event>		
+		
+		<event id="fail">
+			<show>feedback_fail2</show>
+			<media id="fail2" action="play" />
+			<screenevent id="onPass" target="parent" /> 
+		</event>		
+		
+		<event id="onReset">
+			<function name="reset"/>
+		</event>
+		
+		<event id="onForceReset">
+			<function name="forceReset"/>		
+		</event>		
+		
+		<event id="reset">
+			<anim type="alpha" animtime="0.2">questionText</anim>
+			<anim type="alpha" animtime="0.2">mcqOptions</anim>		
+			<hide>feedbackHolder</hide>
+			<hide>feedback_success</hide>
+			<hide>feedback_pass</hide>
+			<hide>feedback_partial</hide>
+			<hide>feedback_fail</hide>
+		    <hide>feedback_fail2</hide>			
+			<show>submitBtn</show>
+			<hide>resetBtn</hide>
+			<hide>nextBtn</hide>
+			<hide>playBtn</hide>
+			<hide>.feedbackText.incorrect</hide>
+		</event>
+		
+		<event id="onShow">
+			<anim type="right" animtime="0.5">mcqOptions</anim>		
+			<media id="audio1" action="play" />	
+		</event>
+		
+		<event id="onHide">
+			<event id="onForceReset"/>		
+		</event>
+		
+		<event id="submit">
+			<anim type="alphaout" animtime="0.2">questionText</anim>
+			<anim type="alphaout" animtime="0.2">mcqOptions</anim>
+			<show>feedbackHolder</show>
+			<hide>submitBtn</hide>
+		</event>
+				
+		<event id="endGame">
+			<screenevent id="onEnd" target="parent" /> 
+		</event>
+				
+		<event id="playAgain">
+			<screenevent id="onReset" target="parent" /> 
+		</event>
+		
+		
+	</events>
+
+	<audio id="audio1" controls="false" autoplay="false" stopothers="true" x="480" y="140" width="250" src="lib/audio/mdl851003_03_130_question_4.mp3" />	
+	<audio id="success" controls="false" autoplay="false" stopothers="true" x="480" y="140" width="250" src="lib/audio/mdl851003_03_130_Q4_all_correct.mp3" />
+	<audio id="pass" controls="false" autoplay="false" stopothers="true" x="480" y="140" width="250" src="lib/audio/mdl851003_03_130_Q4_correct.mp3" />
+	<audio id="fail1" controls="false" autoplay="false" stopothers="true" x="480" y="140" width="250" src="lib/audio/mdl851003_03_130_Q4_incorrect_att1.mp3" />
+	<audio id="fail2" controls="false" autoplay="false" stopothers="true" x="480" y="140" width="250" src="lib/audio/mdl851003_03_130_Q4_incorrect_att2.mp3" />	
+	
+    <text id="questionText" x="40" y="45" width="430">
+		<![CDATA[
+			<p>How is international tax planning changing and what does this mean for Mondelēz International?</p>
+			<p class="prompt">Select which Finance team can answer this. Then Confirm.</p>
+		]]>
+	</text>
+	
+	<custom id="mcqOptions" x="40" y="165" width="430">
+		<settings radiomode="true" randomise="false" max_attempts="1" correctremain="true"/>
+		<option correct="false"><![CDATA[	<p>Category Finance</p>]]></option>
+		<option correct="true" ><![CDATA[ <p>Taxes</p>]]></option>
+		<option correct="false" ><![CDATA[ <p>Commercial Finance</p>]]></option>
+		<option correct="false" ><![CDATA[ <p>Treasury</p>]]></option>
+		<option correct="false" ><![CDATA[ <p>ISC Finance</p>]]></option>
+	</custom>
+	
+	<box id="btns" x="40" y="500">		
+		<button id="submitBtn" 	x="0" 	y="0" enabled="false" func="submit"><![CDATA[<p>Confirm</p>]]></button>
+		<button id="resetBtn" 	width="120" x="0" 	y="0" enabled="false" event="onReset" anim="hidden"><![CDATA[<p>Try again</p>]]></button>
+		<button id="nextBtn" 	width="150" x="0" 	y="0" event="endGame" anim="hidden"><![CDATA[<p>End game</p>]]></button>
+		<button id="playBtn" 	width="150" x="180" 	y="0" event="playAgain" anim="hidden"><![CDATA[<p>Play again</p>]]></button>
+	</box>	
+	
+	<box id="feedbackHolder" x="40" y="40" width="440" height="445" anim="hidden">
+	
+		<box id="feedback_pass" width="100%" anim="hidden">
+			<text class="feedbackText">
+				<![CDATA[
+					<p class="title large">Correct!</p>
+					<p>Taxes tell you:</p>
+					<p>"The scale of international taxation is significantly changing and will continue to change in the next few years, and we expect future audits to become more contentious.  Planning initiatives will still continue to the extent they are business driven, but it will become more scrutinized under audit."</p>
+				]]>
+			</text>
+			<button id="okBtn" width="250" x="0" y="460" event="showSuccess"><![CDATA[<p>Move on to the next step</p>]]></button>						
+		</box>
+		
+		<box id="feedback_success" width="100%" anim="hidden">
+			<text>
+				<![CDATA[
+					<p>Well done! You've gathered some of the experts who can help you with any Finance questions in the future. Remember there are other teams such as Treasury, Category Finance, Internal Audit and Internal Controls who will be happy to help too.</p>
+					<p>In the next area you'll discover more about who you can turn to with your financial questions.</p>
+					<p class="prompt">End game or play again.</p>
+				]]>
+			</text>
+		</box>		
+		
+		<box id="feedback_fail" width="100%" anim="hidden">
+		
+			<text class="feedbackText">
+				<![CDATA[
+					<p class="title large">Sorry.</p>				
+					<p>The team you chose can't give you the answer. Try again.</p>
+				]]>
+			</text>
+		</box>
+		
+		<box id="feedback_fail2" width="100%" anim="hidden">
+		
+			<text class="feedbackText">
+				<![CDATA[
+					<p>The team you needed was <b>Taxes.</b></p>
+					<p>Their answer to your question is: </p>
+					<p><b>"The scale of international taxation is significantly changing and will continue to change in the next few years, and we expect future audits to become more contentious.  Planning initiatives will still continue to the extent they are business driven, but it will become more scrutinized under audit."</b></p>
+				]]>
+			</text>
+			<button id="okBtn" width="250" x="0" y="460" event="showSuccess"><![CDATA[<p>Move on to the next step</p>]]></button>			
+		</box>	
+		
+	</box>
+	
+	
+</data>

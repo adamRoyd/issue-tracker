@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><data>
+
+	<settings autocomplete="false"/>
+
+	<events>
+		<event id="init">
+			<media action="play" id="audio1"/>
+			<function name="forceEnableNext"/>
+		</event>
+	
+		<event id="update">
+			<log>UPDATE</log>
+		</event>
+		
+		<event id="onContentNotSeen">
+			<anim animtime="0.2" type="alpha">contentWarning</anim>
+		</event>
+		
+		<event id="closeWarning">
+			<anim animtime="0.2" type="alphaout">contentWarning</anim>
+		</event>
+		
+		<trigger events="cell0,cell1,cell2" id="triggerId" retrigger="-1">
+			<screencompleted/>
+		</trigger>
+		
+		<event id="cell0"/>	
+		<event id="cell1"/>
+		<event id="cell2"/>
+		<event id="cell3"/>		
+
+	</events>
+
+	
+	
+	
+	<custom height="442" id="photostory1" width="922" x="45" y="100">
+		<settings autocomplete="false" autox="5" buttonnumbers="true" buttony="450" dragnav="true" overridenav="false" progressnav="true" startframe="0" transition="fade" transitiontime="0.5"/>
+	
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_01_100_01.png]]></image>
+			<text id="cell1text" width="285" x="80" y="45"><![CDATA[
+  <p>Here in Finance we're responsible for looking after all our financial interests worldwide. We maintain all Mondelēz International accounts, balance the figures and ensure that the right data is available at the right time for records and audits. We also act as key business partners to the organization and are an integral group in running the company.</p> 
+  <p class="prompt">Select the numbers below to see what else we do.</p> 
+  ]]></text>
+		</cell>
+		
+		<cell>
+			<image><![CDATA[lib/images/content/mdl851003_01_100_02.png]]></image>
+			<text id="cell2text" width="285" x="80" y="45"><![CDATA[
+  <p>The Finance function plays a much bigger part at Mondelēz International than just keeping the figures.</p> <p>We're experts in controllership and risk management, always looking for new ways to protect   our interests in the global market and protect the company's assets.</p> 
+  
+]]></text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_01_100_03.png]]></image>
+			<text id="cell3text" width="285" x="80" y="45"><![CDATA[
+  <p>We provide support to all other Mondelēz International functions, making sure everyone has access to the resources and advice they need, when they need it.</p> 
+  <p>We believe our biggest asset is our people, and we're committed to championing their talent and encouraging their development.</p> 
+  <p>
+]]></text>
+		</cell>
+		
+        
+		
+    </custom>
+	
+	<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="220" id="contentWarning" width="420" x="305" y="200">
+		<box bgcol="0036A3" height="40" width="100%">
+<!-- 			<text id="revealtitle" x="20" y="10"><![CDATA[<p>There is still more to see</p>]]></text>	 -->	
+			<svg class="navBtn" event="closeWarning" height="20" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+		</box>
+		<text width="380" x="20" y="70"><![CDATA[
+			<p>There's more information for you here. Select each of the numbers to see everything about this subject.</p>
+		]]></text>
+	</box>
+	
+
+</data>

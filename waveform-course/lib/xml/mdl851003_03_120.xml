@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><data>
+	
+	
+	
+	
+	<events>
+	
+		<event id="reset">
+			<anim animtime="0.25" type="alphaout">reveal_hotspot1</anim>
+			<enable>hotspot1</enable>
+			<anim animtime="0.25" type="alphaout">reveal_hotspot2</anim>
+			<enable>hotspot2</enable>
+		</event>
+
+		<event id="1">
+			<dialogue id="vid1" width="730" height="430">
+				<var id="dialogue_title"><![CDATA[Christina Paschalidou ]]></var>			
+				<video autoplay="true" autorewind="false" closedcaptionsoninit="true" controls="true" height="380" id="vid" src="lib/video/mdl851003_03_120_01.mp4" useclosedcaptions="true" width="676" x="10" y="40">
+					<transcript width="400"><![CDATA[ <p>Hello everybody, I'm Christina Paschalidou. I'm Greek; I'm currently located in Zurich working for global ISC Finance. I have been with Mondelēz eight years and during these eight exciting years I would say I have held several positions in different countries. I started my career in Mondelēz in ISC Finance in product costing, participated in one of the biggest projects for Europe, called Project One Europe where we set up the first centralized product costing team, then continued to work in a senior role to business controlling in European export and that was quite a steep learning curve for me since I had to manage the whole P & L, being part of the decision making of the business and partnering with stakeholders not only from Finance but also from other departments.  </p>
+					<p>For business controlling, I moved to regional FP&A, where I have been given the chance to learn and work directly with the very senior stakeholders and start looking at the bigger picture and having the different perspective. This role set up the stage for my next move in Bratislava, a great career opportunity for me to set up the first centralized FP&A team there. And from Bratislava, I moved to Chicago to the heart of the decision making to corporate FP&A, working directly with a little sofa company, getting inspired by them and gaining a lot of insights that I value until today. And this brings me to my current role in ISC Finance back to where I started working in a global ISC Finance transformation project.</p>
+					<p>If I look over these eight years I would say it has been quite a journey, six positions, three different countries, and this is actually what makes the careers at Mondelēz Finance so unique. It is the opportunity that has been given to us to work in a global organization to being exposed in international mentality, the proof of experiences and learnings and the constant change. There's always something new to learn even in the same position and new project to take on and new development of opportunity and new learning.  If you ask me why I love ISC Finance in particular in my current role well I would say I'm very glad to see how far ISC Finance has progressed in terms of building the capabilities and expertise and having great talents driving the agenda and a significant proportion of our profit and making a valuable difference to the company and then is the opportunity to think strategically, to think outside the box, to work with different stakeholders around the globe and of course being part of a great vision where people are truly at the centre of it. Thank you for listening.</p>
+					]]></transcript>
+				</video> 
+			</dialogue>
+		</event>
+		
+		<event id="2">
+			<dialogue id="vid2" width="730" height="430">
+				<var id="dialogue_title"><![CDATA[Lucy Cullen]]></var>				
+				<video autoplay="true" autorewind="false" closedcaptionsoninit="true" controls="true" height="380" id="vid" src="lib/video/mdl851003_03_120_02.mp4" useclosedcaptions="true" width="676" x="10" y="40">
+					<transcript><![CDATA[ <p>Hi, my name is Lucy Cullen, I'm working out of the Zurich office here in Switzerland and over the next two minutes I'm going to give you a really brief overview of my career path that got me to where I am today. So I started in Mondelēz in 2007, that’s nearly ten years ago, I started straight out of university onto a graduate program in the UK office back when we were Kraft. It's a two-year rotational program that you work in many different areas of Finance to give you a wide breadth of knowledge. My first placement which I worked was the Banbury coffee plant. This was a really cool experience; it made things very tangible seeing the products being made and my role was an inventory analyst. It was a great first role because it gave me really basic skills straight out of Uni, such as accounting, so I was in SAP doing journals, balance sheet reconciliations as well as getting involved in stock counts, so I was literally counting beans like people say accountants do, as well as being involved in audits. I then moved back to the commercial unit in Cheltenham and here I was involved in four placements. I was involved in overheads, involved in cheese FP&A, sales controlling and Financial accounting, so you can see the breadth of knowledge that I achieved each in a short placement. So, very steep learning curves but great experiences for me to get involved in and see the whole finance breadth.  </p>
+					<p>After these two years I thought "What do I want to do next? What do I want to do with my career?" and I went to my manager and said, "I'm mobile, where can I go?" and she said "Well we're setting up an office in Zurich" and I said "Ok, what's the worst that can happen?", so I took a job in Zurich working in balance sheet and cash flow planning. Now apart from the tiny two weeks experience I had in the UK, I knew nothing about this area in terms of planning in cash flow, so it was a great experience thrown in the deep end, super steep learning curve. It was during the time of the Cadbury acquisition, so there was really a lot to learn but it was a great experience and I still use some of the skills I learnt to this day. I then moved back to the P&L, so back to above OI and in chocolate FP&A where I was for two or three years and was involved again with in the planning, in the actual side in working with marketing, sales, creating P&Ls as well as understanding the great new products from the conception to seeing them on the shelves which was super interesting and that brings me to where I am today. </p>
+					<p>I am now in central FP&A, I look after the planning process for MEU from the beginning, principles and timings all the way to the end when we present to the Deerfield and share the numbers and everything in-between working with key stakeholders, understanding the numbers, creating presentations to share with the presidents as well as Deerfield It's a super exciting and interesting role and everything I have learnt so far from 10 years ago up until today still remains relevant. </p>
+					]]></transcript>
+				</video> 
+			</dialogue>			
+		</event>
+
+	</events>	
+	
+	<image id="bg" y="74"><![CDATA[lib/images/ui/color_bg/mdl851_bkg_purple_d_10.jpg]]></image>	
+	<image id="1" x="170" y="230"><![CDATA[lib/images/content/mdl851003_03_120_01.png]]></image>	
+	<image id="2" x="540" y="230"><![CDATA[lib/images/content/mdl851003_03_120_02.png]]></image>	
+	
+	
+	
+	<box id="labelHolder">
+	<text class="hotspotLabel" id="hotspotLabel1" x="184" y="448"  width="177"> <![CDATA[  <p>Christina Paschalidou </p> ]]></text>
+	<text class="hotspotLabel" id="hotspotLabel2" x="585" y="448" width="100"><![CDATA[  <p>Lucy Cullen</p> ]]></text>
+	</box>
+	<box id="hotspotHolder">
+		<box id="hotspot1" class="hotspot" x="358" y="425" width="30" height="30" event="reset,1"/>	
+		<box id="hotspot2" class="hotspot" x="695" y="425" width="30" height="30" event="reset,2"/>	
+
+	</box>	
+	
+	<text id="screentext" class="white" width="450" x="170" y="100"><![CDATA[  <p class="prompt">Select the icons to see Christina Paschalidou and Lucy Cullen talk about their roles in Finance and how they support colleagues across the world.</p>]]></text>
+
+
+	
+</data>

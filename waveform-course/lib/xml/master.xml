@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><course autotopicx="1" bitprjcode="mdl851003" bookmark="true" cheatmode="false" clientbitmode="false" completionmode="topics" desktopbrowserspec="ff|ch|ie10" desktoplayout="fixed" devicespec="desktop|mac|ipad|androidtab|iphone|androidphone" devmode="true" devunlockmode="false" devunlockscreenmode="false" engine="waveform 1.7.3" hasVideo="true" lmstracking="scorm1.2" maintaincomplete="true" menu="true" navbetweentopics="false" responsive="false" showlmsalert="false" splashdialogue="intro_video" title="BPBT Landmarks: Finance" version="0.2.0.0">
+
+
+	<dialogue closebtn="false" height="644" id="intro_video" topbar="false" width="1014" xml="lib/xml/dialogue_video_intro.xml"/>
+	<dialogue closebtn="false" height="644" id="intro_video_revisit" topbar="false" width="1014" xml="lib/xml/dialogue_video_intro.xml"/>
+
+
+	<dialogue closebtn="false" height="250" id="bookmark" width="325" xml="lib/xml/dialogue_bookmark.xml"/>
+	<dialogue closebtn="false" height="220" id="exit" topbar="false" width="300" xml="lib/xml/dialogue_exit.xml"/>	
+	<dialogue height="600" id="help" width="980" xml="lib/xml/dialogue_help.xml"/>
+	<dialogue height="420" id="resources" width="680" xml="lib/xml/dialogue_resources.xml"/>
+	<dialogue height="610" id="glossary" src="glossary" width="680" xml="lib/xml/dialogue_glossary.xml"/>
+
+
+	<menu id="menuscreen" src="scrollmanager" xml="lib/xml/menu_screen.xml"/>
+	<navigation id="navscreen" phonexml="lib/xml/nav_screen_phone.xml" xml="lib/xml/nav_screen.xml"/>
+	<soundbank id="globalsound" xml="lib/xml/global_soundbank.xml"/>
+	
+	<topic duration="4" id="1" label="The role of Finance">
+        <page id="1_100" type="photostory" xml="lib/xml/mdl851003_01_100.xml"/>
+        <page id="1_110" label="hotspot" xml="lib/xml/mdl851003_01_110.xml"/>
+        <page id="1_120" label="text_reveal" xml="lib/xml/mdl851003_01_120.xml"/>
+    </topic>
+	
+	<topic duration="5" id="2" label="How we operate">
+        <page id="2_100" label="text_graphic" xml="lib/xml/mdl851003_02_100.xml"/>
+        <page id="2_110" label="hotspot" xml="lib/xml/mdl851003_02_110.xml"/>
+        <page id="2_120" type="photostory" xml="lib/xml/mdl851003_02_120.xml"/>
+        <page id="2_130" label="text_reveal" xml="lib/xml/mdl851003_02_130.xml"/>
+    </topic>
+	
+	<topic duration="7" id="3" label="Working across Mondelēz International">
+        <page id="3_100" label="text_graphic" xml="lib/xml/mdl851003_03_100.xml"/>
+        <page id="3_110" type="photostory" xml="lib/xml/mdl851003_03_110.xml"/>
+        <page id="3_120" label="video" xml="lib/xml/mdl851003_03_120.xml"/>
+        <page id="3_130" type="multimcq" xml="lib/xml/mdl851003_03_130.xml"/>
+    </topic>
+		
+	<topic duration="8" id="4" label="Who should you talk to?">
+        <page id="4_100" label="text_graphic" xml="lib/xml/mdl851003_04_100.xml"/>
+        <page id="4_110" type="drag_drop" xml="lib/xml/mdl851003_04_110.xml"/>
+        <page id="4_120" type="mcq" xml="lib/xml/mdl851003_04_120.xml"/>
+        <page id="4_130" type="photostory" xml="lib/xml/mdl851003_04_130.xml"/>
+        <page id="4_140" type="mcq" xml="lib/xml/mdl851003_04_140.xml"/>
+        <page id="4_150" label="text_graphic" xml="lib/xml/mdl851003_04_150.xml"/>
+    </topic>
+	
+	<topic duration="" id="5" label="Resources room" class="resourceScreen" required="false">
+		<screen id="5_100" xml="lib/xml/mdl851003_05_100.xml" type="resource_screen"/>
+	</topic>
+
+</course>

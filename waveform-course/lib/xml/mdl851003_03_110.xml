@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><data>
+
+	<settings autocomplete="false"/>
+
+	<events>
+		<event id="init">
+			<media action="play" id="audio1"/>
+			<function name="forceEnableNext"/>
+		</event>
+	
+		<event id="update">
+			<log>UPDATE</log>
+		</event>
+		
+		<event id="onContentNotSeen">
+			<anim animtime="0.2" type="alpha">contentWarning</anim>
+		</event>
+		
+		<event id="closeWarning">
+			<anim animtime="0.2" type="alphaout">contentWarning</anim>
+		</event>
+		
+		<trigger events="cell0,cell1,cell2,cell3,cell4,cell5,cell6,cell7,cell8" id="triggerId" retrigger="-1">
+			<screencompleted/>
+		</trigger>
+		
+		<event id="cell0"/>	
+		<event id="cell1"/>
+		<event id="cell2"/>
+		<event id="cell3"/>		
+		<event id="cell4"/>
+        <event id="cell5"/>
+        <event id="cell6"/>
+        <event id="cell7"/>
+        <event id="cell8"/>
+    </events>
+	
+	
+	<custom height="442" id="photostory1" width="922" x="45" y="100">
+		<settings autocomplete="false" autox="5" buttonnumbers="true" buttony="450" dragnav="true" overridenav="false" progressnav="true" startframe="0" transition="fade" transitiontime="0.5"/>
+	
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_03_110_01.png]]></image>
+			<text id="cell1text" width="280" x="40" y="40"><![CDATA[
+			  <p><b>Commercial Finance</b></p> 
+			  <p>Because Commercial Finance covers such a broad scope of activities, the team works closely with most other areas of our company. </p> 
+			  <p>Their key business partners are the Country Leadership, Sales and Marketing teams. </p> 
+			  <p class="prompt">Select the numbers below to find out more.</p> ]]>
+			</text>
+		</cell>
+		
+		<cell>
+			<image><![CDATA[lib/images/content/mdl851003_03_110_02.png]]></image>
+			<text id="cell2text" width="310" x="40" y="40"><![CDATA[
+				<p><b>Category Finance</b></p> 
+				<p>Category finance work alongside almost all functions, analyzing business performance and identifying risks and opportunities. </p> 
+				<p>Their key business partners are Marketing and Innovation, Sales, CS&amp;L, Consumer Insights, Manufacturing and most of the other finance functions. </p> ]]>
+			</text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_03_110_03.png]]></image>
+			<text id="cell3text" width="340" x="40" y="40"><![CDATA[
+				<p><b>ISC Finance</b></p> 
+				<p>Because ISC Finance's main role is to reduce our cost profile and support volume growth, they're always working alongside almost all functions to achieve this. </p> 
+				<p>Their key business partners are any function involved in the integrated supply chain. These include Manufacturing, Procurement, CS&amp;L, Engineering and RDQI. </p> ]]>
+			</text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_03_110_04.png]]></image>
+			<text id="cell4text" width="320" x="40" y="40"><![CDATA[
+				<p><b>FP&amp;A Including Overheads</b></p> 
+				<p>FP&A is a critical core part of the business that pulls information from all functions, analyzes and understands all elements of the business.
+				
+				<p>Overheads are working to reduce costs throughout Mondelēz International, working in close cooperation with regions, countries and categories.</p> ]]>
+			</text>
+		</cell>
+		
+		<cell>
+			<image><![CDATA[lib/images/content/mdl851003_03_110_05.png]]></image>
+			<text id="cell5text" width="320" x="40" y="40"><![CDATA[
+				<p><b>Accounting and External Reporting</b></p> 
+				<p>The key business partners for Accounting and External Reporting are other Finance functions (FP&amp;A, Tax and Treasury), MBS, Legal, external auditors and external service providers. </p> 
+				<p>They also work with all functions throughout Mondelēz International for specific accounting topics and policies. </p> ]]>
+			</text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_03_110_06.png]]></image>
+			<text id="cell6text" width="320" x="40" y="40"><![CDATA[
+				<p><b>Treasury</b></p> 
+				<p>The Treasury department work with Procurement and CS&amp;L on financial supply chain initiatives. They assist HR on the evolution of payroll disbursements and IS on large-scale payment process improvement initiatives and niche cash management solutions. </p> 
+				<p>Their key business partners are Tax, Legal and Financial Controlling. </p> ]]>
+			</text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_03_110_07.png]]></image>
+			<text id="cell7text" width="320" x="40" y="40"><![CDATA[
+				<p><b>Risk Management and Insurance</b></p> 
+				<p>This team is involved with almost every function in Mondelēz International, particularly anyone involved in the integrated supply chain (CS&amp;L, Procurement and Manufacturing), Sales and Marketing, HR, IT and Legal.</p> 
+				<p>Their key business partners are the Board of Directors and Audit Committee, Senior Management, MLT, and Senior functional leaders across the regions.</p> ]]>
+			</text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_03_110_08.png]]></image>
+			<text id="cell8text" width="320" x="40" y="40"><![CDATA[
+				<p><b>Taxes</b></p> 
+				<p>Tax impacts many areas of Mondelēz International and the Tax team work across the company. They mainly work with the Legal department but they'll also be significantly involved with HR, CGA, ITS and ICS.</p> 
+				<p>They work closely with almost all the other Finance functions, M&amp;A, Strategy and Legal to provide advice and they'll also use external advisors to help with planning opportunities and defending Mondelēz International interests at audit. </p> ]]>
+			</text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_03_110_09.png]]></image>
+			<text id="cell9text" width="320" x="40" y="40"><![CDATA[
+				<p><b>Internal Audit and Internal Controls</b></p> 
+				<p>These colleagues work across the company and have a role in most functions, particularly ISC functions, Sales, Marketing, HR, IT and Legal. </p> 
+				<p>Their key business partners are the Board of Directors, Audit Committee, Mondelēz International Senior Management, MLT, and Senior functional leaders across the regions.</p> ]]>
+			</text>
+		</cell>
+		
+    </custom>
+
+	<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="220" id="contentWarning" width="420" x="305" y="200">
+		<box bgcol="0036A3" height="40" width="100%">
+<!-- 			<text id="revealtitle" x="20" y="10"><![CDATA[<p>There is still more to see</p>]]></text>	 -->	
+			<svg class="navBtn" event="closeWarning" height="20" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+		</box>
+		<text width="380" x="20" y="70"><![CDATA[
+			<p>There's more information for you here. Select each of the numbers to see everything about this subject.</p>
+		]]></text>
+	</box>		
+
+</data>

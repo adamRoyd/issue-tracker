@@ -1,0 +1,251 @@
+@charset "utf-8";
+/* CSS Document */
+
+.multimcq .gameIntroText p
+{
+    color: white;
+    font-size: 32px;
+    text-align: center;
+}
+
+.multimcq .questionText p
+{
+    color: white;
+}
+
+.multimcq .questionText p.headline
+{
+    font-size: 17px;
+}
+
+.multimcq .questionText p
+{
+    font-size: 18px;
+}
+
+.multimcq .button
+{
+    border-radius: 10px;
+    border: solid 2px white;
+    background-color: #F95602;
+}
+
+.multimcq .button.disabled
+{
+    background-color: #505050;
+}
+
+.multimcq .button.over
+{
+    background-color: #CE1126;
+}
+
+.multimcq .feedbackHolder
+{
+    background: none;
+}
+
+.multimcq .feedbackText
+{
+    position: relative;
+}
+
+.multimcq .feedbackText p.title
+{
+    margin: 0px;
+    margin-bottom: 0.5em;
+}
+
+.multimcq .feedbackText p.title.bottomMargin
+{
+    margin-bottom: 10px;
+}
+
+.multimcq .feedbackText p.title.large
+{
+    font-size: 60px;
+}
+
+.multimcq .feedbackText p.title.medium
+{
+    font-size: 40px;
+}
+
+.multimcq .feedbackText p.title.small
+{
+    font-size: 24px;
+}
+
+.multimcq .feedbackText .feedbackText.incorrect p
+{
+    margin-top: 1.5em;
+}
+
+/* MCQ SPECIFIC */
+
+.multimcq .mcq .option.selected p
+{
+    color: white;
+}
+
+.multimcq .mcq .option.selected
+{
+    background: #F95602;
+    border: solid white 2px;
+}
+
+.multimcq .mcq .option.selected .radio
+{
+    border-color: white;
+}
+
+.multimcq .mcq .option
+{
+    background: white;
+    border: solid white 2px;
+}
+
+.multimcq .mcq .option .radio
+{
+    border-color: #F95602;
+}
+
+.multimcq .mcq .option p
+{
+    color: #202020;
+}
+
+.multimcq .mcq .option.over .radio:after
+{
+	background: rgba(249, 86, 2, 0.7);
+}
+
+/* Column sort specific */
+
+.multimcq .column_sort .radio{
+    display: inline-block;
+    position: relative;
+    border: 3px solid #FFFFFF;
+    top:  0;
+    left: 0 !important;
+    margin: 0;
+    margin-top: 0 !important;
+    left: 0;
+}
+
+.multimcq .column_sort .over.radio>.after,
+.multimcq .column_sort .selected.radio>.after {
+	position: absolute;
+	content: ' ';
+	border-radius: 50%;
+	background: #FFFFFF;
+	top: 50%;
+	left:50%;
+	width: 14px;
+	height: 14px;
+	margin-top: -7px;
+	margin-left: -7px;
+}
+
+.multimcq .column_sort .over.radio.checkbox >.after,
+.multimcq .column_sort .selected.radio.checkbox >.after 
+{
+	border-radius: 0;
+}
+
+
+.multimcq .column_sort .over.radio>.after{
+	background: rgba(255,255,255,0.7);
+}
+
+.multimcq .column_sort  td.statement p{
+	color: white;
+}
+
+.multimcq .column_sort  td.statement p.small
+{
+	font-size: 12px;
+}
+
+.multimcq .column_sort  th p{
+    color: #FFFFFF;
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.multimcq .column_sort  th{
+	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	border-color: white;
+	border-top: 0px;
+	border-right: 0px;
+
+	padding: 3px;
+}
+
+.multimcq .column_sort th.empty
+{
+	border: none;
+}
+
+.multimcq .column_sort td
+{
+    padding: 5px;
+    border: 1px solid #FFFFFF;
+    border-left: 1;
+    border-right: 0;
+}
+
+.multimcq .column_sort td:first-child
+{
+	border-left:0;
+}
+
+.multimcq .column_sort .spacer
+{
+	height: 30px;
+}
+
+.multimcq .column_sort .tick
+{
+	display: none;
+}
+
+.multimcq .feedbackText.small p
+{
+	font-size: 14px;
+}
+
+.multimcq .progressIndicator
+{
+	top: 599px;
+	left: 80px;
+	position: absolute;
+	width: 320px;
+	height: 40px;
+}
+
+.multimcq .progressIndicator .screen
+{
+	position: relative;
+	float: left;
+	margin-right: 5px;
+	width: 44px;
+	height: 18px;
+	background: #CFC6E0;
+	border-radius: 10px;
+	border: solid 3px #FFFFFF;
+	box-sizing: border-box;
+}
+
+.multimcq .progressIndicator .screen.current
+{
+	background: #F95602;
+}
+
+.multimcq .progressIndicator.hidden
+{
+	display: none;
+}

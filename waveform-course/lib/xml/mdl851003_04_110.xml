@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><data>
+	<events>
+		
+		<event id="init">
+				<media action="play" id="audio1"/>
+		</event>
+		
+		<event id="myanswers">
+			<log>myanswers</log>
+			<hide>smaBtn</hide>
+			<show>scaBtn</show>
+		</event>
+		<event id="correctanswers">
+			<log>correctanswers</log>
+			<hide>scaBtn</hide>
+			<show>smaBtn</show>
+		</event>
+	
+		<event id="pass">
+			<media action="play" id="pass"/>
+			<show>feedback_pass</show>
+		</event>
+		
+		<event id="partial">
+			<media action="play" id="partial"/>
+			<show>resetBtn</show>
+			<show>scaBtn</show>
+			<show>feedback_partial</show>
+		</event>
+		
+		<event id="fail">
+			<media action="play" id="fail"/>
+			<show>resetBtn</show>
+			<show>scaBtn</show>
+			<show>feedback_fail</show>
+		</event>
+		
+		<event id="fail_attempt">			
+			<show>feedback_fail_attempt</show>
+		</event>
+		
+		<event id="reset">
+			<show>submitBtn</show>
+			<hide>resetBtn</hide>
+			<hide>scaBtn</hide>
+			<hide>smaBtn</hide>
+			<hide delay="0.3">feedbackHolder</hide>
+			<translate animtime="0.3" y="370">feedbackHolder</translate>
+			<hide delay="0.3">feedback_pass</hide>
+			<hide delay="0.3">feedback_partial</hide>
+			<hide delay="0.3">feedback_fail</hide>
+			<hide delay="0.3">feedback_fail_attempt</hide>
+		</event>
+		
+		<event id="submit">
+			<hide>submitBtn</hide>
+			<log>submit</log>
+			<translate y="370">feedbackHolder</translate>
+			<show>feedbackHolder</show>
+			<translate animtime="0.5" y="0">feedbackHolder</translate>
+		</event>
+				
+		<event id="playScreenAudio">
+			<media action="play" id="audio1"/>
+		</event>
+				
+	</events>
+
+	<audio autoplay="false" controls="false" id="audio1" src="lib/audio/finance_04_110_opening.mp3" stopothers="true" width="250" x="480" y="140"/>
+	<image id="image1" y="18"><![CDATA[lib/images/content/mdl851003_04_110_06.jpg]]></image>
+    <text id="introText" class="white" width="650" x="25" y="100"><![CDATA[  <p>Time to test your financial knowledge… Can you put the money in the right safe?</p>   <p class="prompt">Drag the money labeled with a Finance team name to the correct safe. When you're ready, select Confirm. </p>  ]]></text>
+	
+	<box height="150" id="buttonbox" width="150" x="650" y="516">
+		<button anim="hidden" enabled="false" func="reset" id="resetBtn" width="140" x="0" y="0"><![CDATA[<p>Reset</p>]]></button>
+		<button enabled="false" func="submit" id="submitBtn" width="140" x="0" y="0"><![CDATA[<p>Confirm</p>]]></button>
+		<button anim="hidden" enabled="false" func="showMyAnswers" id="smaBtn" width="230" x="0" y="64"><![CDATA[<p>Show my answers</p>]]></button>
+		<button anim="hidden" enabled="false" func="showAnswers" id="scaBtn" width="230" x="0" y="64"><![CDATA[<p>Show answers</p>]]></button>
+	</box>
+	
+	<box  class="dropArea" height="180" id="dropArea1" width="152" x="30" y="170">
+		<image id="image1" y="18"><![CDATA[lib/images/content/mdl851003_04_110_01.png]]></image>
+	</box>
+	<box  height="90" width="100%">
+			<text class="white" width="180" x="25" y="370">
+				<![CDATA[<p>We plan, track and ensure the category delivers overall targets.</p>]]>
+			</text>
+		</box>
+	<box  class="dropArea" height="180" id="dropArea2" width="152" x="240" y="170">
+		<image id="image2" y="18"><![CDATA[lib/images/content/mdl851003_04_110_01.png]]></image>
+	</box>
+	<box  height="90" width="100%">
+			<text class="white" width="180" x="240" y="370">
+				<![CDATA[<p>We manage the full lifecycle of cash in the organization.</p>]]>
+			</text>
+		</box>
+	<box  class="dropArea" height="180" id="dropArea3" width="152" x="450" y="170">
+		<image id="image3" y="18"><![CDATA[lib/images/content/mdl851003_04_110_01.png]]></image>
+	</box>
+	<box  height="90" width="100%">
+			<text class="white" width="180" x="440" y="370">
+				<![CDATA[<p>We ensure income tax returns are completed accurately and on time in strict compliance with the applicable laws.</p>]]>
+			</text>
+		</box>
+	
+	<box  class="dropArea" height="180" id="dropArea4" width="152" x="660" y="170">
+		<image id="image4" y="18"><![CDATA[lib/images/content/mdl851003_04_110_01.png]]></image>
+	</box>
+	<box  height="90" width="100%">
+			<text class="white" width="180" x="650" y="370">
+				<![CDATA[<p>We support special investigations and help colleagues with risk management.</p>]]>
+			</text>
+		</box>
+	
+	<!-- Dropboxes  -->
+	<box height="180" id="dropBox1" linecol="ff0000" linewidth="0" width="152" x="29" y="155"/>
+	<box height="180" id="dropBox2" linecol="ff0000" linewidth="0" width="152" x="239" y="155"/>
+	<box height="180" id="dropBox3" linecol="ff0000" linewidth="0" width="152" x="449" y="155"/>
+	<box height="180" id="dropBox4" linecol="ff0000" linewidth="0" width="152" x="659" y="155"/>
+	
+	<!-- Drag items -->
+	<box class="dragBox" height="141" id="drag1" width="141" x="495" y="450">
+		<image id="image5" y="18"><![CDATA[lib/images/content/mdl851003_04_110_02.png]]></image>
+	</box>
+	<box class="dragBox" height="141" id="drag2" width="141" x="336" y="450">
+		<image id="image6" y="18"><![CDATA[lib/images/content/mdl851003_04_110_03.png]]></image>
+	</box>
+	<box class="dragBox" height="141" id="drag3" width="141" x="180" y="450">
+		<image id="image7" y="18"><![CDATA[lib/images/content/mdl851003_04_110_04.png]]></image>
+	</box>
+	<box class="dragBox" height="141" id="drag4" width="141" x="25" y="450">
+		<image id="image8" y="18"><![CDATA[lib/images/content/mdl851003_04_110_05.png]]></image>
+	</box>
+	
+	
+x="336" y="450"
+		
+	<!-- Drop settings  -->
+    <custom id="dragdrop">
+        <settings dropscale="1"/>
+        <drag id="1" match="1">drag1</drag>
+        <drag id="2" match="2">drag2</drag>
+        <drag id="3" match="3">drag3</drag>
+        <drag id="4" match="4">drag4</drag>
+
+
+        <drop id="1" maxdrop="1" stackpaddingh="20" stackpaddingv="20" xoffset="0" yoffset="0">dropBox1</drop>
+        <drop id="2" maxdrop="1" stackpaddingh="20" stackpaddingv="20" xoffset="0" yoffset="0">dropBox2</drop>		
+        <drop id="3" maxdrop="1" stackpaddingh="20" stackpaddingv="20" xoffset="0" yoffset="0">dropBox3</drop>
+        <drop id="4" maxdrop="1" stackpaddingh="20" stackpaddingv="20" xoffset="0" yoffset="0">dropBox4</drop>		
+		
+    </custom>
+	
+	<audio autoplay="false" controls="false" id="pass" src="lib/audio/finance_04_110_correct.mp3" stopothers="true" width="250" x="480" y="140"/>
+	<audio autoplay="false" controls="false" id="partial" src="lib/audio/finance_04_110_partial.mp3" stopothers="true" width="250" x="480" y="140"/>
+	<audio autoplay="false" controls="false" id="fail" src="lib/audio/finance_04_110_incorrect.mp3" stopothers="true" width="250" x="480" y="140"/>	
+	
+	<box anim="hidden"  id="feedbackHolder"  height="120" width="580" x="30" y="500">
+		<box anim="hidden" id="feedback_pass" width="480" x="30" y="20">
+			<text id="text_pass"><![CDATA[  <p>Correct! Your money is safe. You've got the great knowledge of the various activities the Finance function covers.</p>  ]]></text>
+		</box>
+		<box anim="hidden" id="feedback_partial" width="480" x="30" y="20">
+			<text id="text_partial"><![CDATA[  <p>Whoops! Some of your money has ended up in the wrong safe and your accounts will be incorrect.</p> <p>Try again or see the correct locations for the money and the correct descriptions of different Finance departments.</p> ]]></text>
+		</box>
+		<box anim="hidden" id="feedback_fail" width="480" x="30" y="20">
+			<text id="text_fail"><![CDATA[  <p>Sorry that's not right and your money isn't safe. Try again or see the correct locations for the money and the correct descriptions of different Finance departments.</p> ]]></text>
+		</box>
+	</box>
+	
+	<image event="playScreenAudio" id="audioIcon" x="940" y="80"><![CDATA[lib/images/ui/ui_audio_icon.png]]></image>		
+	
+</data>

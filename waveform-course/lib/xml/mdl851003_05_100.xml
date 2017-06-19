@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+	<events>
+		<event id="init">
+			<stagger animtime="0.3" offset="0.1" alpha="1" display="block" y="0" completeall="animend">.resourceBtn</stagger>
+		</event>
+		
+		<event id="watch">
+			<dialogue width="ATTR_resourceWidth" height="ATTR_resourceHeight" src="resource_video" xml="ATTR_resourceXml" resource="ATTR_resource" title="ATTR_title"/>
+		</event>
+				
+		<event id="visit">
+			<link>ATTR_resource</link>
+		</event>
+						
+		<event id="read">
+			<link>ATTR_resource</link>
+		</event>
+		
+	</events>
+
+	<image id="bg" y="17" ><![CDATA[lib/images/ui/media_wall_bg.jpg]]></image>
+	
+	<box id="resourceBtnBg"/>
+	<box id="resourceBtnHolder">
+		<text class="resourceBtn instructionText" anim="hidden">
+			<![CDATA[
+				<p class="title">Want to know more?</p>
+				<p>Here you can watch, read, visit and learn from a selection of resources.</p>
+			]]>
+		</text>
+	<!-- resource 1 -->
+		<screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden"
+			resourceType="visit" 
+			resource="https://intranet.mdlz.com/sites/Finance/Pages/Home.aspx" 
+			title="Finance Intranet" 
+			description=" " 
+			image="lib/images/content/mdl851003_05_100_01.png"/>
+	<!-- resource 2 -->
+		<screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden"
+			resourceType="watch" 
+			resource="lib/video/mdl851003_05_100_02.mp4"
+			resourceXml="lib/xml/resource_video.xml"
+			resourceWidth="676"
+			resourceHeight="380"
+			title="Finance Career Stories" 
+			description=""
+			image="lib/images/content/mdl851003_05_100_02.png"/>		
+	<!-- resource 3 -->		
+		<screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden"
+			resourceType="watch"
+			resource="lib/video/mdl851003_05_100_03.mp4"
+			resourceXml="lib/xml/resource_video.xml"
+			resourceWidth="676"
+			resourceHeight="380"
+			title="Finance Career Stories" 
+			description=""
+			image="lib/images/content/mdl851003_05_100_03.png"/>				
+	<!-- resource 4 -->	
+		<screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden"
+			resourceType="visit" 
+			resource="https://intranet.mdlz.com/sites/Finance/Pages/F1-Learning-and-Leadership-Development.aspx" 
+			title="F1 Learning and Leadership development site" 
+			description="A one-stop-shop for all questions around learning &amp; development in Finance. " 
+			image="lib/images/content/mdl851003_05_100_04.jpg"/>	
+	<!-- resource 5 -->	
+		<screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden"
+			resourceType="visit" 
+			resource="https://intranet.mdlz.com/sites/Finance/FinanceAcademy/Lists/Finance%20Courses/FA%20view%201.aspx" 
+			title="Finance Academy" 
+			description="Over 50 self-help finance e-learning modules from beginners to professionals. " 
+			image="lib/images/content/mdl851003_05_100_05.jpg"/>	
+	<!-- resource 6 -->	
+		<screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden"
+			resourceType="visit" 
+			resource="https://collaboration.mdlz.com/sites/MIU/Pages/FunctionalExpertiseFaculty.aspx" 
+			title="The Functional Academy page of Mondelēz University" 
+			description=" " 
+			image="lib/images/content/mdl851003_05_100_06.png"/>	
+
+		<!-- <screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden" -->
+			<!-- resourceType="visit"  -->
+			<!-- resource="https://google.com"  -->
+			<!-- title="DIAL Overview Training "  -->
+			<!-- description=" "  -->
+			<!-- image="lib/images/content/mdl851003_05_100_07.png"/>	 -->
+
+		<!-- <screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden" -->
+			<!-- resourceType="visit"  -->
+			<!-- resource="https://google.com"  -->
+			<!-- title="Process Managmeent Training"  -->
+			<!-- description=" "  -->
+			<!-- image="lib/images/content/mdl851003_05_100_08.jpg"/>	 -->
+
+		<!-- <screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden" -->
+			<!-- resourceType="visit"  -->
+			<!-- resource="https://google.com"  -->
+			<!-- title="Global PM Curriculum"  -->
+			<!-- description=" "  -->
+			<!-- image="lib/images/content/mdl851003_05_100_09.png"/>	 -->
+
+		
+		<!-- NOTE: If video doesn't have transcript, use resourceXml="lib/xml/resource_video.xml" which is a generic video holder -->
+		<!-- 
+		<screen class="resourceBtn" src="text_graphic" xml="lib/xml/resource_button.xml" type="resource_button" anim="hidden"
+			resourceType="watch" 
+			resource="lib/video/BW_day_in_life_muted.mp4"
+			resourceXml="lib/xml/resource_video.xml"
+			resourceWidth="676"
+			resourceHeight="380"
+			title="The RDQ Movie" 
+			description="" 
+			image="lib/images/content/mdl851003_05_100_02.png"/>				
+			 -->
+	</box>
+	
+</data>
+

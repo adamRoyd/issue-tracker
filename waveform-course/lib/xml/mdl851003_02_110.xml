@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><data>
+
+	<settings autocomplete="true" resizereload="true"/>
+
+	<events>
+	
+		<event id="reset">
+			<anim animtime="0.25" type="alphaout">reveal_hotspot1</anim>
+			<enable>hotspot1</enable>
+			<anim animtime="0.25" type="alphaout">reveal_hotspot2</anim>
+			<enable>hotspot2</enable>
+			<anim animtime="0.25" type="alphaout">reveal_hotspot3</anim>
+			<enable>hotspot3</enable>	
+			<anim animtime="0.25" type="alphaout">reveal_hotspot4</anim>
+            <enable>hotspot4</enable>
+            <anim animtime="0.25" type="alphaout">reveal_hotspot5</anim>
+            <enable>hotspot5</enable>
+            <anim animtime="0.25" type="alphaout">reveal_hotspot6</anim>
+            <enable>hotspot6</enable>
+            <anim animtime="0.25" type="alphaout">reveal_hotspot7</anim>
+            <enable>hotspot7</enable>
+            <anim animtime="0.25" type="alphaout">reveal_hotspot8</anim>
+            <enable>hotspot8</enable>
+            <anim animtime="0.25" type="alphaout">reveal_hotspot9</anim>
+            <enable>hotspot9</enable>
+        </event>
+
+		<event id="showreveal">
+			<anim animtime="0.3" type="alpha">reveal_[ITEM]</anim>
+			<disable>[ITEM]</disable>
+		</event>
+
+	</events>
+
+	<image id="bg" y="0"><![CDATA[lib/images/content/mdl851003_02_110.jpg]]></image>
+	
+	
+    <text class="white" id="introText" width="300" x="25" y="100"><![CDATA[  <p>Now we've given you an idea of the kind of work we do in Finance, let's take a closer look at each of our expert teams.</p>   <p class="prompt">Explore the Finance offices and select each room to find out how each team contributes to Mondelēz International's continued success.</p> ]]></text>
+
+	<box id="labelHolder">
+		<text class="hotspotLabel" id="hotspotLabel1" x="230" y="313"><![CDATA[  <p>Commercial Finance</p> ]]></text>
+		<text class="hotspotLabel" id="hotspotLabel2" x="150" y="460"><![CDATA[  <p>Category Finance</p> ]]></text>
+		<text class="hotspotLabel" id="hotspotLabel3" x="370" y="560"><![CDATA[  <p>ISC Finance</p> ]]></text>
+		<text class="hotspotLabel" id="hotspotLabel4" x="490" y="560"><![CDATA[  <p>FP&amp;A Incl. Overheads</p> ]]></text>
+        <text class="hotspotLabel" id="hotspotLabel5" x="637" y="560" width="165" ><![CDATA[  <p>Accounting &amp; External Reporting </p> ]]></text>
+        <text class="hotspotLabel" id="hotspotLabel6" x="520" y="370"><![CDATA[  <p>Treasury</p> ]]></text>
+        <text class="hotspotLabel" id="hotspotLabel7" x="820" y="300" width="140" ><![CDATA[  <p>Risk Management &amp; Insurance</p> ]]></text>
+        <text class="hotspotLabel" id="hotspotLabel8" x="664" y="157"><![CDATA[  <p>Taxes</p> ]]></text>
+        <text class="hotspotLabel" id="hotspotLabel9" x="350" y="143" width="140" ><![CDATA[  <p>Internal Audit &amp; Internal Controls</p> ]]></text>
+    </box>	
+	
+	<box id="hotspotHolder">
+		<box class="hotspot" event="reset,showreveal" height="30" id="hotspot1" width="30" x="333" y="289"/>	
+		<box class="hotspot" event="reset,showreveal" height="30" id="hotspot2" width="30" x="231" y="434"/>	
+		<box class="hotspot" event="reset,showreveal" height="30" id="hotspot3" width="30" x="440" y="535"/>	
+		<box class="hotspot" event="reset,showreveal" height="30" id="hotspot4" width="30" x="582" y="535"/>
+        <box class="hotspot" event="reset,showreveal" height="30" id="hotspot5" width="30" x="812" y="535"/>
+        <box class="hotspot" event="reset,showreveal" height="30" id="hotspot6" width="30" x="495" y="345"/>
+        <box class="hotspot" event="reset,showreveal" height="30" id="hotspot7" width="30" x="795" y="275"/>
+        <box class="hotspot" event="reset,showreveal" height="30" id="hotspot8" width="30" x="720" y="131"/>
+        <box class="hotspot" event="reset,showreveal" height="30" id="hotspot9" width="30" x="498" y="118"/>
+    </box>
+	
+
+	<box id="revealHolder">
+		<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="340" id="reveal_hotspot1" width="340" x="495" y="170">
+			<box bgcol="0036A3" height="40" id="title1banner" width="100%">
+				<text class="revealtitle" id="reveal1title" x="20" y="10"><![CDATA[  <p>Commercial Finance</p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal1text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  <p>Commercial Finance support the Sales function in key areas, always seeking opportunities to drive value for Mondelēz International. Commercial Finance is an important function within our organization because it's how we ensure our company priorities are executed and working effectively to our high compliance standards. </p> ]]></text>
+			<box id="reveal1media" x="20" y="60">
+			</box>
+		</box>
+		
+		<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="340" id="reveal_hotspot2" width="340" x="495" y="170">
+			<box bgcol="0036A3" height="40" id="title2banner" width="100%">
+				<text class="revealtitle" id="reveal2title" x="20" y="10"><![CDATA[  <p>Category Finance</p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal2text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  <p>The Category Finance team is at the front line of operations at all levels, planning and supporting the management of profit and loss, analyzing business performance and highlighting risks and opportunities. But their role isn't limited to performance review; they look beyond the numbers, working throughout Mondelēz International to help improve business performance and exceed objectives.</p> ]]></text>
+			<box id="reveal2media" x="20" y="60">
+			</box>
+		</box>
+
+		<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="340" id="reveal_hotspot3" width="340" x="495" y="170">
+			<box bgcol="0036A3" height="40" id="title3banner" width="100%">
+				<text class="revealtitle" id="reveal3title" x="20" y="10"><![CDATA[  <p>ISC Finance</p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal3text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  <p>ISC stands for Integrated Supply Chain. This team is responsible for providing financial guidance, and allocating efforts and resources effectively across all functions, categories and countries. Their delivery of a consistent cost control model is a crucial part of implementing benchmarking exercises across the entire Mondelēz International manufacturing network.</p> ]]></text>
+			<box id="reveal3media" x="20" y="60">
+			</box>
+		</box>
+
+		<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="340" id="reveal_hotspot4" width="340" x="495" y="170">
+			<box bgcol="0036A3" height="40" id="title4banner" width="100%">
+				<text class="revealtitle" id="reveal4title" x="20" y="10"><![CDATA[  <p>FP&amp;A Incl. Overheads</p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal4text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  <p>In Financial Planning and Analysis (FP&amp;A) and Overheads, it's all about getting our business to run as smoothly and efficiently as possible, linking up all the elements across each function. We also work to reduce overhead costs and utilize the Zero Based Budgeting program as a key driver to help fuel the Mondelēz International top tier financial performance. </p> ]]></text>
+			<box id="reveal4media" x="20" y="60">
+			</box>
+		</box>
+		
+        <box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="340" id="reveal_hotspot5" width="340" x="495" y="170">
+			<box bgcol="0036A3" height="40" id="title5banner" width="100%">
+				<text class="revealtitle" id="reveal5title" x="20" y="10"><![CDATA[  <p>Accounting &amp; External Reporting </p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal5text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  <p>The team in Accounting and External Reporting makes sure that all financial reporting requirements are met both internally and externally across all Mondelēz International functions. They are essential in closing our financials each period and also ensure the overall integrity of our financial processes.</p> ]]></text>
+			<box id="reveal5media" x="20" y="60">
+			</box>
+		</box>
+		
+        <box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="340" id="reveal_hotspot6" width="340" x="495" y="170">
+			<box bgcol="0036A3" height="40" id="title6banner" width="100%">
+				<text class="revealtitle" id="reveal6title" x="20" y="10"><![CDATA[  <p>Treasury</p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal6text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  <p>Treasury's key mantra is to always have the right amount of money, in the right place, at the right time and in the right currency. The team is involved at every level where cash is involved throughout Mondelēz International, managing Foreign Exchange to minimize currency risks and taking charge of all key banking relationships around the world. </p> ]]></text>
+			<box id="reveal6media" x="20" y="60">
+			</box>
+		</box>
+		
+        <box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="340" id="reveal_hotspot7" width="340" x="495" y="170">
+			<box bgcol="0036A3" height="40" id="title7banner" width="100%">
+				<text class="revealtitle" id="reveal7title" x="20" y="10"><![CDATA[  <p>Risk Management &amp; Insurance</p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal7text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  <p>Risk Management and Insurance is what protects Mondelēz International against catastrophic loss. This team spends its time continuously monitoring and improving risk intelligence to minimize the total cost of risk. They provide guidance to all other functions to enable risk-taking from a strategic and informed perspective.</p> ]]></text>
+			<box id="reveal7media" x="20" y="60">
+			</box>
+		</box>
+		
+        <box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="340" id="reveal_hotspot8" width="340" x="495" y="170">
+			<box bgcol="0036A3" height="40" id="title8banner" width="100%">
+				<text class="revealtitle" id="reveal8title" x="20" y="10"><![CDATA[  <p>Taxes</p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal8text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  <p>In a global company like  Mondelēz International, taxes are an important factor. The Tax department is responsible for ensuring we're tax efficient and all tax matters are properly documented and reported. They also protect and defend our interests in tax audits in the various jurisdictions in which we operate. </p> ]]></text>
+			<box id="reveal8media" x="20" y="60">
+			</box>
+		</box>
+		
+        <box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="340" id="reveal_hotspot9" width="340" x="495" y="170">
+			<box bgcol="0036A3" height="40" id="title9banner" width="100%">
+				<text class="revealtitle" id="reveal9title" x="20" y="10"><![CDATA[  <p>Internal Audit &amp; Internal Controls</p> ]]></text>		
+				<svg class="navBtn" event="reset" height="20" id="closeBtn1" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+			</box>
+			<text id="reveal9text" width="calc(100% - 40px)" x="20" y="60"><![CDATA[  <p>The Internal Audit & Controls team does a lot more than just conduct audit reviews. They provide advice, training and support to management across all functions and help to ensure the highest quality work. They provide opportunities for the growth of our people by transforming and challenging the way we identify, address and manage risk. </p> ]]></text>
+			<box id="reveal9media" x="20" y="60">
+			</box>
+		</box>
+		
+    </box>
+
+
+</data>

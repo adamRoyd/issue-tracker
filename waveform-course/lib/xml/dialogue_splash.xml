@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<events>
+	
+		<event id="showIntroVideo">
+
+			<dialogue id="intro_video"/>
+		</event>		
+		
+	</events>
+	
+
+	<box id="introMessage">
+
+	
+		
+		<text id="text_1"  width="540" class="relative topSpacer">
+			<![CDATA[
+			<p>Welcome to the impressive Finance building.</p>
+			<p>At this landmark you'll find out about:</p>
+			<ul>
+				<li>the role of Finance</li>
+				<li>how we operate</li>
+				<li>working across Mondelēz International </li>
+				<li>who you should turn to</li>
+				<li>resources to learn more about the Finance function</li>
+			</uL>
+			<p>This landmark contains optional sound. Please connect speakers or headphones if you want to listen. Use the audio controls on your device to adjust the volume or to mute the sound. You'll see this symbol on all screens with optional sound:</p>
+			<p>Your tour of this landmark is expected to last about 30 minutes. You can come back another time and complete your tour over several visits, if you want. Each time you come back to this landmark, we'll return you to the last point you visited.</p>
+			]]>
+		</text>
+		<button id="start" x="0" y="0" width="150" event="showIntroVideo" class="relative"><![CDATA[<p class="genericBtn">Begin the tour</p>]]></button>
+	</box>
+	
+</data>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	
+	<events>
+		<event id="onEnterScrollView">			
+			<media id="anim" action="play" />
+		</event>
+		
+		<event id="onExitScrollView">		
+			<media id="anim" action="stop" />
+		</event>
+	</events>
+
+	<svganim id="anim" src="lib/animations/mdl851003_menu_04.json" width="118" height="92" x="0" y="0" loop="true" autoplay="false" disableTM="true"/>
+</data>

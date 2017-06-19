@@ -1,0 +1,94 @@
+@charset "utf-8";
+/* CSS Document */
+
+.photostory.custom{
+	border: 1px solid silver;
+	box-sizing: border-box;
+}
+
+.progress {
+	position: absolute;
+	width:  100%;
+	left: 0 !important;
+	text-align: center;
+}
+
+.photostory_holder{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.photostory .strip{
+	position: absolute;
+}
+
+.photostory .cell{
+	position: absolute;	
+}
+
+.progressButton{
+	position: relative;
+	display: inline-block;
+	left: 0 !important;
+	margin: 8px;
+	width: 35px;
+	height: 35px;
+	background: white;
+	border-radius: 50%;
+	box-sizing: border-box;
+	border: 2px solid #4D1E6A;
+}
+
+.progressButton.visited
+{
+	background: #c4a7d6;
+}
+
+.progressButton .inner{
+	position: relative;
+	display: table;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+}
+.progressButton p{
+	color: #4D1E6A;
+	display: table-cell;
+	text-align:center;
+	vertical-align:middle;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.progressButton.over p,
+.progressButton.selected p{
+	color: white;
+}
+
+.progressButton.over,
+.progressButton.selected{
+	background: #4D1E6A;
+}
+
+
+.photostory .cell .text{
+	background:rgba(255,255,255,0.9);
+	padding:30px;
+}
+
+
+.photostory .nextBtn.disabled,
+.photostory .backBtn.disabled{
+	opacity: 0.5 !important;
+}
+.photostory .nextBtn,
+.photostory .backBtn{
+	opacity: 0.8 !important;
+}
+.photostory .nextBtn.over,
+.photostory .backBtn.over{
+	opacity: 1 !important;
+}

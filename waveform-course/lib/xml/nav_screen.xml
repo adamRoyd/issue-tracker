@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<events>
+		<event id="init">
+			<event id="update" />
+			<function name="initNav" />
+		</event>
+		
+		<event id="help">
+			<event id="auto_close_burger" />
+			<dialogue id="help" />
+		</event>
+
+		<event id="exit">
+			<event id="auto_close_burger" />
+			<dialogue id="exit" />
+		</event>
+		
+		<event id="resources">
+			<event id="auto_close_burger" />
+			<dialogue id="resources" />
+		</event>
+		
+		<event id="glossary">
+			<event id="auto_close_burger" />
+			<dialogue id="glossary" />
+		</event>
+		
+		<event id="menu">
+			<event id="auto_close_burger" />
+
+			<function name="returnToMenu"/>
+		</event>
+		
+		<event id="next">
+			<function name="nextButtonPressed"/>
+		</event>
+		
+		<event id="back">
+			<function name="backButtonPressed"/>
+		</event>	
+		
+		<event id="in_topic">
+			<hide>coursetitle</hide>
+			<show>topictitle</show>
+			<show>pagecounter</show>
+			<show>pagenavbuttons</show>
+			<show>menuBtn</show>
+			<show>progressBar</show>
+		</event>
+		<event id="in_menu">
+			<show>coursetitle</show>
+			<hide>topictitle</hide>
+			<hide>pagecounter</hide>
+			<hide>pagenavbuttons</hide>
+			<hide>menuBtn</hide>
+			<hide>progressBar</hide>
+		</event>
+		
+		<event id="update">
+			<event id="auto_close_burger" />
+			<function name="update" target="pagecounter" />
+		</event>
+		
+		
+		<event id="auto_close_burger">
+			<function target="burgerBtn" name="sequenceIndex">1</function>
+		</event>
+		
+		<event id="open_burger">
+			<show>burger_reveal</show>
+			<class add="active">burgerBtn</class>
+		</event>
+		<event id="close_burger">
+			<hide>burger_reveal</hide>
+			<class remove="active">burgerBtn</class>
+		</event>
+		
+	</events>
+	
+	<box id="progressBar" y="50" width="1014" height="25" bgcol="DADADA">
+		<pagecounter id="pagecounter" type="icons" jump="false" width="500" height="20" >
+<!-- 			
+			<text x="0" y="2" width="71">
+				<![CDATA[<p><span class="from"></span>/<span class="to"></span></p>]]>
+			</text>
+			 -->
+		</pagecounter>	
+	</box>
+	
+	<box id="navHolder">
+		<box id="nav_background" animx="hidden" width="1014" height="50" bgcol="FFFFFF" bgalpha="1"/>	
+	
+		<box x="865" y="5">
+			<svg id="menuBtn" class="navBtn" x="0" y="0" width="40" height="40" src="lib/images/ui/nav_buttons/menu.svg" event="menu" />
+			<text target="menuBtn" class="tooltip" x="-5" y="50" width="50">
+				<![CDATA[<p>Home</p>]]>
+			</text>
+
+			<svg id="helpBtn" class="navBtn" x="45" y="0" width="40" height="40" src="lib/images/ui/nav_buttons/help.svg" event="help" />
+			<text target="helpBtn" class="tooltip" x="-5" y="50" width="50">
+				<![CDATA[<p>Help</p>]]>
+			</text>
+
+			<svg id="exitBtn" class="navBtn" x="90" y="0" width="40" height="40" src="lib/images/ui/nav_buttons/close.svg" event="exit" />
+			<text target="exitBtn" class="tooltip" x="-5" y="50" width="50">
+				<![CDATA[<p>Exit</p>]]>
+			</text>
+			
+		</box>
+	</box>
+	
+	<text id="coursetitle" x="25" y="15" width="600" anim="hidden">
+		<![CDATA[<p class="courseTitle"><span class="ui_course_title"></span></p>]]>
+	</text>
+	
+	<text id="topictitle" x="25" y="15" width="600" anim="hidden">
+		<![CDATA[<p class="topicTitle"><span class="ui_topic_title">topic title</span></p>]]>
+	</text>
+
+
+	<box id="pagenavbuttons" x="890" y="570">
+		
+		<svg id="backBtn" class="navBtn" x="0" y="10" width="40" height="40" src="lib/images/ui/nav_buttons/back.svg" event="back" />
+		<text target="backBtn" class="tooltip top" x="-5" y="-30" width="50">
+			<![CDATA[<p>Back</p>]]>
+		</text>
+		<svg id="nextBtn" class="navBtn" x="50" y="0" width="50" height="50" src="lib/images/ui/nav_buttons/next.svg" event="next" />
+		<text target="nextBtn" class="tooltip top" x="0" y="-30" width="50">
+			<![CDATA[<p>Next</p>]]>
+		</text>
+	</box>
+	
+	
+	
+	
+	
+	
+		
+	
+</data> 

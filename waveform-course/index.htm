@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name='viewport' content="width=device-width, initial-scale=1" />
+		
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		
+		<meta charset="UTF-8">
+		<title>...</title>
+
+        <script type="text/javascript">
+            var loadXMLAsJavascript = true;
+            var loadCompiledCSSandJavascriptAndXML = true;
+        </script>
+		
+		<script type="text/javascript" language="javascript" src="lib/js/jquery/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" language="javascript" src="lib/js/jquery/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" language="javascript" src="lib/js/jquery/jquery.imgpreloader.js"></script>
+		<script type="text/javascript" language="javascript" src="lib/js/plugins/jquery.swfobject.1-1-1.min.js"></script>
+		<script type="text/javascript" language="javascript" src="lib/js/plugins/modernizr.custom.67435.js"></script>
+		<script type="text/javascript" language="javascript" src="lib/js/plugins/jPlayer/jquery.jplayer.min.js"></script>
+		
+		<script type="text/javascript" id="MasterCompiled" src="lib/js/master_compiled.js"></script>
+			
+		<link id="common_css" rel="stylesheet" type="text/css" href="lib/css/generic_compiled.css" />
+		<link id="ui_css" rel="stylesheet" type="text/css" />
+	</head>
+
+<!--[if lt IE 7]>  <body onLoad="init()" onUnload="courseClose()" class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <body onLoad="init()" onUnload="courseClose()" class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <body onLoad="init()" onUnload="courseClose()" class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <body onLoad="init()" onUnload="courseClose()" class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <body onLoad="init()" onUnload="courseClose)"> <![endif]-->
+<!--[if !IE]><!--> <body onLoad="init()" onUnload="courseClose()"> <!--<![endif]-->
+	
+		<div id="floater"></div>
+		<div id="courseholder">
+		    <div id="menuholder" class="hidden">
+				<div id="menuscreen"></div>
+			</div>
+		    <div id="contentholder"></div>
+		    <div id="navholder"></div>
+		    <div id="soundholder"></div>			
+		    <div id="dialoguemask"></div>
+		    <div id="dialogueholder"></div>
+		    <div id="loaderholder"></div>
+		</div>		
+		<div id="errorBar" style="display:none">
+			<div id="errorContent">		
+				<div id="deviceError" class="errorMsg">				
+					<p>Your device is not supported for this course. Please use one of the following devices: <span class="deviceSpec">deviceSpec</span>, or contact your IT helpdesk for help with this if necessary.</p>
+					<p class="devModeOnly">Your device is reporting as <span class="yourDevice">yourDevice</span></p>						
+				</div>		
+				<div id="browserError" class="errorMsg">				
+					<p>Your browser doesn't meet the minimum specification for this course. Please use one of the following browsers: <span class="browserSpec">browserSpec</span>, or contact your IT helpdesk for help with this if necessary.</p>						
+				</div>	
+				<div id="ieCompatibilityModeError" class="errorMsg">				
+					<p>Your version of Internet explorer is currently running in compatibility mode with an unsupported version. Please try running the course without compatibility mode or try a different browser. The supported browsers include: <span class="browserSpec">browserSpec</span>. Otherwise contact your IT helpdesk for help with this if necessary.</p>				
+				</div>	
+				<div id="pluginError" class="errorMsg">			
+					<p>You need an up-to-date version of Adobe Flash Player to play video in Internet Explorer 8. Please update your Flash player or try a different browser. The supported browsers include:<span class="browserSpec">browserSpec</span>. Otherwise contact your IT helpdesk for help with this if necessary.</p>
+				</div>			
+				<div id="screenOrientationError" class="errorMsg">			
+					<p>This course is not responsive. Please use your device in landscape mode for the best learner experience. Otherwise contact your IT helpdesk for help with this if necessary.</p>
+				</div>			
+			</div>	
+			<div class="closeBtn"></div>	
+		</div>
+	</body>
+	
+</html>
+

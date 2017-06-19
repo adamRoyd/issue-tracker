@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><data>
+
+	<settings autocomplete="false"/>
+
+	<events>
+		<event id="init">
+			<media action="play" id="audio1"/>
+			<function name="forceEnableNext"/>
+		</event>
+	
+		<event id="update">
+			<log>UPDATE</log>
+		</event>
+		
+		<event id="onContentNotSeen">
+			<anim animtime="0.2" type="alpha">contentWarning</anim>
+		</event>
+		
+		<event id="closeWarning">
+			<anim animtime="0.2" type="alphaout">contentWarning</anim>
+		</event>
+		
+		<trigger events="cell0,cell1,cell2,cell3,cell4" id="triggerId" retrigger="-1">
+			<screencompleted/>
+		</trigger>
+		
+		<event id="cell0"/>	
+		<event id="cell1"/>
+		<event id="cell2"/>
+		<event id="cell3"/>		
+
+	<event id="cell4"/>
+    </events>
+
+	
+	
+	
+	<custom height="442" id="photostory1" width="922" x="45" y="100">
+		<settings autocomplete="false" autox="5" buttonnumbers="true" buttony="450" dragnav="true" overridenav="false" progressnav="true" startframe="0" transition="fade" transitiontime="0.5"/>
+	
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_04_130_01.png]]></image>
+			<text id="cell1text" width="350" x="80" y="45"><![CDATA[
+  <p>Let's look at a typical situation in our integrated supply chain and find out how Finance can contribute.</p> 
+  <p class="prompt">Select the numbers below to find out more.</p> 
+  ]]></text>
+		</cell>
+		
+		<cell>
+			<image><![CDATA[lib/images/content/mdl851003_04_130_02.png]]></image>
+			<text id="cell2text" width="240" x="80" y="30"><![CDATA[
+  <p>A new product has been successfully launched.</p> 
+  
+]]></text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_04_130_03.png]]></image>
+			<text id="cell3text" width="285" x="70" y="40"><![CDATA[
+  <p>ISC are always seeking ways to refine the process.</p> 
+  
+]]></text>
+		</cell>
+		
+        <cell>
+			<image><![CDATA[lib/images/content/mdl851003_04_130_04.png]]></image>
+			<text id="cell4text" width="320" x="80" y="30"><![CDATA[
+  <p>After a review, ISC decide that a new way of dealing with suppliers would bring financial benefits.</p> 
+  
+]]></text>
+		</cell>
+		
+    <cell>
+			<image><![CDATA[lib/images/content/mdl851003_04_130_05.png]]></image>
+			<text id="cell5text" width="320" x="80" y="45"><![CDATA[
+  <p>A new financial initiative will help the supply chain process and save money. But who should ISC call?</p> 
+  <p></p> 
+  <p>
+]]></text>
+		</cell>
+    </custom>
+	
+	<box anim="hidden" bgalpha="1" bgcol="FFFFFF" class="hotspotReveal" height="220" id="contentWarning" width="420" x="305" y="200">
+		<box bgcol="0036A3" height="40" width="100%">
+<!-- 			<text id="revealtitle" x="20" y="10"><![CDATA[<p>There is still more to see</p>]]></text>	 -->	
+			<svg class="navBtn" event="closeWarning" height="20" src="lib/images/ui/ui_reveal_close_icon.svg" width="20" x="calc(100% - 40px)" y="10"/>
+		</box>
+		<text width="380" x="20" y="70"><![CDATA[
+			<p>There's more information for you here. Select each of the numbers to see everything about this subject.</p>
+		]]></text>
+	</box>
+	
+
+</data>

@@ -1,0 +1,118 @@
+﻿<data>
+
+	<settings autocomplete="false"/>
+
+	<events>
+	
+		<event id="playScreenAudio">
+			<function name="playScreenAudio"/>
+			
+		</event>
+
+		<event id="init">
+			<event id="showIntro"/>
+			<media id="launch" action="play" />
+		</event>
+	
+		<event id="showIntro">
+			<anim type="alphaout" animtime="0.5">audioIcon</anim>
+			<anim type="alpha" animtime="0.5">intro</anim>
+			<translate x="0" y="530">introGraphic</translate>
+			<anim type="alpha" animtime="0">introGraphic</anim>
+			<translate x="0" y="0" animease="Power4.easeOut" animtime="1" animdelay="0.2" >introGraphic</translate>
+		</event>
+		
+		<event id="hideIntro">
+			<translate x="0" y="530" animease="Power4.easeOut" animtime="1" animdelay="0.2" >introGraphic</translate>
+			<anim type="alphaout" animtime="0.5" animdelay="0.5">intro</anim>
+			<anim type="alpha" animtime="0.5">audioIcon</anim>
+		</event>
+	
+		<event id="start">
+			<event id="hideIntro"/>
+			<function name="startGame"/>
+			<media id="launch" action="stop" />
+		</event>
+		<event id="onPass">
+			<function name="showCurrentScreenReveal"/>
+			<function name="onPass"/>
+			<!-- <media id="smoke" action="reset" /> -->
+			<!-- <media id="smoke" action="play" /> -->
+		</event>
+		
+		<event id="onNext">
+			<function name="showNextScreen"/>
+		</event>
+				
+		<event id="onEnd">
+			<function name="returnToMenu"/>
+		</event>
+		
+		<event id="onComplete">
+			<media id="part0" action="play" />
+			<media id="part1" action="play" />
+			<media id="part2" action="play" />
+			<media id="part3" action="play" />
+			<media id="part4" action="play" />
+			<media id="part5" action="play" />
+			<media id="partFinal" action="play" />
+			<hide>silhouette</hide>
+		</event>
+		<event id="onReset">
+			<media id="part0" action="reset" />
+			<media id="part1" action="reset" />
+			<media id="part2" action="reset" />
+			<media id="part3" action="reset" />
+			<media id="part4" action="reset" />
+			<media id="part5" action="reset" />
+			
+			<show>silhouette</show>
+			
+			<media id="partFinal" action="reset" />
+			<hide>.revealPart</hide>
+			<function name="reset"/>
+			<event id="showIntro"/>
+		</event>		
+	</events>
+
+	<image id="bg" y="75"><![CDATA[lib/images/content/mdl851003_03_130_bkg.png]]></image>
+	
+	<box id="silhouette">
+		<image id="part0_bg" x="6" y="105" ><![CDATA[lib/images/content/mdl851003_03_130_01_bkg.png]]></image>
+		<image id="part1_bg" x="240" y="240" ><![CDATA[lib/images/content/mdl851003_03_130_02_bkg.png]]></image>
+		<image id="part2_bg" x="15" y="330" ><![CDATA[lib/images/content/mdl851003_03_130_03_bkg.png]]></image>
+		<image id="part3_bg" x="228" y="421" ><![CDATA[lib/images/content/mdl851003_03_130_04_bkg.png]]></image>
+	</box>
+
+	<box id="contraption" x="0" y="0" >
+		<svganim id="part0" class="revealPart" src="lib/animations/mdl851003_03_130_01.json" x="6" y="105" width="301" height="157" loop="true" autoplay="false" disableTM="true" anim="hidden"/>
+		<svganim id="part1" class="revealPart" src="lib/animations/mdl851003_03_130_02.json" x="240" y="240" width="238" height="155" loop="true" autoplay="false" disableTM="true" anim="hidden"/>
+		<svganim id="part2" class="revealPart" src="lib/animations/mdl851003_03_130_03.json" x="15" y="330" width="217" height="203" loop="true" autoplay="false" disableTM="true" anim="hidden"/>
+		<svganim id="part3" class="revealPart" src="lib/animations/mdl851003_03_130_04.json" x="228" y="421" width="221" height="168" loop="true" autoplay="false" disableTM="true" anim="hidden"/>
+	</box>
+	
+	<box id="mcqHolder"/>
+	
+	<box id="intro" x="0" y="75" >
+		<image id="introBg"><![CDATA[lib/images/content/mdl851003_03_130_bkg_intro.png]]></image>
+		<!-- <image id="introGraphic" x="90" y="40" anim="hidden"><![CDATA[lib/images/content/mdl851002_03_140_00.png]]></image> -->
+		<box id="introGraphic" x="90" y="40" width="50" height="50" anim="hidden"/>
+		<text class="gameIntroText" x="390" y="190" width="470">
+			<![CDATA[<p>Build your team of Finance experts by answering questions and choosing the correct right teams to help you.</p>]]>
+		</text>
+		
+		<button event="start" x="550" y="410" width="125"><![CDATA[<p>I'm ready!</p>]]></button>
+	</box>
+	
+	<custom>
+		<settings autocomplete="false"/>
+		<screen id="3_141" x="460" y="75" width="550" height="569" xml="lib/xml/mdl851003_03_131.xml" src="mcq" class="transparentBg" target="mcqHolder" anim="hidden"/>
+		<screen id="3_142" x="460" y="75" width="550" height="569" xml="lib/xml/mdl851003_03_132.xml" src="mcq" class="transparentBg" target="mcqHolder" anim="hidden"/>
+		<screen id="3_143" x="460" y="75" width="550" height="569" xml="lib/xml/mdl851003_03_133.xml" src="mcq" class="transparentBg" target="mcqHolder" anim="hidden"/>
+		<screen id="3_144" x="460" y="75" width="550" height="569" xml="lib/xml/mdl851003_03_134.xml" src="mcq" class="transparentBg" target="mcqHolder" anim="hidden"/>
+	</custom>
+          
+	<!-- <box event="playScreenAudio" id="audioIcon" width="72" height="87" x="940" y="80" anim="hidden" />	 -->
+	<audio id="launch" controls="false" autoplay="false" stopothers="true" loop="false" x="480" y="140" width="250" src="lib/audio/mdl851003_03_130_launch.mp3" />
+
+</data>

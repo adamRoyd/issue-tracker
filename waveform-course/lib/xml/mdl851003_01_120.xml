@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><data>
+
+	<settings autocomplete="true" resizereload="true"/>
+
+	<events>
+
+		<event id="reset">
+			<anim animtime="0.25" type="alphaout">reveal_click1</anim>
+			<enable>click1</enable>			
+			<anim animtime="0.25" type="alphaout">reveal_click2</anim>
+			<enable>click2</enable>			
+			<anim animtime="0.25" type="alphaout">reveal_click3</anim>
+			<enable>click3</enable>
+		</event>
+		
+		<event id="showreveal">
+			<anim animtime="0.3" type="alpha">reveal_[ITEM]</anim>
+			<disable>[ITEM]</disable>
+		</event>
+
+		<event id="1"/><event id="2"/><event id="3"/>
+		<trigger events="1,2,3" id="triggerId" retrigger="-1">
+			<class add="complete">introText</class>
+		</trigger>
+
+	</events>
+
+	<image id="bg" y="74"><![CDATA[lib/images/ui/color_bg/placeholder.jpg]]></image>
+	
+	
+    <text class="white" id="introText" width="615" x="80" y="100"><![CDATA[  
+		<p>Now you've seen the critical capabilities of Finance, let's take a look at some of the other activities our teams do.</p>   
+		<p class="prompt hideOnComplete">Select each heading to find out more.</p> 
+		<p class="prompt showOnComplete">Select the Home icon <img src="lib/images/ui/ui_home_png.png"/> to return to the menu</p> 
+		]]>
+	</text>
+
+	<box id="revealHolder">
+		<box class="click" event="reset,showreveal,1" height="180" id="click1" width="180" x="115" y="235">
+			<box class="clickHotspot" height="30" width="30" x="80%" y="10%"/>	
+			<text id="clickText1"><![CDATA[  <p>Finance today</p> ]]></text>
+		</box>
+		
+		<box anim="hidden" bgalpha="1" bgcol="4F2070" class="reveal" height="175" id="reveal_click1" width="570" x="115" y="450">
+			<pointer class="up" colour="4F2070" width="40" x="90" y="-20"/>
+			<text id="reveal1text" width="calc(100% - 40px)" x="20" y="20"><![CDATA[  
+				<p>We've already built a solid foundation for our world-class organization and we're still transforming. </p> 
+				<p>By using a standardized approach, we can operate globally with expertise and efficiency. </p> 
+				<p>We're focused on global talent development and give all our employees great opportunities to grow within our career framework.</p> ]]>
+			</text>
+		</box>
+		
+		<box class="click" event="reset,showreveal,2" height="180" id="click2" width="180" x="410" y="235">
+			<box class="clickHotspot" height="30" width="30" x="80%" y="10%"/>	
+			<text id="clickText2"><![CDATA[  <p>Operating model</p> ]]></text>
+		</box>
+
+		<box anim="hidden" bgalpha="1" bgcol="4F2070" class="reveal" height="175" id="reveal_click2" width="570" x="215" y="450">
+			<pointer class="up" colour="4F2070" width="40" x="285" y="-20"/>
+			<text id="reveal2text" width="calc(100% - 40px)" x="20" y="20"><![CDATA[  
+				<p>We have global standards and processes in place to make sure we're always delivering world-class business services, but we also maintain a local presence when that's important. </p> 
+				<p>It's because we're always working towards maintaining this balance that we operate so efficiently. </p> ]]>
+			</text>
+		</box>
+		
+		<box class="click" event="reset,showreveal,3" height="180" id="click3" width="180" x="700" y="235">
+			<box class="clickHotspot" height="30" width="30" x="80%" y="10%"/>	
+			<text id="clickText3"><![CDATA[  <p>Ways of working</p> ]]></text>
+		</box>
+
+		<box anim="hidden" bgalpha="1" bgcol="4F2070" class="reveal" height="175" id="reveal_click3" width="570" x="310" y="450">
+			<pointer class="up" colour="4F2070" width="40" x="480" y="-20"/>
+			<text id="reveal3text" width="calc(100% - 40px)" x="20" y="20"><![CDATA[  
+				<p>We keep things simple and focus on what matters, never giving up on our pursuit of top performance. </p> 
+				<p>We demonstrate great leadership within our teams and we're always working to drive accountability throughout Mondelēz International. </p> ]]>
+			</text>
+		</box>
+
+	</box>
+
+
+</data>
