@@ -27,7 +27,7 @@ const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categor
                 label="Topic ID"
                 value={issue.sco}
                 defaultOption= "Select a Sco ID"
-                options={[...Array(50).keys()]}
+                options={[...Array(1000).keys()]}
                 onChange={onChange} 
                 error={errors.sco}/>
             <SelectInput

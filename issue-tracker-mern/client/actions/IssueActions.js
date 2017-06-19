@@ -46,6 +46,8 @@ export function addIssue(issue) {
 }
 
 export function addIssueRequest(issue,attachments,issues,projectCode) {
+  console.log('ADD ISSUE REQUEST');
+  console.log(attachments);
   return (dispatch) => {
     return callApi(`(:projectCode)/issues/(:filter)`,'post', {
       issue: {

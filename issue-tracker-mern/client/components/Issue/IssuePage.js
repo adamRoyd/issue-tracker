@@ -31,7 +31,7 @@ class IssuePage extends Component {
   render() {
     return (
       <div>
-        <div id="issuePage" className="container-fluid">
+        <div id="issuePage">
           <NavBar {...this.props}/>
           <div className="row">
             <div id="IssuePots">
