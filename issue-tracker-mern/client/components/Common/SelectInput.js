@@ -8,8 +8,8 @@ const SelectInput = ({name, label, onChange, value, error, options, defaultOptio
 
   return (
     <div className={wrapperClass}>
-      <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
-      <div className="col-sm-9 field">
+      <label className="col-sm-2 col-form-label" htmlFor={name}>{label}</label>
+      <div className="col-sm-10 field">
         {/* Note, value is set here rather than on the option - docs: https://facebook.github.io/react/docs/forms.html */}
         {(isStatic) ? 
           <div className="form-control static">{value}</div>

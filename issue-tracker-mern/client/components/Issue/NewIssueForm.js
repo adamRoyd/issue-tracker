@@ -26,7 +26,7 @@ const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categor
                 name="sco"
                 label="Topic ID"
                 value={issue.sco}
-                defaultOption= "Select a Sco ID"
+                defaultOption= "Select a Topic ID"
                 options={[...Array(1000).keys()]}
                 onChange={onChange} 
                 error={errors.sco}/>
@@ -62,8 +62,8 @@ const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categor
                 onChange={onChange} 
                 error={errors.assigned}/>
             <div className="form-group row">
-                <label className="col-sm-3 col-form-label" htmlFor="description">Description</label>
-                <div className="col-sm-9 field" style={{height:'160px'}}>
+                <label className="col-sm-2 col-form-label" htmlFor="description">Description</label>
+                <div className="col-sm-10 field" style={{height:'160px'}}>
                     <TextEditor
                         name="description"
                         placeholder="Enter a description..."

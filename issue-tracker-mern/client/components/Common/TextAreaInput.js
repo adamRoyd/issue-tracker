@@ -8,7 +8,7 @@ const TextAreaInput = ({name, label, onChange, placeholder, value, error, wrappe
   return (
     <div className="form-group row">
         {(label)
-          ? <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
+          ? <label className="col-sm-2 col-form-label" htmlFor={name}>{label}</label>
           : null
         }
         <div className={width}>

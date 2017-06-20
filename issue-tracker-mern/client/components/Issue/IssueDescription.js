@@ -3,27 +3,25 @@ import PropTypes from 'prop-types';
 import Attachment from '../common/Attachment';
 //import img from '../../../test.png'
 
-class IssueDescription extends React.Component{
-    render(){
-        console.log(this.props.issue.attachments);
-        return(
-            <div>
-                <div id="issueDescription">
-                    <div dangerouslySetInnerHTML={{__html: this.props.issue.description}}/>
-                </div>
-                <div id="issueAttachments">
-                    {this.props.issue.attachments.map((a,i) => {
-                        return <Attachment key={i} number={i} path={a}/>
-                    })}
-                </div>
+const IssueDescription = ({issue}) => {
+    return(
+        <div>
+            <div id="issueDescription">
+                <div dangerouslySetInnerHTML={{__html: issue.description}}/>
             </div>
-        );
-    }
+            <div id="issueAttachments">
+                {(issue.attachments) 
+                    ? issue.attachments.map((a,i) => {
+                        return <Attachment key={i} number={i} path={a}/>})
+                    : null
+                }
+            </div>
+        </div>
+    );
 }
 
 IssueDescription.propTypes = {
     issue : PropTypes.object.isRequired
 };
-
 
 export default IssueDescription;

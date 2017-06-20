@@ -63,7 +63,7 @@ class IssueManager extends React.Component{
     }
     render(){
         return(
-            <div className="testDiv">
+            <div className="issueDescriptionAndSettings">
                 <h4>Issue Description</h4>
                 <IssueDescription issue={this.state.issue}/>
                 <CommentForm

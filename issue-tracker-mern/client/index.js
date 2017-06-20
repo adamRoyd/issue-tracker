@@ -10,6 +10,7 @@ import { configureStore } from './store';
 import './styles/styles.css';
 import './styles/loginPage.css';
 import './styles/issueTable.css';
+import './styles/Draft.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 // Initialize store

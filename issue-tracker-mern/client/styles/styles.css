@@ -48,7 +48,7 @@ h5{
 
 #commentsBox{
     position:fixed;
-    height:40%;
+    height:45%;
     bottom: 0;
     width:47%;
     overflow-y: auto;
@@ -125,8 +125,7 @@ input[type="text"]{
 }
 
 .col-form-label{
-  text-align:right !important;
-  padding:5px 15px 0 15px !important;
+  padding:5px 10px 0px 0px !important;
 }
 
 .dashed{
@@ -328,9 +327,9 @@ div .tableCell{
   margin-right: 10px;
 }
 
-.testDiv{
+.issueDescriptionAndSettings{
   width:100%;
-  height:50%;
+  height:45.5%;
   position:absolute;
 }
 
@@ -357,7 +356,7 @@ div .tableCell{
 
 #commentsHeader{
   position:absolute;
-  bottom:44%;
+  bottom:49%;
   width:100%;
   border-bottom: 2px solid rgba(120,120,120,0.2);
 }
@@ -365,8 +364,8 @@ div .tableCell{
 #issueForm{
   top:0px;
   position:absolute;
-  width:40%;
-  left:55%;
+  width:43%;
+  left:54%;
   margin-right:10px;
 }
 
@@ -374,7 +373,7 @@ div .tableCell{
   border: 1px solid #ccc;
   cursor: text;
   padding: 10px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-wrap:break-word;
   height:100%;
 }
@@ -385,5 +384,5 @@ div .tableCell{
 }
 
 #newIssuePage{
-  overflow-y: scroll;
+  overflow-y: auto;
 }
