@@ -1,4 +1,13 @@
 /**********************Issue Table*****************************/
+.issueTable{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.issueTable th{
+  border-bottom: 0px !important;
+}
+
 .issueTable td{
   overflow: hidden;
   max-width: 270px;
@@ -6,10 +15,10 @@
   text-overflow: ellipsis;
 }
 
-.issueTable{
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.issueTable thead tr{
+  border-bottom:2px solid #dddddd;
 }
+
 
 .table-hover tbody tr:hover td, 
 .table-hover tbody tr:hover th,
@@ -21,9 +30,10 @@
 
 .table-fixed tbody {
   height: 700px;
-  overflow-y: auto;
+  overflow-y: scroll;
   width: 100%;
 }
+
 .table-fixed>tbody,
 .table-fixed>thead {
   display: block;
@@ -60,10 +70,7 @@
   width:39px !important;
 }
 
-.table-fixed tbody td:nth-child(3){
-  width:75px !important;
-}
-
+.table-fixed tbody td:nth-child(3),
 .table-fixed thead th:nth-child(3){
   width:75px !important;
 }
@@ -78,22 +85,15 @@
   width:15% !important;
 }
 
-.table-fixed tbody td:nth-child(6){
-  width:261px !important;
-}
-
+.table-fixed tbody td:nth-child(6),
 .table-fixed thead th:nth-child(6){
-  width:261px !important;
+  width:250px !important;
 }
 
-.table-fixed tbody td:nth-child(7){
-  width:143px !important;
-}
-
+.table-fixed tbody td:nth-child(7),
 .table-fixed thead th:nth-child(7){
-  width:143px !important;
+  width:143.5px !important;
 }
-
 
 .table-fixed thead th{
   cursor: pointer;

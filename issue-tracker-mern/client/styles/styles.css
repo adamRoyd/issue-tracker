@@ -30,7 +30,7 @@ h5{
   }
   
   #EditIssuePage {
-    border-left:2px solid grey;
+    height:100%;
     position: absolute;
     top: 40px;
     bottom: 0;
@@ -71,9 +71,6 @@ h5{
   height:100%;
 }
 
-#EditIssuePage {
-  height:100%;
-}
 
 
 /***********************SCROLLBAR *****************************/
