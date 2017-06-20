@@ -141,6 +141,7 @@ input[type="text"]{
   position:relative;
   height:55px;
   width:100%;
+  cursor: pointer;
 }
 
 
@@ -153,6 +154,7 @@ input[type="text"]{
   text-align: right;
   color: #40535D;
   font-weight:bold;
+  cursor: pointer;
 }
 
 .linkIcon:hover,
