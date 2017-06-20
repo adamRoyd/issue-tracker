@@ -21,7 +21,7 @@ export default function () {
         description: content1,
         status: "New",
         assigned: "adam.boothroyd@brightwave.co.uk",
-        attachments: ["test.jpg","test.png"],
+        attachments: ["test.png","test.png"],
         type: "Error",
         dateAdded: new Date()
     });
@@ -37,7 +37,7 @@ export default function () {
         description: content1,
         status: "New",
         assigned: "adam.boothroyd@brightwave.co.uk",
-        attachments: ["test.jpg"],
+        attachments: ["test.png"],
         type: "Change request",
         dateAdded: new Date()
     });

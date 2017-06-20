@@ -16,8 +16,8 @@ exports.send = async (options) => {
         from: 'bit-master@brightwavegroup.com',
         to: options.username,
         subject: options.subject,
-        text: 'Go to the issue by selecting this link...', 
-        html: '<p>Go to the issue by selecting this link...</p>'
+        html: options.html
+        // text: 'Go to the issue by selecting this link...', 
     };
     const sendMail = promisify(transport.sendMail, transport);
     return sendMail(mailOptions);

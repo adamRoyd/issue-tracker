@@ -76,13 +76,16 @@ export function getIssue(req, res) {
  * @returns void
  */
 export function saveIssue(req, res) {
-  console.log('SAVE ISSUE SEND MAIL');
+  const project = req.body.issue.project;
+  const id = req.body.issue.id;
+  const filter = 'all';
+  const issueRoute = 'http://localhost:8000/' + project + '/issues/' + filter + '/' + id;
   const issueToSave = req.body.issue
-  // mail.send({
-  //   username: issueToSave.assigned,
-  //   subject: 'A BIT issue has been assigned to you',
-  //   url: req.route.path
-  // })
+  mail.send({
+    username: issueToSave.assigned,
+    subject: 'A BIT issue has been assigned to you',
+    html: `<p>Select <a href=${issueRoute} target="_blank">here</a> to go to the issue.</p>`
+  })
   Issue.findOneAndUpdate(
     { id: issueToSave.id },
     { $set: {

@@ -244,8 +244,28 @@ input[type="text"]{
 
 .dropdown.btn-group{
   float:right;
-  width:250px;
+  display: block;
+  width:280px;
   height:100%;
+}
+
+.dropdown.btn-group .dropdown-menu{
+  width:100%;
+  background:#004D1F;
+}
+
+.dropdown.btn-group .dropdown-menu li{
+  padding: 3px 5px;
+}
+
+.dropdown.btn-group .dropdown-menu li a{
+  color:white;
+  font-weight:bold;
+}
+
+
+.dropdown.btn-group .dropdown-menu li a:hover{
+  background:#149849;
 }
 
 .btn-default{

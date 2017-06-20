@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SelectInput from '../Common/SelectInput';
 import TextAreaInput from '../Common/TextAreaInput';
 import TextStatic from '../Common/TextStatic';
+import FriendlyDate from '../Common/FriendlyDate';
 
 const IssueForm = ({issue,errors,assignees,onIssueChange,status,displayAdvancedOptions,locations,categories}) => {
     return(
@@ -10,7 +11,7 @@ const IssueForm = ({issue,errors,assignees,onIssueChange,status,displayAdvancedO
             <h4>Issue Settings</h4>
             <TextStatic
                 label="Date"
-                value="TO DO"/>  
+                value={<FriendlyDate date={issue.dateAdded}/>}/>  
             <TextStatic
                 label="Type"
                 value={issue.type}/>     
