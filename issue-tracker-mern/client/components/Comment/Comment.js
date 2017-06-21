@@ -26,13 +26,11 @@ class Comment extends React.Component{
         return(
             <div className="comment">
                 <div className="row">
-                    <div className="col-sm-12 no-gutter">
-                        <p><strong>{comment.user}<span className="right-align"><FriendlyDate date={comment.time}/></span></strong></p>
-                    </div>
+                    <p><strong>{comment.user}<span className="right-align"><FriendlyDate date={comment.time}/></span></strong></p>
                 </div>
                 <div className="row">
                     <div dangerouslySetInnerHTML={{__html: comment.text}} className="col-sm-7 no-gutter"/>
-                    <div className="col-sm-5">
+                    <div className="col-sm-5 no-gutter">
                         <p className="right-align"><strong>{comment.status}</strong></p>
                     </div>
                 </div>

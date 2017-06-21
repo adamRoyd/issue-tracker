@@ -29,7 +29,8 @@
 
 
 .table-fixed tbody {
-  height: 700px;
+  position:absolute;
+  height: calc(100% - 80px);
   overflow-y: scroll;
   width: 100%;
 }
@@ -87,12 +88,12 @@
 
 .table-fixed tbody td:nth-child(6),
 .table-fixed thead th:nth-child(6){
-  width:250px !important;
+  width:260px !important;
 }
 
 .table-fixed tbody td:nth-child(7),
 .table-fixed thead th:nth-child(7){
-  width:143.5px !important;
+  width:146px !important;
 }
 
 .table-fixed thead th{

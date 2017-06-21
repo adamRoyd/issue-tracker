@@ -29,7 +29,7 @@ const IssueForm = ({issue,errors,assignees,onIssueChange,status,displayAdvancedO
                 isStatic={displayAdvancedOptions}/>
             <SelectInput
                 name="sco"
-                label="Sco"
+                label="Topic"
                 value={issue.sco}
                 defaultOption= "Select a Topic ID"
                 options={[...Array(1000).keys()]}
@@ -38,9 +38,9 @@ const IssueForm = ({issue,errors,assignees,onIssueChange,status,displayAdvancedO
                 isStatic={displayAdvancedOptions}/>
             <SelectInput
                 name="screen"
-                label="Screen"
+                label="Page"
                 value={issue.screen}
-                defaultOption= "Select a Screen ID"
+                defaultOption= "Select a Page ID"
                 options={[...Array(1000).keys()]}
                 onChange={onIssueChange} 
                 error={errors.screen}

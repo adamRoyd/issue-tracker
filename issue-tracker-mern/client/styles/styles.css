@@ -22,11 +22,12 @@ h5{
     width: 50px;
   }
   #issuelist {
+    height:100%;
     position: absolute;
     top: 40px;
     bottom: 0;
-    left: 2.5%;
-    width: 810px;
+    left: 55px;
+    width: 795px;
   }
   
   #EditIssuePage {
@@ -34,9 +35,9 @@ h5{
     position: absolute;
     top: 40px;
     bottom: 0;
-    right: 0;
+    left: 860px;
     overflow-y: hidden;
-    width: 48%;
+    width: calc(100% - 870px);
   }
 }
 
@@ -48,10 +49,10 @@ h5{
 }
 
 #commentsBox{
-    position:fixed;
-    height:32%;
-    top:500px;
-    width:47%;
+    position:absolute;
+    height:calc(100% - 500px);
+    top:450px;
+    width:100%;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -67,9 +68,6 @@ h5{
   color:white;
 }
 
-#issuelist {
-  height:100%;
-}
 
 
 
@@ -320,9 +318,9 @@ div .tableCell{
   height:100%;
 }
 
-[class*='col-'] .no-gutter {
-    padding-right:0;
-    padding-left:0;
+[class*='col-'].no-gutter {
+    padding-right:0 !important;
+    padding-left:0 !important;
 }
 
 #issueStats td{

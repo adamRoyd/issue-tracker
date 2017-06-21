@@ -30,25 +30,15 @@ class IssuePage extends Component {
 
   render() {
     return (
-      <div>
-        <div id="issuePage">
-          <NavBar {...this.props}/>
-          <div className="row">
-            <div id="IssuePots">
-                <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
-            </div>
-            <div id="issuelist" className="col-sm-5">
-                <IssueList {...this.props}/>
-            </div>
-            <div id="EditIssuePage" className="col-sm-6">
-                {this.props.params.id ? 
-                  <EditIssuePage {...this.props}/>
-                  : 
-                  null
-                }
-            </div>
-          </div>
-        </div>
+      <div id="issuePage">
+        <NavBar {...this.props}/>
+        <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
+        <IssueList {...this.props}/>
+        {this.props.params.id ? 
+          <EditIssuePage {...this.props}/>
+          : 
+          null
+        }
       </div>
     );
   }
