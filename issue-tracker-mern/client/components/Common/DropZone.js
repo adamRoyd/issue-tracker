@@ -12,7 +12,7 @@ const DropZone = ({name, label, onDrop, files, attachments }) => {
         </Dropzone>
         <ul>
             {
-                files.map((f,i) => <img src={f.preview}  width="30px" height="30px"/>)
+                attachments.map((value,i) => <p key={i}>{value}</p>)
             }
         </ul>
       </div>

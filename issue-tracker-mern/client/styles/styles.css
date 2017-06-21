@@ -334,7 +334,7 @@ div .tableCell{
 #issueAttachments{
   height:40px;
   position:absolute;
-  bottom:140px;
+  bottom:115px;
 }
 
 .inline-block{
@@ -363,10 +363,11 @@ div .tableCell{
 
 #issueDescription{
   position:absolute;
-  height:55%;
+  height:205px;
   overflow-y: auto;
+  overflow-x: hidden;
   width:50%;
-  bottom:35%;
+  top:45px;
   padding-right:12px;
 }
 
