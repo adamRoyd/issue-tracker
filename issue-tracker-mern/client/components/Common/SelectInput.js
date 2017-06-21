@@ -21,7 +21,7 @@ const SelectInput = ({name, label, onChange, value, error, options, defaultOptio
           className={isStatic ? 'form-control static' : 'form-control'}
           >
           {(defaultOption)
-            ? <option selected>{defaultOption}</option>
+            ? <option>{defaultOption}</option>
             : null
           }
           {options.map((option,i) => {
@@ -41,9 +41,7 @@ SelectInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string,
   error: PropTypes.string
-  // options: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default SelectInput;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class Issue extends React.Component{
     render(){
-        const {issue, onClick} = this.props
+        const {issue, onClick, checkBoxClick} = this.props
         //strip html tags from description
         let description = document.createElement("div");
         description.innerHTML= issue.description;

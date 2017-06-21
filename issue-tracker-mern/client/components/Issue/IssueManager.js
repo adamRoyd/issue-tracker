@@ -45,8 +45,6 @@ class IssueManager extends React.Component{
     }
     onCommentChange(html){
         let comment = this.state.comment;
-        console.log('COMMENT CHANGE');
-        console.log(this.state.comment);
         return this.setState({
             comment : {
                 user: this.props.username,
@@ -95,7 +93,6 @@ class IssueManager extends React.Component{
 }
 
 IssueManager.propTypes = {
-    issue : PropTypes.object.isRequired,
     assignees : PropTypes.array.isRequired,
     status : PropTypes.array.isRequired,
     params : PropTypes.object.isRequired,

@@ -45,7 +45,6 @@ class NewIssuePage extends React.Component{
         this.setState({ showModal: true });
     }
     updateIssueState(event){
-        console.log(this.state.issue);
         const field = event.target.name;
         const errors = this.validate(this.state.issue);
         let issue = this.state.issue;

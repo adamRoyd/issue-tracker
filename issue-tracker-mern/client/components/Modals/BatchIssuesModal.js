@@ -5,6 +5,7 @@ import {Modal} from 'react-bootstrap';
 import { batchIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getComments } from '../../reducers/CommentReducer';
+import { getPots } from '../../reducers/IssueFilterReducer';
 import BatchIssueForm from '../Issue/BatchIssueForm';
 
 class BatchIssuesModal extends React.Component{
@@ -12,7 +13,10 @@ class BatchIssuesModal extends React.Component{
         super(props);
         this.state = {
             showModal: false,
-            batchOptions : {},
+            batchOptions : {
+                pots: 'No Change',
+                assigned: 'No Change'    
+            },
             errors : {}
         };
         this.updateBatchState = this.updateBatchState.bind(this);
@@ -58,7 +62,7 @@ class BatchIssuesModal extends React.Component{
                             onChange={this.updateBatchState}
                             onSave={this.batchIssues}
                             assignees={this.props.assignees}
-                            pots={this.props.status}
+                            pots={this.props.pots}
                             {...this.props}/>                       
                     </Modal.Body>
                     <Modal.Footer>
@@ -82,7 +86,8 @@ BatchIssuesModal.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         assignees: getAssignees(state),
-        comments : getComments(state)
+        comments : getComments(state),
+        pots : getPots(state)
     };
 }
 

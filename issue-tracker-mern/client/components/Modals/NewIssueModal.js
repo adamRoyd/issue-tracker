@@ -42,9 +42,9 @@ class NewIssueModal extends React.Component{
         this.setState({ showModal: true });
     }
     updateIssueState(event){
-        console.log(this.state.issue);
         const field = event.target.name;
         const errors = this.validate(this.state.issue);
+        console.log(errors);
         let issue = this.state.issue;
         issue[field] = event.target.value;
         return this.setState({issue : issue, errors: errors});

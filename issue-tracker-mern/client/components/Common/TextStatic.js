@@ -11,9 +11,4 @@ const TextStatic = ({label, value}) => {
   );
 };
 
-TextStatic.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: PropTypes.string
-};
-
 export default TextStatic;
