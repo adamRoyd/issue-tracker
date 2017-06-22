@@ -11,6 +11,7 @@ import issueFilter from './IssueFilterReducer';
 import headers from './HeaderReducer';
 import user from './UserReducer';
 import attachments from './AttachmentReducer';
+import area from './AreaReducer';
 
 export default combineReducers({
   projects,
@@ -20,5 +21,6 @@ export default combineReducers({
   issueFilter,
   headers,
   user,
-  attachments
+  attachments,
+  area
 });

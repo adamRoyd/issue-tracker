@@ -2,6 +2,14 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const issueSchema = new Schema({
+    class: {
+        type: 'String',
+        enum: [
+            "client",
+            "internal",
+        ],
+        required: true 
+    },
     project: { 
         type : 'String',
         lowercase: true,
@@ -60,6 +68,14 @@ const issueSchema = new Schema({
         ],
         required: true
     },
+    area: {
+        type: 'String',
+        enum: [
+            "client",
+            "internal",
+        ],
+        required: true 
+    },   
     assigned: { type: 'String', required: true },
     attachments: [],
     type: { 

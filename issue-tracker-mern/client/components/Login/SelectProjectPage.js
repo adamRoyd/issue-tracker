@@ -18,7 +18,7 @@ class SelectProjectPage extends React.Component{
         return(
             <div className="wrapper">
                 <div className="form-signin">
-                    <h4>Select a project, {this.props.username}</h4>
+                    <h4>Select a project</h4>
                     <ProjectPicker {...this.props}/>
                 </div>
             </div>

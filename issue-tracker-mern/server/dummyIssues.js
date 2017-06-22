@@ -11,6 +11,7 @@ export default function () {
     const content2 = `Lorem ipsum dolor sit amet.`;
 
     const issue1 = new Issue({
+        class: "internal",
         project: "abc123",
         id: 1, 
         sco: 1, 
@@ -20,6 +21,7 @@ export default function () {
         category: "Functionality",
         description: content1,
         status: "New",
+        area: "internal",
         assigned: "adam.boothroyd@brightwave.co.uk",
         attachments: ["test.png","test.png"],
         type: "Error",
@@ -27,7 +29,8 @@ export default function () {
     });
 
     const issue2 = new Issue({ 
-        project: "def456",
+        class: "internal",
+        project: "abc123",
         id: 2,
         sco: 1, 
         screen: 100, 
@@ -36,6 +39,7 @@ export default function () {
         category: "Functionality",
         description: content1,
         status: "New",
+        area: "internal",
         assigned: "adam.boothroyd@brightwave.co.uk",
         attachments: ["test.png"],
         type: "Change request",
@@ -43,8 +47,9 @@ export default function () {
     });
 
     const issue3 = new Issue({ 
+        class: "client",
         project: "abc123",
-        id: 2,
+        id: 3,
         sco: 2, 
         screen: 110, 
         location: "Current Screen",
@@ -52,6 +57,7 @@ export default function () {
         category: "Functionality",
         description: content1,
         status: "New",
+        area: "client",
         assigned: "adam.boothroyd@brightwave.co.uk",
         attachments: [],
         dateAdded: new Date()

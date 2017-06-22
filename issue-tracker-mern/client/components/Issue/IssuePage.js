@@ -19,6 +19,7 @@ import { getIssues } from '../../reducers/IssueReducer';
 import { getBatchIssues } from '../../reducers/IssueReducer';
 import { getUser } from '../../reducers/UserReducer';
 import { getProjects } from '../../reducers/ProjectReducer';
+import { getStatus } from '../../reducers/AreaReducer';
 
 
 class IssuePage extends Component {
@@ -48,7 +49,7 @@ class IssuePage extends Component {
 function mapStateToProps(state) {
   return {
     issues: getIssues(state),
-    status: status,
+    status: getStatus(state,status),
     locations : locations,
     categories : categories,
     batchIssues: getBatchIssues(state),

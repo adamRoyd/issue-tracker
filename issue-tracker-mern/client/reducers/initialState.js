@@ -12,5 +12,6 @@ export default({
         isAuthenticated: false,
         username: "adam.boothroyd@brightwave.co.uk"
     },
-    attachments: []
+    attachments: [],
+    area: "internal"
 });
