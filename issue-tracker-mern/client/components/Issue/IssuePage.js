@@ -19,7 +19,7 @@ import { getIssues } from '../../reducers/IssueReducer';
 import { getBatchIssues } from '../../reducers/IssueReducer';
 import { getUser } from '../../reducers/UserReducer';
 import { getProjects } from '../../reducers/ProjectReducer';
-import { getStatus } from '../../reducers/AreaReducer';
+import { getStatus, getArea } from '../../reducers/AreaReducer';
 
 
 class IssuePage extends Component {
@@ -54,7 +54,8 @@ function mapStateToProps(state) {
     categories : categories,
     batchIssues: getBatchIssues(state),
     username : getUser(state).username,
-    projects: getProjects(state)
+    projects: getProjects(state),
+    area: getArea(state)
   };
 }
 

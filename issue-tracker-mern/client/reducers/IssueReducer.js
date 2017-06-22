@@ -79,24 +79,27 @@ export const getIssues = state => state.issues;
 
 export const getBatchIssues = state => state.issues.filter((issue) => issue.checked == true);
 
-export const getVisibleIssues = (issues, filter) => {
+export const getVisibleIssues = (issues, filter, area) => {
+    console.log('GET VISIBLE ISSUES REDUCER');
+    console.log(filter);
+    console.log(area);
     switch(filter){
         case 'new':
-            return issues.filter(t => t.status == 'New');
+            return issues.filter(t => ((t.status == 'New') && (t.area == area)));
         case 'onhold':
-            return issues.filter(t => t.status == 'On Hold');
+            return issues.filter(t => ((t.status == 'On Hold') && (t.area == area)));
         case 'readytofix':
-            return issues.filter(t => t.status == 'Ready To Fix');
+            return issues.filter(t => ((t.status == 'Ready To Fix') && (t.area == area)));
         case 'fixed':
-            return issues.filter(t => t.status == 'Fixed');
+            return issues.filter(t => ((t.status == 'Fixed') && (t.area == area)));
         case 'returned':
-            return issues.filter(t => t.status == 'Returned');
+            return issues.filter(t => ((t.status == 'Returned') && (t.area == area)));
         case 'closed':
-            return issues.filter(t => t.status == 'Closed');
+            return issues.filter(t => ((t.status == 'Closed') && (t.area == area)));
         case 'rejected':
-            return issues.filter(t => t.status == 'Rejected');        
+            return issues.filter(t => ((t.status == 'Rejected') && (t.area == area)));        
         default:
-            return issues;
+            return issues.filter(t => t.area == area);
     }
 };
 

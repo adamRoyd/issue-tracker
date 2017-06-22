@@ -16,6 +16,7 @@ const issueSchema = new Schema({
         required: true
     },
     id: { type: 'Number', required: true },
+    loggedBy: { type: 'String', required: true},
     sco: { type: 'Number', required: true },
     screen: { type: 'Number', required: true },
     location: { 

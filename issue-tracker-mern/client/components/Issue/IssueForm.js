@@ -11,7 +11,7 @@ const IssueForm = ({issue,errors,assignees,onIssueChange,status,displayAdvancedO
             <h4>Issue Settings</h4>
             <TextStatic
                 label="Date"
-                value={<FriendlyDate date={issue.dateAdded}/>}/>  
+                value={<FriendlyDate date={issue.dateAdded}/>}/>
             <TextStatic
                 label="Type"
                 value={issue.type}/>     

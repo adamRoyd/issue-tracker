@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
+import { toggleArea } from '../../actions/AreaActions';
 import ProjectPicker from './ProjectPicker';
 import NewIssueModal from '../Modals/NewIssueModal';
 import BatchIssuesModal from '../Modals/BatchIssuesModal';
@@ -11,9 +13,14 @@ class NavBar extends React.Component{
     constructor(props){
         super(props);
         this.logout = this.logout.bind(this);
+        this.areaClick = this.areaClick.bind(this);
     }
     logout = () => {
         browserHistory.push(`/`);
+    }
+    areaClick = () => {
+        browserHistory.push(`/${this.props.params.projectCode}/issues/all`);
+        this.props.dispatch(toggleArea());
     }
     render(){
         let projectCode = this.props.params.projectCode;
@@ -25,6 +32,9 @@ class NavBar extends React.Component{
                         <h4 className="white">{projectCode.toUpperCase()}</h4>
                     </div>
                 </Link>
+                <DropdownButton title={this.props.area} id="bg-nested-dropdown" className="nav-div left">
+                    <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'client' : 'internal' }</MenuItem>    
+                </DropdownButton>
                 <OpenProjectModal
                     buttonName="Open Project"
                     {...this.props}
@@ -57,4 +67,4 @@ NavBar.propTypes = {
 };
 
 
-export default NavBar;
+export default connect()(NavBar);

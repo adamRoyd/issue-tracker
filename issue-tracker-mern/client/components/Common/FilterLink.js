@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     active: ownProps.filter === state.issueFilter,
     issues: state.issues,
-    numberOfIssues: getVisibleIssues(state.issues,ownProps.filter).length
+    numberOfIssues: getVisibleIssues(state.issues,ownProps.filter,state.area).length
   };
 };
 
