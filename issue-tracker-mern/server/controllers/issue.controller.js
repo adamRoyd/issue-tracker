@@ -97,7 +97,8 @@ export function saveIssue(req, res) {
         location : issueToSave.location,
         sco : issueToSave.sco,
         screen: issueToSave.screen,
-        category: issueToSave.category
+        category: issueToSave.category,
+        area: issueToSave.area
       } 
     },
     { new : true }
