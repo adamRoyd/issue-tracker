@@ -92,12 +92,13 @@ export const getVisibleIssues = (issues, filter, area) => {
             return issues.filter(t => ((t.status == 'Ready To Fix') && (t.area == area)));
         case 'fixed':
             return issues.filter(t => ((t.status == 'Fixed') && (t.area == area)));
+        //Special things happen if the issue is in 'returned' pot for both client and internal//
         case 'returned':
             return issues.filter(t => ((t.status == 'Returned') && (t.area == area)));
         case 'closed':
             return issues.filter(t => ((t.status == 'Closed') && (t.area == area)));
         case 'rejected':
-            return issues.filter(t => ((t.status == 'Rejected') && (t.area == area)));        
+            return issues.filter(t => ((t.status == 'Rejected') && (t.area == area)));
         default:
             return issues.filter(t => t.area == area);
     }
