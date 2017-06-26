@@ -10,6 +10,7 @@ import { addIssueRequest, uploadFileRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getAttachments } from '../../reducers/AttachmentReducer';
 import { getIssues } from '../../reducers/IssueReducer';
+import { getArea } from '../../reducers/AreaReducer';
 import NewIssueForm from '../Issue/NewIssueForm';
 
 class NewIssuePage extends React.Component{
@@ -60,7 +61,15 @@ class NewIssuePage extends React.Component{
         event.preventDefault();
         const errors = this.validate(this.state.issue);
         if(Object.keys(errors).length === 0 && errors.constructor === Object){
-            this.props.dispatch(addIssueRequest(this.state.issue,this.props.attachments,this.props.issues,this.props.params.projectCode));
+            this.props.dispatch(
+                addIssueRequest(
+                    this.state.issue,
+                    this.props.attachments,
+                    this.props.issues,
+                    this.props.params.projectCode,
+                    this.props.username
+                )
+            );
             return this.setState({ showModal: false });           
         }   else{
             return this.setState({ errors: errors});
@@ -124,6 +133,8 @@ function mapStateToProps(state, ownProps) {
     return {
         assignees: getAssignees(state),
         attachments: getAttachments(state),
+        area: getArea(state),
+        username: getUser(state).username,
         categories,
         locations,
         status

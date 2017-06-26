@@ -16,6 +16,7 @@ const commentSchema = new Schema({
         "Returned",
         "Closed",
         "Rejected",
+        "Brightwave",
         "All"
     ],
     required: true

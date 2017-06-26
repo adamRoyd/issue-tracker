@@ -32,8 +32,10 @@ export function addIssue(req, res) {
 
   const newIssue = new Issue(req.body.issue);
   // Let's sanitize inputs
+  newIssue.class = sanitizeHtml(newIssue.class);
   newIssue.project = sanitizeHtml(newIssue.project);
   newIssue.id = sanitizeHtml(newIssue.id);
+  newIssue.loggedBy = sanitizeHtml(newIssue.loggedBy);
   newIssue.location = sanitizeHtml(newIssue.location);
   newIssue.sco = sanitizeHtml(newIssue.sco);
   newIssue.screen = sanitizeHtml(newIssue.screen);
@@ -44,9 +46,10 @@ export function addIssue(req, res) {
   newIssue.status = sanitizeHtml(newIssue.status);
   newIssue.dateAdded = sanitizeHtml(newIssue.dateAdded);
   newIssue.type = sanitizeHtml(newIssue.type);
-  
+  newIssue.area = sanitizeHtml(newIssue.area);
+
   console.log('ADD ISSUE CONTROLLER');
-  console.log(newIssue.attachments);
+  console.log(newIssue);
 
   newIssue.save((err, saved) => {
     if (err) {

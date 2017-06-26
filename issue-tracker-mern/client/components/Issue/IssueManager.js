@@ -100,10 +100,10 @@ IssueManager.propTypes = {
     categories : PropTypes.array.isRequired
 };
 
-function mapStateToProps(state){
+function mapStateToProps(state, ownProps){
     return{
         assignees: getAssignees(state),
-        pots: getPots()
+        pots: getPots(state.area,state.issues,ownProps.params)
     };
 }
 

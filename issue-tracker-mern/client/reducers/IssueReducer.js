@@ -80,25 +80,29 @@ export const getIssues = state => state.issues;
 export const getBatchIssues = state => state.issues.filter((issue) => issue.checked == true);
 
 export const getVisibleIssues = (issues, filter, area) => {
-    console.log('GET VISIBLE ISSUES REDUCER');
-    console.log(filter);
-    console.log(area);
     switch(filter){
         case 'new':
-            return issues.filter(t => ((t.status == 'New') && (t.area == area)));
+            return issues.filter(t => 
+                ((t.status == 'New') && (t.area == area)) ||
+                ((t.status == 'Brightwave') && (t.area == 'client') && (area == 'internal'))
+            );
         case 'onhold':
             return issues.filter(t => ((t.status == 'On Hold') && (t.area == area)));
         case 'readytofix':
             return issues.filter(t => ((t.status == 'Ready To Fix') && (t.area == area)));
         case 'fixed':
             return issues.filter(t => ((t.status == 'Fixed') && (t.area == area)));
-        //Special things happen if the issue is in 'returned' pot for both client and internal//
         case 'returned':
-            return issues.filter(t => ((t.status == 'Returned') && (t.area == area)));
+            return issues.filter(t => 
+                ((t.status == 'Returned') && (t.area == area)) ||
+                ((t.status == 'Returned') && (t.area == 'internal') && (area == 'client'))
+            );
         case 'closed':
             return issues.filter(t => ((t.status == 'Closed') && (t.area == area)));
         case 'rejected':
             return issues.filter(t => ((t.status == 'Rejected') && (t.area == area)));
+        case 'brightwave':
+            return issues.filter(t => ((t.status == 'Brightwave') && (t.area == area)));
         default:
             return issues.filter(t => t.area == area);
     }

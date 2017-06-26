@@ -44,7 +44,6 @@ class NewIssueModal extends React.Component{
     updateIssueState(event){
         const field = event.target.name;
         const errors = this.validate(this.state.issue);
-        console.log(errors);
         let issue = this.state.issue;
         issue[field] = event.target.value;
         return this.setState({issue : issue, errors: errors});
@@ -58,7 +57,16 @@ class NewIssueModal extends React.Component{
         event.preventDefault();
         const errors = this.validate(this.state.issue);
         if(Object.keys(errors).length === 0 && errors.constructor === Object){
-            this.props.dispatch(addIssueRequest(this.state.issue,this.props.attachments,this.props.issues,this.props.params.projectCode));
+            this.props.dispatch(
+                addIssueRequest(
+                    this.state.issue,
+                    this.props.attachments,
+                    this.props.issues,
+                    this.props.params.projectCode,
+                    this.props.area,
+                    this.props.username
+                )
+            );
             return this.setState({ showModal: false });
         }   else{
             return this.setState({ errors: errors});

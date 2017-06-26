@@ -32,7 +32,7 @@ class NavBar extends React.Component{
                         <h4 className="white">{projectCode.toUpperCase()}</h4>
                     </div>
                 </Link>
-                <DropdownButton title={this.props.area} id="bg-nested-dropdown" className="nav-div left">
+                <DropdownButton title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } id="bg-nested-dropdown" className="nav-div left">
                     <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'client' : 'internal' }</MenuItem>    
                 </DropdownButton>
                 <OpenProjectModal

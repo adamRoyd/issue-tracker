@@ -36,7 +36,7 @@ const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categor
                 value={issue.screen}
                 defaultOption= "Select a Screen ID"
                 options={[...Array(1000).keys()]}
-                onChange={onChange} 
+                onChange={onChange}
                 error={errors.screen}/>
             <SelectInput
                 name="category"
