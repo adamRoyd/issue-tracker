@@ -77,7 +77,14 @@ export function saveIssue(issue){
   };  
 }
 
-export function saveIssueRequest(issue) {
+export function saveIssueRequest(issue, area) {
+  if(issue.status != 'New' && area == 'internal' ){
+    issue.area = 'internal';
+  }
+  if(issue.status != 'Returned' && area == 'client'){
+    issue.area = 'client';
+  }
+  console.log(issue.area);
   return (dispatch) => {
     return callApi(`(:projectCode)/issues/(:filter)/(:id)`,'put', {
       issue: {
@@ -89,7 +96,8 @@ export function saveIssueRequest(issue) {
         category: issue.category,
         description: issue.description,
         status: issue.status,
-        assigned: issue.assigned
+        assigned: issue.assigned,
+        area: issue.area
       },
     }).then(res => dispatch(saveIssue(res.issue)));
   };

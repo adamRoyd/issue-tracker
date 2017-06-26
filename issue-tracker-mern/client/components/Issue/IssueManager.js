@@ -34,7 +34,7 @@ class IssueManager extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.dispatch(addCommentRequest(this.state.comment,this.state.issue.status,this.props.params));
-        this.props.dispatch(saveIssueRequest(this.state.issue));
+        this.props.dispatch(saveIssueRequest(this.state.issue, this.props.area));
         if(this.props.issue.status != this.state.issue.status){
             browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}/`);
         }
