@@ -32,9 +32,11 @@ class NavBar extends React.Component{
                         <h4 className="white">{projectCode.toUpperCase()}</h4>
                     </div>
                 </Link>
-                <DropdownButton title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } id="bg-nested-dropdown" className="nav-div left">
-                    <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'client' : 'internal' }</MenuItem>    
+                <div className="float-left">
+                <DropdownButton  title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } id="bg-nested-dropdown" className="nav-div left">
+                    <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>    
                 </DropdownButton>
+                </div>
                 <OpenProjectModal
                     buttonName="Open Project"
                     {...this.props}
@@ -51,11 +53,13 @@ class NavBar extends React.Component{
                         {...this.props}/>
                     : null
                 }
+                <div className="float-right">
                 <DropdownButton title={this.props.username} id="bg-nested-dropdown" className="nav-div right">
                     <MenuItem eventKey="1">Create Project</MenuItem>    
                     <MenuItem eventKey="2">Manage Users</MenuItem>  
                     <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
                 </DropdownButton>      
+                </div>
             </div>
             );
         }

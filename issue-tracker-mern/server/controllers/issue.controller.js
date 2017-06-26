@@ -29,12 +29,20 @@ export function addIssue(req, res) {
   if (!req.body.issue.project) {
     res.status(403).end();
   }
+  //get the id
+  Issue.findOne({$query:{},$orderby:{id:-1}}).exec((err, issue) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    console.log('ADD ISSUE CONTROLLER NEW ID');
+    console.log(issue.id);
+  });
 
   const newIssue = new Issue(req.body.issue);
   // Let's sanitize inputs
   newIssue.class = sanitizeHtml(newIssue.class);
   newIssue.project = sanitizeHtml(newIssue.project);
-  newIssue.id = sanitizeHtml(newIssue.id);
+  newIssue.id = newId;
   newIssue.loggedBy = sanitizeHtml(newIssue.loggedBy);
   newIssue.location = sanitizeHtml(newIssue.location);
   newIssue.sco = sanitizeHtml(newIssue.sco);

@@ -50,7 +50,6 @@ export function addIssueRequest(issue,attachments,issues,projectCode,area,userna
     return callApi(`(:projectCode)/issues/(:filter)`,'post', {
       issue: {
         project: projectCode,
-        id: issues.length + 1,
         sco: issue.sco,
         screen: issue.screen,
         loggedBy: username,

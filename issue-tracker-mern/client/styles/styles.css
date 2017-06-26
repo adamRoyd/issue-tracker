@@ -212,8 +212,9 @@ input[type="text"]{
   background:#004D1F;
 }
 
-#navBar .projectCode{
+.nav-item{
   margin-left:10px;
+  display:inline-block;
 }
 
 #navBar .btn{
@@ -241,15 +242,23 @@ input[type="text"]{
 }
 
 .dropdown.btn-group{
-  float:right;
   display: block;
   height:100%;
 }
 
+.float-left{
+  height:100%;
+  float:left;
+}
 
+.float-right{
+  height:100%;
+  float:right;
+}
 .dropdown.btn-group .dropdown-menu{
   width:100%;
   background:#004D1F;
+  min-width: 0px;
 }
 
 .dropdown.btn-group .dropdown-menu li{
