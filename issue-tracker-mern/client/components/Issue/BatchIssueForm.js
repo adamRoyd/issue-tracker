@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SelectInput from '../Common/SelectInput';
 
-const BatchIssueForm = ({batchOptions,onChange,loading,errors,assignees,pots}) => {
+const BatchIssueForm = ({batchOptions,onChange,loading,assignees,pots}) => {
         return(
             <form>
                 <SelectInput
@@ -11,16 +11,14 @@ const BatchIssueForm = ({batchOptions,onChange,loading,errors,assignees,pots}) =
                     value={batchOptions.pots}
                     defaultOption= "No change"
                     options={pots}
-                    onChange={onChange} 
-                    error={errors.pots}/>
+                    onChange={onChange}/>
                 <SelectInput
                     name="assigned"
                     label="Assigned to"
                     value={batchOptions.assigned}
                     defaultOption= "No change"
                     options={assignees}
-                    onChange={onChange} 
-                    error={errors.assigned}/>                
+                    onChange={onChange}/>                
             </form>
         );
 };

@@ -69,6 +69,8 @@ const IssueReducer = (state = initialState.issues, action) => {
                 })   
             ];
         }
+    case types.BATCH_ISSUES:
+        return action.issues;
     default:
         return state;
   }

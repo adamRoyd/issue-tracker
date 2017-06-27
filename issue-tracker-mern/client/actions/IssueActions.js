@@ -24,9 +24,10 @@ export function toggleCheckedIssue(issue){
 }
 
 export function addIssues(issues) {
+  console.log(issues);
   return {
     type: types.ADD_ISSUES,
-    issues,
+    issues
   };
 }
 
@@ -118,20 +119,21 @@ export function addIssueToBatch(id){
   }
 }
 
-export function batchIssueRequest(batchIssues, batchOptions){
+export function batchIssueRequest(issues, batchOptions, projectCode){
   return (dispatch) => {
       return callApi('batchIssues','post', {
-        issues: batchIssues,
-        options: batchOptions
+        issues: issues,
+        options: batchOptions,
+        projectCode: projectCode
       }).then(res => dispatch(batchIssues(res.issues)));
-    };
+  };
 }
 
-export function batchIssues(issues){
-  return{
+export function batchIssues(issues) {
+  return {
     type: types.BATCH_ISSUES,
     issues
-  }
+  };
 }
 
 export function uploadFileRequest(files){

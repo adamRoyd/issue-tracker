@@ -5,10 +5,11 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import morgan from 'morgan';
-import ExpressSession from 'express-session';
+import session from 'express-session';
 import path from 'path';
 import ExpressValidator from 'express-validator';
 var LocalStrategy = require('passport-local').Strategy;
+var MongoStore = require('connect-mongo')(session);
 
 
 // Webpack Requirements
@@ -77,7 +78,15 @@ app.use(Express.static(path.resolve(__dirname, '../uploads')));
 app.use(morgan('dev'));
 
 //Configuring passport
-app.use(ExpressSession({secret: 'mySecretKey'}));
+app.use(session({
+  cookie:{
+    maxAge: 3600000
+  },
+  secret: 'mySecretKey',
+  saveUninitialized: true,
+  resave: true,
+  store: new MongoStore({mongooseConnection: mongoose.connection})
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 // Using the flash middleware provided by connect-flash to store messages in session
@@ -93,7 +102,7 @@ app.use('/api',assignees);
 
 //passport config
 var User = require ('./models/user');
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 

@@ -2,6 +2,7 @@ import React,{getInitialState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Modal} from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 import { batchIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getComments } from '../../reducers/CommentReducer';
@@ -13,10 +14,8 @@ class BatchIssuesModal extends React.Component{
         super(props);
         this.state = {
             showModal: false,
-            batchOptions : {
-
-            },
-            errors : {}
+            batchOptions : {},
+            submitDisabled: true
         };
         this.updateBatchState = this.updateBatchState.bind(this);
         this.batchIssues = this.batchIssues.bind(this);
@@ -24,7 +23,12 @@ class BatchIssuesModal extends React.Component{
         this.close = this.close.bind(this);
     }
     close() {
-        this.setState({ showModal: false });
+        console.log('CLOSE');
+        this.setState({ 
+            showModal: false,
+            batchOptions: {},
+            submitDisabled: true
+        });
     }
 
     open() {
@@ -34,11 +38,17 @@ class BatchIssuesModal extends React.Component{
         const field = event.target.name;
         let batchOptions = this.state.batchOptions;
         batchOptions[field] = event.target.value;
+        console.log(batchOptions);
+        {(batchOptions.assigned != 'No change' || batchOptions.pot != 'No change')
+            ? this.setState({submitDisabled: false})
+            : this.setState({submitDisabled: true})
+        }
         return this.setState({batchOptions : batchOptions});
     }
     batchIssues(event){
         event.preventDefault();
-        this.props.dispatch(batchIssueRequest(this.props.batchIssues,this.state.batchOptions));
+        browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}`);
+        this.props.dispatch(batchIssueRequest(this.props.batchIssues,this.state.batchOptions,this.props.params.projectCode));
         return this.setState({ showModal: false });
     }
     render(){
@@ -57,7 +67,6 @@ class BatchIssuesModal extends React.Component{
                     <Modal.Body>
                          <BatchIssueForm
                             batchOptions={this.state.batchOptions}
-                            errors={this.state.errors}
                             onChange={this.updateBatchState}
                             onSave={this.batchIssues}
                             assignees={this.props.assignees}
@@ -66,7 +75,7 @@ class BatchIssuesModal extends React.Component{
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn" onClick={this.close}>Close</button>
-                        <button className="btn" onClick={this.batchIssues}>Save</button>
+                        <button className="btn" disabled={this.state.submitDisabled} onClick={this.batchIssues}>Save</button>
                     </Modal.Footer>
                 </Modal>
             </div>
@@ -75,7 +84,6 @@ class BatchIssuesModal extends React.Component{
 }
 
 BatchIssuesModal.propTypes = {
-    user : PropTypes.string.isRequired,
     assignees : PropTypes.array.isRequired,
     buttonName : PropTypes.string
 };

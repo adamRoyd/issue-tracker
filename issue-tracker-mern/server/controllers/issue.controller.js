@@ -120,17 +120,47 @@ export function saveIssue(req, res) {
 export async function batchIssues(req, res) {
   const issuesToSave = req.body.issues
   const options = req.body.options
-  console.log('BATCH ISSUES CONTROLLER');
-  console.log(options);
-  for(let issue of issuesToSave){
-    await Issue.update(
-      { id: issue.id },
-      { $set: {
-          assigned : options.assigned,
-          status : options.pot,
-        } 
-      }
-    )
+  const projectCode = req.body.projectCode
+  //update issues
+  if(options.assigned == 'No change'){
+    for(let issue of issuesToSave){
+      await Issue.update(
+        { id: issue.id },
+        { $set: {
+            status : options.pot
+          } 
+        }
+      )
+    }
+  } else if(options.status == 'No change'){
+    for(let issue of issuesToSave){
+      await Issue.update(
+        { id: issue.id },
+        { $set: {
+            assigned : options.assigned
+          } 
+        }
+      )
+    }
+  } else {
+    for(let issue of issuesToSave){
+      await Issue.update(
+        { id: issue.id },
+        { $set: {
+            assigned : options.assigned,
+            status : options.pot,
+          } 
+        }
+      )
+    }
   }
+
+  //get updated issues
+  Issue.find({project: projectCode}).sort( { id: 1 } ).exec((err, issues) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ issues });
+  });
 }
 

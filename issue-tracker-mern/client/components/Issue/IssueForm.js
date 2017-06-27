@@ -13,6 +13,9 @@ const IssueForm = ({issue,errors,assignees,onIssueChange,status,displayAdvancedO
                 label="Date"
                 value={<FriendlyDate date={issue.dateAdded}/>}/>
             <TextStatic
+                label="Logged by"
+                value={issue.loggedBy}/>
+            <TextStatic
                 label="Type"
                 value={issue.type}/>     
             <TextStatic
