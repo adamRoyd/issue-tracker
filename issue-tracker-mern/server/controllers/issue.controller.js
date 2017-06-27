@@ -30,7 +30,7 @@ export async function addIssue(req, res) {
     res.status(403).end();
   }
   //get the issue with max id
-  const i = await Issue.find().sort({id:-1}).limit(1);
+  const i = await Issue.find({project : req.body.issue.project}).sort({id:-1}).limit(1);
   const newId = i[0].id + 1;
 
   const newIssue = new Issue(req.body.issue);
@@ -79,6 +79,7 @@ export function getIssue(req, res) {
  * @returns void
  */
 export function saveIssue(req, res) {
+  //Send Email
   const project = req.body.issue.project;
   const id = req.body.issue.id;
   const filter = 'all';
@@ -89,6 +90,7 @@ export function saveIssue(req, res) {
     subject: 'A BIT issue has been assigned to you',
     html: `<p>Select <a href=${issueRoute} target="_blank">here</a> to go to the issue.</p>`
   })
+  //Update Issue in Db
   Issue.findOneAndUpdate(
     { id: issueToSave.id },
     { $set: {
@@ -109,50 +111,26 @@ export function saveIssue(req, res) {
     res.json({ issue });
   });
 }
-
-/**
- * Delete a issue
- * @param req
- * @param res
- * @returns void
- */
-export function deleteIssue(req, res) {
-  Issue.findOne({ cuid: req.params.cuid }).exec((err, issue) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-
-    issue.remove(() => {
-      res.status(200).end();
-    });
-  });
-}
 /**
  * Batch issues
  * @param req
  * @param res
  * @returns void
  */
-export function batchIssues(req, res) {
+export async function batchIssues(req, res) {
   const issuesToSave = req.body.issues
-  const batchOptions = req.body.batchOptions
-  Issue.findOneAndUpdate(
-    { id: issuesToSave.id },
-    { $set: {
-        assigned : issueToSave.assigned,
-        status : issueToSave.status,
-        location : issueToSave.location,
-        sco : issueToSave.sco,
-        screen: issueToSave.screen,
-        category: issueToSave.category
-      } 
-    },
-    { new : true }
-  ).exec((err, issue) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.json({ issue });
-  });
+  const options = req.body.options
+  console.log('BATCH ISSUES CONTROLLER');
+  console.log(options);
+  for(let issue of issuesToSave){
+    await Issue.update(
+      { id: issue.id },
+      { $set: {
+          assigned : options.assigned,
+          status : options.pot,
+        } 
+      }
+    )
+  }
 }
 

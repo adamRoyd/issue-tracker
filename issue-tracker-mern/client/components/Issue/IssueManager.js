@@ -103,7 +103,7 @@ IssueManager.propTypes = {
 function mapStateToProps(state, ownProps){
     return{
         assignees: getAssignees(state),
-        pots: getPots(state.area,state.issues,ownProps.params)
+        pots: getPots(state.area)
     };
 }
 

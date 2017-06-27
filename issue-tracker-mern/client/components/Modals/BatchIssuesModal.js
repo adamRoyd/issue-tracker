@@ -14,8 +14,7 @@ class BatchIssuesModal extends React.Component{
         this.state = {
             showModal: false,
             batchOptions : {
-                pots: 'No Change',
-                assigned: 'No Change'    
+
             },
             errors : {}
         };
@@ -78,16 +77,14 @@ class BatchIssuesModal extends React.Component{
 BatchIssuesModal.propTypes = {
     user : PropTypes.string.isRequired,
     assignees : PropTypes.array.isRequired,
-    buttonName : PropTypes.string,
-    params : PropTypes.object.isRequired,
-    batchIssues : PropTypes.func.isRequired
+    buttonName : PropTypes.string
 };
 
 function mapStateToProps(state, ownProps) {
     return {
         assignees: getAssignees(state),
         comments : getComments(state),
-        pots : getPots(state)
+        pots : getPots(state.area)
     };
 }
 

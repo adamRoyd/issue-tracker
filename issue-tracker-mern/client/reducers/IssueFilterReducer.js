@@ -13,18 +13,30 @@ const IssueFilterReducer = (state = initialState.issueFilter, action) => {
 
 export const getFilter = state => state.issueFilter;
 
-export const getPots = (area, issues, params) => {
-  const issue = issues.filter((i => i.id == params.id));
+export const getPots = area => {
   const arr = [];
   const obj = status.filter(f => f.area == area);
   Object.keys(obj).forEach( key => {
     arr.push(obj[key].name);
   })
-  if(area == 'internal' && issue[0].class == 'client'){
-    return arr.filter(i => i != 'Closed')
-  } else{
-    return arr;
-  }
+  return arr;
 }
+
+// export const getPots = (area, issues, params) => {
+//   const issue = issues.filter((i => i.id == params.id));
+//   console.log('GET POTS');
+//   console.log(issues);
+//   console.log(issue);
+//   const arr = [];
+//   const obj = status.filter(f => f.area == area);
+//   Object.keys(obj).forEach( key => {
+//     arr.push(obj[key].name);
+//   })
+//   if(area == 'internal' && issue[0].class == 'client'){
+//     return arr.filter(i => i != 'Closed')
+//   } else{
+//     return arr;
+//   }
+// }
 
 export default IssueFilterReducer;

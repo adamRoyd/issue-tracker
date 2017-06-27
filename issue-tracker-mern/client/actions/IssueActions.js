@@ -47,7 +47,7 @@ export function addIssue(issue) {
 
 export function addIssueRequest(issue,attachments,issues,projectCode,area,username) {
   return (dispatch) => {
-    return callApi(`(:projectCode)/issues/(:filter)`,'post', {
+    return callApi('addIssue','post', {
       issue: {
         project: projectCode,
         sco: issue.sco,
@@ -120,7 +120,7 @@ export function addIssueToBatch(id){
 
 export function batchIssueRequest(batchIssues, batchOptions){
   return (dispatch) => {
-      return callApi(`(:projectCode)/issues/(:filter)/`,'put', {
+      return callApi('batchIssues','post', {
         issues: batchIssues,
         options: batchOptions
       }).then(res => dispatch(batchIssues(res.issues)));
