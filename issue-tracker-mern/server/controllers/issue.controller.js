@@ -25,18 +25,13 @@ export function getIssues(req, res) {
  * @param res
  * @returns void
  */
-export function addIssue(req, res) {
+export async function addIssue(req, res) {
   if (!req.body.issue.project) {
     res.status(403).end();
   }
-  //get the id
-  Issue.findOne({$query:{},$orderby:{id:-1}}).exec((err, issue) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    console.log('ADD ISSUE CONTROLLER NEW ID');
-    console.log(issue.id);
-  });
+  //get the issue with max id
+  const i = await Issue.find().sort({id:-1}).limit(1);
+  const newId = i[0].id + 1;
 
   const newIssue = new Issue(req.body.issue);
   // Let's sanitize inputs
@@ -55,9 +50,6 @@ export function addIssue(req, res) {
   newIssue.dateAdded = sanitizeHtml(newIssue.dateAdded);
   newIssue.type = sanitizeHtml(newIssue.type);
   newIssue.area = sanitizeHtml(newIssue.area);
-
-  console.log('ADD ISSUE CONTROLLER');
-  console.log(newIssue);
 
   newIssue.save((err, saved) => {
     if (err) {
