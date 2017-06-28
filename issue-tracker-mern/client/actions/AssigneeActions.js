@@ -10,7 +10,7 @@ export function addAssignees(assignees){
 
 export function fetchAssignees() {
     return (dispatch) => {
-        return callApi('(:projectCode)').then(res => {
+        return callApi('getAssignees').then(res => {
             dispatch(addAssignees(res.assignees));
         });
     };

@@ -156,9 +156,18 @@ const renderError = err => {
 // Server Side Rendering based on routes matched by React-router.
 app.use((req, res, next) => {
   match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+    console.log(req.user);
+    //if not logged in, redirect to login page
     if(req.user == null && req.url != '/login'){
       redirectLocation = {
         pathname : '/login',
+        search: ''
+      }
+    }
+    //if logged in, redirect to selectproject page
+    if(req.user && req.url == '/login'){
+      redirectLocation = {
+        pathname : '/selectproject',
         search: ''
       }
     }

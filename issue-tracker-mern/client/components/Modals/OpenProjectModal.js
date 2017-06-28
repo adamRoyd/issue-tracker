@@ -2,34 +2,22 @@ import React,{getInitialState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Modal} from 'react-bootstrap';
+import { closeModal } from '../../actions/ModalActions';
 import ProjectPicker from '../Common/ProjectPicker';
 
 class OpenProjectModal extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            showModal: false
-        };
-        this.open = this.open.bind(this);
         this.close = this.close.bind(this);
     }
     close() {
-        this.setState({ showModal: false });
-    }
-
-    open() {
-        this.setState({ showModal: true });
+        this.props.dispatch(closeModal());
     }
     render(){
         return(
             <div className="nav-div">
-                <button 
-                className="btn"
-                onClick={this.open}
-                >
-                {this.props.buttonName}
-                </button>
-                <Modal show={this.state.showModal} onHide={this.close}>
+
+                <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>Open Project</Modal.Title>
                     </Modal.Header>
@@ -56,7 +44,7 @@ OpenProjectModal.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-
+        showModal: state.modal == 'project'
     };
 }
 

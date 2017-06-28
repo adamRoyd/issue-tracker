@@ -19,6 +19,8 @@ const StatusIcon = ({imageCssClass, height, width, type}) => {
                 return <svg height={height} width={width} className={imageCssClass} viewBox="0 0 90 90" enableBackground="new 0 0 100 100"><g transform="translate(3 0)"><path d="M70,66.2c1.1,1.1,1.1,2.9,0,4c-1.1,1.1-2.9,1.1-4,0l-16-16l-16,16c-1.1,1.1-2.9,1.1-4,0c-1.1-1.1-1.1-2.9,0-4l16.1-16.1  L30,34c-1.1-1.1-1.1-2.9,0-4c1.1-1.1,2.9-1.1,4,0l16,16l16-16c1.1-1.1,2.9-1.1,4,0c1.1,1.1,1.1,2.9,0,4L53.9,50.1L70,66.2z"/></g></svg>;
             case "All":
                 return <svg height={height} width={width} className={imageCssClass} viewBox="0 0 100 125" enableBackground="new 0 0 100 100"><g transform="translate(13 20)"><path d="M50,5.2C25.3,5.2,5.2,25.3,5.2,50s20,44.8,44.8,44.8s44.8-20,44.8-44.8S74.7,5.2,50,5.2z M50,87.3   c-20.5,0-37.3-16.8-37.3-37.3S29.5,12.7,50,12.7S87.3,29.5,87.3,50S70.5,87.3,50,87.3z"/></g></svg>;
+            case "Brightwave":
+                return <div id="brightwavelogo">B</div>;
             default:
                 return <svg height={height} width={width} className={imageCssClass} viewBox="0 0 100 125" enableBackground="new 0 0 100 100"><polygon points="4.8,82.8 13.2,59.4 1.8,50.6 42.2,6.2 79,13.9 8,20.1 "/></svg>;
         }

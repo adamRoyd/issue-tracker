@@ -24,7 +24,6 @@ export function toggleCheckedIssue(issue){
 }
 
 export function addIssues(issues) {
-  console.log(issues);
   return {
     type: types.ADD_ISSUES,
     issues
@@ -84,9 +83,8 @@ export function saveIssueRequest(issue, area) {
   if(issue.status != 'Returned' && area == 'client'){
     issue.area = 'client';
   }
-  console.log(issue.area);
   return (dispatch) => {
-    return callApi(`(:projectCode)/issues/(:filter)/(:id)`,'put', {
+    return callApi('saveIssue','put', {
       issue: {
         project: issue.project,
         id: issue.id,

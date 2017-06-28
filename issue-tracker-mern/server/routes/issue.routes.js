@@ -23,16 +23,12 @@ router.route('/addIssue').post(IssueController.addIssue);
 
 router.route('/batchIssues').post(IssueController.batchIssues);
 
-router.route('/(:projectCode)/issues/(:filter)/(:id)').put(IssueController.saveIssue);
+router.route('/saveIssue').put(IssueController.saveIssue);
 
 router.post('/upload', upload.single('file'), function(req,res){
   console.log('REQUEST FILE');
 	console.log(req.file); 
 	res.json(req.file);
 });
-
-// router.get('/test', function (req, res) {
-//     res.send('Birds home page')
-// })
 
 export default router;

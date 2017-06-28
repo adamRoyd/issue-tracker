@@ -175,6 +175,21 @@ input[type="text"]{
   margin-left: 3px;
 }
 
+
+#brightwavelogo{
+  font-size:30px;
+  text-align: center;
+  padding:15px;
+  color: #40535D;
+}
+.linkIcon:hover #brightwavelogo,
+.linkIconActive #brightwavelogo{
+  font-size:30px;
+  text-align: center;
+  padding:15px;
+  color: white;
+}
+
 .linkIconActive .iconWhite{
   fill:rgba(255,255,255,1); 
 }
@@ -234,29 +249,7 @@ input[type="text"]{
   display:inline-block;
 }
 
-.nav-div.right{
-  float:right;
-  margin-right:10px;
-  width:100%;
-  text-align: left;
-}
-
-.dropdown.btn-group{
-  display: block;
-  height:100%;
-}
-
-.float-left{
-  height:100%;
-  float:left;
-}
-
-.float-right{
-  height:100%;
-  float:right;
-}
 .dropdown.btn-group .dropdown-menu{
-  width:100%;
   background:#004D1F;
   min-width: 0px;
 }

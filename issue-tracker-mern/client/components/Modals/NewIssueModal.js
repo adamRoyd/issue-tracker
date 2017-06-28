@@ -5,6 +5,7 @@ import {Modal} from 'react-bootstrap';
 import Browser from 'detect-browser';
 import { addIssueRequest, uploadFileRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
+import { closeModal } from '../../actions/ModalActions';
 import { getAttachments } from '../../reducers/AttachmentReducer';
 import { getIssues } from '../../reducers/IssueReducer';
 import NewIssueForm from '../Issue/NewIssueForm';
@@ -13,7 +14,6 @@ class NewIssueModal extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            showModal: false,
             issue : {
                 location: "",
                 sco: "",
@@ -29,17 +29,13 @@ class NewIssueModal extends React.Component{
         this.updateIssueState = this.updateIssueState.bind(this);
         this.onCommentChange = this.onCommentChange.bind(this);
         this.saveIssue = this.saveIssue.bind(this);
-        this.open = this.open.bind(this);
         this.close = this.close.bind(this);
         this.validate = this.validate.bind(this);
         this.onDrop = this.onDrop.bind(this);
     }
     close() {
-        this.setState({ showModal: false, issue:{}, errors: {} });
-    }
-
-    open() {
-        this.setState({ showModal: true });
+        this.setState({ issue:{}, errors: {} });
+        this.props.dispatch(closeModal());
     }
     updateIssueState(event){
         const field = event.target.name;
@@ -97,13 +93,7 @@ class NewIssueModal extends React.Component{
     render(){
         return(
             <div className="nav-div">
-                <button 
-                className="btn"
-                onClick={this.open}
-                >
-                {this.props.buttonName}
-                </button>
-                <Modal show={this.state.showModal} onHide={this.close}>
+                <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>New Issue for {this.props.params.projectCode.toUpperCase()}</Modal.Title>
                     </Modal.Header>
@@ -142,7 +132,8 @@ NewIssueModal.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         assignees: getAssignees(state),
-        attachments: getAttachments(state)
+        attachments: getAttachments(state),
+        showModal: state.modal == 'newIssue'
     };
 }
 

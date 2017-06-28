@@ -2,14 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { getUser } from '../../reducers/UserReducer';
 
-// Import Style
-//import styles from './App.css';
-
 // Import Components
 import Helmet from 'react-helmet';
 import DevTools from './DevTools';
 
-// Import Actions
 
 export class App extends Component {
   constructor(props) {
@@ -42,8 +38,7 @@ App.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    username : getUser(state).username,
-    isAuthenticated: getUser(state).isAuthenticated
+    username : getUser(state).username
   };
 }
 

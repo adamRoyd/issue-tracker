@@ -28,9 +28,6 @@ export function login(req, res, next) {
 
     req.login(user, function(err) {
         if (err) { return next(err); }
-        console.log('YOU"VE LOGGED IN ');
-        console.log(req.isAuthenticated());
-        console.log(req.isAuthenticated);
         res.status(201).send({
             id_token: createToken(user),
             username: req.user.username
@@ -67,17 +64,14 @@ export function signup(req, res, next) {
  * @returns void
  */
 export function logout(req, res){
-    console.log('LOGGING OUT');
-    req.logout();
+    console.log('logout user');
+    //req.logOut();
+    req.session.destroy();
 }
 
 export function isLoggedIn(req,res,next){
-    console.log('IS LOGGED IN?');
-    console.log(req.isAuthenticated());
-    console.log(req.user);
     //check if user is authenticated
     if(req.isAuthenticated()){
-        console.log('USER IS AUTHENTICATEEEED!');
         next(); //carry on
         return;
     }

@@ -24,9 +24,6 @@ export const getPots = area => {
 
 // export const getPots = (area, issues, params) => {
 //   const issue = issues.filter((i => i.id == params.id));
-//   console.log('GET POTS');
-//   console.log(issues);
-//   console.log(issue);
 //   const arr = [];
 //   const obj = status.filter(f => f.area == area);
 //   Object.keys(obj).forEach( key => {

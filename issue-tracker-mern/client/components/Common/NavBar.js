@@ -8,21 +8,26 @@ import ProjectPicker from './ProjectPicker';
 import NewIssueModal from '../Modals/NewIssueModal';
 import BatchIssuesModal from '../Modals/BatchIssuesModal';
 import OpenProjectModal from '../Modals/OpenProjectModal';
-import { DropdownButton, MenuItem } from 'react-bootstrap';
+import { openModal } from '../../actions/ModalActions'
+import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
 
 class NavBar extends React.Component{
     constructor(props){
         super(props);
         this.logout = this.logout.bind(this);
         this.areaClick = this.areaClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
     logout = () => {
         this.props.dispatch(logout());
-        //browserHistory.push(`/`);
+        browserHistory.push(`/`);
     }
     areaClick = () => {
         browserHistory.push(`/${this.props.params.projectCode}/issues/all`);
         this.props.dispatch(toggleArea());
+    }
+    handleClick = (value) => {
+        this.props.dispatch(openModal(value));
     }
     render(){
         let projectCode = this.props.params.projectCode;
@@ -34,34 +39,26 @@ class NavBar extends React.Component{
                         <h4 className="white">{projectCode.toUpperCase()}</h4>
                     </div>
                 </Link>
-                <div className="float-left">
-                <DropdownButton  title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } id="bg-nested-dropdown" className="nav-div left">
-                    <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>    
-                </DropdownButton>
-                </div>
-                <OpenProjectModal
-                    buttonName="Open Project"
-                    {...this.props}
-                    />
-                {(projectCode == '')
-                    ? <div></div>
-                    : <NewIssueModal
-                        buttonName="New issue"
-                        {...this.props}/>
-                }
-                {(this.props.batchIssues.length > 0)
-                    ? <BatchIssuesModal
-                        buttonName="Batch issues"
-                        {...this.props}/>
-                    : null
-                }
-                <div className="float-right">
-                <DropdownButton title={this.props.username} id="bg-nested-dropdown" className="nav-div right">
-                    <MenuItem eventKey="1">Create Project</MenuItem>    
-                    <MenuItem eventKey="2">Manage Users</MenuItem>  
-                    <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
-                </DropdownButton>      
-                </div>
+                <ButtonGroup style={{ height: '100%' }}>
+                    <Button onClick={() => this.handleClick('project')}>Open Project</Button>
+                    <Button onClick={() => this.handleClick('newIssue')}>New Issue</Button>
+                    {(this.props.batchIssues.length > 0)
+                        ? <Button onClick={() => this.handleClick('batch')}>Batch Issue</Button>
+                        : null
+                    }
+                    <DropdownButton  title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } id="bg-nested-dropdown" className="nav-div left">
+                        <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>    
+                    </DropdownButton>
+                    <DropdownButton title={this.props.username} id="bg-nested-dropdown" className="nav-div right">
+                        <MenuItem eventKey="1">Create Project</MenuItem>    
+                        <MenuItem eventKey="2">Manage Users</MenuItem>  
+                        <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
+                    </DropdownButton>
+                    <OpenProjectModal {...this.props}/>
+                    <NewIssueModal {...this.props}/>
+                    <BatchIssuesModal {...this.props}/>
+                </ButtonGroup>                  
+
             </div>
             );
         }

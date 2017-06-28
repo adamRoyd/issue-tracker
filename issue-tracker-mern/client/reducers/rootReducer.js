@@ -1,6 +1,3 @@
-/**
- * Root Reducer
- */
 import { combineReducers } from 'redux';
 
 import issues from './IssueReducer';
@@ -12,6 +9,7 @@ import headers from './HeaderReducer';
 import user from './UserReducer';
 import attachments from './AttachmentReducer';
 import area from './AreaReducer';
+import modal from './ModalReducer';
 
 export default combineReducers({
   projects,
@@ -22,5 +20,6 @@ export default combineReducers({
   headers,
   user,
   attachments,
-  area
+  area,
+  modal
 });

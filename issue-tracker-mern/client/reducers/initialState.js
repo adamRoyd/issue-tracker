@@ -9,9 +9,9 @@ export default({
     issueFilter: "all",
     user: {
         isFetching: false,
-        isAuthenticated: false,
         username: "adam.boothroyd@brightwave.co.uk"
     },
     attachments: [],
-    area: "internal"
+    area: "internal",
+    modal: ""
 });

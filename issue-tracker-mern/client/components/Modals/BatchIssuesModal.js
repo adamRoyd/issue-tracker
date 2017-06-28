@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Modal} from 'react-bootstrap';
 import { browserHistory } from 'react-router';
+import { closeModal } from '../../actions/ModalActions';
 import { batchIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getComments } from '../../reducers/CommentReducer';
@@ -13,32 +14,24 @@ class BatchIssuesModal extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            showModal: false,
             batchOptions : {},
             submitDisabled: true
         };
         this.updateBatchState = this.updateBatchState.bind(this);
         this.batchIssues = this.batchIssues.bind(this);
-        this.open = this.open.bind(this);
         this.close = this.close.bind(this);
     }
     close() {
-        console.log('CLOSE');
         this.setState({ 
-            showModal: false,
             batchOptions: {},
             submitDisabled: true
         });
-    }
-
-    open() {
-        this.setState({ showModal: true });
+        this.props.dispatch(closeModal());
     }
     updateBatchState(event){
         const field = event.target.name;
         let batchOptions = this.state.batchOptions;
         batchOptions[field] = event.target.value;
-        console.log(batchOptions);
         {(batchOptions.assigned != 'No change' || batchOptions.pot != 'No change')
             ? this.setState({submitDisabled: false})
             : this.setState({submitDisabled: true})
@@ -54,13 +47,7 @@ class BatchIssuesModal extends React.Component{
     render(){
         return(
             <div className="nav-div">
-                <button 
-                className="btn"
-                onClick={this.open}
-                >
-                {this.props.buttonName}
-                </button>
-                <Modal show={this.state.showModal} onHide={this.close}>
+                <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>Batch Issues</Modal.Title>
                     </Modal.Header>
@@ -92,7 +79,8 @@ function mapStateToProps(state, ownProps) {
     return {
         assignees: getAssignees(state),
         comments : getComments(state),
-        pots : getPots(state.area)
+        pots : getPots(state.area),
+        showModal: state.modal == 'batch'
     };
 }
 

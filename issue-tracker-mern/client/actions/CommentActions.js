@@ -10,7 +10,7 @@ export function addComment(comment) {
 
 export function addCommentRequest(comment,status,params) {
   return (dispatch) => {
-    return callApi(`(:projectCode)/issues/(:filter)/(:id)`,'post', {
+    return callApi('addComment','post', {
       comment: {
         project: params.projectCode,
         issueId: params.id,
