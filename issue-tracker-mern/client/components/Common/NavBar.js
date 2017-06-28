@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { toggleArea } from '../../actions/AreaActions';
+import { logout } from '../../actions/UserActions';
 import ProjectPicker from './ProjectPicker';
 import NewIssueModal from '../Modals/NewIssueModal';
 import BatchIssuesModal from '../Modals/BatchIssuesModal';
@@ -16,7 +17,8 @@ class NavBar extends React.Component{
         this.areaClick = this.areaClick.bind(this);
     }
     logout = () => {
-        browserHistory.push(`/`);
+        this.props.dispatch(logout());
+        //browserHistory.push(`/`);
     }
     areaClick = () => {
         browserHistory.push(`/${this.props.params.projectCode}/issues/all`);

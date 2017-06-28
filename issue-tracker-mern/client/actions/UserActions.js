@@ -62,3 +62,9 @@ export function loginUser(creds) {
         });
   };
 }
+
+export function logout() {
+    return (dispatch) => {
+        return callApi(`logout`,'post', {}).then(res => dispatch(logoutUser()));
+  };
+}

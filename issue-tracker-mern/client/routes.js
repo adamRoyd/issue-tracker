@@ -44,7 +44,9 @@ export default (
           cb(null, require('./components/Login/LoginPage').default);
         });
       }}
-    />
+    >
+        <Redirect to="/bloop"/>
+    </Route>
     <Route
       onEnter={authCheck}
       path="/signup"

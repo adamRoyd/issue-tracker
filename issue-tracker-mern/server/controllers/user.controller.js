@@ -67,6 +67,7 @@ export function signup(req, res, next) {
  * @returns void
  */
 export function logout(req, res){
+    console.log('LOGGING OUT');
     req.logout();
 }
 
@@ -80,6 +81,6 @@ export function isLoggedIn(req,res,next){
         next(); //carry on
         return;
     }
-    console.log('OOPS! YOU MUST BE LOGGED IN');
+    //res.redirect(301,'/login');
     next();
 }
