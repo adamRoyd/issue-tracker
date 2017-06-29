@@ -102,12 +102,11 @@ export function saveIssueRequest(issue, area) {
 }
 
 
-export function sortIssues(index,header){
-    return{
-        type: types.SORT_ISSUES,
-        index,
-        header
-    };
+export function sortIssues(header){
+  return{
+      type: types.SORT_ISSUES,
+      header
+  };
 }
 
 export function addIssueToBatch(id){

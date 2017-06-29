@@ -6,7 +6,9 @@ const headerReducer = (state = initialstate.headers, action) => {
         case types.SORT_ISSUES:
             return [
                 ...state.map((header,i) =>{
-                    if(i == (action.index + 1)){
+                    if(header.name == action.header.name){
+                        console.log('YES');
+                        console.log(header.name);
                         if(header.filter == 2 || header.filter == 0){
                             return Object.assign({},header,{
                                 filter : 1

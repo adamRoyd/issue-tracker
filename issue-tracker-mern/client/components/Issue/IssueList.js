@@ -22,13 +22,12 @@ class IssueList extends React.Component{
         browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.filter}/${selectedIssue.id}`);
         this.props.setActiveIssue(selectedIssue);
     }
-    headerClick(i){
-        if(i != 0)
-        this.props.sortIssues(i - 1,this.props.headers[i]);
+    headerClick(header){
+        if(header.name != "")
+        this.props.sortIssues(header);
     }
     checkBoxClick(i){
         this.props.toggleCheckedIssue(this.props.issues[i]);
-        //this.props.addIssueToBatch(this.props.issues[i].id);
     }
     render(){
         return(
@@ -36,7 +35,7 @@ class IssueList extends React.Component{
                 <table className={"issueTable table table-fixed table-hover"}>
                     <thead>
                     <tr>
-                        {this.props.headers.map((header,i) => <Header key={i} header={header} onClick={() => this.headerClick(i)}/>)}
+                        {this.props.headers.map((header,i) => <Header key={i} header={header} onClick={() => this.headerClick(header)}/>)}
                     </tr>
                     </thead>
                     <tbody>
