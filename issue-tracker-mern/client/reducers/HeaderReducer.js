@@ -7,8 +7,6 @@ const headerReducer = (state = initialstate.headers, action) => {
             return [
                 ...state.map((header,i) =>{
                     if(header.name == action.header.name){
-                        console.log('YES');
-                        console.log(header.name);
                         if(header.filter == 2 || header.filter == 0){
                             return Object.assign({},header,{
                                 filter : 1
