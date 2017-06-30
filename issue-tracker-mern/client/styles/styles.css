@@ -221,81 +221,6 @@ input[type="text"]{
   min-height:200px;
 }
 
-/**************************** NAV *******************************/
-#navBar{
-  height:40px;
-  background:#004D1F;
-}
-
-.nav-item{
-  margin-left:10px;
-  display:inline-block;
-}
-
-#navBar .btn{
-  background:#004D1F;
-  color:white;
-  font-weight:bold;
-  height:100%;
-  border-radius: 0px !important;
-}
-
-#navBar .btn:hover{
-  background:#149849 !important;
-}
-
-.nav-div{
-  height:100%;
-  display:inline-block;
-}
-
-.dropdown.btn-group .dropdown-menu{
-  background:#004D1F;
-  min-width: 0px;
-}
-
-.dropdown.btn-group .dropdown-menu li{
-  padding: 3px 5px;
-}
-
-.dropdown.btn-group .dropdown-menu li a{
-  color:white;
-  font-weight:bold;
-}
-
-
-.dropdown.btn-group .dropdown-menu li a:hover{
-  background:#149849;
-}
-
-.btn-default{
-  border-color:transparent !important;
-}
-
-#projectPicker{
-  width:300px;
-}
-
-.dropdown.open.btn-group .btn{
-  background:#149849 !important;
-}
-
-.dropdown-menu{
-  padding:10px !important;
-}
-
-.project-list{
-  margin-top:10px;
-  max-height:400px;
-  overflow-y: auto;
-}
-
-.list-group-item{
-  padding:5px 10px !important;
-  border:none !important;
-  height:30px;
-}
-
 
 /**********************GENERAL****************************/
 .nopadding{
@@ -385,9 +310,8 @@ div .tableCell{
 #issueForm{
   top:0px;
   position:absolute;
-  width:43%;
-  left:54%;
-  margin-right:10px;
+  width:47%;
+  left:53%;
 }
 
 #textEditor{
@@ -406,4 +330,16 @@ div .tableCell{
 
 #newIssuePage{
   overflow-y: auto;
+}
+
+.btn{
+  background:#004D1F;
+  color:white;
+  margin-right:5px;
+  border:1px solid #004D1F;
+}
+.btn:hover{
+  background:white;
+  color:#004D1F !important;
+  border:1px solid #004D1F;
 }

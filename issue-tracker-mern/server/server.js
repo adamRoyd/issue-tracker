@@ -159,6 +159,7 @@ app.use((req, res, next) => {
     console.log(req.user);
     //if not logged in, redirect to login page
     if(req.user == null && req.url != '/login'){
+      console.log('LOG IN NOT OK!');
       redirectLocation = {
         pathname : '/login',
         search: ''
@@ -166,6 +167,7 @@ app.use((req, res, next) => {
     }
     //if logged in, redirect to selectproject page
     if(req.user && req.url == '/login'){
+      console.log('LOG IN OK!');
       redirectLocation = {
         pathname : '/selectproject',
         search: ''

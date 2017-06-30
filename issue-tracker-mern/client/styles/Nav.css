@@ -1,0 +1,84 @@
+/**************************** NAV *******************************/
+#navBar{
+    height:40px;
+    background:#004D1F;
+}
+
+.nav-item{
+    margin-left:10px;
+    display:inline-block;
+}
+
+#navBar .btn{
+    background:#004D1F;
+    color:white;
+    font-weight:bold;
+    height:100%;
+    border-radius: 0px !important;
+}
+
+#navBar .btn:hover{
+    background:#149849 !important;
+}
+
+.btn-default{
+    border-color:transparent !important;
+}
+
+#projectPicker{
+    width:300px;
+}
+
+.dropdown.open.btn-group .btn{
+    background:#149849 !important;
+}
+
+.project-list{
+    margin-top:10px;
+    max-height:400px;
+    overflow-y: auto;
+}
+
+.list-group-item{
+    padding:5px 10px !important;
+    border:none !important;
+    height:30px;
+}
+
+.nav-div{
+    height:100%;
+    display:inline-block;
+}
+
+.dropdown.btn-group .dropdown-menu li a:hover{
+    background:#149849;
+}
+
+.dropdown.btn-group{
+    height:100%;
+}
+
+.dropdown.btn-group .dropdown-menu{
+
+    background:#004D1F;
+    min-width: 0px;
+}
+
+.dropdown.btn-group .dropdown-menu li{
+    padding: 3px 5px;
+}
+
+.dropdown.btn-group .dropdown-menu li a{
+    color:white;
+    font-weight:bold;
+}
+
+.float-right{
+    height:100%;
+    float:right;
+    display:block;
+}
+
+.btn-group{
+    display:block !important;
+}

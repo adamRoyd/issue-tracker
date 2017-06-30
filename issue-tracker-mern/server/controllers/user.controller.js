@@ -8,10 +8,6 @@ import _ from 'lodash';
 import jwt from 'jsonwebtoken';
 import config from '../config';
 
-
-function createToken(user) {
-  return jwt.sign(_.omit(user, 'password'), config.secret, { expiresIn: "7d" });
-}
 /**
  * Login user
  * @param req
@@ -29,13 +25,11 @@ export function login(req, res, next) {
     req.login(user, function(err) {
         if (err) { return next(err); }
         res.status(201).send({
-            id_token: createToken(user),
             username: req.user.username
         });
     });
   })(req, res, next);
 };
-// exports.login = passport.authenticate('local',{});
 /**
  * Register user
  * @param req

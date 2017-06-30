@@ -12,6 +12,7 @@ import routes from './routes';
 require('./main.css');
 require('./styles/styles.css');
 require('./styles/issueTable.css');
+require('./styles/Nav.css');
 require('./styles/Draft.css');
 require('./styles/loginPage.css');
 

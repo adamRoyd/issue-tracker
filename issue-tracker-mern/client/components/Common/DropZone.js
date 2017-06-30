@@ -5,8 +5,8 @@ import Dropzone from 'react-dropzone';
 const DropZone = ({name, label, onDrop, files, attachments }) => {
   return (
     <div className="form-group row">
-      <label className="col-sm-2 col-form-label" htmlFor={name}>{label}</label>
-      <div className="col-sm-10 field">
+      <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
+      <div className="col-sm-9 field">
         <Dropzone className="form-control dashed" onDrop={onDrop}>
             <p className="text-center">Drop files here, or <a href="#">select</a></p>
         </Dropzone>
