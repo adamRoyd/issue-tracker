@@ -42,7 +42,7 @@ const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categor
                 name="category"
                 label="Category"
                 value={issue.category}
-                defaultOption= "Select a category"
+                defaultOption= "Select a Category"
                 options={categories}
                 onChange={onChange} 
                 error={errors.category}/>
@@ -69,6 +69,7 @@ const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categor
                         placeholder="Enter a description..."
                         onCommentChange={onCommentChange}
                         value={issue.description}
+                        error={errors.description}
                         />
                 </div>
             </div>

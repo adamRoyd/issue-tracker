@@ -88,13 +88,15 @@ h5{
 
 /***********************************Description and Form ************************************/
 .form-group{
-  margin-bottom: 10px !important;
+  margin-bottom: 11.5px !important;
 }
 
-.form-group .row .has-error{
-  background:red !important;
-  color:red !important;
+.has-error .form-control,
+#textEditor .has-error
+{
+  border: 1.5px solid #a94442;
 }
+
 
 /*Comments*/
 .comment{
@@ -284,6 +286,7 @@ div .tableCell{
 }
 
 .commentBox{
+
   width:50%;
   position:absolute;
   height:23%;
@@ -342,4 +345,16 @@ div .tableCell{
   background:white;
   color:#004D1F !important;
   border:1px solid #004D1F;
+}
+
+select.form-control{
+  margin-bottom: -5px;
+  margin-top: -5px;
+}
+
+.errorMessage{
+  font-weight:bold;
+  color:red;
+  display:inline-block;
+  float: left;
 }

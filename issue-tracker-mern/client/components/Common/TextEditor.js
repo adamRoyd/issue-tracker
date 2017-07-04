@@ -14,9 +14,11 @@ class TextEditor extends React.Component {
     };
   }
   render() {
+    console.log(this.props.errors);
     return (
         <div id="textEditor" onClick={this.focus}>
           <Editor
+            className={this.props.errors ? "has-error" : ""}
             editorState={this.state.editorState}
             onChange={this.onChange}
             placeholder={this.props.placeholder}
@@ -26,13 +28,5 @@ class TextEditor extends React.Component {
     );
   }
 }
-
-const styles = {
-  editor: {
-    border: '1px solid #ccc',
-    cursor: 'text',
-    padding: 10,
-  }
-};
 
 export default TextEditor;
