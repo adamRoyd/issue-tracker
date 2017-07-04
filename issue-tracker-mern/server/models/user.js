@@ -10,7 +10,15 @@ const userSchema = new Schema({
 		trim: true
 	},
 	password: String,
-	isClient: Boolean
+	usertype: { 
+	type: 'String', 
+	enum:[
+		"Client",
+		"Internal",
+		"Admin"
+	],
+	required: true
+},
 })
 
 userSchema.plugin(passportLocalMongoose);

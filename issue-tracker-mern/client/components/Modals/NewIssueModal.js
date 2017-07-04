@@ -39,6 +39,7 @@ class NewIssueModal extends React.Component{
     }
     updateIssueState(event){
         const field = event.target.name;
+        console.log(field);
         let issue = this.state.issue;
         issue[field] = event.target.value;
         return this.setState({issue : issue});
@@ -55,18 +56,17 @@ class NewIssueModal extends React.Component{
         console.log(errors);
         console.log(Object.keys(errors).length);
         if(Object.keys(errors).length === 0 && errors.constructor === Object){
-            console.log('Issue will be created');
-            // this.props.dispatch(
-            //     addIssueRequest(
-            //         this.state.issue,
-            //         this.props.attachments,
-            //         this.props.issues,
-            //         this.props.params.projectCode,
-            //         this.props.area,
-            //         this.props.username
-            //     )
-            // );
-            // return this.setState({ showModal: false });
+            this.props.dispatch(
+                addIssueRequest(
+                    this.state.issue,
+                    this.props.attachments,
+                    this.props.issues,
+                    this.props.params.projectCode,
+                    this.props.area,
+                    this.props.username
+                )
+            );
+            return this.setState({ showModal: false });
         }   else{
             return this.setState({ errors: errors});
         }

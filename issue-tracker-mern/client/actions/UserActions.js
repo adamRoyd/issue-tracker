@@ -8,12 +8,12 @@ export function saveUser(user){
     }
 }
 
-export function saveUserRequest(username,password) {
+export function saveUserRequest(user) {
     return (dispatch) => {
         return callApi(`signup`,'post', {
-            username,
-            password,
-            isClient: false
+            username : user.username,
+            password : user.password,
+            usertype: user.usertype
         }).then(res => dispatch(saveUser(res.user)));
   };
 }

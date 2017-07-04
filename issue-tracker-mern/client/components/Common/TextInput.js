@@ -8,8 +8,8 @@ const TextInput = ({name, label, onChange, placeholder, value, error}) => {
 
   return (
     <div className={wrapperClass}>
-      <label className="col-sm-2 col-form-label" htmlFor={name}>{label}</label>
-      <div className="col-sm-10 field">
+      <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
+      <div className="col-sm-9 field">
         <input
           type="text"
           name={name}

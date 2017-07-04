@@ -37,7 +37,7 @@ export function login(req, res, next) {
  * @returns void
  */
 export function signup(req, res, next) {
-    User.register(new User({ username : req.body.username, isClient: req.body.isClient }), req.body.password, (err, account) => {
+    User.register(new User({ username : req.body.username, usertype: req.body.usertype }), req.body.password, (err, account) => {
         if (err) {
           return res.send('error');
         }

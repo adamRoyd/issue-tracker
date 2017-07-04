@@ -14,7 +14,6 @@ class TextEditor extends React.Component {
     };
   }
   render() {
-    console.log(this.props.errors);
     return (
         <div id="textEditor" onClick={this.focus}>
           <Editor

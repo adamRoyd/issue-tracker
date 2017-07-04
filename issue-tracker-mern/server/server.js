@@ -158,13 +158,13 @@ app.use((req, res, next) => {
   match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
     console.log(req.user);
     //if not logged in, redirect to login page
-    if(req.user == null && req.url != '/login'){
-      console.log('LOG IN NOT OK!');
-      redirectLocation = {
-        pathname : '/login',
-        search: ''
-      }
-    }
+    // if(req.user == null && req.url != '/login'){
+    //   console.log('LOG IN NOT OK!');
+    //   redirectLocation = {
+    //     pathname : '/login',
+    //     search: ''
+    //   }
+    // }
     //if logged in, redirect to selectproject page
     if(req.user && req.url == '/login'){
       console.log('LOG IN OK!');

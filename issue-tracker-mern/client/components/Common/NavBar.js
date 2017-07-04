@@ -40,15 +40,15 @@ class NavBar extends React.Component{
                     </div>
                 </Link>
                 <ButtonGroup style={{ height: '100%' }}>
+                    <DropdownButton  title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } id="bg-nested-dropdown" className="nav-div left">
+                        <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>
+                    </DropdownButton>
                     <Button onClick={() => this.handleClick('project')}>Open Project</Button>
                     <Button onClick={() => this.handleClick('newIssue')}>New Issue</Button>
                     {(this.props.batchIssues.length > 0)
                         ? <Button onClick={() => this.handleClick('batch')}>Batch Issue</Button>
                         : null
                     }
-                    <DropdownButton  title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } id="bg-nested-dropdown" className="nav-div left">
-                        <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>
-                    </DropdownButton>
                     <div className="float-right">
                         <DropdownButton title={this.props.username} id="bg-nested-dropdown">
                             <MenuItem eventKey="1">Create Project</MenuItem>    
