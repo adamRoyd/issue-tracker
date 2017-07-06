@@ -17,10 +17,14 @@ class NavBar extends React.Component{
         this.logout = this.logout.bind(this);
         this.areaClick = this.areaClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.adduser = this.adduser.bind(this);
     }
     logout = () => {
         this.props.dispatch(logout());
         browserHistory.push(`/`);
+    }
+    adduser = () => {
+        browserHistory.push('/adduser');
     }
     areaClick = () => {
         browserHistory.push(`/${this.props.params.projectCode}/issues/all`);
@@ -52,7 +56,7 @@ class NavBar extends React.Component{
                     <div className="float-right">
                         <DropdownButton title={this.props.username} id="bg-nested-dropdown">
                             <MenuItem eventKey="1">Create Project</MenuItem>    
-                            <MenuItem eventKey="2">Manage Users</MenuItem>  
+                            <MenuItem eventKey="2" onSelect={this.adduser}>Manage Users</MenuItem>  
                             <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
                         </DropdownButton>
                     </div>

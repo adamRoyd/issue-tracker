@@ -11,6 +11,7 @@ import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getAttachments } from '../../reducers/AttachmentReducer';
 import { getIssues } from '../../reducers/IssueReducer';
 import { getArea } from '../../reducers/AreaReducer';
+import { getUser } from '../../reducers/UserReducer';
 import NewIssueForm from '../Issue/NewIssueForm';
 
 class NewIssuePage extends React.Component{

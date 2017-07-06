@@ -28,7 +28,7 @@ class IssuePage extends Component {
      this.props.dispatch(fetchAssignees());
      this.props.dispatch(fetchProjects());
   }
-
+  
   render() {
     return (
       <div id="issuePage">

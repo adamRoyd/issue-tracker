@@ -7,6 +7,7 @@ import sanitizeHtml from 'sanitize-html';
 import _ from 'lodash';
 import jwt from 'jsonwebtoken';
 import config from '../config';
+import mail from '../handlers/mail';
 
 /**
  * Login user
@@ -41,14 +42,13 @@ export function signup(req, res, next) {
         if (err) {
           return res.send('error');
         }
-        passport.authenticate('local')(req, res, () => {
-            req.session.save((err) => {
-                if (err) {
-                    return next(err);
-                }
-                res.redirect('/');
-            });
-        });
+        //send new user an email
+        console.log('SENDING MAIL');
+        mail.send({
+            username: req.body.username,
+            subject: 'Welcome to BIT',
+            html: `<p>Welcome to BIT. Your login details are:</p><p>Username: ${req.body.username}</p><p>Password: ${req.body.password}</p><p>Select <a href="localhost:8000/" target="_blank">here</a> to go to BIT</p>`
+        })
     });
 };
 /**

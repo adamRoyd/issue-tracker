@@ -30,6 +30,13 @@ class RegistrationPage extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.dispatch(saveUserRequest(this.state.user));
+        return this.setState({
+            user: {
+                username: "",
+                password: "",
+                usertype: ""
+            }
+        })
     }
     render(){
         return(
@@ -64,14 +71,4 @@ class RegistrationPage extends React.Component{
     }  
 }
 
-RegistrationPage.propTypes = {
-
-};
-
-function mapStateToProps(state){
-    return{
-
-    };
-}
-
-export default connect(mapStateToProps)(RegistrationPage);
+export default connect()(RegistrationPage);

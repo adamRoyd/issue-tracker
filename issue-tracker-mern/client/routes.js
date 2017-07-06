@@ -45,11 +45,10 @@ export default (
         });
       }}
     >
-        <Redirect to="/bloop"/>
     </Route>
     <Route
       onEnter={authCheck}
-      path="/signup"
+      path="/adduser"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./components/Login/RegistrationPage').default);
