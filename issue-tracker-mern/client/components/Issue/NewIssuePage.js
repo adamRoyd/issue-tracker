@@ -42,7 +42,6 @@ class NewIssuePage extends React.Component{
     close() {
         this.setState({ showModal: false, issue:{}, errors: {} });
     }
-
     open() {
         this.setState({ showModal: true });
     }
@@ -91,11 +90,7 @@ class NewIssuePage extends React.Component{
                }
             }
         })
-        // if(issue.location == null){
-        //     errors = {
-        //         location : 'Select a location'
-        //     }
-        // }
+
         return errors
     }
     render(){
@@ -115,7 +110,7 @@ class NewIssuePage extends React.Component{
                     {...this.props}/>
                 <div className="right-align">
                     <button className="btn" onClick={this.close}>Close</button>
-                    <button className="btn" onClick={this.saveIssue}>Create issue</button>
+                    <button className="btn" onClick={this.saveIssue}>Create User</button>
                 </div>
             </div>
         );

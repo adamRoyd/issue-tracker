@@ -31,7 +31,7 @@ class IssueList extends React.Component{
     }
     render(){
         return(
-            <div id="issuelist">
+            <div id="issuelist" className="visible-desktop">
                 <table className={"issueTable table table-fixed table-hover"}>
                     <thead>
                     <tr>

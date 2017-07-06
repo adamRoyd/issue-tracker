@@ -28,11 +28,9 @@ class IssuePage extends Component {
      this.props.dispatch(fetchAssignees());
      this.props.dispatch(fetchProjects());
   }
-  
   render() {
     return (
       <div id="issuePage">
-        <NavBar {...this.props}/>
         <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
         <IssueList {...this.props}/>
         {this.props.params.id ? 

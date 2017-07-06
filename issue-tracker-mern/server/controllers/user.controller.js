@@ -43,7 +43,6 @@ export function signup(req, res, next) {
           return res.send('error');
         }
         //send new user an email
-        console.log('SENDING MAIL');
         mail.send({
             username: req.body.username,
             subject: 'Welcome to BIT',

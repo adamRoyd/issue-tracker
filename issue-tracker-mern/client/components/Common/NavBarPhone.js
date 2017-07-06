@@ -11,50 +11,32 @@ import OpenProjectModal from '../Modals/OpenProjectModal';
 import { openModal } from '../../actions/ModalActions'
 import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
 
-class NavBar extends React.Component{
+class NavBarPhone extends React.Component{
     constructor(props){
         super(props);
         this.logout = this.logout.bind(this);
-        this.areaClick = this.areaClick.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-        this.adduser = this.adduser.bind(this);
+        this.newIssue = this.newIssue.bind(this);
     }
     logout = () => {
         this.props.dispatch(logout());
         browserHistory.push(`/`);
     }
-    adduser = () => {
-        browserHistory.push('/adduser');
-    }
-    areaClick = () => {
-        browserHistory.push(`/${this.props.params.projectCode}/issues/all`);
-        this.props.dispatch(toggleArea());
-    }
-    handleClick = (value) => {
-        this.props.dispatch(openModal(value));
+    newIssue = () => {
+        browserHistory.push('/abc123/new/1/100');
     }
     render(){
         let projectCode = this.props.params.projectCode;
         if(projectCode == null){projectCode = '';}
         return(
-            <div id="navBar" className="row visible-desktop">
-                <Link to={`/${projectCode}/issues/all`}>
-                    <div className="col-sm-2 projectCode">
-                        <h4 className="white">{projectCode.toUpperCase()}</h4>
-                    </div>
-                </Link>
+            <div id="navBar" className="row visible-phone">
+                <div className="col-sm-2 projectCode">
+                    <h4 className="white">{projectCode.toUpperCase()}</h4>
+                </div>
                 {(this.props.params.projectCode) ?
                     //nav bar for the main issue page
                     <ButtonGroup style={{ height: '100%' }}>
-                        <DropdownButton  title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } id="bg-nested-dropdown" className="nav-div left">
-                            <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>
-                        </DropdownButton>
                         <Button onClick={() => this.handleClick('project')}>Open Project</Button>
-                        <Button onClick={() => this.handleClick('newIssue')}>New Issue</Button>
-                        {(this.props.batchIssues)
-                            ? <Button onClick={() => this.handleClick('batch')}>Batch Issue</Button>
-                            : null
-                        }
+                        <Button onClick={this.newIssue}>New Issue</Button>
                         <div className="float-right">
                             <DropdownButton title={this.props.username} id="bg-nested-dropdown">
                                 <MenuItem eventKey="1">Create Project</MenuItem>    
@@ -62,9 +44,6 @@ class NavBar extends React.Component{
                                 <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
                             </DropdownButton>
                         </div>
-                        <OpenProjectModal {...this.props}/>
-                        <NewIssueModal {...this.props}/>
-                        <BatchIssuesModal {...this.props}/>
                     </ButtonGroup>     
                     :
                     //Nav bar for pages other than the main issue page
@@ -91,10 +70,10 @@ class NavBar extends React.Component{
         }
     }
 
-NavBar.propTypes = {
+NavBarPhone.propTypes = {
     params : PropTypes.object.isRequired,
     username : PropTypes.string.isRequired
 };
 
 
-export default connect()(NavBar);
+export default connect()(NavBarPhone);

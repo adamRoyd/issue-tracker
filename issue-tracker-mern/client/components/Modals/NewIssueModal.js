@@ -39,7 +39,6 @@ class NewIssueModal extends React.Component{
     }
     updateIssueState(event){
         const field = event.target.name;
-        console.log(field);
         let issue = this.state.issue;
         issue[field] = event.target.value;
         return this.setState({issue : issue});
@@ -52,9 +51,6 @@ class NewIssueModal extends React.Component{
     saveIssue(event){
         event.preventDefault();
         const errors = this.validate(this.state.issue);
-        console.log('ERRORS AFTER VALIDATION');
-        console.log(errors);
-        console.log(Object.keys(errors).length);
         if(Object.keys(errors).length === 0 && errors.constructor === Object){
             this.props.dispatch(
                 addIssueRequest(
@@ -78,8 +74,6 @@ class NewIssueModal extends React.Component{
         this.props.dispatch(uploadFileRequest(files))
     }
     validate(issue){
-        console.log('VALIDATE ISSUE');
-        console.log(issue);
         let errors = {}
         if(issue.location == "Select a location"){
             errors = Object.assign({},errors,{
@@ -109,8 +103,6 @@ class NewIssueModal extends React.Component{
         let div = document.createElement("div");
         div.innerHTML = issue.description;
         let descriptionAsString = div.textContent || div.innerText || "";
-        console.log('DESCRIPTION AS STRING');
-        console.log(descriptionAsString);
         if(descriptionAsString.trim == ""){
             errors = Object.assign({},errors,{
                 description: 'Error'
@@ -140,7 +132,7 @@ class NewIssueModal extends React.Component{
                     </Modal.Body>
                     <Modal.Footer>
                         {(Object.keys(this.state.errors).length)
-                            ? <div className="errorMessage"><p>Please select a value for the items marked red.</p></div>
+                            ? <div className="infomessage error"><p>Please select a value for the items marked red.</p></div>
                             : null
                         }
                         <button className="btn" onClick={this.close}>Close</button>

@@ -79,6 +79,11 @@
     float:right;
     display:block;
 }
+.float-left{
+    height:100%;
+    float:left;
+    display:block;
+}
 
 .btn-group{
     display:block !important;

@@ -46,7 +46,6 @@ const IssueReducer = (state = initialState.issues, action) => {
     case types.SORT_ISSUES:
 
         if(action.header.filter == 0 || action.header.filter == 2){
-            console.log('SORT 1');
             const v = action.header.name.toLowerCase();
             return [
                 ...state.slice(0).sort(function(a,b) {
@@ -60,7 +59,6 @@ const IssueReducer = (state = initialState.issues, action) => {
                 })   
             ];
         }   else{
-            console.log('SORT 2');
             const v = action.header.name.toLowerCase();
             return [
                 ...state.slice(0).sort(function(a,b) {
