@@ -95,7 +95,7 @@ class NewIssuePage extends React.Component{
     }
     render(){
         return(
-            <div id="newIssuePage" className="col-sm-8 col-sm-offset-2">
+            <div id="newIssuePage" className="container visible-phone">
                 <h3>New issue for {this.props.params.projectCode}</h3>
                 <NewIssueForm 
                     issue={this.state.issue}

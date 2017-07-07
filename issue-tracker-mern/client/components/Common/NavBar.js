@@ -18,6 +18,7 @@ class NavBar extends React.Component{
         this.areaClick = this.areaClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.adduser = this.adduser.bind(this);
+        this.homeClick = this.homeClick.bind(this);
     }
     logout = () => {
         this.props.dispatch(logout());
@@ -30,6 +31,10 @@ class NavBar extends React.Component{
         browserHistory.push(`/${this.props.params.projectCode}/issues/all`);
         this.props.dispatch(toggleArea());
     }
+    homeClick = () => {
+        console.log('HOME!');
+        browserHistory.push(`/${this.props.params.projectCode}/issues/all`);
+    }
     handleClick = (value) => {
         this.props.dispatch(openModal(value));
     }
@@ -38,21 +43,17 @@ class NavBar extends React.Component{
         if(projectCode == null){projectCode = '';}
         return(
             <div id="navBar" className="row visible-desktop">
-                <Link to={`/${projectCode}/issues/all`}>
-                    <div className="col-sm-2 projectCode">
-                        <h4 className="white">{projectCode.toUpperCase()}</h4>
-                    </div>
-                </Link>
                 {(this.props.params.projectCode) ?
                     //nav bar for the main issue page
                     <ButtonGroup style={{ height: '100%' }}>
+                        <Button onClick={this.homeClick}>{projectCode.toUpperCase()}</Button>
                         <DropdownButton  title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } id="bg-nested-dropdown" className="nav-div left">
                             <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>
                         </DropdownButton>
                         <Button onClick={() => this.handleClick('project')}>Open Project</Button>
                         <Button onClick={() => this.handleClick('newIssue')}>New Issue</Button>
                         {(this.props.batchIssues)
-                            ? <Button onClick={() => this.handleClick('batch')}>Batch Issue</Button>
+                            ? <Button disabled={(this.props.batchIssues.length == 0) ? true : false} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
                             : null
                         }
                         <div className="float-right">

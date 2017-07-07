@@ -9,6 +9,9 @@ import Helmet from 'react-helmet';
 import DevTools from './DevTools';
 import NavBar from '../Common/NavBar';
 import NavBarPhone from '../Common/NavBarPhone'
+//Import Selectors
+import { getBatchIssues } from '../../reducers/IssueReducer';
+import { getArea } from '../../reducers/AreaReducer';
 
 export class App extends Component {
   constructor(props) {
@@ -45,7 +48,9 @@ function mapStateToProps(state) {
   return {
     username : getUser(state).username,
     locations : locations,
-    categories : categories
+    categories : categories,
+    batchIssues: getBatchIssues(state),
+    area: getArea(state)
   };
 }
 

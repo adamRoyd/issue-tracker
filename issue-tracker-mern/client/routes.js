@@ -47,7 +47,6 @@ export default (
     >
     </Route>
     <Route
-      onEnter={authCheck}
       path="/adduser"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
@@ -56,7 +55,6 @@ export default (
       }}
     />    
     <Route
-      onEnter={authCheck}
       path="/selectproject"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
@@ -65,7 +63,6 @@ export default (
       }}
     />
     <Route
-      onEnter={authCheck}
       path="/(:projectCode)/new/"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
@@ -74,7 +71,6 @@ export default (
       }}
     />
     <Route
-      onEnter={authCheck}
       path="/(:projectCode)/new/(:topic)/(:page)"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
@@ -83,7 +79,6 @@ export default (
       }}
     />
     <Route
-      onEnter={authCheck}
       path="/(:projectCode)/issues/(:filter)"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
@@ -92,7 +87,6 @@ export default (
       }}
     />
     <Route
-      onEnter={authCheck}
       path="/(:projectCode)/issues/(:filter)/(:id)"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {

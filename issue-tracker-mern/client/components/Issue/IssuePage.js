@@ -6,6 +6,7 @@ import IssueList from './IssueList';
 import IssuePots from './IssuePots';
 import NavBar from '../Common/NavBar';
 import EditIssuePage from '../Issue/EditIssuePage';
+import NewIssuePage from '../Issue/NewIssuePage';
 //Import constants
 import categories from '../../constants/categories';
 import locations from '../../constants/locations';
@@ -31,6 +32,7 @@ class IssuePage extends Component {
   render() {
     return (
       <div id="issuePage">
+        <NewIssuePage {...this.props}/>
         <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
         <IssueList {...this.props}/>
         {this.props.params.id ? 

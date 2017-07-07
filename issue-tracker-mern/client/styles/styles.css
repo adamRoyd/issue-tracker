@@ -30,7 +30,7 @@ h5{
 }
 
 
-@media (min-width: 768px){
+@media (min-width: 200px){
 #IssuePots{
     position: absolute;
     top: 40px;
