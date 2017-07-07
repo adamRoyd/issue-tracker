@@ -7,7 +7,8 @@ import DropZone from '../Common/DropZone';
 import TextEditor from '../Common/TextEditor';
 import TextStatic from '../Common/TextStatic';
 
-const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categories,onDrop,files,attachments,onCommentChange}) => {
+const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categories,onDrop,files,attachments,onCommentChange,params}) => {
+    console.log(params);
     return(
         <form> 
             <TextStatic
@@ -26,7 +27,7 @@ const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categor
                 name="sco"
                 label="Topic ID"
                 value={issue.sco}
-                defaultOption= "Select a Topic ID"
+                defaultOption= {params.topic ? params.topic : "Select a Topic ID"}
                 options={[...Array(1000).keys()]}
                 onChange={onChange} 
                 error={errors.sco}/>
@@ -34,7 +35,7 @@ const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categor
                 name="screen"
                 label="Page ID"
                 value={issue.screen}
-                defaultOption= "Select a Screen ID"
+                defaultOption= {params.page ? params.page : "Select a Screen ID"}
                 options={[...Array(1000).keys()]}
                 onChange={onChange}
                 error={errors.screen}/>

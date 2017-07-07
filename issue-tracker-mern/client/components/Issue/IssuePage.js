@@ -32,7 +32,7 @@ class IssuePage extends Component {
   render() {
     return (
       <div id="issuePage">
-        <NewIssuePage {...this.props}/>
+        <NewIssuePage phoneView={true} {...this.props}/>
         <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
         <IssueList {...this.props}/>
         {this.props.params.id ? 

@@ -32,7 +32,6 @@ class NavBar extends React.Component{
         this.props.dispatch(toggleArea());
     }
     homeClick = () => {
-        console.log('HOME!');
         browserHistory.push(`/${this.props.params.projectCode}/issues/all`);
     }
     handleClick = (value) => {

@@ -95,7 +95,7 @@ class NewIssuePage extends React.Component{
     }
     render(){
         return(
-            <div id="newIssuePage" className="container visible-phone">
+            <div id="newIssuePage" className={(this.props.phoneView) ? "container visible-phone" : "container"}>
                 <h3>New issue for {this.props.params.projectCode}</h3>
                 <NewIssueForm 
                     issue={this.state.issue}
@@ -107,6 +107,7 @@ class NewIssuePage extends React.Component{
                     categories={this.props.categories}
                     onDrop={this.onDrop}
                     files={this.state.files}
+                    params={this.props.params}
                     {...this.props}/>
                 <div className="right-align">
                     <button className="btn" onClick={this.close}>Close</button>
