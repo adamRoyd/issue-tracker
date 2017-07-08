@@ -71,3 +71,10 @@ export function isLoggedIn(req,res,next){
     //res.redirect(301,'/login');
     next();
 }
+export function getUser(req,res){
+    console.log('GET USER CONTROLLER');
+    console.log(req.user);
+    res.status(201).send({
+        username: req.user.username
+    });
+}

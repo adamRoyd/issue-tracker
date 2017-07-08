@@ -9,7 +9,7 @@ export default({
     issueFilter: "all",
     user: {
         isFetching: false,
-        username: "adam.boothroyd@brightwave.co.uk"
+        username: ""
     },
     attachments: [],
     area: "internal",

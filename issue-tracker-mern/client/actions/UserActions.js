@@ -1,11 +1,20 @@
 import * as types from './actionTypes';
 import callApi from '../util/apiCaller';
 
-export function saveUser(user){
+export function saveUser(username){
     return{
         type: types.SAVE_USER,
-        user
+        username
     }
+}
+
+export function fetchUser() {
+    console.log('FETCH USER ACTION');
+    return (dispatch) => {
+        return callApi('user').then(res => {
+            dispatch(saveUser(res.username));
+        });
+    };
 }
 
 export function saveUserRequest(user) {

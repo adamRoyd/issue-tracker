@@ -4,6 +4,6 @@ import * as UserController from '../controllers/user.controller';
 const router = new Router();
 
 //Get all projects
-router.route('/selectproject').get(UserController.isLoggedIn,ProjectController.getProjects);
+router.route('/selectproject').get(ProjectController.getProjects);
 
 export default router;

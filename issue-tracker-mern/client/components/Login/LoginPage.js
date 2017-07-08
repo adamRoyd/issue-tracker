@@ -14,7 +14,8 @@ class LoginPage extends React.Component{
             password : this.refs.password.value
         }
         this.props.dispatch(fetchProjects());
-        this.props.dispatch(loginUser(creds))
+        this.props.dispatch(loginUser(creds));
+        //browserHistory.push('/selectproject');
     }
     render(){
         this.handleSubmit = this.handleSubmit.bind(this);

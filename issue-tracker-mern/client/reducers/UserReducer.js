@@ -16,6 +16,10 @@ const UserReducer = (state = initialState.user, action) =>{
             isAuthenticated: false,
             errorMessage: action.message
         })
+    case types.SAVE_USER:
+        return Object.assign({}, state, {
+            username: action.username,
+        })
     default:
         return state;
   }

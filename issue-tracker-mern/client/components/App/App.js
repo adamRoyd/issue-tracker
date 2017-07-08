@@ -9,6 +9,7 @@ import Helmet from 'react-helmet';
 import DevTools from './DevTools';
 import NavBar from '../Common/NavBar';
 import NavBarPhone from '../Common/NavBarPhone'
+import { fetchUser } from '../../actions/UserActions';
 //Import Selectors
 import { getBatchIssues } from '../../reducers/IssueReducer';
 import { getArea } from '../../reducers/AreaReducer';
@@ -20,8 +21,11 @@ export class App extends Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(fetchUser());
+    console.log('MOUNTING!');
     this.setState({isMounted: true}); // eslint-disable-line
   }
+
 
   toggleAddPostSection = () => {
     this.props.dispatch(toggleAddPost());
