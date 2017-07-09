@@ -11,7 +11,7 @@ export default function () {
 
     Assignee.create([assignee1, assignee2], (error) => {
       if (!error) {
-        // console.log('ready to go....');
+
       }
     });
   });

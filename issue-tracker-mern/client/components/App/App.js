@@ -22,7 +22,6 @@ export class App extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchUser());
-    console.log('MOUNTING!');
     this.setState({isMounted: true}); // eslint-disable-line
   }
 
@@ -50,7 +49,7 @@ App.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    username : getUser(state).username,
+    user : getUser(state),
     locations : locations,
     categories : categories,
     batchIssues: getBatchIssues(state),

@@ -1,29 +1,29 @@
 import * as types from './actionTypes';
 import callApi from '../util/apiCaller';
 
-export function saveUser(username){
+export function saveUser(user){
     return{
         type: types.SAVE_USER,
-        username
+        user : user
     }
 }
 
 export function fetchUser() {
-    console.log('FETCH USER ACTION');
     return (dispatch) => {
         return callApi('user').then(res => {
-            dispatch(saveUser(res.username));
+            console.log(res.user);
+            dispatch(saveUser(res.user));
         });
     };
 }
 
-export function saveUserRequest(user) {
+export function addUserRequest(user) {
     return (dispatch) => {
         return callApi(`signup`,'post', {
             username : user.username,
-            password : user.password,
-            usertype: user.usertype
-        }).then(res => dispatch(saveUser(res.user)));
+            usertype: user.usertype,
+            project: user.projects
+        }).then(res => dispatch(addUserSuccess()));
   };
 }
 
@@ -31,18 +31,15 @@ function requestLogin(creds) {
   return {
     type: types.LOGIN_REQUEST,
     isFetching: true,
-    isAuthenticated: false,
     creds
   }
 }
 
-function receiveLogin(user) {
+function loginSuccess(user) {
   return {
     type: types.LOGIN_SUCCESS,
     isFetching: false,
-    isAuthenticated: true,
-    id_token: user.id_token,
-    username: user.username
+    user: user
   }
 }
 
@@ -50,8 +47,13 @@ function loginError(message) {
   return {
     type: types.LOGIN_FAILURE,
     isFetching: false,
-    isAuthenticated: false,
     message
+  }
+}
+
+export function logoutUser(){
+  return {
+    type: types.LOGOUT_USER
   }
 }
 
@@ -62,11 +64,10 @@ export function loginUser(creds) {
             username : creds.username,
             password : creds.password
         }).then(res => {
-          if(!res.username){
+          if(!res.user){
             dispatch(loginError(res))
           } else{
-            localStorage.setItem('id_token', res.id_token)
-            dispatch(receiveLogin(res))
+            dispatch(loginSuccess(res.user))
           }
         });
   };

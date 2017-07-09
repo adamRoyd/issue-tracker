@@ -68,7 +68,7 @@ export default function () {
 
     Issue.create([issue1, issue2, issue3], (error) => {
       if (!error) {
-        // console.log('ready to go....');
+ 
       }
     });
   });

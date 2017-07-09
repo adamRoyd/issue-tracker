@@ -16,6 +16,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const ADD_ASSIGNEES = 'ADD_ASSIGNEES';
+export const LOGOUT_USER = 'LOGOUT_USER';
 //MODALS
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';

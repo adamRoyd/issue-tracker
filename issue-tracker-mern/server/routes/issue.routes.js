@@ -26,8 +26,6 @@ router.route('/batchIssues').post(IssueController.batchIssues);
 router.route('/saveIssue').put(IssueController.saveIssue);
 
 router.post('/upload', upload.single('file'), function(req,res){
-  console.log('REQUEST FILE');
-	console.log(req.file); 
 	res.json(req.file);
 });
 

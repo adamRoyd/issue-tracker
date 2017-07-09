@@ -15,9 +15,12 @@ class LoginPage extends React.Component{
         }
         this.props.dispatch(fetchProjects());
         this.props.dispatch(loginUser(creds));
-        //browserHistory.push('/selectproject');
     }
+
     render(){
+        if(this.props.user.username){
+            browserHistory.push('/selectproject');
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
         return(
             <div className="wrapper">

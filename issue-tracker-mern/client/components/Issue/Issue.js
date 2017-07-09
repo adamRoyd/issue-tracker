@@ -11,7 +11,7 @@ class Issue extends React.Component{
         description = description.innerText.trim();
         return(
             <tr className={this.props.active ? 'issueRowActive' : 'issueRow'}>
-                <td><input type="checkbox" onClick={() => checkBoxClick()}/></td>
+                <td><input type="checkbox" checked={issue.checked} onClick={() => checkBoxClick()}/></td>
                 <td onClick={() => onClick()}>{issue.id}</td>
                 <td onClick={() => onClick()}>{issue.sco + "_" + issue.screen}</td>
                 <td onClick={() => onClick()}>{issue.location}</td>

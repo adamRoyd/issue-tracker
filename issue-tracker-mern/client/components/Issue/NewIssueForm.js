@@ -8,7 +8,6 @@ import TextEditor from '../Common/TextEditor';
 import TextStatic from '../Common/TextStatic';
 
 const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categories,onDrop,files,attachments,onCommentChange,params}) => {
-    console.log(params);
     return(
         <form> 
             <TextStatic

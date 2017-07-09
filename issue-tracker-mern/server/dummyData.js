@@ -11,7 +11,7 @@ export default function () {
 
     Project.create([projectCode1, projectCode2], (error) => {
       if (!error) {
-        // console.log('ready to go....');
+
       }
     });
   });

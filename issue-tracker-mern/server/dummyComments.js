@@ -12,7 +12,7 @@ export default function () {
 
     Comment.create([comment1, comment2, comment3], (error) => {
       if (!error) {
-        // console.log('ready to go....');
+
       }
     });
   });

@@ -18,6 +18,7 @@ class NavBarPhone extends React.Component{
         this.newIssue = this.newIssue.bind(this);
     }
     logout = () => {
+        this.props.dispatch(logoutUser());
         this.props.dispatch(logout());
         browserHistory.push(`/`);
     }
@@ -42,9 +43,9 @@ class NavBarPhone extends React.Component{
                     </ButtonGroup>     
                     :
                     <ButtonGroup vertical block style={{ height: '100%'}}>
-                            <DropdownButton title={this.props.username} id="bg-nested-dropdown">
-                                <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
-                            </DropdownButton>
+                        <DropdownButton title={this.props.username} id="bg-nested-dropdown">
+                            <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
+                        </DropdownButton>
                     </ButtonGroup> 
                 }
             </div>
@@ -54,7 +55,7 @@ class NavBarPhone extends React.Component{
 
 NavBarPhone.propTypes = {
     params : PropTypes.object.isRequired,
-    username : PropTypes.string.isRequired
+    username : PropTypes.string
 };
 
 

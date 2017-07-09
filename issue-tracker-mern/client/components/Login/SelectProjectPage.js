@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 import { Link, browserHistory } from 'react-router';
 import { fetchProjects } from '../../actions/ProjectActions';
 import { getProjects } from '../../reducers/ProjectReducer';
+import { getUser } from '../../reducers/UserReducer';
 import ProjectPicker from '../Common/ProjectPicker';
 
 class SelectProjectPage extends React.Component{
     componentDidMount() {
         this.props.dispatch(fetchProjects());
+        if(this.props.user.userproject){
+            browserHistory.push(`/${this.props.user.userproject}/issues/all`);
+        }
     }
     handleClick(value){
         const projectCode = value.toLowerCase();
@@ -23,14 +27,13 @@ class SelectProjectPage extends React.Component{
                 </div>
             </div>
         );
-    }  
+    }
 }
-
-SelectProjectPage.need = [() => { return fetchProjects();}];
 
 function mapStateToProps(state){
     return{
-        projects : getProjects(state)
+        projects : getProjects(state),
+        user: getUser(state)
     };
 }
 

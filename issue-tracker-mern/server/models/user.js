@@ -11,14 +11,17 @@ const userSchema = new Schema({
 	},
 	password: String,
 	usertype: { 
-	type: 'String', 
-	enum:[
-		"Client",
-		"Internal",
-		"Admin"
-	],
-	required: true
-},
+		type: 'String', 
+		enum:[
+			"Client",
+			"Internal",
+			"Admin"
+		],
+		required: true
+	},
+	project: {
+		type: 'String'
+	}
 })
 
 userSchema.plugin(passportLocalMongoose);

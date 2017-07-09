@@ -8,7 +8,7 @@ const ModalReducer = (state = initialState.modal, action) =>{
     case types.CLOSE_MODAL:
         return ""
     default:
-        return state;     
+        return initialState.modal;     
   }
 }
 

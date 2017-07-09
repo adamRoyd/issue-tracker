@@ -121,8 +121,9 @@ export async function batchIssues(req, res) {
   const issuesToSave = req.body.issues
   const options = req.body.options
   const projectCode = req.body.projectCode
+  const defaultOption = 'No change';
   //update issues
-  if(options.assigned == 'No change'){
+  if(!options.assigned || options.assigned == defaultOption){
     for(let issue of issuesToSave){
       await Issue.update(
         { id: issue.id },
@@ -132,7 +133,7 @@ export async function batchIssues(req, res) {
         }
       )
     }
-  } else if(options.status == 'No change'){
+  } else if(!options.pot || options.pot == defaultOption){
     for(let issue of issuesToSave){
       await Issue.update(
         { id: issue.id },
