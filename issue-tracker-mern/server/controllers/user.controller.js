@@ -20,13 +20,13 @@ export function login(req, res, next) {
     if (err) { return next(err); }
 
     if (!user) { return res.status(400).send({
-        message: "You must send the username and the password"
+        message: "Please enter a correct username and password"
     }); }
 
     req.login(user, function(err) {
         if (err) { return next(err); }
-        res.status(201).send({
-            username: req.user.username
+        res.status(301).send({
+            user: req.user
         });
     });
   })(req, res, next);
@@ -38,7 +38,7 @@ export function login(req, res, next) {
  * @returns void
  */
 export function signup(req, res, next) {
-    User.register(new User({ username : req.body.username, usertype: req.body.usertype }), req.body.password, (err, account) => {
+    User.register(new User({ username : req.body.username, usertype: req.body.usertype, project: req.body.project }), 'test', (err, account) => {
         if (err) {
           return res.send('error');
         }
@@ -46,7 +46,7 @@ export function signup(req, res, next) {
         mail.send({
             username: req.body.username,
             subject: 'Welcome to BIT',
-            html: `<p>Welcome to BIT. Your login details are:</p><p>Username: ${req.body.username}</p><p>Password: ${req.body.password}</p><p>Select <a href="localhost:8000/" target="_blank">here</a> to go to BIT</p>`
+            html: `<p>Welcome to BIT. Your login details are:</p><p>Username: ${req.body.username}</p><p>Password: test</p><p>Select <a href="localhost:8000/" target="_blank">here</a> to go to BIT</p>`
         })
     });
 };
@@ -57,7 +57,6 @@ export function signup(req, res, next) {
  * @returns void
  */
 export function logout(req, res){
-    console.log('logout user');
     //req.logOut();
     req.session.destroy();
 }
@@ -72,9 +71,14 @@ export function isLoggedIn(req,res,next){
     next();
 }
 export function getUser(req,res){
-    console.log('GET USER CONTROLLER');
-    console.log(req.user);
-    res.status(201).send({
-        username: req.user.username
-    });
+    if(req.user){
+        res.status(201).send({
+            user: req.user
+        });
+    }   else{
+        res.status(201).send({
+            user: {}
+        });        
+    }
+
 }
