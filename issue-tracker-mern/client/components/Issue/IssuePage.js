@@ -54,6 +54,7 @@ function mapStateToProps(state) {
     categories : categories,
     batchIssues: getBatchIssues(state),
     username : getUser(state).username,
+    usertype: getUser(state).usertype,
     projects: getProjects(state),
     area: getArea(state)
   };

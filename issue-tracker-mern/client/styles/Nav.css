@@ -10,6 +10,7 @@
 }
 
 #navBar .btn{
+    text-align: left;
     background:#004D1F;
     color:white;
     font-weight:bold;
@@ -60,13 +61,7 @@
 }
 
 .dropdown.btn-group .dropdown-menu{
-
     background:#004D1F;
-    min-width: 0px;
-}
-
-.dropdown.btn-group .dropdown-menu li{
-    padding: 3px 5px;
 }
 
 .dropdown.btn-group .dropdown-menu li a{
@@ -87,4 +82,10 @@
 
 .btn-group{
     display:block !important;
+}
+
+.dropdown-header{
+    font-size:13px !important;
+    color:white !important;
+    font-weight:bold;
 }

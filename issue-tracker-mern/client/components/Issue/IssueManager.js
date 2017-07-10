@@ -9,6 +9,7 @@ import { getPots } from '../../reducers/IssueFilterReducer';
 import CommentForm from '../Comment/CommentForm';
 import IssueDescription from './IssueDescription';
 import IssueForm from '../Issue/IssueForm';
+import { getArea } from '../../reducers/AreaReducer';
 
 class IssueManager extends React.Component{
     constructor(props){
@@ -68,6 +69,9 @@ class IssueManager extends React.Component{
                     comment={this.state.comment}
                     errors={this.state.errors}
                     onCommentChange={this.onCommentChange}
+                    issue={this.state.issue}
+                    usertype={this.props.usertype}
+                    area={this.props.area}
                     />
                <IssueForm
                     issue={this.state.issue}
@@ -83,7 +87,7 @@ class IssueManager extends React.Component{
                     categories={this.props.categories}
                     />
                 <div id="issueManagerButtons" className="anchor-bottom">
-                    <button className="btn" onClick={this.handleSubmit}disabled={this.state.submitDisabled}>Submit</button>  
+                    <button className="btn" onClick={this.handleSubmit} disabled={this.state.submitDisabled}>Submit</button>  
                     <button className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>
                     {/*<button id="attach" className="btn">Add attachment</button>*/}
                 </div>
@@ -103,7 +107,8 @@ IssueManager.propTypes = {
 function mapStateToProps(state, ownProps){
     return{
         assignees: getAssignees(state),
-        pots: getPots(state.area)
+        pots: getPots(state.area),
+        area: getArea(state)
     };
 }
 

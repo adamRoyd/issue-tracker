@@ -5,14 +5,20 @@ import TextAreaInput from '../Common/TextAreaInput';
 import TextEditor from '../Common/TextEditor';
 
 
-const CommentForm = ({comment,errors,onCommentChange}) => {
+const CommentForm = ({comment,errors,onCommentChange,issue,area,usertype}) => {
     return(
         <div className="commentBox">
+            {((issue.status == 'Closed') || ((area == 'client') && (usertype != 'Client')))
+            ?
+            <p className="error"><br/><strong>{(area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
+            :
             <TextEditor
-                onCommentChange={onCommentChange}
-                placeholder="Enter a comment..."
-                value={comment.text}
-                />
+            onCommentChange={onCommentChange}
+            placeholder="Enter a comment..."
+            value={comment.text}
+            />
+            } 
+
         </div>
     );
 };
