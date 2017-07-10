@@ -18,8 +18,8 @@ class NavBarPhone extends React.Component{
         this.newIssue = this.newIssue.bind(this);
     }
     logout = () => {
-        this.props.dispatch(logoutUser());
-        this.props.dispatch(logout());
+        // this.props.dispatch(logoutUser());
+        // this.props.dispatch(logout());
         browserHistory.push(`/`);
     }
     newIssue = () => {
@@ -35,7 +35,7 @@ class NavBarPhone extends React.Component{
             <div id="navBar" className="row visible-phone">
                 {(this.props.params.projectCode) ?
                     <ButtonGroup vertical block style={{ height: '100%'}}>
-                            <DropdownButton title={this.props.username} id="bg-nested-dropdown">
+                            <DropdownButton title='Menu' id="bg-nested-dropdown">
                                 <MenuItem eventKey="1" onSelect={this.newIssue}>New Issue</MenuItem>    
                                 <MenuItem eventKey="2" onSelect={this.openProject}>Open Project</MenuItem>  
                                 <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
@@ -43,7 +43,7 @@ class NavBarPhone extends React.Component{
                     </ButtonGroup>     
                     :
                     <ButtonGroup vertical block style={{ height: '100%'}}>
-                        <DropdownButton title={this.props.username} id="bg-nested-dropdown">
+                        <DropdownButton title='Menu' id="bg-nested-dropdown">
                             <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
                         </DropdownButton>
                     </ButtonGroup> 

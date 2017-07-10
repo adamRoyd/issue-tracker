@@ -17,7 +17,6 @@ const UserReducer = (state = initialState.user, action) =>{
             errorMessage: action.message
         })
     case types.SAVE_USER:
-        console.log('SAVE USER REDUCER');
         return Object.assign({}, state, {
             username: action.user.username,
             usertype: action.user.usertype,

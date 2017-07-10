@@ -17,7 +17,7 @@ const FriendlyDate = ({date}) => {
         return data;
     }
     return(
-        <p>{dateText}</p>
+        <span>{dateText}</span>
     );
 }
 

@@ -120,7 +120,6 @@ class NewIssuePage extends React.Component{
 
 NewIssuePage.propTypes = {
     issue : PropTypes.object,
-    username : PropTypes.string.isRequired,
     assignees : PropTypes.array.isRequired,
     locations : PropTypes.array.isRequired,
     params : PropTypes.object.isRequired

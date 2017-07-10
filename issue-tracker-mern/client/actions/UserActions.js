@@ -11,7 +11,6 @@ export function saveUser(user){
 export function fetchUser() {
     return (dispatch) => {
         return callApi('user').then(res => {
-            console.log(res.user);
             dispatch(saveUser(res.user));
         });
     };

@@ -146,7 +146,6 @@ class NewIssueModal extends React.Component{
 
 NewIssueModal.propTypes = {
     issue : PropTypes.object,
-    username : PropTypes.string.isRequired,
     assignees : PropTypes.array.isRequired,
     locations : PropTypes.array.isRequired,
     buttonName : PropTypes.string,
