@@ -9,7 +9,6 @@ export function addAssignees(assignees){
 }
 
 export function fetchAssignees() {
-    console.log('FETACH ASSIGNEES ACTION');
     return (dispatch) => {
         return callApi('assignees').then(res => {
             dispatch(addAssignees(res.assignees));

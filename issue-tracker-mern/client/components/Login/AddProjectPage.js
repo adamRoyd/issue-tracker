@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { addProjectRequest } from '../../actions/ProjectActions';
+import { getMessage } from '../../reducers/MessageReducer';
 import { Link, browserHistory } from 'react-router';
 import TextInput from '../Common/TextInput';
 
@@ -61,7 +62,7 @@ class AddProjectPage extends React.Component{
                         placeholder="Enter a project code"
                         value={this.state.project}
                         onChange={this.updateProjectState} />
-                <div className={this.state.success ? "infomessage success" : "infomessage error"}>{this.state.message}</div>
+                <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
                 <div className="right-align">
                     <button className="btn" onClick={this.handleSubmit}>Create Project</button>
                 </div>
@@ -70,4 +71,10 @@ class AddProjectPage extends React.Component{
     }  
 }
 
-export default connect()(AddProjectPage);
+function mapStateToProps(state){
+    return {
+        message: getMessage(state)
+    };
+}
+
+export default connect(mapStateToProps)(AddProjectPage);

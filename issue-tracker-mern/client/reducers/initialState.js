@@ -13,5 +13,9 @@ export default({
     },
     attachments: [],
     area: "internal",
-    modal: ""
+    modal: "",
+    message: {
+        success: true,
+        text: ""
+    }
 });

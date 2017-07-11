@@ -10,6 +10,7 @@ import user from './UserReducer';
 import attachments from './AttachmentReducer';
 import area from './AreaReducer';
 import modal from './ModalReducer';
+import message from './MessageReducer';
 
 export default combineReducers({
   projects,
@@ -21,5 +22,6 @@ export default combineReducers({
   user,
   attachments,
   area,
-  modal
+  modal,
+  message
 });

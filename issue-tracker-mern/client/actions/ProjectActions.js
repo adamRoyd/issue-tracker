@@ -17,17 +17,29 @@ export function fetchProjects() {
 }
 
 export function addProjectRequest(project) {
-console.log('ADD PROJECT REQUEST');
   return (dispatch) => {
     return callApi('addproject','post', {
       project: project
-    }).then(res => dispatch(addProjectSuccess(res.projects)));
+    }).then(res => {
+        if(!res.project){
+            dispatch(addProjectFailure(res.message));
+        }   else{
+            dispatch(addProjectSuccess(res.message));
+        }
+    })
   };
 }
 
-export function addProjectSuccess(projects){
+export function addProjectSuccess(message){
     return{
-        type:types.ADD_PROJECTS,
-        projects
+        type : types.ADD_PROJECT_SUCCESS,
+        message
+    }
+}
+
+export function addProjectFailure(message){
+    return{
+        type : types.ADD_PROJECT_FAILURE,
+        message
     }
 }

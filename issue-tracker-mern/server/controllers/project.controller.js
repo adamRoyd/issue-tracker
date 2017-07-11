@@ -22,19 +22,25 @@ export function getProjects(req, res) {
  * @param res
  * @returns void
  */
-export function addProject(req, res) {
-  if (!req.body.issue.project) {
+export async function addProject(req, res) {
+  if (!req.body.project) {
       res.status(403).end();
   }
-  
-  //If project already exists, return error message
+  const p = await Project.find({projectCode : req.body.project});
+  if (p.length > 0) {
+    res.status(400).send({message: 'A project already exists with that code. Please try again.'});
+  } else{
+    const newProject = new Project({projectCode : req.body.project});
+    newProject.projectCode = sanitizeHtml(newProject.projectCode);
 
-  //const newProject = new Project(req.body.project);
-
-  // newProject.save((err, saved) => {
-  //   if (err) {
-  //     return res.status(500).send(err);
-  //   }
-  //   res.json({ project: saved });
-  // });
+    newProject.save((err, saved) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+      res.json({ 
+        project: saved,
+        message: `New project ${saved.projectCode} created`
+      });
+    });
+  }
 }
