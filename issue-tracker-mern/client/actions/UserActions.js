@@ -22,8 +22,28 @@ export function addUserRequest(user) {
             username : user.username,
             usertype: user.usertype,
             project: user.projects
-        }).then(res => dispatch(addUserSuccess()));
+        }).then(res => {
+          if(res.error){
+            dispatch(addUserFailure(res.message))
+          } else {
+            dispatch(addUserSuccess(res.message))
+          }
+        });
   };
+}
+
+export function addUserSuccess(message){
+  return {
+    type: types.ADD_USER_SUCCESS,
+    message
+  }
+}
+
+export function addUserFailure(message){
+  return {
+    type: types.ADD_USER_FAILURE,
+    message
+  }
 }
 
 function requestLogin(creds) {

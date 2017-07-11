@@ -12,7 +12,17 @@ const MessageReducer = (state = initialState.message, action) =>{
       return Object.assign({},state,{
           text: action.message,
           success: false
+      }); 
+    case types.ADD_USER_SUCCESS:
+      return Object.assign({},state,{
+          text: action.message,
+          success: true
       });  
+    case types.ADD_USER_FAILURE:
+      return Object.assign({},state,{
+          text: action.message,
+          success: false
+      }); 
     default:
       return Object.assign({},state,{
           text: ""

@@ -14,6 +14,7 @@ class ProjectPicker extends React.Component{
         this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount(){
+
         this.nameInput.focus();
     }
     searchProjects(e){
@@ -36,6 +37,7 @@ class ProjectPicker extends React.Component{
         }
     }
     render(){
+        console.log(this.state.visibleprojects);
         return(
             <div>
                 <input
@@ -47,7 +49,10 @@ class ProjectPicker extends React.Component{
                 />
                 <div className="project-list">
                     <ul className="list-group">
-                        {this.state.visibleprojects.map((projectCode, i) =>
+                        
+                        {(this.state.visibleprojects.length > 0) 
+                        ? 
+                        this.state.visibleprojects.map((projectCode, i) =>
                         <button 
                             type="button" 
                             className="list-group-item" 
@@ -56,7 +61,17 @@ class ProjectPicker extends React.Component{
                         >
                             {projectCode.toUpperCase()}
                         </button>
-                        )}
+                        ) 
+                        : 
+                        this.props.projects.map((projectCode, i) =>
+                        <button 
+                            type="button" 
+                            className="list-group-item" 
+                            key={i} 
+                            onClick={() => this.handleClick(projectCode)}
+                        >
+                            {projectCode.toUpperCase()}
+                        </button>)}
                     </ul>
                 </div>
             </div>

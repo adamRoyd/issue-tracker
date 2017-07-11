@@ -7,6 +7,7 @@ import SelectInput from '../Common/SelectInput';
 import TextInput from '../Common/TextInput';
 import { fetchProjects } from '../../actions/ProjectActions';
 import { getProjects } from '../../reducers/ProjectReducer';
+import { getMessage } from '../../reducers/MessageReducer';
 
 class RegistrationPage extends React.Component{
     constructor(props){
@@ -15,9 +16,8 @@ class RegistrationPage extends React.Component{
             errors : {},
             user: {
                 username: "",
-                usertype: ""
+                usertype: "Internal"
             },
-            message: "",
             success: false
         };
         this.updateUserState = this.updateUserState.bind(this);
@@ -40,7 +40,6 @@ class RegistrationPage extends React.Component{
         if(Object.keys(errors).length === 0 && errors.constructor === Object){
             this.props.dispatch(addUserRequest(newUser));
             return this.setState({
-                message: `New ${newUser.usertype} user ${newUser.username} created. They will recieve an email shortly.`,
                 user: {
                     username: "",
                     usertype: ""
@@ -49,7 +48,6 @@ class RegistrationPage extends React.Component{
             })
         }   else{
             return this.setState({
-                message: `There was a problem with the form. Please ensure you have entered a valid email address.`,
                 success:false
             })
         }
@@ -92,7 +90,7 @@ class RegistrationPage extends React.Component{
                                 error={this.state.errors.usertype}/>
                         : null
                     }
-                <div className={this.state.success ? "infomessage success" : "infomessage error"}>{this.state.message}</div>
+                <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
                 <div className="right-align">
                     <button className="btn" onClick={this.handleSubmit}>Create User</button>
                 </div>
@@ -103,7 +101,8 @@ class RegistrationPage extends React.Component{
 
 function mapStateToProps(state){
     return{
-        projects : getProjects(state)
+        projects : getProjects(state),
+        message: getMessage(state)
     };
 }
 

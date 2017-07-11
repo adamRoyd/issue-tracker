@@ -38,16 +38,32 @@ export function login(req, res, next) {
  * @returns void
  */
 export function signup(req, res, next) {
-    User.register(new User({ username : req.body.username, usertype: req.body.usertype, project: req.body.project }), 'test', (err, account) => {
+    let newUser;
+    if(req.body.project){
+        newUser = new User({ username : req.body.username, usertype: req.body.usertype, project: req.body.project })
+    }   else{
+        newUser = new User({ username : req.body.username, usertype: req.body.usertype})
+    }
+    User.register(newUser, 'test', (err, user) => {
         if (err) {
-          return res.send('error');
+            return res.send({
+                message: `An error occured in the saving process.`,
+                error: true
+            });
+        }   else{
+            //send new user an email
+            mail.send({
+                username: req.body.username,
+                subject: 'Welcome to BIT',
+                html: `<p>Welcome to BIT. Your login details are:</p><p>Username: ${req.body.username}</p><p>Password: test</p><p>Select <a href="localhost:8000/" target="_blank">here</a> to go to BIT</p>`
+            })
+            //response
+            res.send({
+                message: `New ${req.body.usertype} user ${req.body.username} created. They will recieve a welcome email shortly.`,
+                error: false
+            });
         }
-        //send new user an email
-        mail.send({
-            username: req.body.username,
-            subject: 'Welcome to BIT',
-            html: `<p>Welcome to BIT. Your login details are:</p><p>Username: ${req.body.username}</p><p>Password: test</p><p>Select <a href="localhost:8000/" target="_blank">here</a> to go to BIT</p>`
-        })
+
     });
 };
 /**
