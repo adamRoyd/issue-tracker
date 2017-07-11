@@ -4,7 +4,7 @@ import initialState from './initialState';
 const ProjectReducer = (state = initialState.projects, action) =>{
   switch (action.type) {
     case types.ADD_PROJECTS:
-      const projectsArray = []
+      const projectsArray = [];
       Object.keys(action.projects).forEach(key =>{
         projectsArray.push(action.projects[key].projectCode);
       })
@@ -14,7 +14,6 @@ const ProjectReducer = (state = initialState.projects, action) =>{
   }
 }
 
-/* Selectors */
 export const getProjects = state => state.projects;
 
 export default ProjectReducer;

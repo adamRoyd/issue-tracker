@@ -16,3 +16,25 @@ export function getProjects(req, res) {
     res.json({ projects });
   });
 }
+/**
+ * Add Project
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function addProject(req, res) {
+  if (!req.body.issue.project) {
+      res.status(403).end();
+  }
+  
+  //If project already exists, return error message
+
+  //const newProject = new Project(req.body.project);
+
+  // newProject.save((err, saved) => {
+  //   if (err) {
+  //     return res.status(500).send(err);
+  //   }
+  //   res.json({ project: saved });
+  // });
+}

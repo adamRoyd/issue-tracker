@@ -28,6 +28,9 @@ class NavBar extends React.Component{
     adduser = () => {
         browserHistory.push('/adduser');
     }
+    addProject = () => {
+        browserHistory.push('/createproject');
+    }
     areaClick = () => {
         browserHistory.push(`/${this.props.params.projectCode}/issues/all`);
         this.props.dispatch(toggleArea());
@@ -52,7 +55,6 @@ class NavBar extends React.Component{
                             ?   <Button disabled={true}>Client Area</Button>
                             :   <DropdownButton 
                                     id="bg-nested-dropdown"
-                                    bsSize="300px"
                                     title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } 
                                     className="nav-div left">
                                     <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>
@@ -68,7 +70,7 @@ class NavBar extends React.Component{
                         <DropdownButton title='User options' id="bg-nested-dropdown">
                             <MenuItem header>{this.props.user.username}</MenuItem>
                             <MenuItem divider/>
-                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1">Create Projects</MenuItem>    
+                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={this.addProject}>Create Project</MenuItem>    
                             <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={this.adduser}>Manage Users</MenuItem>  
                             <MenuItem eventKey="3" onSelect={() => this.logout()}>Log out</MenuItem>
                         </DropdownButton>

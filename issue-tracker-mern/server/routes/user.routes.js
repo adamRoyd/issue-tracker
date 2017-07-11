@@ -9,7 +9,9 @@ router.route('/login').post(UserController.login);
 
 router.route('/logout').post(UserController.logout);
 
-router.route('/user').get(UserController.getUser)
+router.route('/user').get(UserController.getUser);
+
+router.route('/assignees').get(UserController.getAssignees);
 
 
 export default router;

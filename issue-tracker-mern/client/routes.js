@@ -21,15 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./components/Issue/IssuePage');
   require('./components/Login/RegistrationPage');
   require('./components/Issue/NewIssuePage');
-}
-
-function authCheck(nextState, replace) {
-  const userExists = true;
-  if (!userExists) {
-    replace({
-      pathname: '/login',
-    })
-  }
+  require('./components/Login/AddProjectPage');
 }
 
 // react-router setup with code-splitting
@@ -53,7 +45,15 @@ export default (
           cb(null, require('./components/Login/RegistrationPage').default);
         });
       }}
-    />    
+    />   
+    <Route
+      path="/createproject"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./components/Login/AddProjectPage').default);
+        });
+      }}
+    />  
     <Route
       path="/selectproject"
       getComponent={(nextState, cb) => {

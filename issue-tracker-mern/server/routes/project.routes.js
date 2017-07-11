@@ -6,4 +6,7 @@ const router = new Router();
 //Get all projects
 router.route('/selectproject').get(ProjectController.getProjects);
 
+router.route('/addproject').post(ProjectController.addProject);
+
+
 export default router;

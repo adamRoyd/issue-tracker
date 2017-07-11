@@ -80,5 +80,14 @@ export function getUser(req,res){
             user: {}
         });        
     }
-
+}
+export function getAssignees(req, res) {
+    console.log('GET ASSIGNEES CONTROLLER');
+    User.find({},{_id: 0,username: 1}).exec((err, assignees) => {
+    if (err) {
+        res.status(500).send(err);
+    }   else{
+        res.json({ assignees });
+    }
+    });
 }

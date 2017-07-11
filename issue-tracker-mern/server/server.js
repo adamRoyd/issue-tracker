@@ -43,7 +43,6 @@ import users from './routes/user.routes';
 import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
 import comments from './routes/comment.routes';
-import assignees from './routes/assignee.routes';
 import serverConfig from './config';
 //dummy data
 import dummyData from './dummyData';
@@ -98,7 +97,6 @@ app.use('/api',users);
 app.use('/api',issues);
 app.use('/api',projects);
 app.use('/api',comments);
-app.use('/api',assignees);
 
 //passport config
 var User = require ('./models/user');
