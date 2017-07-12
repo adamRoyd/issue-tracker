@@ -4,16 +4,30 @@ import initialState from './initialState';
 const AssigneeReducer = (state = initialState.assignees, action) => {
   switch (action.type) {
     case types.ADD_ASSIGNEES:
-      const arry = [];
-      Object.keys(action.assignees).forEach(key =>{
-        arry.push(action.assignees[key].username);
-      })
-      return arry;
+      console.log('ADD ASSIGNEES');
+      return action.assignees;
     default:
       return state;
   }
 };
 
-export const getAssignees = state => state.assignees;
+export const getAssignees = state => {
+  const area = state.area;
+  if(area == 'internal') {
+      let filteredUsers =  state.assignees.filter((a) => 
+        a.usertype == 'Admin' || a.usertype == 'Internal'
+      )
+      return filteredUsers.map((u) => {
+        return u.username
+      })
+  } else{
+      let filteredUsers =  state.assignees.filter((a) => 
+        a.usertype == 'Client'
+      )
+      return filteredUsers.map((u) => {
+        return u.username
+      })
+  };
+}
 
 export default AssigneeReducer;

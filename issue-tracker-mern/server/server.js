@@ -79,7 +79,7 @@ app.use(morgan('dev'));
 //Configuring passport
 app.use(session({
   cookie:{
-    maxAge: 3600000
+    maxAge: 3600000000
   },
   secret: 'mySecretKey',
   saveUninitialized: true,

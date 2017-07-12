@@ -98,7 +98,7 @@ export function getUser(req,res){
     }
 }
 export function getAssignees(req, res) {
-    User.find({},{_id: 0,username: 1}).exec((err, assignees) => {
+    User.find({},{_id: 0,username: 1,usertype: 1,project: 1}).exec((err, assignees) => {
     if (err) {
         res.status(500).send(err);
     }   else{
