@@ -16,6 +16,7 @@ export default({
     modal: "",
     message: {
         success: true,
-        text: ""
+        text: "",
+        isFetching: true
     }
 });

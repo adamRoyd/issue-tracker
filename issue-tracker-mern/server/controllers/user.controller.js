@@ -47,7 +47,7 @@ export function signup(req, res, next) {
     User.register(newUser, 'test', (err, user) => {
         if (err) {
             return res.send({
-                message: `An error occured in the saving process.`,
+                message: `An error occured. Please try again.`,
                 error: true
             });
         }   else{
@@ -59,11 +59,10 @@ export function signup(req, res, next) {
             })
             //response
             res.send({
-                message: `New ${req.body.usertype} user ${req.body.username} created. They will recieve a welcome email shortly.`,
+                message: `New ${req.body.usertype} user ${req.body.username} created.`,
                 error: false
             });
         }
-
     });
 };
 /**

@@ -8,6 +8,8 @@ import ProjectPicker from './ProjectPicker';
 import NewIssueModal from '../Modals/NewIssueModal';
 import BatchIssuesModal from '../Modals/BatchIssuesModal';
 import OpenProjectModal from '../Modals/OpenProjectModal';
+import AddProjectModal from '../Modals/AddProjectModal';
+import AddUserModal from '../Modals/AddUserModal';
 import { openModal } from '../../actions/ModalActions'
 import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
 
@@ -70,13 +72,15 @@ class NavBar extends React.Component{
                         <DropdownButton title='User options' id="bg-nested-dropdown">
                             <MenuItem header>{this.props.user.username}</MenuItem>
                             <MenuItem divider/>
-                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={this.addProject}>Create Project</MenuItem>    
-                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={this.adduser}>Manage Users</MenuItem>  
+                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={() => this.handleClick('addproject')}>Create Project</MenuItem>    
+                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={() => this.handleClick('adduser')}>Add Users</MenuItem>  
                             <MenuItem eventKey="3" onSelect={() => this.logout()}>Log out</MenuItem>
                         </DropdownButton>
                         <OpenProjectModal {...this.props}/>
                         <NewIssueModal {...this.props}/>
                         <BatchIssuesModal {...this.props}/>
+                        <AddUserModal {...this.props}/>
+                        <AddProjectModal {...this.props}/>
                     </ButtonGroup>     
                     :
                     //Nav bar for pages other than the main issue page

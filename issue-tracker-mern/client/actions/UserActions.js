@@ -17,6 +17,8 @@ export function fetchUser() {
 }
 
 export function addUserRequest(user) {
+    console.log('ADD USER REQUEST');
+    console.log(user);
     return (dispatch) => {
         return callApi(`signup`,'post', {
             username : user.username,
