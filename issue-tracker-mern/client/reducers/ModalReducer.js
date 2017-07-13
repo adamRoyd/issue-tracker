@@ -15,6 +15,8 @@ const ModalReducer = (state = initialState.modal, action) =>{
         return "addproject"
     case types.ADD_PROJECT_SUCCESS:
         return "addproject"
+    case types.UPLOAD_FILE_SUCCESS:
+        return "newIssue"
     default:
         return initialState.modal;     
   }

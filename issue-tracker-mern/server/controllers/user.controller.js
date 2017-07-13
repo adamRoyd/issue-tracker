@@ -4,8 +4,6 @@ const passport = require('passport');
 import cuid from 'cuid';
 import slug from 'limax';
 import sanitizeHtml from 'sanitize-html';
-import _ from 'lodash';
-import jwt from 'jsonwebtoken';
 import config from '../config';
 import mail from '../handlers/mail';
 
