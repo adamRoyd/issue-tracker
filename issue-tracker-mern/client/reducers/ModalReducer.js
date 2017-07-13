@@ -7,10 +7,14 @@ const ModalReducer = (state = initialState.modal, action) =>{
         return action.modal
     case types.CLOSE_MODAL:
         return ""
+    case types.FETCH_ADD_USER:
+        return "adduser"
     case types.ADD_USER_SUCCESS:
         return "adduser"
     case types.ADD_USER_FAILURE:
         return "adduser"
+    case types.REQUEST_PROJECT:
+        return "addproject"
     case types.ADD_PROJECT_FAILURE:
         return "addproject"
     case types.ADD_PROJECT_SUCCESS:

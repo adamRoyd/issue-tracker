@@ -74,11 +74,11 @@ class AddProjectModal extends React.Component{
                             onChange={this.updateProjectState} />
                     </Modal.Body>
                     <Modal.Footer>
-                        <Spinner visible={!this.state.message.isFetching}/>
+                        <Spinner visible={this.props.message.isFetching}/>
                         <div className="infomessage error">{this.state.errors}</div>
                         <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
                         <button className="btn" onClick={this.close}>Close</button>
-                        <button className="btn" onClick={this.handleSubmit}>Create Project</button>
+                        <button className="btn" disabled={this.state.project.length === 0} onClick={this.handleSubmit}>Create Project</button>
                     </Modal.Footer>
                 </Modal>
             </div>

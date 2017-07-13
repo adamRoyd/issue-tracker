@@ -5,6 +5,8 @@ import { Link, browserHistory } from 'react-router';
 import { fetchProjects } from '../../actions/ProjectActions';
 import { loginUser } from '../../actions/UserActions';
 import { getUser } from '../../reducers/UserReducer';
+import { getMessage } from '../../reducers/MessageReducer';
+import Spinner from '../Common/Spinner';
 
 class LoginPage extends React.Component{
     handleSubmit = (e) => {
@@ -35,6 +37,7 @@ class LoginPage extends React.Component{
                             : <p></p>
                         }
                     </form>
+                    <Spinner visible={this.props.message.isFetching}/>
                 </div>
             </div>
         );
@@ -47,7 +50,8 @@ LoginPage.propTypes = {
 
 function mapStateToProps(state){
     return{
-        user: getUser(state)
+        user: getUser(state),
+        message: getMessage(state)
     };
 }
 

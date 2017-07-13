@@ -3,26 +3,53 @@ import initialState from './initialState';
 
 const MessageReducer = (state = initialState.message, action) =>{
   switch (action.type) {
+    case types.LOGIN_REQUEST:
+      return Object.assign({},state,{
+          isFetching: true,
+          text: ""
+      });
+    case types.LOGIN_SUCCESS:
+      return Object.assign({},state,{
+          isFetching: false
+      });
+    case types.LOGIN_FAILURE:
+      return Object.assign({},state,{
+          isFetching: false
+      });
+    case types.REQUEST_PROJECT:
+      return Object.assign({},state,{
+          isFetching: true,
+          text: ""
+      });
     case types.ADD_PROJECT_SUCCESS:
       return Object.assign({},state,{
           text: action.message,
-          success: true
+          success: true,
+          isFetching: false
       });  
     case types.ADD_PROJECT_FAILURE:
       return Object.assign({},state,{
           text: action.message,
-          success: false
+          success: false,
+          isFetching: false
       }); 
+    case types.FETCH_ADD_USER:
+      return Object.assign({},state,{
+          isFetching: true,
+          text: ""
+      });
     case types.ADD_USER_SUCCESS:
       return Object.assign({},state,{
           text: action.message,
-          success: true
+          success: true,
+          isFetching: false
       });  
     case types.ADD_USER_FAILURE:
       return Object.assign({},state,{
           text: action.message,
-          success: false
-      }); 
+          success: false,
+          isFetching: false
+      });
     default:
       return Object.assign({},state,{
           text: ""

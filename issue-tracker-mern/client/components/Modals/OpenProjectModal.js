@@ -23,9 +23,9 @@ class OpenProjectModal extends React.Component{
                     </Modal.Header>
                     <Modal.Body>
                         <ProjectPicker
-                        {...this.props}
-                        close={this.close}
-                        />
+                            {...this.props}
+                            close={this.close}
+                            />
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn" onClick={this.close}>Close</button>

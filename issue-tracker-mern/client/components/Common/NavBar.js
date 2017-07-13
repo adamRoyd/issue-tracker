@@ -23,9 +23,9 @@ class NavBar extends React.Component{
         this.homeClick = this.homeClick.bind(this);
     }
     logout = () => {
-        // this.props.dispatch(logoutUser());
-        // this.props.dispatch(logout());
-        // browserHistory.push(`/`);
+        this.props.dispatch(logoutUser());
+        this.props.dispatch(logout());
+        browserHistory.push(`/`);
     }
     adduser = () => {
         browserHistory.push('/adduser');

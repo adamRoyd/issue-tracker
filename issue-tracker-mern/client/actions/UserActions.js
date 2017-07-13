@@ -17,9 +17,8 @@ export function fetchUser() {
 }
 
 export function addUserRequest(user) {
-    console.log('ADD USER REQUEST');
-    console.log(user);
     return (dispatch) => {
+        dispatch(fetchingAddUser());
         return callApi(`signup`,'post', {
             username : user.username,
             usertype: user.usertype,
@@ -32,6 +31,12 @@ export function addUserRequest(user) {
           }
         });
   };
+}
+
+export function fetchingAddUser(){
+    return{
+        type: types.FETCH_ADD_USER
+    }
 }
 
 export function addUserSuccess(message){
@@ -51,7 +56,6 @@ export function addUserFailure(message){
 function requestLogin(creds) {
   return {
     type: types.LOGIN_REQUEST,
-    isFetching: true,
     creds
   }
 }
@@ -59,7 +63,6 @@ function requestLogin(creds) {
 function loginSuccess(user) {
   return {
     type: types.LOGIN_SUCCESS,
-    isFetching: false,
     user: user
   }
 }
@@ -67,7 +70,6 @@ function loginSuccess(user) {
 function loginError(message) {
   return {
     type: types.LOGIN_FAILURE,
-    isFetching: false,
     message
   }
 }

@@ -12,7 +12,7 @@ import TextInput from '../Common/TextInput';
 import { fetchProjects } from '../../actions/ProjectActions';
 import { getProjects } from '../../reducers/ProjectReducer';
 import { getMessage } from '../../reducers/MessageReducer';
-
+import Spinner from '../Common/Spinner';
 
 class AddUserModal extends React.Component{
     constructor(props){
@@ -47,6 +47,7 @@ class AddUserModal extends React.Component{
         const newUser = this.state.user;
         const errors = this.validate(newUser);
         if(errors == ""){
+            console.log('ADD USER REQUEST');
             this.props.dispatch(addUserRequest(newUser));
             return this.setState({
                 user: {
@@ -106,6 +107,7 @@ class AddUserModal extends React.Component{
                         }
                     </Modal.Body>
                     <Modal.Footer>
+                        <Spinner visible={this.props.message.isFetching}/>
                         <div className="infomessage error">{this.state.errors}</div>
                         <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
                         <button className="btn" onClick={this.close}>Close</button>

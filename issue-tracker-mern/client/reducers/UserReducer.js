@@ -5,7 +5,6 @@ const UserReducer = (state = initialState.user, action) =>{
   switch (action.type) {
     case types.LOGIN_SUCCESS:
         return Object.assign({}, state, {
-            isFetching: false,
             username: action.user.username,
             usertype: action.user.usertype,
             userproject: action.user.project,
@@ -13,7 +12,6 @@ const UserReducer = (state = initialState.user, action) =>{
         })
     case types.LOGIN_FAILURE:
         return Object.assign({}, state, {
-            isFetching: false,
             errorMessage: action.message
         })
     case types.SAVE_USER:

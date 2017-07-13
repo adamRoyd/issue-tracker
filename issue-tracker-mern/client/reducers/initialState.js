@@ -17,6 +17,6 @@ export default({
     message: {
         success: true,
         text: "",
-        isFetching: true
+        isFetching: false
     }
 });

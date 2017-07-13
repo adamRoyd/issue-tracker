@@ -18,6 +18,7 @@ export function fetchProjects() {
 
 export function addProjectRequest(project) {
   return (dispatch) => {
+    dispatch(requestProject())
     return callApi('addproject','post', {
       project: project
     }).then(res => {
@@ -28,6 +29,12 @@ export function addProjectRequest(project) {
         }
     })
   };
+}
+
+export function requestProject(){
+    return{
+        type: types.REQUEST_PROJECT
+    }
 }
 
 export function addProjectSuccess(message){
