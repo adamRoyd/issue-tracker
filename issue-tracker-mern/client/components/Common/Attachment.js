@@ -1,5 +1,4 @@
 import React from 'react';
-var file = require("file-loader!../../../uploads/test.png");
 
 class Attachment extends React.Component {
   render() {

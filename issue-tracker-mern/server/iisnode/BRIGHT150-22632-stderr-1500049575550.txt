@@ -1,0 +1,16 @@
+Application has thrown an uncaught exception and is terminated:
+C:\GitHub\issue-tracker\issue-tracker-mern\server\server.js:209
+export default app;
+^^^^^^
+
+SyntaxError: Unexpected token export
+    at createScript (vm.js:74:10)
+    at Object.runInThisContext (vm.js:116:10)
+    at Module._compile (module.js:533:28)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:503:32)
+    at tryModuleLoad (module.js:466:12)
+    at Function.Module._load (module.js:458:3)
+    at Module.require (module.js:513:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (C:\Program Files\iisnode\interceptor.js:210:1)

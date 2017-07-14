@@ -1,0 +1,5 @@
+Issue Tracker is running on port: \\.\pipe\f376cd65-f749-4ad4-b2bf-713b015b9288!
+[0mGET /login [32m200 [0m545.265 ms - -[0m
+LOG IN NOT OK!
+[0mGET /app.js [36m302 [0m23.442 ms - 28[0m
+[0mGET /login [32m200 [0m29.468 ms - -[0m
