@@ -44,11 +44,6 @@ import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
 import comments from './routes/comment.routes';
 import serverConfig from './config';
-//dummy data
-import dummyData from './dummyData';
-import dummyIssues from './dummyIssues';
-import dummyComments from './dummyComments';
-import dummyAssignees from './dummyAssignees';
 
 // Set native promises as mongoose promise
 mongoose.Promise = global.Promise;
@@ -59,12 +54,6 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
     console.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
     throw error;
   }
-
-  // feed some dummy data in DB.
-  dummyData();
-  dummyIssues();
-  dummyComments();
-  dummyAssignees();
 });
 
 // Apply body Parser and server public assets and routes
