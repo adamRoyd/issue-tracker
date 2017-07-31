@@ -37,7 +37,6 @@ class ProjectPicker extends React.Component{
         }
     }
     render(){
-        console.log(this.state.visibleprojects);
         return(
             <div>
                 <input

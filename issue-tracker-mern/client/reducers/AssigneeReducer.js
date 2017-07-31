@@ -4,7 +4,6 @@ import initialState from './initialState';
 const AssigneeReducer = (state = initialState.assignees, action) => {
   switch (action.type) {
     case types.ADD_ASSIGNEES:
-      console.log('ADD ASSIGNEES');
       return action.assignees;
     default:
       return state;

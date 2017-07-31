@@ -62,7 +62,6 @@ class RegistrationPage extends React.Component{
         return errors
     }
     render(){
-        console.log(this.props);
         return(
             <div className="col-sm-8 col-sm-offset-2">
                 <h4>Add a new user</h4>

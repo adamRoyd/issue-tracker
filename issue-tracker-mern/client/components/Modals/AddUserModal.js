@@ -47,7 +47,6 @@ class AddUserModal extends React.Component{
         const newUser = this.state.user;
         const errors = this.validate(newUser);
         if(errors == ""){
-            console.log('ADD USER REQUEST');
             this.props.dispatch(addUserRequest(newUser));
             return this.setState({
                 user: {
