@@ -1,53 +1,45 @@
-import Express from 'express';
-import compression from 'compression';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-import passport from 'passport';
-import morgan from 'morgan';
-import session from 'express-session';
-import path from 'path';
-import ExpressValidator from 'express-validator';
+var Express = require('express');
+var compression = require('compression');
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var passport = require('passport');
+var morgan = require('morgan');
+var session = require('express-session');
+var path = require('path');
+var ExpressValidator = require('express-validator');
 var LocalStrategy = require('passport-local').Strategy;
 var MongoStore = require('connect-mongo')(session);
-
-
 // Webpack Requirements
-import webpack from 'webpack';
-import config from '../webpack.config.dev';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-
+var webpack = require ('webpack');
+var config = require ('../webpack.config.dev');
+var webpackDevMiddleware = require ('webpack-dev-middleware');
+var webpackHotMiddleware = require ('webpack-hot-middleware');
 // Initialize the Express App
 const app = new Express();
-
 // Run Webpack dev server in development mode
 if (process.env.NODE_ENV === 'development') {
   const compiler = webpack(config);
   app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
   app.use(webpackHotMiddleware(compiler));
 }
-
 // React And Redux Setup
-import { configureStore } from '../client/store';
-import { Provider } from 'react-redux';
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { match, RouterContext } from 'react-router';
-import Helmet from 'react-helmet';
-
-// Import required modules
+var { configureStore } = require ('../client/store');
+var { Provider } = require ('react-redux');
+var React = require ('react');
+var { renderToString } = require ('react-dom/server');
+var { match, RouterContext } = require ('react-router');
+var Helmet = require ('react-helmet');
+// var required modules
 import routes from '../client/routes';
-import { fetchComponentData } from './util/fetchData';
+var { fetchComponentData } = require ('./util/fetchData');
 import users from './routes/user.routes';
 import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
 import comments from './routes/comment.routes';
-import serverConfig from './config';
-
+import serverConfig  from './config';
 // Set native promises as mongoose promise
 mongoose.Promise = global.Promise;
-
 // MongoDB Connection
 mongoose.connect(serverConfig.mongoURL, (error) => {
   if (error) {
@@ -55,7 +47,6 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
     throw error;
   }
 });
-
 // Apply body Parser and server public assets and routes
 app.use(compression());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -64,7 +55,6 @@ app.use(cookieParser());
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use(Express.static(path.resolve(__dirname, '../uploads')));
 app.use(morgan('dev'));
-
 //Configuring passport
 app.use(session({
   cookie:{
@@ -79,25 +69,22 @@ app.use(passport.initialize());
 app.use(passport.session());
 // Using the flash middleware provided by connect-flash to store messages in session
 // and displaying in templates
-import flash from 'connect-flash';
+var flash = require ('connect-flash');
 app.use(flash());
-
 app.use('/api',users);
 app.use('/api',issues);
 app.use('/api',projects);
 app.use('/api',comments);
-
 //passport config
 var User = require ('./models/user');
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
   const head = Helmet.rewind();
 
-  // Import Manifests
+  // var Manifests
   const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
   const chunkManifest = process.env.webpackChunkAssets && JSON.parse(process.env.webpackChunkAssets);
 

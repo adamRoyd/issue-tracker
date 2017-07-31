@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const FriendlyDate = ({date}) => {
-
+    
     const d = new Date(date);
     const day = checkZero(d.getDate());
     const month = checkZero(d.getMonth() + 1);
