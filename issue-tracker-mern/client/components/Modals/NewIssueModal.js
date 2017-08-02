@@ -128,6 +128,7 @@ class NewIssueModal extends React.Component{
                             categories={this.props.categories}
                             onDrop={this.onDrop}
                             files={this.state.files}
+                            username={this.props.user.username}
                             {...this.props}/>
                     </Modal.Body>
                     <Modal.Footer>
@@ -154,7 +155,7 @@ NewIssueModal.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        assignees: getAssignees(state),
+        assignees: getAssignees(state,ownProps.params.projectCode),
         attachments: getAttachments(state),
         showModal: state.modal == 'newIssue'
     };

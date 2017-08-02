@@ -10,7 +10,7 @@ const AssigneeReducer = (state = initialState.assignees, action) => {
   }
 };
 
-export const getAssignees = state => {
+export const getAssignees = (state,projectCode) => {
   const area = state.area;
   if(area == 'internal') {
       let filteredUsers =  state.assignees.filter((a) => 
@@ -21,7 +21,7 @@ export const getAssignees = state => {
       })
   } else{
       let filteredUsers =  state.assignees.filter((a) => 
-        a.usertype == 'Client'
+        a.usertype == 'Client' && a.project == projectCode
       )
       return filteredUsers.map((u) => {
         return u.username

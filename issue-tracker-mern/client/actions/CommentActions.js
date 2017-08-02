@@ -15,7 +15,7 @@ export function addCommentRequest(comment,status,params) {
         project: params.projectCode,
         issueId: params.id,
         text: comment.text,
-        user: "adam.boothroyd@brightwavegroup.com",
+        user: comment.user,
         status: status,
         time: new Date()
       },

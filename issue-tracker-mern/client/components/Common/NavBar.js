@@ -23,6 +23,7 @@ class NavBar extends React.Component{
         this.homeClick = this.homeClick.bind(this);
     }
     logout = () => {
+        console.log('LOGGING OUT');
         this.props.dispatch(logoutUser());
         this.props.dispatch(logout());
         browserHistory.push(`/`);
@@ -74,7 +75,7 @@ class NavBar extends React.Component{
                             <MenuItem divider/>
                             <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={() => this.handleClick('addproject')}>Create Project</MenuItem>    
                             <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={() => this.handleClick('adduser')}>Add Users</MenuItem>  
-                            <MenuItem eventKey="3" onSelect={() => this.logout()}>Log out</MenuItem>
+                            <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
                         </DropdownButton>
                         <OpenProjectModal {...this.props}/>
                         <NewIssueModal {...this.props}/>
@@ -100,7 +101,7 @@ class NavBar extends React.Component{
                                 <MenuItem divider/>
                                 <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1">Create Project</MenuItem>    
                                 <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={this.adduser}>Manage Users</MenuItem>  
-                                <MenuItem eventKey="3" onSelect={() => this.logout()}>Log out</MenuItem>
+                                <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
                             </DropdownButton>
                             :
                             null

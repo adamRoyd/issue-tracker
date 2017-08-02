@@ -7,13 +7,13 @@ import DropZone from '../Common/DropZone';
 import TextEditor from '../Common/TextEditor';
 import TextStatic from '../Common/TextStatic';
 
-const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categories,onDrop,files,attachments,onCommentChange,params}) => {
+const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categories,onDrop,files,attachments,onCommentChange,params,username}) => {
     return(
         <form> 
             <TextStatic
                 name="username"
                 label="Username"
-                value='adam.boothroyd@brightwave.co.uk'/>
+                value={username}/>
             <SelectInput
                 name="location"
                 label="Location"

@@ -77,7 +77,7 @@ BatchIssuesModal.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        assignees: getAssignees(state),
+        assignees: getAssignees(state,ownProps.params.projectCode),
         comments : getComments(state),
         pots : getPots(state.area),
         showModal: state.modal == 'batch'

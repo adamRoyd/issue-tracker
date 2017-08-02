@@ -10,16 +10,24 @@ import CommentForm from '../Comment/CommentForm';
 import IssueDescription from './IssueDescription';
 import IssueForm from '../Issue/IssueForm';
 import { getArea } from '../../reducers/AreaReducer';
+import {Editor, EditorState, RichUtils, ContentState} from 'draft-js';
+import {stateToHTML} from 'draft-js-export-html';
 
 class IssueManager extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            editorState: EditorState.createEmpty(),
             errors : {},
             comment : {},
             issue : Object.assign({},this.props.issue),
             toggleOptions : true,
             submitDisabled : true
+        };
+        this.focus = () => this.refs.editor.focus();
+        this.onChange = (editorState) => {
+            this.onCommentChange(stateToHTML(this.state.editorState.getCurrentContent()));
+            this.setState({editorState})
         };
         this.toggleAdvancedOptions = this.toggleAdvancedOptions.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,23 +44,28 @@ class IssueManager extends React.Component{
         e.preventDefault();
         this.props.dispatch(addCommentRequest(this.state.comment,this.state.issue.status,this.props.params));
         this.props.dispatch(saveIssueRequest(this.state.issue, this.props.area));
-        if(this.props.issue.status != this.state.issue.status){
-            browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}/`);
-        }
-        return this.setState({
+        const editorState = EditorState.push(this.state.editorState, ContentState.createFromText(''));
+        this.setState({
+            editorState,
             comment : {text : ''},
             submitDisabled : true
         });
+        if(this.props.issue.status != this.state.issue.status){
+            browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}/`);
+        }
+
     }
     onCommentChange(html){
         let comment = this.state.comment;
-        return this.setState({
-            comment : {
-                user: this.props.username,
-                text: html
-            },
-            submitDisabled : false
-        });
+        if(html != '<p><br></p>'){
+            this.setState({
+                comment : {
+                    user: this.props.username,
+                    text: html
+                },
+                submitDisabled : false
+            });
+        }
     }
     onIssueChange(event){
         const field = event.target.name;
@@ -65,14 +78,21 @@ class IssueManager extends React.Component{
             <div className="issueDescriptionAndSettings">
                 <h4>Issue Description</h4>
                 <IssueDescription issue={this.state.issue}/>
-                <CommentForm
-                    comment={this.state.comment}
-                    errors={this.state.errors}
-                    onCommentChange={this.onCommentChange}
-                    issue={this.state.issue}
-                    usertype={this.props.usertype}
-                    area={this.props.area}
-                    />
+                <div className="commentBox">
+                    {((this.state.issue.status == 'Closed') || ((this.props.area == 'client') && (this.props.usertype != 'Client')))
+                    ?
+                    <p className="error"><br/><strong>{(this.props.area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
+                    :
+                    <div id="textEditor" onClick={this.focus}>
+                        <Editor
+                            className={this.props.errors ? "has-error" : ""}
+                            editorState={this.state.editorState}
+                            onChange={this.onChange}
+                            placeholder="Enter a comment..."
+                            ref="editor"/>
+                    </div>
+                    }
+                </div>
                <IssueForm
                     issue={this.state.issue}
                     comment={this.state.comment}
@@ -106,7 +126,7 @@ IssueManager.propTypes = {
 
 function mapStateToProps(state, ownProps){
     return{
-        assignees: getAssignees(state),
+        assignees: getAssignees(state,ownProps.params.projectCode),
         pots: getPots(state.area),
         area: getArea(state)
     };

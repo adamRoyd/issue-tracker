@@ -127,7 +127,7 @@ NewIssuePage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-        assignees: getAssignees(state),
+        assignees: getAssignees(state,ownProps.params.projectCode),
         attachments: getAttachments(state),
         area: getArea(state),
         username: getUser(state).username,
