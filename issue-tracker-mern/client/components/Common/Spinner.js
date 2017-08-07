@@ -8,7 +8,7 @@ const Spinner = (visible) => {
     }   else{
         v = ""
     }
-    const spinclass = "fa fa-spinner fa-pulse fa-2x fa-fw float-left " + v
+    const spinclass = "fa fa-spinner fa-pulse fa-2x fa-fw center-position " + v
     return(
         <i display={false} className={spinclass}></i>
     );

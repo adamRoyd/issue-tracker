@@ -29,8 +29,6 @@ const SelectInput = ({name, label, onChange, value, error, options, defaultOptio
           }
           </select>
         }
-        
-        {/*{error && <div className="alert alert-danger">{error}</div>}*/}
       </div>
     </div>
   );

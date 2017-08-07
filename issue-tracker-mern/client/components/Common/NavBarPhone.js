@@ -18,8 +18,8 @@ class NavBarPhone extends React.Component{
         this.newIssue = this.newIssue.bind(this);
     }
     logout = () => {
-        // this.props.dispatch(logoutUser());
-        // this.props.dispatch(logout());
+        this.props.dispatch(logoutUser());
+        this.props.dispatch(logout());
         browserHistory.push(`/`);
     }
     newIssue = () => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SelectInput from '../Common/SelectInput';
+import TextInput from '../Common/TextInput';
 import TextAreaInput from '../Common/TextAreaInput';
 import TextStatic from '../Common/TextStatic';
 import FriendlyDate from '../Common/FriendlyDate';
@@ -17,10 +18,15 @@ const IssueForm = ({issue,errors,assignees,onIssueChange,status,displayAdvancedO
                 value={issue.loggedBy}/>
             <TextStatic
                 label="Type"
-                value={issue.type}/>     
-            <TextStatic
+                value={issue.type}/>
+            <TextInput
+                name="browser"
                 label="Browser"
-                value={issue.browser}/>                
+                placeholder="Select a browser"
+                value={issue.browser}
+                onChange={onIssueChange} 
+                error={errors.browser}
+                isStatic={displayAdvancedOptions}/>
             <SelectInput
                 name="location"
                 label="Location"

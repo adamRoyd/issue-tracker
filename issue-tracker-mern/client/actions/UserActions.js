@@ -97,6 +97,7 @@ export function loginUser(creds) {
 }
 
 export function logout() {
+  console.log('LOGOUT IS BEING CALLED');
     return (dispatch) => {
         return callApi(`logout`,'post', {}).then(res => dispatch(logoutUser()));
   };

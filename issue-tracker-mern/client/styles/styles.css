@@ -67,8 +67,8 @@ h5{
 
 #commentsBox{
     position:absolute;
-    height:calc(100% - 500px);
-    top:450px;
+    height:calc(100% - 530px);
+    top:485px;
     width:100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -283,7 +283,7 @@ div .tableCell{
 #issueAttachments{
   height:40px;
   position:absolute;
-  bottom:115px;
+  bottom:127px;
 }
 
 .inline-block{
@@ -294,7 +294,7 @@ div .tableCell{
 
 .issueDescriptionAndSettings{
   width:100%;
-  height:410px;
+  height:442px;
   position:absolute;
 }
 
@@ -313,17 +313,17 @@ div .tableCell{
 
 #issueDescription{
   position:absolute;
-  height:205px;
+  height:235px;
   overflow-y: auto;
   overflow-x: hidden;
   width:50%;
-  top:45px;
+  top:35px;
   padding-right:12px;
 }
 
 #commentsHeader{
   position:absolute;
-  top:410px;
+  top:445px;
   width:100%;
   border-bottom: 2px solid rgba(120,120,120,0.2);
 }
@@ -396,4 +396,10 @@ select.form-control{
 .form-control:focus{
   border-color:#004D1F !important;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0, 77, 31, .6);
+}
+
+.center-position{
+  left: 50%;
+  position: absolute;
+  margin-left: -19px;
 }

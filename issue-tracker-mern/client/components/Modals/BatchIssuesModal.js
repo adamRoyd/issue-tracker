@@ -79,7 +79,7 @@ function mapStateToProps(state, ownProps) {
     return {
         assignees: getAssignees(state,ownProps.params.projectCode),
         comments : getComments(state),
-        pots : getPots(state.area),
+        pots : getPots(state.area,'internal'),
         showModal: state.modal == 'batch'
     };
 }

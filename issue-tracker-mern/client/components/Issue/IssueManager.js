@@ -6,7 +6,6 @@ import { addCommentRequest } from '../../actions/CommentActions';
 import { saveIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getPots } from '../../reducers/IssueFilterReducer';
-import CommentForm from '../Comment/CommentForm';
 import IssueDescription from './IssueDescription';
 import IssueForm from '../Issue/IssueForm';
 import { getArea } from '../../reducers/AreaReducer';
@@ -79,7 +78,7 @@ class IssueManager extends React.Component{
                 <h4>Issue Description</h4>
                 <IssueDescription issue={this.state.issue}/>
                 <div className="commentBox">
-                    {((this.state.issue.status == 'Closed') || ((this.props.area == 'client') && (this.props.usertype != 'Client')))
+                    {((this.props.issue.status == 'Closed') || ((this.props.area == 'client') && (this.props.usertype != 'Client')))
                     ?
                     <p className="error"><br/><strong>{(this.props.area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
                     :
@@ -127,7 +126,7 @@ IssueManager.propTypes = {
 function mapStateToProps(state, ownProps){
     return{
         assignees: getAssignees(state,ownProps.params.projectCode),
-        pots: getPots(state.area),
+        pots: getPots(state.area,ownProps.issue.class),
         area: getArea(state)
     };
 }
