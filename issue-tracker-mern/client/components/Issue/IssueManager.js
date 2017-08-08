@@ -50,7 +50,7 @@ class IssueManager extends React.Component{
             submitDisabled : true
         });
         if(this.props.issue.status != this.state.issue.status){
-            browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}/`);
+            browserHistory.push(`/${this.props.params.projectCode}/(:area)/${this.props.params.filter}/`);
         }
 
     }
@@ -126,7 +126,7 @@ IssueManager.propTypes = {
 function mapStateToProps(state, ownProps){
     return{
         assignees: getAssignees(state,ownProps.params.projectCode),
-        pots: getPots(state.area,ownProps.issue.class),
+        pots: getPots(state.area,ownProps.params.area),
         area: getArea(state)
     };
 }

@@ -14,6 +14,9 @@ const IssueFilterReducer = (state = initialState.issueFilter, action) => {
 export const getFilter = state => state.issueFilter;
 
 export const getPots = (area,issueClass) => {
+  console.log('GET POTS');
+  console.log(area);
+  console.log(issueClass);
   const arr = [];
   let obj = status.filter(f => f.area == area);
   if(area == 'internal'){

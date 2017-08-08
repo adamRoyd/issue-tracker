@@ -11,8 +11,8 @@ if (typeof require.ensure !== 'function') {
 }
 
 /* Workaround for async react routes to work with react-hot-reloader till
-  https://github.com/reactjs/react-router/issues/2182 and
-  https://github.com/gaearon/react-hot-loader/issues/288 is fixed.
+  https://github.com/reactjs/react-router/(:area)/2182 and
+  https://github.com/gaearon/react-hot-loader/(:area)/288 is fixed.
  */
 if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
@@ -79,7 +79,7 @@ export default (
       }}
     />
     <Route
-      path="/(:projectCode)/issues/(:filter)"
+      path="/(:projectCode)/(:area)/(:filter)"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./components/Issue/IssuePage').default);
@@ -87,7 +87,7 @@ export default (
       }}
     />
     <Route
-      path="/(:projectCode)/issues/(:filter)/(:id)"
+      path="/(:projectCode)/(:area)/(:filter)/(:id)"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./components/Issue/IssuePage').default);

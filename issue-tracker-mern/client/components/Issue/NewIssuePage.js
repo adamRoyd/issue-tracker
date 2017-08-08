@@ -67,6 +67,7 @@ class NewIssuePage extends React.Component{
                     this.props.attachments,
                     this.props.issues,
                     this.props.params.projectCode,
+                    this.props.area,
                     this.props.username
                 )
             );
@@ -111,7 +112,7 @@ class NewIssuePage extends React.Component{
                     {...this.props}/>
                 <div className="right-align">
                     <button className="btn" onClick={this.close}>Close</button>
-                    <button className="btn" onClick={this.saveIssue}>Create User</button>
+                    <button className="btn" onClick={this.saveIssue}>Create issue</button>
                 </div>
             </div>
         );

@@ -32,7 +32,7 @@ export function addComments(comments) {
 
 export function fetchComments(projectCode,id) {
   return (dispatch) => {
-    return callApi(`${projectCode}/issues/(:filter)/${id}`).then(res => {
+    return callApi(`${projectCode}/(:area)/(:filter)/${id}`).then(res => {
       dispatch(addComments(res.comments));
     });
   };

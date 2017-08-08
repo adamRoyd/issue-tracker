@@ -40,7 +40,7 @@ class BatchIssuesModal extends React.Component{
     }
     batchIssues(event){
         event.preventDefault();
-        browserHistory.push(`/${this.props.params.projectCode}/issues/${this.props.params.filter}`);
+        browserHistory.push(`/${this.props.params.projectCode}/${this.props.area}/${this.props.params.filter}`);
         this.props.dispatch(batchIssueRequest(this.props.batchIssues,this.state.batchOptions,this.props.params.projectCode));
         return this.setState({ showModal: false });
     }

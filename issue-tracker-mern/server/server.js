@@ -131,7 +131,6 @@ const renderError = err => {
 // Server Side Rendering based on routes matched by React-router.
 app.use((req, res, next) => {
   match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
-    //console.log('Server side rendering fired');
     //if not logged in, redirect to login page
     if(req.user == null && req.url != '/login'){
       console.log('LOG IN NOT OK!');

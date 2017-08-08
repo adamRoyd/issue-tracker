@@ -17,7 +17,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
-      browserHistory.push(`/${ownProps.projectCode}/issues/${ownProps.filter}`);
       dispatch(setIssueFilter(ownProps.filter));
     }
   };

@@ -31,7 +31,6 @@ class ProjectPicker extends React.Component{
     handleClick(value){
         const projectCode = value.toLowerCase();
         this.props.dispatch(fetchIssues(projectCode));
-        browserHistory.push(`/${projectCode}/issues/all/`);
         if(this.props.close){
             this.props.close();
         }

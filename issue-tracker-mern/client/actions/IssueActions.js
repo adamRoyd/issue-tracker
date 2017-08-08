@@ -32,7 +32,7 @@ export function addIssues(issues) {
 
 export function fetchIssues(projectCode) {
   return (dispatch) => {
-    return callApi(`${projectCode}/issues/(:filter)`).then(res => {
+    return callApi(`${projectCode}/(:area)/(:filter)`).then(res => {
       dispatch(addIssues(res.issues));
     });
   };

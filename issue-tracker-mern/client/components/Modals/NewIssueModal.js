@@ -59,7 +59,7 @@ class NewIssueModal extends React.Component{
                     this.props.issues,
                     this.props.params.projectCode,
                     this.props.area,
-                    this.props.username
+                    this.props.user.username
                 )
             );
             return this.setState({ showModal: false });

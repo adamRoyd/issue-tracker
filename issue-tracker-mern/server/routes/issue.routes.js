@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage})
 
 
-router.route('/(:projectCode)/issues/(:filter)').get(IssueController.getIssues);
+router.route('/(:projectCode)/(:area)/(:filter)').get(IssueController.getIssues);
 
 router.route('/addIssue').post(IssueController.addIssue);
 

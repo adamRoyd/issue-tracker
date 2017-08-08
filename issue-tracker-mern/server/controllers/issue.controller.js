@@ -83,7 +83,7 @@ export function saveIssue(req, res) {
   const project = req.body.issue.project;
   const id = req.body.issue.id;
   const filter = 'all';
-  const issueRoute = 'http://localhost:8000/' + project + '/issues/' + filter + '/' + id;
+  const issueRoute = 'http://localhost:8000/' + project + '/(:area)/' + filter + '/' + id;
   const issueToSave = req.body.issue
   mail.send({
     username: issueToSave.assigned,

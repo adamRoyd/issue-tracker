@@ -11,12 +11,12 @@ class SelectProjectPage extends React.Component{
     componentDidMount() {
         this.props.dispatch(fetchProjects());
         if(this.props.user.userproject){
-            browserHistory.push(`/${this.props.user.userproject}/issues/all`);
+            browserHistory.push(`/${this.props.user.userproject}/(:area)/all`);
         }
     }
     handleClick(value){
         const projectCode = value.toLowerCase();
-        browserHistory.push(`/${projectCode}/issues/all`);
+        browserHistory.push(`/${projectCode}/(:area)/all`);
     }
     render(){
         return(
