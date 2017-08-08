@@ -30,8 +30,15 @@ export function addIssues(issues) {
   };
 }
 
+export function fetchingIssues(){
+  return{
+    type: types.GLOBAL_FETCHING
+  }
+}
+
 export function fetchIssues(projectCode) {
   return (dispatch) => {
+    dispatch(fetchingIssues())
     return callApi(`${projectCode}/(:area)/(:filter)`).then(res => {
       dispatch(addIssues(res.issues));
     });

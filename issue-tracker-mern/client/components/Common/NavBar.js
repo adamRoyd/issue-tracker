@@ -69,7 +69,7 @@ class NavBar extends React.Component{
                         }
 
                         <Button className={usertype == 'Admin' ? '' : 'hidden'} onClick={() => this.handleClick('project')}>Open Project</Button>
-                        <Button onClick={() => this.handleClick('newIssue')}>New Issue</Button>
+                        <Button disabled={(this.props.area != usertype)} onClick={() => this.handleClick('newIssue')}>New Issue</Button>
                         {(this.props.batchIssues)
                             ? <Button disabled={(this.props.batchIssues.length == 0) ? true : false} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
                             : null

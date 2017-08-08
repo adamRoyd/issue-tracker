@@ -50,6 +50,18 @@ const MessageReducer = (state = initialState.message, action) =>{
           success: false,
           isFetching: false
       });
+    case types.GLOBAL_FETCHING:
+      return Object.assign({},state,{
+          isFetching: true
+      });
+    case types.ADD_ISSUES:
+      return Object.assign({},state,{
+          isFetching: false
+      });
+    case types.ADD_COMMENTS:
+      return Object.assign({},state,{
+          isFetching: false
+      });
     default:
       return Object.assign({},state,{
           text: ""

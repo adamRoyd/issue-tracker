@@ -30,8 +30,15 @@ export function addComments(comments) {
     };
 }
 
+export function fetchingComments(){
+  return{
+    type: types.GLOBAL_FETCHING
+  }
+}
+
 export function fetchComments(projectCode,id) {
   return (dispatch) => {
+    //dispatch(fetchingComments());
     return callApi(`${projectCode}/(:area)/(:filter)/${id}`).then(res => {
       dispatch(addComments(res.comments));
     });

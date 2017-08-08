@@ -91,7 +91,6 @@ class NewIssuePage extends React.Component{
                }
             }
         })
-
         return errors
     }
     render(){

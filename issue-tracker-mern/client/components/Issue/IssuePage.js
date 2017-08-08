@@ -7,6 +7,7 @@ import IssuePots from './IssuePots';
 import NavBar from '../Common/NavBar';
 import EditIssuePage from '../Issue/EditIssuePage';
 import NewIssuePage from '../Issue/NewIssuePage';
+import Spinner from '../Common/Spinner';
 //Import constants
 import categories from '../../constants/categories';
 import locations from '../../constants/locations';
@@ -21,6 +22,7 @@ import { getBatchIssues } from '../../reducers/IssueReducer';
 import { getUser } from '../../reducers/UserReducer';
 import { getProjects } from '../../reducers/ProjectReducer';
 import { getStatus, getArea } from '../../reducers/AreaReducer';
+import { getMessage } from '../../reducers/MessageReducer';
 
 
 class IssuePage extends Component {
@@ -31,16 +33,23 @@ class IssuePage extends Component {
   }
   render() {
     return (
-      <div id="issuePage">
-        <NewIssuePage phoneView={true} {...this.props}/>
-        <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
-        <IssueList {...this.props}/>
-        {this.props.params.id ? 
-          <EditIssuePage {...this.props}/>
-          : 
-          null
-        }
-      </div>
+        <div>
+            {(this.props.isFetching)
+            ? 
+              <Spinner visible={this.props.isFetching}/>
+            :
+              <div id="issuePage">
+                <NewIssuePage phoneView={true} {...this.props}/>
+                <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
+                <IssueList {...this.props}/>
+                {this.props.params.id ? 
+                  <EditIssuePage {...this.props}/>
+                  : 
+                  null
+                }
+              </div>
+            }
+        </div>
     );
   }
 }
@@ -56,7 +65,8 @@ function mapStateToProps(state) {
     username : getUser(state).username,
     usertype: getUser(state).usertype,
     projects: getProjects(state),
-    area: getArea(state)
+    area: getArea(state),
+    isFetching: getMessage(state).isFetching
   };
 }
 

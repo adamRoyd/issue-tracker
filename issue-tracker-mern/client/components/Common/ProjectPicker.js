@@ -31,6 +31,7 @@ class ProjectPicker extends React.Component{
     handleClick(value){
         const projectCode = value.toLowerCase();
         this.props.dispatch(fetchIssues(projectCode));
+        browserHistory.push(`/${projectCode}/internal/all/`);
         if(this.props.close){
             this.props.close();
         }
@@ -46,8 +47,7 @@ class ProjectPicker extends React.Component{
                 onChange={this.searchProjects}
                 />
                 <div className="project-list">
-                    <ul className="list-group">
-                        
+                    <ul className="list-group">                   
                         {(this.state.visibleprojects.length > 0) 
                         ? 
                         this.state.visibleprojects.map((projectCode, i) =>

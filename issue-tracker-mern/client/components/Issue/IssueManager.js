@@ -73,12 +73,14 @@ class IssueManager extends React.Component{
         return this.setState({issue : issue});
     }
     render(){
+        const i = this.props.issues.findIndex((issue) => issue.id == this.props.params.id);
+        const issue = this.props.issues[i];
         return(
             <div className="issueDescriptionAndSettings">
                 <h4>Issue Description</h4>
                 <IssueDescription issue={this.state.issue}/>
                 <div className="commentBox">
-                    {((this.props.issue.status == 'Closed') || ((this.props.area == 'client') && (this.props.usertype != 'Client')))
+                    {(((this.props.area == 'client') && (this.props.usertype != 'Client')))
                     ?
                     <p className="error"><br/><strong>{(this.props.area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
                     :

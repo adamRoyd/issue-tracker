@@ -33,3 +33,5 @@ export const ADD_COMMENTS = 'ADD_COMMENTS';
 export const ADD_COMMENT = 'ADD_COMMENT';
 //FILE
 export const UPLOAD_FILE_SUCCESS = 'UPLOAD_FILE_SUCCESS';
+//Global
+export const GLOBAL_FETCHING = 'GLOBAL_FETCHING';
