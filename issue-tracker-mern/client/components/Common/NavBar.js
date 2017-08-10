@@ -50,6 +50,7 @@ class NavBar extends React.Component{
     }
     render(){
         const usertype = this.props.user.usertype;
+        const isInternal = (this.props.user.usertype == 'Admin' || this.props.user.usertype == 'Internal');
         let projectCode = this.props.params.projectCode;
         if(projectCode == null){projectCode = '';}
         return(
@@ -69,9 +70,9 @@ class NavBar extends React.Component{
                         }
 
                         <Button className={usertype == 'Admin' ? '' : 'hidden'} onClick={() => this.handleClick('project')}>Open Project</Button>
-                        <Button disabled={(this.props.area != usertype)} onClick={() => this.handleClick('newIssue')}>New Issue</Button>
+                        <Button disabled={isInternal && this.props.area == 'client'} onClick={() => this.handleClick('newIssue')}>New Issue</Button>
                         {(this.props.batchIssues)
-                            ? <Button disabled={(this.props.batchIssues.length == 0) ? true : false} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
+                            ? <Button disabled={(this.props.batchIssues.length == 0)} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
                             : null
                         }
                         <DropdownButton title='User options' id="bg-nested-dropdown">

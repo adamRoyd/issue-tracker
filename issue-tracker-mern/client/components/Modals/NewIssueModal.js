@@ -20,6 +20,7 @@ class NewIssueModal extends React.Component{
                 screen: "Select a Screen ID",
                 category: "Select a Category",
                 assigned: "Unassigned",
+                type: "Not sure",
                 description: "",
                 browser: Browser.name + ' ' + Browser.version
             },

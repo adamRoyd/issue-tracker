@@ -42,7 +42,7 @@ export function signup(req, res, next) {
     }   else{
         newUser = new User({ username : req.body.username, usertype: req.body.usertype})
     }
-    User.register(newUser, 'test', (err, user) => {
+    User.register(newUser, 'Testing01', (err, user) => {
         if (err) {
             return res.send({
                 message: `An error occured. Please try again.`,

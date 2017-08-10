@@ -53,6 +53,8 @@ export function addIssue(issue) {
 }
 
 export function addIssueRequest(issue,attachments,issues,projectCode,area,username) {
+  console.log('ADD ISSUE REQUEST');
+  console.log(issue);
   return (dispatch) => {
     return callApi('addIssue','post', {
       issue: {
