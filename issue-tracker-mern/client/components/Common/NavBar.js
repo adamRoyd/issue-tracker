@@ -12,6 +12,7 @@ import AddProjectModal from '../Modals/AddProjectModal';
 import AddUserModal from '../Modals/AddUserModal';
 import { openModal } from '../../actions/ModalActions'
 import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
+import styles from '../../styles/Nav.css';
 
 class NavBar extends React.Component{
     constructor(props){
@@ -54,7 +55,7 @@ class NavBar extends React.Component{
         let projectCode = this.props.params.projectCode;
         if(projectCode == null){projectCode = '';}
         return(
-            <div id="navBar" className="row visible-desktop">
+            <div id="navBar" className={`row ${styles['visible-desktop']} ${styles['nav-bar']}`}>
                 {(this.props.params.projectCode) ?
                     //nav bar for the main issue page
                     <ButtonGroup style={{ height: '100%' }}>

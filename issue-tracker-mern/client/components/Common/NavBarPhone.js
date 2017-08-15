@@ -10,6 +10,7 @@ import BatchIssuesModal from '../Modals/BatchIssuesModal';
 import OpenProjectModal from '../Modals/OpenProjectModal';
 import { openModal } from '../../actions/ModalActions'
 import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
+import styles from '../../styles/Nav.css';
 
 class NavBarPhone extends React.Component{
     constructor(props){
@@ -32,7 +33,7 @@ class NavBarPhone extends React.Component{
         let projectCode = this.props.params.projectCode;
         if(projectCode == null){projectCode = '';}
         return(
-            <div id="navBar" className="row visible-phone">
+            <div id="navBar" className={`row ${styles['visible-phone']} ${styles['nav-bar']}`}>
                 {(this.props.params.projectCode) ?
                     <ButtonGroup vertical block style={{ height: '100%'}}>
                             <DropdownButton title='Menu' id="bg-nested-dropdown">

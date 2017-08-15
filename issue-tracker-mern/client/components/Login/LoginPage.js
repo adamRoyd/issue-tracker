@@ -8,6 +8,7 @@ import { getUser } from '../../reducers/UserReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 import Spinner from '../Common/Spinner';
 import logonimage from '../../assets/BIT_logon.png';
+import styles from '../../styles/loginPage.css';
 
 class LoginPage extends React.Component{
     handleSubmit = (e) => {
@@ -26,13 +27,13 @@ class LoginPage extends React.Component{
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         return(
-            <div className="wrapper">
-                <div className="form-signin">
+            <div className={styles['wrapper']}>
+                <div className={styles['form-signin']}>
                     <h4>Log in</h4>
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" className="form-control" ref="userName" placeholder="Email Address" required="" autoFocus="" />
                         <input type="password" className="form-control" ref="password" placeholder="Password" required=""/>
-                        <button className="btn login-button" type="submit">Login</button>
+                        <button className={`btn ${styles['login-button']}`}  type="submit">Login</button>
                         {(this.props.user.errorMessage)
                             ? <p style={{color:'red'}}>{this.props.user.errorMessage.message}</p>
                             : <p></p>
