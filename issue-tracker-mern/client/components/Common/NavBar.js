@@ -62,11 +62,11 @@ class NavBar extends React.Component{
                         <Button onClick={this.homeClick}>{projectCode.toUpperCase()}</Button>
                         {(usertype == 'Client')
                             ?   <Button disabled={true}>Client Area</Button>
-                            :   <DropdownButton 
+                            :   <DropdownButton
                                     id="bg-nested-dropdown"
                                     title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } 
-                                    className="nav-div left">
-                                    <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>
+                                    className={`row ${styles['nav-div']} ${styles['left']}`}>
+                                <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>
                                 </DropdownButton>
                         }
 
