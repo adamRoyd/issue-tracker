@@ -19,7 +19,7 @@ class IssueList extends React.Component{
     handleClick(i){
         const selectedIssue = this.props.issues[i];
         this.props.dispatch(fetchComments(this.props.params.projectCode,selectedIssue.id));
-        browserHistory.push(`/${this.props.params.projectCode}/${this.props.area}/${this.props.filter}/${selectedIssue.id}`);
+        browserHistory.push(`/${selectedIssue.project}/${this.props.area}/${this.props.filter}/${selectedIssue.id}`);
         this.props.setActiveIssue(selectedIssue);
     }
     headerClick(header){

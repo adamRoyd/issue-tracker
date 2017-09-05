@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { toggleArea } from '../../actions/AreaActions';
 import { logout, logoutUser } from '../../actions/UserActions';
+import { fetchIssuesByUser } from '../../actions/IssueActions';
 import ProjectPicker from './ProjectPicker';
 import NewIssueModal from '../Modals/NewIssueModal';
 import BatchIssuesModal from '../Modals/BatchIssuesModal';
@@ -22,6 +23,7 @@ class NavBar extends React.Component{
         this.adduser = this.adduser.bind(this);
         this.homeClick = this.homeClick.bind(this);
         this.createProject = this.createProject.bind(this);
+        this.myIssues = this.myIssues.bind(this);
     }
     logout = () => {
         console.log('LOGGING OUT');
@@ -34,6 +36,10 @@ class NavBar extends React.Component{
     }
     createProject = () => {
         browserHistory.push('/createproject');
+    }
+    myIssues = () => {
+        this.props.dispatch(fetchIssuesByUser(this.props.user.username));
+        browserHistory.push('/myissues');
     }
     areaClick = () => {
         this.props.dispatch(toggleArea());
@@ -75,6 +81,7 @@ class NavBar extends React.Component{
                             ? <Button disabled={(this.props.batchIssues.length == 0)} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
                             : null
                         }
+                        <Button className={usertype == 'Admin' ? '' : 'hidden'} onClick={this.myIssues}>My Issues</Button>
                         <DropdownButton title='User options' id="bg-nested-dropdown">
                             <MenuItem header>{this.props.user.username}</MenuItem>
                             <MenuItem divider/>

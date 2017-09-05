@@ -53,7 +53,15 @@ export default (
           cb(null, require('./components/Login/AddProjectPage').default);
         });
       }}
-    />  
+    />
+    <Route
+      path="/myissues"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./components/Issue/IssuePage').default);
+        });
+      }}
+    />
     <Route
       path="/selectproject"
       getComponent={(nextState, cb) => {

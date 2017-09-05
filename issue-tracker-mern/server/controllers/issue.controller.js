@@ -5,13 +5,28 @@ import sanitizeHtml from 'sanitize-html';
 import mail from '../handlers/mail';
 
 /**
- * Get all issues
+ * Get all issues by project
  * @param req
  * @param res
  * @returns void
  */
 export function getIssues(req, res) {
   Issue.find({project: req.params.projectCode}).sort( { id: 1 } ).exec((err, issues) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ issues });
+  });
+}
+/**
+ * Get all issues by project
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function getIssuesByUser(req, res) {
+  console.log('GET ISSUES BY USER CONTROLLER');
+  Issue.find({assigned: req.params.username}).sort( { id: 1 } ).exec((err, issues) => {
     if (err) {
       res.status(500).send(err);
     }
@@ -31,8 +46,11 @@ export async function addIssue(req, res) {
   }
   //get the issue with max id
   const i = await Issue.find({project : req.body.issue.project}).sort({id:-1}).limit(1);
-  const newId = i[0].id + 1;
-
+  console.log('NEW ID');
+  let newId = 1
+  if (i.length != 0){
+    newId = i[0].id + 1;
+  }
   const newIssue = new Issue(req.body.issue);
   // Let's sanitize inputs
   newIssue.class = sanitizeHtml(newIssue.class);

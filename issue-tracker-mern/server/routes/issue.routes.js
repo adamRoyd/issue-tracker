@@ -19,6 +19,8 @@ const upload = multer({storage: storage})
 
 router.route('/(:projectCode)/(:area)/(:filter)').get(IssueController.getIssues);
 
+router.route('/issuesByUser/(:username)').get(IssueController.getIssuesByUser);
+
 router.route('/addIssue').post(IssueController.addIssue);
 
 router.route('/batchIssues').post(IssueController.batchIssues);
