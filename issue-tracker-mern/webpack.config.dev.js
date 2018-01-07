@@ -8,7 +8,8 @@ module.exports = {
 
   entry: {
     app: [
-      'eventsource-polyfill',
+      'babel-polyfill',
+      'eventsource-polyfill',      
       'webpack-hot-middleware/client',
       'webpack/hot/only-dev-server',
       'react-hot-loader/patch',
