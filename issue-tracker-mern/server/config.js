@@ -1,8 +1,8 @@
 const config = {
   //Prod
-  //mongoURL: process.env.MONGO_URL || 'mongodb://bituser:eWpuW2+fF5@localhost:27017/bit',
+  mongoURL: process.env.MONGO_URL || 'mongodb://bituser:eWpuW2+fF5@localhost:27017/bit',
   //Dev
-  mongoURL: process.env.MONGO_URL || 'mongodb://localhost:27017/mern-starter',
+  //mongoURL: process.env.MONGO_URL || 'mongodb://localhost:27017/mern-starter',
   port: process.env.PORT || 8000,
   secret: "adam",
   MAIL_HOST : "mailtrap.io",

@@ -9,16 +9,17 @@
     display:inline-block;
 }
 
-#navBar .btn{
+.navBtn{
     text-align: left;
-    background:#004D1F;
-    color:white;
-    font-weight:bold;
+    background:#004D1F !important;
+    color:white !important;
+    font-weight:bold !important;
     height:100%;
+    border-color: none !important;
     border-radius: 0px !important;
 }
 
-#navBar .btn:hover{
+.navBtn:hover{
     background:#149849 !important;
     color:white !important;
 }

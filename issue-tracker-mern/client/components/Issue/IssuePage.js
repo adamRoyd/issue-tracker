@@ -25,6 +25,7 @@ import { getStatus, getArea } from '../../reducers/AreaReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 
 
+
 class IssuePage extends Component {
   componentDidMount() {
      this.props.dispatch(fetchIssues(this.props.params.projectCode));
@@ -39,7 +40,7 @@ class IssuePage extends Component {
               <Spinner visible={this.props.isFetching}/>
             :
               <div id="issuePage">
-                <NewIssuePage phoneView={true} {...this.props}/>
+                <NewIssuePage className='testStyle' phoneView={true} {...this.props}/>
                 <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
                 <IssueList {...this.props}/>
                 {this.props.params.id ? 

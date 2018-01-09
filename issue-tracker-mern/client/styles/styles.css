@@ -1,3 +1,7 @@
+.testStyle {
+  background-color:green;
+}
+
 body, html {
   margin: 0;
   overflow: hidden;
