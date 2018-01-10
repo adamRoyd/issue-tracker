@@ -13,6 +13,7 @@ import { getIssues } from '../../reducers/IssueReducer';
 import { getArea } from '../../reducers/AreaReducer';
 import { getUser } from '../../reducers/UserReducer';
 import NewIssueForm from '../Issue/NewIssueForm';
+import styles from '../../styles/styles.css';
 
 class NewIssuePage extends React.Component{
     constructor(props){
@@ -96,7 +97,7 @@ class NewIssuePage extends React.Component{
     render(){
         console.log("phone view", this.props.phoneView);
         return(
-            <div id="newIssuePage" className={(this.props.phoneView) ? "container visible-phone" : "container"}>
+            <div id="newIssuePage" className={styles['visible-phone']}>
                 <h3>New issue for {this.props.params.projectCode}</h3>
                 <NewIssueForm 
                     issue={this.state.issue}

@@ -10,11 +10,6 @@ import routes from './routes';
 
 // Base stylesheet
 require('./main.css');
-require('./styles/styles.css');
-require('./styles/issueTable.css');
-require('./styles/Nav.css');
-require('./styles/Draft.css');
-require('./styles/loginPage.css');
 
 export default function App(props) {
   return (

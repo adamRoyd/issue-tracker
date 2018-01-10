@@ -8,7 +8,7 @@ import { getUser } from '../../reducers/UserReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 import Spinner from '../Common/Spinner';
 import logonimage from '../../assets/BIT_logon.png';
-import styles from '../../styles/loginPage.css';
+import styles from './login.css';
 
 class LoginPage extends React.Component{
     handleSubmit = (e) => {
