@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StatusIcon from '../../assets/StatusIcon';
 import ReactTooltip from 'react-tooltip';
+import styles from './Sidebar.css';
 
 const Link = ({ name, filter, onClick, active, issues, numberOfIssues }) => {
   return (
     <div 
-        className={active ? 'linkIconActive' : 'linkIcon'}
+        className={active ? styles.linkIconActive : styles.linkIcon}
         href="#" 
         data-tip data-for={filter}
         data-delay-show="0"
@@ -16,11 +17,11 @@ const Link = ({ name, filter, onClick, active, issues, numberOfIssues }) => {
             onClick();
         }}
     >
-        <StatusIcon height="35" width="35" type={name} imageCssClass="iconWhite"/>
-        <ReactTooltip id={filter} className="potToolTip" offset={{top:0, left:-40}} place="right" effect='solid'>
+        <StatusIcon height="35" width="35" type={name} imageCssClass={styles.iconWhite}/>
+        <ReactTooltip id={filter} className={styles.potToolTip} offset={{top:0, left:-40}} place="right" effect='solid'>
             <span>{name}</span>
         </ReactTooltip>
-        <div id="issueCount">
+        <div className={styles.issueCount}>
             <p>{numberOfIssues}</p>
         </div>                
     </div>

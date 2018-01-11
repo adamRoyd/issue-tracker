@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './IssueTable.css';
 
 function Header ({onClick,header}) {
     return(
@@ -8,7 +9,7 @@ function Header ({onClick,header}) {
             &nbsp;
             <span 
             className={(header.filter == 0) 
-                ? "glyphicon glyphicon-minus white" 
+                ? `glyphicon glyphicon-minus ${styles.white}` 
                 : (
                     (header.filter == 1) 
                     ? "glyphicon glyphicon-menu-down" 

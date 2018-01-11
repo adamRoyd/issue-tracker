@@ -10,6 +10,7 @@ import { fetchComments } from '../../actions/CommentActions';
 import { getVisibleIssues } from '../../reducers/IssueReducer';
 import { getFilter } from '../../reducers/IssueFilterReducer';
 import { getHeaders } from '../../reducers/HeaderReducer';
+import styles from './IssueTable.css'
 
 
 class IssueList extends React.Component{
@@ -31,8 +32,8 @@ class IssueList extends React.Component{
     }
     render(){
         return(
-            <div id="issuelist" className="visible-desktop">
-                <table className={"issueTable table table-fixed table-hover"}>
+            <div className={styles.issuelist}>
+                 <table className={styles.issueTable}> {/*className={"issueTable table table-fixed table-hover"} */}
                     <thead>
                     <tr>
                         {this.props.headers.map((header,i) => <Header key={i} header={header} onClick={() => this.headerClick(header)}/>)}

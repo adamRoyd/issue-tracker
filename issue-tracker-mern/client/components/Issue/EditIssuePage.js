@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { getComments } from '../../reducers/CommentReducer';
 import { fetchComments } from '../../actions/CommentActions';
-import Issue from './Issue';
+import Issue from '../IssueTable/Issue';
 import Comments from '../Comment/Comments';
 import IssueManager from '../Issue/IssueManager';
+import styles from './EditIssue.css'
 
 class EditIssuePage extends React.Component{
     componentDidMount() {
@@ -16,7 +17,7 @@ class EditIssuePage extends React.Component{
         const issue = this.props.issues[i];
         const issueComments = this.props.comments;
         return(
-            <div id="EditIssuePage" className="visible-desktop">
+            <div className={styles.editIssuePage}>
                 <IssueManager {...this.props} issue={issue}/>
                 <div id="commentsHeader"><h4>Comments</h4></div>
                 <Comments issueComments={issueComments} issue={issue}/>

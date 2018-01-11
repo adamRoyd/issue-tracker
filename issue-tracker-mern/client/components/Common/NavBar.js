@@ -64,18 +64,18 @@ class NavBar extends React.Component{
                             :   <DropdownButton
                                     id="bg-nested-dropdown"
                                     title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } 
-                                    className={`row ${styles['navDiv']} ${styles['navBtn']}`}>
+                                    className={styles.navBtn}>
                                 <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>
                                 </DropdownButton>
                         }
 
-                        <Button className={usertype == 'Admin' ? styles['navBtn'] : 'hidden'} onClick={() => this.handleClick('project')}>Open Project</Button>
-                        <Button className={styles['navBtn']} disabled={isInternal && this.props.area == 'client'} onClick={() => this.handleClick('newIssue')}>New Issue</Button>
+                        <Button className={usertype == 'Admin' ? styles.navBtn : 'hidden'} onClick={() => this.handleClick('project')}>Open Project</Button>
+                        <Button className={styles.navBtn} disabled={isInternal && this.props.area == 'client'} onClick={() => this.handleClick('newIssue')}>New Issue</Button>
                         {(this.props.batchIssues)
-                            ? <Button disabled={(this.props.batchIssues.length == 0)} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
+                            ? <Button className={styles.navBtn} disabled={(this.props.batchIssues.length == 0)} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
                             : null
                         }
-                        <DropdownButton title='User options' id="bg-nested-dropdown">
+                        <DropdownButton className={styles.navBtn} title='User options' id="bg-nested-dropdown">
                             <MenuItem header>{this.props.user.username}</MenuItem>
                             <MenuItem divider/>
                             <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={this.createProject}>Create Project</MenuItem>    

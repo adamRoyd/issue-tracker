@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterLink from '../Common/FilterLink';
+import FilterLink from './FilterLink';
+import styles from './Sidebar.css';
 
 class IssuePots extends React.Component{
     constructor(props){
         super(props);
-
     }
     render(){
         return(
-            <div id="IssuePots" className="visible-desktop">
+            <div className={styles.issuePots}>
                 {this.props.status.map((pot,i) => 
                     <FilterLink 
                         projectCode={this.props.projectCode} 

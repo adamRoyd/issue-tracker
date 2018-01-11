@@ -28,7 +28,7 @@
 }
 
 
-.table-fixed tbody {
+.tableFixed tbody {
   position:absolute;
   height: calc(100% - 80px);
   overflow-y: scroll;

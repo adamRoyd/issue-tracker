@@ -1,0 +1,122 @@
+/**********************Issue Table*****************************/
+
+@media (min-width: 200px){
+    .issuelist {
+        height:100%;
+        position: absolute;
+        top: 40px;
+        bottom: 0;
+        left: 55px;
+        width: 795px;
+    }
+}
+
+.issueTable{
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.issueTable th{
+    padding: 8px;
+    border-bottom: 0px !important;
+}
+
+.issueTable td{
+    overflow: hidden;
+    max-width: 270px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.issueTable thead tr{
+    border-bottom:2px solid #dddddd;
+}
+
+.issueTable tbody tr:hover td, 
+.issueTable tbody tr:hover th,
+.issueRowActive{
+    background: #C8C8C8;
+    cursor: pointer;
+}
+
+
+.issueTable tbody {
+    position:absolute;
+    height: calc(100% - 80px);
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.issueTable>tbody,
+.issueTable>thead {
+    display: block;
+}
+
+.issueTable tbody td, .issueTable thead > tr> th {
+    float: left;
+    border-bottom-width: 0;
+}
+
+.issueTable tbody td{
+    position:static;
+    display:table-cell;
+}
+
+.issueTable tbody tr{
+    width:100%;
+    display:table !important;
+}
+
+.issueTable thead tr{
+    width:100%;
+    display:table !important;
+}
+
+.issueTable tbody td:nth-child(1),
+.issueTable thead th:nth-child(1){
+    width:30px !important;
+}
+
+.issueTable tbody td:nth-child(2),
+.issueTable thead th:nth-child(2){
+    width:39px !important;
+}
+
+.issueTable tbody td:nth-child(3),
+.issueTable thead th:nth-child(3){
+width:75px !important;
+}
+
+.issueTable tbody td:nth-child(4),
+.issueTable thead th:nth-child(4){
+width:115px !important;
+}
+
+.issueTable tbody td:nth-child(5),
+.issueTable thead th:nth-child(5){
+width:15% !important;
+}
+
+.issueTable tbody td:nth-child(6),
+.issueTable thead th:nth-child(6){
+width:260px !important;
+}
+
+.issueTable tbody td:nth-child(7),
+.issueTable thead th:nth-child(7){
+width:146px !important;
+}
+
+.issueTable thead th{
+cursor: pointer;
+}
+
+.issueTable td{
+height:42px !important;
+}
+
+.white{
+    color:white;
+}
+  

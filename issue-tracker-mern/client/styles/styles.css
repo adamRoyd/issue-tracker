@@ -33,35 +33,6 @@ h5{
   display: none;
 }
 
-
-@media (min-width: 200px){
-#IssuePots{
-    position: absolute;
-    top: 40px;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-  }
-  #issuelist {
-    height:100%;
-    position: absolute;
-    top: 40px;
-    bottom: 0;
-    left: 55px;
-    width: 795px;
-  }
-  
-  #EditIssuePage {
-    height:100%;
-    position: absolute;
-    top: 40px;
-    bottom: 0;
-    left: 860px;
-    overflow-y: hidden;
-    width: calc(100% - 870px);
-  }
-}
-
 .full-height{
   min-height:100% !important;
   height:auto !important;
@@ -82,13 +53,6 @@ h5{
   float:right;
   margin-right:5px;
 }
-
-#IssuePots {
-  height:100%;
-  background: #DEDEE1;
-  color:white;
-}
-
 
 
 
@@ -153,73 +117,6 @@ input[type="text"]{
 
 .modal-dialog{
   width:700px !important;
-}
-
-/* SIDE BAR */
-
-.linkIcon,
-.linkIconActive{
-  position:relative;
-  height:55px;
-  width:100%;
-  cursor: pointer;
-}
-
-
-.linkIcon #issueCount,
-.linkIconActive #issueCount{
-  position:absolute;
-  width:20px;
-  top: 3px;
-  left: 25px;
-  text-align: right;
-  color: #40535D;
-  font-weight:bold;
-  cursor: pointer;
-}
-
-.linkIcon:hover,
-.linkIconActive{
-  background:rgba(64,83,93,1) !important;
-}
-
-.linkIcon:hover .iconWhite,
-.linkIconActive .iconWhite{
-  fill:#FFFFFF;
-}
-
-.linkIcon:hover #issueCount,
-.linkIconActive #issueCount{
-  color: #FFFFFF;
-}
-
-.iconWhite{
-  fill:rgba(64,83,93,1);
-  margin-top: 12px;
-  margin-left: 3px;
-}
-
-
-#brightwavelogo{
-  font-size:30px;
-  text-align: center;
-  padding:15px;
-  color: #40535D;
-}
-.linkIcon:hover #brightwavelogo,
-.linkIconActive #brightwavelogo{
-  font-size:30px;
-  text-align: center;
-  padding:15px;
-  color: white;
-}
-
-.linkIconActive .iconWhite{
-  fill:rgba(255,255,255,1); 
-}
-
-.potToolTip{
-  margin-left:-32px !important;
 }
 
 .white{
