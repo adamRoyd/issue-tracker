@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { toggleArea } from '../../actions/AreaActions';
 import { logout } from '../../actions/UserActions';
-import ProjectPicker from './ProjectPicker';
+import ProjectPicker from '../Common/ProjectPicker';
 import NewIssueModal from '../Modals/NewIssueModal';
 import BatchIssuesModal from '../Modals/BatchIssuesModal';
 import OpenProjectModal from '../Modals/OpenProjectModal';
 import { openModal } from '../../actions/ModalActions'
 import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
-import styles from '../../styles/Nav.css';
+import styles from './Nav.css';
 
 class NavBarPhone extends React.Component{
     constructor(props){

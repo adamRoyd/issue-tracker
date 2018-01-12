@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 // Import Components
 import IssueList from '../IssueTable/IssueList';
 import IssuePots from '../Sidebar/IssuePots';
-import NavBar from '../Common/NavBar';
+import NavBar from '../Nav/NavBar';
 import EditIssuePage from '../Issue/EditIssuePage';
 import NewIssuePage from '../Issue/NewIssuePage';
 import Spinner from '../Common/Spinner';

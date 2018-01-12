@@ -7,10 +7,11 @@ import { saveIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getPots } from '../../reducers/IssueFilterReducer';
 import IssueDescription from './IssueDescription';
-import IssueForm from '../Issue/IssueForm';
+import IssueForm from '../IssueForm/IssueForm';
 import { getArea } from '../../reducers/AreaReducer';
-import {Editor, EditorState, RichUtils, ContentState} from 'draft-js';
-import {stateToHTML} from 'draft-js-export-html';
+import { Editor, EditorState, RichUtils, ContentState } from 'draft-js';
+import { stateToHTML } from 'draft-js-export-html';
+import styles from './EditIssue.css';
 
 class IssueManager extends React.Component{
     constructor(props){
@@ -76,17 +77,17 @@ class IssueManager extends React.Component{
         const i = this.props.issues.findIndex((issue) => issue.id == this.props.params.id);
         const issue = this.props.issues[i];
         return(
-            <div className="issueDescriptionAndSettings">
+            <div className={styles.issueDescriptionAndSettings}>
                 <h4>Issue Description</h4>
                 <IssueDescription issue={this.state.issue}/>
-                <div className="commentBox">
+                <div className={styles.commentBox}>
                     {(((this.props.area == 'client') && (this.props.usertype != 'Client')))
                     ?
-                    <p className="error"><br/><strong>{(this.props.area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
+                    <p className={styles.error}><br/><strong>{(this.props.area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
                     :
-                    <div id="textEditor" onClick={this.focus}>
+                    <div className={styles.textEditor} onClick={this.focus}>
                         <Editor
-                            className={this.props.errors ? "has-error" : ""}
+                            className={this.props.errors ? styles.hasError : ""}
                             editorState={this.state.editorState}
                             onChange={this.onChange}
                             placeholder="Enter a comment..."
@@ -107,10 +108,9 @@ class IssueManager extends React.Component{
                     locations={this.props.locations}
                     categories={this.props.categories}
                     />
-                <div id="issueManagerButtons" className="anchor-bottom">
+                <div id="issueManagerButtons" className={styles.anchorBottom}>
                     <button className="btn" onClick={this.handleSubmit} disabled={this.state.submitDisabled}>Submit</button>  
                     <button className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>
-                    {/*<button id="attach" className="btn">Add attachment</button>*/}
                 </div>
             </div>
         );

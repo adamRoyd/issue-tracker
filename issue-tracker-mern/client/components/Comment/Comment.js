@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FriendlyDate from '../Common/FriendlyDate';
-
+import styles from './Comments.css';
 
 class Comment extends React.Component{
 
@@ -24,14 +24,14 @@ class Comment extends React.Component{
         }
 
         return(
-            <div className="comment">
+            <div className={`container-fluid ${styles.comment}`}>
                 <div className="row">
-                    <p><strong>{comment.user}<span className="right-align"><FriendlyDate date={comment.time}/></span></strong></p>
+                    <p><strong>{comment.user}<span className={styles.rightAlign}><FriendlyDate date={comment.time}/></span></strong></p>
                 </div>
                 <div className="row">
                     <div dangerouslySetInnerHTML={{__html: comment.text}} className="col-sm-7 no-gutter"/>
                     <div className="col-sm-5 no-gutter">
-                        <p className="right-align"><strong>{comment.status}</strong></p>
+                        <p className={styles.rightAlign}><strong>{comment.status}</strong></p>
                     </div>
                 </div>
             </div>

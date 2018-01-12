@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import styles from './IssueTable.css';
 
 class Issue extends React.Component{
     render(){
@@ -10,7 +11,7 @@ class Issue extends React.Component{
         description.innerHTML= issue.description;
         description = description.innerText.trim();
         return(
-            <tr className={this.props.active ? 'issueRowActive' : 'issueRow'}>
+            <tr className={this.props.active ? styles.issueRowActive : styles.issueRow}>
                 <td><input type="checkbox" checked={issue.checked} onClick={() => checkBoxClick()}/></td>
                 <td onClick={() => onClick()}>{issue.id}</td>
                 <td onClick={() => onClick()}>{issue.sco + "_" + issue.screen}</td>

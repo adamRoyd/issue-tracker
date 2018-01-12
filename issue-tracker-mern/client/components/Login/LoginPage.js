@@ -27,8 +27,8 @@ class LoginPage extends React.Component{
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         return(
-            <div className={styles['wrapper']}>
-                <div className={styles['form-signin']}>
+            <div className={styles.wrapper}>
+                <div className={styles.formSignin}>
                     <h4>Log in</h4>
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" className="form-control" ref="userName" placeholder="Email Address" required="" autoFocus="" />

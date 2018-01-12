@@ -6,6 +6,7 @@ import { fetchProjects } from '../../actions/ProjectActions';
 import { getProjects } from '../../reducers/ProjectReducer';
 import { getUser } from '../../reducers/UserReducer';
 import ProjectPicker from '../Common/ProjectPicker';
+import styles from './login.css';
 
 class SelectProjectPage extends React.Component{
     componentDidMount() {
@@ -20,8 +21,8 @@ class SelectProjectPage extends React.Component{
     }
     render(){
         return(
-            <div className="wrapper">
-                <div className="form-signin">
+            <div className={styles.wrapper}>
+                <div className={styles.formSignin}>
                     <h4>Select a project</h4>
                     <ProjectPicker {...this.props}/>
                 </div>

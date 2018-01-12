@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { toggleArea } from '../../actions/AreaActions';
 import { logout, logoutUser } from '../../actions/UserActions';
-import ProjectPicker from './ProjectPicker';
+import ProjectPicker from '../Common/ProjectPicker';
 import NewIssueModal from '../Modals/NewIssueModal';
 import BatchIssuesModal from '../Modals/BatchIssuesModal';
 import OpenProjectModal from '../Modals/OpenProjectModal';
@@ -12,7 +12,7 @@ import AddProjectModal from '../Modals/AddProjectModal';
 import AddUserModal from '../Modals/AddUserModal';
 import { openModal } from '../../actions/ModalActions'
 import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
-import styles from '../../styles/Nav.css';
+import styles from './Nav.css';
 
 class NavBar extends React.Component{
     constructor(props){
@@ -57,10 +57,10 @@ class NavBar extends React.Component{
             <div id="navBar" className={`row ${styles['visible-desktop']} ${styles['nav-bar']}`}>
                 {(this.props.params.projectCode) ?
                     //nav bar for the main issue page
-                    <ButtonGroup style={{ height: '100%' }}>
-                        <Button className={styles.navBtn} onClick={this.homeClick}>{projectCode.toUpperCase()}</Button>
+                    <ButtonGroup style={{ height: '100%'}}>
+                        <Button className={`btn ${styles.navBtn}`} onClick={this.homeClick}>{projectCode.toUpperCase()}</Button>
                         {(usertype == 'Client')
-                            ?   <Button className={styles.navBtn} disabled={true}>Client Area</Button>
+                            ?   <Button className={`btn ${styles.navBtn}`} disabled={true}>Client Area</Button>
                             :   <DropdownButton
                                     id="bg-nested-dropdown"
                                     title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } 
@@ -69,10 +69,10 @@ class NavBar extends React.Component{
                                 </DropdownButton>
                         }
 
-                        <Button className={usertype == 'Admin' ? styles.navBtn : 'hidden'} onClick={() => this.handleClick('project')}>Open Project</Button>
-                        <Button className={styles.navBtn} disabled={isInternal && this.props.area == 'client'} onClick={() => this.handleClick('newIssue')}>New Issue</Button>
+                        <Button className={usertype == 'Admin' ? `btn ${styles.navBtn}` : 'hidden'} onClick={() => this.handleClick('project')}>Open Project</Button>
+                        <Button className={`btn ${styles.navBtn}`} disabled={isInternal && this.props.area == 'client'} onClick={() => this.handleClick('newIssue')}>New Issue</Button>
                         {(this.props.batchIssues)
-                            ? <Button className={styles.navBtn} disabled={(this.props.batchIssues.length == 0)} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
+                            ? <Button className={`btn ${styles.navBtn}`} disabled={(this.props.batchIssues.length == 0)} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
                             : null
                         }
                         <DropdownButton className={styles.navBtn} title='User options' id="bg-nested-dropdown">
@@ -101,7 +101,7 @@ class NavBar extends React.Component{
                         }
                         {(this.props.user.username != null)
                             ?
-                            <DropdownButton title='User options' id="bg-nested-dropdown">
+                            <DropdownButton className={styles.navBtn} title='User options' id="bg-nested-dropdown">
                                 <MenuItem header>{this.props.user.username}</MenuItem>
                                 <MenuItem divider/>
                                 <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={this.createProject}>Create Project</MenuItem>    

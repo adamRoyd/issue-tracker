@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
+import styles from './Comments.css';
 
 class Comments extends React.Component{
     render(){
@@ -9,7 +10,7 @@ class Comments extends React.Component{
             return new Date(b.time) - new Date(a.time);
         })
         return(
-            <div id="commentsBox">
+            <div className={styles.commentsBox}>
                 {comments.map((comment,i) =>
                     <Comment 
                         key={i} 

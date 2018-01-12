@@ -1,0 +1,34 @@
+.commentsBox{
+    position:absolute;
+    height:calc(100% - 530px);
+    top:485px;
+    width:100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.comment{
+    border-bottom: 2px solid rgba(55,55,55,0.1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .comment .commentHeading{
+    width: 100%;
+    font-weight:bold;
+  }
+  
+  .comment .commentHeading .right{
+    float:right;
+  }
+  
+  .comment .commentHeading .pot{
+    color:green;
+    text-align: left;
+  }
+  
+
+
+.rightAlign{
+    float:right;
+    margin-right:5px;
+}

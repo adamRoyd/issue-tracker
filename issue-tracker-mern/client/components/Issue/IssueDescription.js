@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Attachment from '../common/Attachment';
-//import img from '../../../test.png'
+import styles from './EditIssue.css';
 
 const IssueDescription = ({issue}) => {
     return(
         <div>
-            <div id="issueDescription">
+            <div className={styles.issueDescription}>
                 <div dangerouslySetInnerHTML={{__html: issue.description}}/>
             </div>
-            <div id="issueAttachments">
+            <div className={styles.issueAttachments}>
                 {(issue.attachments) 
                     ? issue.attachments.map((a,i) => {
                         return <Attachment key={i} number={i} path={a}/>})

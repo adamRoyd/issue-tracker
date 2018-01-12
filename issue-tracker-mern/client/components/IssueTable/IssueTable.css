@@ -120,3 +120,10 @@ height:42px !important;
     color:white;
 }
   
+
+.issueRow td,
+.issueRowActive td{
+    padding: 8px;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
