@@ -26,13 +26,10 @@ class Comment extends React.Component{
         return(
             <div className={`container-fluid ${styles.comment}`}>
                 <div className="row">
-                    <p><strong>{comment.user}<span className={styles.rightAlign}><FriendlyDate date={comment.time}/></span></strong></p>
+                    <p><strong>{comment.user}<span className={styles.rightAlign}><strong>{comment.status}</strong><FriendlyDate date={comment.time}/></span></strong></p>
                 </div>
                 <div className="row">
-                    <div dangerouslySetInnerHTML={{__html: comment.text}} className={`col-sm-7 no-gutter ${styles.noPadding}`}/>
-                    <div className={`col-sm-5 no-gutter ${styles.noPadding}`}>
-                        <p className={styles.rightAlign}><strong>{comment.status}</strong></p>
-                    </div>
+                    <div dangerouslySetInnerHTML={{__html: comment.text}} className={`col-sm-12 no-gutter ${styles.noPadding}`}/>
                 </div>
             </div>
         );
