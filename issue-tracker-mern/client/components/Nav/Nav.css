@@ -1,7 +1,15 @@
 /**************************** NAV *******************************/
-.nav-bar{
+.navBar{
     height:40px;
     background:#004D1F;
+}
+
+.navBar div{
+    height:100%;
+}
+
+.navButtonGroup{
+    height:100%;
 }
 
 .nav-item{
