@@ -10,6 +10,16 @@
     }
   }
 
+@media (min-width: 1400px){
+  .editIssuePage {
+      display: block !important;
+  }
+}
+
+.editIssuePage{
+  display:none;
+}
+
 .commentsHeader{
   position:absolute;
   top:445px;
@@ -68,4 +78,8 @@
 .anchorBottom{
   position:absolute;
   bottom:0px;
+}
+
+btn{
+  background-color:blue;
 }

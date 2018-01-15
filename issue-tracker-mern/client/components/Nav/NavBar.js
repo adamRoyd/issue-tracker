@@ -54,7 +54,7 @@ class NavBar extends React.Component{
         let projectCode = this.props.params.projectCode;
         if(projectCode == null){projectCode = '';}
         return(
-            <div id="navBar" className={`row ${styles['visible-desktop']} ${styles['nav-bar']}`}>
+            <div id="navBar" className={`row ${styles['visible-desktop']} ${styles['navBar']}`}>
                 {(this.props.params.projectCode) ?
                     //nav bar for the main issue page
                     <ButtonGroup style={{ height: '100%'}}>

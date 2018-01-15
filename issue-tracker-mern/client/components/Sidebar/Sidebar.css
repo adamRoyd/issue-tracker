@@ -20,6 +20,10 @@
       }
 }
 
+.issuePots{
+  display: none;
+}
+
 .linkIcon,
 .linkIconActive{
   position:relative;

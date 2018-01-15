@@ -29,8 +29,8 @@ class Comment extends React.Component{
                     <p><strong>{comment.user}<span className={styles.rightAlign}><FriendlyDate date={comment.time}/></span></strong></p>
                 </div>
                 <div className="row">
-                    <div dangerouslySetInnerHTML={{__html: comment.text}} className="col-sm-7 no-gutter"/>
-                    <div className="col-sm-5 no-gutter">
+                    <div dangerouslySetInnerHTML={{__html: comment.text}} className={`col-sm-7 no-gutter ${styles.noPadding}`}/>
+                    <div className={`col-sm-5 no-gutter ${styles.noPadding}`}>
                         <p className={styles.rightAlign}><strong>{comment.status}</strong></p>
                     </div>
                 </div>

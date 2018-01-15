@@ -1,5 +1,3 @@
-/**********************Issue Table*****************************/
-
 @media (min-width: 200px){
     .issuelist {
         height:100%;
@@ -9,6 +7,16 @@
         left: 55px;
         width: 795px;
     }
+}
+
+@media (min-width: 1400px){
+    .issuelist {
+        display: block !important;
+    }
+  }
+
+.issuelist{
+    display:none;
 }
 
 .issueTable{
