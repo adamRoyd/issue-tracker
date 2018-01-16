@@ -11,6 +11,21 @@ import { configureStore } from './store';
 const store = configureStore(window.__INITIAL_STATE__);
 const mountApp = document.getElementById('root');
 
+//Stylesheets
+import './styles/Comments.css';
+import './styles/Common.css';
+import './styles/Draft.css';
+import './styles/EditIssue.css';
+import './styles/IssueForm.css';
+import './styles/IssueTable.css';
+import './styles/login.css';
+import './styles/Nav.css';
+import './styles/Richeditor.css';
+import './styles/Sidebar.css';
+import './styles/styles.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+
 render(
   <AppContainer>
     <App store={store} />

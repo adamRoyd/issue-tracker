@@ -32,7 +32,7 @@ class NavBarPhone extends React.Component{
         let projectCode = this.props.params.projectCode;
         if(projectCode == null){projectCode = '';}
         return(
-            <div id="navBar" className={`row ${styles['visible-phone']} ${styles['nav-bar']}`}>
+            <div id="navBar" className='row visible-phone nav-bar'>
                 {(this.props.params.projectCode) ?
                     <ButtonGroup vertical block style={{ height: '100%'}}>
                             <DropdownButton title='Menu' id="bg-nested-dropdown">

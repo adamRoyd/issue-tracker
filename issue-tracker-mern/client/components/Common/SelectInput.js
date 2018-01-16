@@ -11,13 +11,13 @@ const SelectInput = ({name, label, onChange, value, error, options, defaultOptio
       <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
       <div className="col-sm-9 field">
         {(isStatic) ? 
-          <div className={`form-control ${styles['static']}`}>{value}</div>
+          <div className={`form-control 'static']}`}>{value}</div>
           :
           <select
           name={name}
           value={value}
           onChange={onChange}
-          className={isStatic ? `form-control ${styles['static']}` : 'form-control'}
+          className={isStatic ? 'form-control static' : 'form-control'}
           >
           {(defaultOption)
             ? <option>{defaultOption}</option>

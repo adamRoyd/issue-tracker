@@ -20,8 +20,8 @@ class SelectProjectPage extends React.Component{
     }
     render(){
         return(
-            <div className={styles.wrapper}>
-                <div className={styles.formSignin}>
+            <div className='wrapper'>
+                <div className='formSignin'>
                     <h4>Select a project</h4>
                     <ProjectPicker {...this.props}/>
                 </div>

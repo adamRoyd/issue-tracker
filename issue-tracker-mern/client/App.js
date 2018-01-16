@@ -9,10 +9,18 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 
 // Stylesheets
-require('./main.css');
+//require('./main.css');
+require('./styles/Comments.css');
+require('./styles/Common.css');
 require('./styles/Draft.css');
+require('./styles/EditIssue.css');
+require('./styles/IssueForm.css');
+require('./styles/IssueTable.css');
+require('./styles/login.css');
+require('./styles/Nav.css');
 require('./styles/Richeditor.css');
-
+require('./styles/Sidebar.css');
+require('./styles/styles.css');
 
 export default function App(props) {
   return (

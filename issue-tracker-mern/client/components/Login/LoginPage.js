@@ -32,7 +32,7 @@ class LoginPage extends React.Component{
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" className="form-control" ref="userName" placeholder="Email Address" required="" autoFocus="" />
                         <input type="password" className="form-control" ref="password" placeholder="Password" required=""/>
-                        <button className={`btn ${styles['login-button']}`}  type="submit">Login</button>
+                        <button className='btn login-button'  type="submit">Login</button>
                         {(this.props.user.errorMessage)
                             ? <p style={{color:'red'}}>{this.props.user.errorMessage.message}</p>
                             : <p></p>

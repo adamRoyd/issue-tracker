@@ -6,7 +6,7 @@ import ReactTooltip from 'react-tooltip';
 const Link = ({ name, filter, onClick, active, issues, numberOfIssues }) => {
   return (
     <div 
-        className={active ? styles.linkIconActive : styles.linkIcon}
+        className={active ? 'linkIconActive' : 'linkIcon'}
         href="#" 
         data-tip data-for={filter}
         data-delay-show="0"
@@ -16,11 +16,11 @@ const Link = ({ name, filter, onClick, active, issues, numberOfIssues }) => {
             onClick();
         }}
     >
-        <StatusIcon height="35" width="35" type={name} imageCssClass={styles.iconWhite}/>
-        <ReactTooltip id={filter} className={styles.potToolTip} offset={{top:0, left:-40}} place="right" effect='solid'>
+        <StatusIcon height="35" width="35" type={name} imageCssClass='iconWhite'/>
+        <ReactTooltip id={filter} className='potToolTip' offset={{top:0, left:-40}} place="right" effect='solid'>
             <span>{name}</span>
         </ReactTooltip>
-        <div className={styles.issueCount}>
+        <div className='issueCount'>
             <p>{numberOfIssues}</p>
         </div>                
     </div>

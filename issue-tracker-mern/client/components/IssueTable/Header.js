@@ -8,7 +8,7 @@ function Header ({onClick,header}) {
             &nbsp;
             <span 
             className={(header.filter == 0) 
-                ? `glyphicon glyphicon-minus ${styles.white}` 
+                ? `glyphicon glyphicon-minus white}` 
                 : (
                     (header.filter == 1) 
                     ? "glyphicon glyphicon-menu-down" 

@@ -8,7 +8,7 @@ import FriendlyDate from '../Common/FriendlyDate';
 
 const IssueForm = ({issue,errors,assignees,onIssueChange,status,displayAdvancedOptions,locations,categories}) => {
     return(
-        <div className={styles.issueForm}>
+        <div className='issueForm'>
             <h4>Issue Settings</h4>
             <TextStatic
                 label="Date"

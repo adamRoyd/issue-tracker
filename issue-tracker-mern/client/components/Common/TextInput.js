@@ -22,7 +22,7 @@ const TextInput = ({name, label, onChange, placeholder, value, error, isStatic})
             </div>
           :
             <div className="col-sm-9 field">
-              <div className={`form-control ${styles['static']}`}>{value}</div>
+              <div className={'form-control static'}>{value}</div>
             </div>
       }
     </div>

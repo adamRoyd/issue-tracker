@@ -31,8 +31,8 @@ class IssueList extends React.Component{
     }
     render(){
         return(
-            <div className={styles.issuelist}>
-                 <table className={styles.issueTable}> {/*className={"issueTable table table-fixed table-hover"} */}
+            <div className='issuelist'>
+                 <table className='issueTable table-hover'>
                     <thead>
                     <tr>
                         {this.props.headers.map((header,i) => <Header key={i} header={header} onClick={() => this.headerClick(header)}/>)}

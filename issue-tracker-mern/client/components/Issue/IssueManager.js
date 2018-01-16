@@ -76,17 +76,17 @@ class IssueManager extends React.Component{
         const i = this.props.issues.findIndex((issue) => issue.id == this.props.params.id);
         const issue = this.props.issues[i];
         return(
-            <div className={styles.issueDescriptionAndSettings}>
+            <div className='issueDescriptionAndSettings'>
                 <h4>Issue Description</h4>
                 <IssueDescription issue={this.state.issue}/>
-                <div className={styles.commentBox}>
+                <div className='commentBox'>
                     {(((this.props.area == 'client') && (this.props.usertype != 'Client')))
                     ?
-                    <p className={styles.error}><br/><strong>{(this.props.area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
+                    <p className='error'><br/><strong>{(this.props.area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
                     :
-                    <div className={styles.textEditor} onClick={this.focus}>
+                    <div className='textEditor} onClick={this.focus'>
                         <Editor
-                            className={this.props.errors ? styles.hasError : ""}
+                            className={this.props.errors ? 'hasError' : ""}
                             editorState={this.state.editorState}
                             onChange={this.onChange}
                             placeholder="Enter a comment..."
@@ -107,7 +107,7 @@ class IssueManager extends React.Component{
                     locations={this.props.locations}
                     categories={this.props.categories}
                     />
-                <div id="issueManagerButtons" className={styles.anchorBottom}>
+                <div id="issueManagerButtons" className='anchorBottom'>
                     <button className="btn" onClick={this.handleSubmit} disabled={this.state.submitDisabled}>Submit</button>  
                     <button className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>
                 </div>

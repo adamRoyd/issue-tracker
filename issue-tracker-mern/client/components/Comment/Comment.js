@@ -23,12 +23,12 @@ class Comment extends React.Component{
         }
 
         return(
-            <div className={`container-fluid ${styles.comment}`}>
+            <div className='container-fluid comment'>
                 <div className="row">
-                    <p><strong>{comment.user}<span className={styles.rightAlign}><strong>{comment.status}</strong><FriendlyDate date={comment.time}/></span></strong></p>
+                    <p><strong>{comment.user}<span className='rightAlign'><strong>{comment.status}</strong><FriendlyDate date={comment.time}/></span></strong></p>
                 </div>
                 <div className="row">
-                    <div dangerouslySetInnerHTML={{__html: comment.text}} className={`col-sm-12 no-gutter ${styles.noPadding}`}/>
+                    <div dangerouslySetInnerHTML={{__html: comment.text}} className={`col-sm-12 no-gutter noPadding}`}/>
                 </div>
             </div>
         );

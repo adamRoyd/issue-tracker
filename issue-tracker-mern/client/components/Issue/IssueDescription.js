@@ -5,10 +5,10 @@ import Attachment from '../common/Attachment';
 const IssueDescription = ({issue}) => {
     return(
         <div>
-            <div className={styles.issueDescription}>
+            <div className='issueDescription'>
                 <div dangerouslySetInnerHTML={{__html: issue.description}}/>
             </div>
-            <div className={styles.issueAttachments}>
+            <div className='issueAttachments'>
                 {(issue.attachments) 
                     ? issue.attachments.map((a,i) => {
                         return <Attachment key={i} number={i} path={a}/>})
