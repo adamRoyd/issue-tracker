@@ -10,7 +10,6 @@ import { fetchComments } from '../../actions/CommentActions';
 import { getVisibleIssues } from '../../reducers/IssueReducer';
 import { getFilter } from '../../reducers/IssueFilterReducer';
 import { getHeaders } from '../../reducers/HeaderReducer';
-import styles from './IssueTable.css'
 
 
 class IssueList extends React.Component{

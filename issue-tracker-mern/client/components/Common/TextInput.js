@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import styles from './Common.css';
 
 const TextInput = ({name, label, onChange, placeholder, value, error, isStatic}) => {
   let wrapperClass = 'form-group row';

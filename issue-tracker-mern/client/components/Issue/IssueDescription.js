@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Attachment from '../common/Attachment';
-import styles from './EditIssue.css';
 
 const IssueDescription = ({issue}) => {
     return(

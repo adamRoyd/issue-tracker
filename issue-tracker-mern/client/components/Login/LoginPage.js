@@ -8,7 +8,6 @@ import { getUser } from '../../reducers/UserReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 import Spinner from '../Common/Spinner';
 import logonimage from '../../assets/BIT_logon.png';
-import styles from './login.css';
 
 class LoginPage extends React.Component{
     handleSubmit = (e) => {
@@ -27,8 +26,8 @@ class LoginPage extends React.Component{
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         return(
-            <div className={styles.wrapper}>
-                <div className={styles.formSignin}>
+            <div className="wrapper">
+                <div className="formSignin">
                     <h4>Log in</h4>
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" className="form-control" ref="userName" placeholder="Email Address" required="" autoFocus="" />

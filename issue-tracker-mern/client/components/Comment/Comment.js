@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FriendlyDate from '../Common/FriendlyDate';
-import styles from './Comments.css';
 
 class Comment extends React.Component{
 

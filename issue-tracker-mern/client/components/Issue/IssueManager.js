@@ -11,7 +11,6 @@ import IssueForm from '../IssueForm/IssueForm';
 import { getArea } from '../../reducers/AreaReducer';
 import { Editor, EditorState, RichUtils, ContentState } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
-import styles from './EditIssue.css';
 
 class IssueManager extends React.Component{
     constructor(props){

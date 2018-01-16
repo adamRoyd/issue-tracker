@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StatusIcon from '../../assets/StatusIcon';
 import ReactTooltip from 'react-tooltip';
-import styles from './Sidebar.css';
 
 const Link = ({ name, filter, onClick, active, issues, numberOfIssues }) => {
   return (

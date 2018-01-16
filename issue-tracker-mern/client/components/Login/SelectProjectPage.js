@@ -6,7 +6,6 @@ import { fetchProjects } from '../../actions/ProjectActions';
 import { getProjects } from '../../reducers/ProjectReducer';
 import { getUser } from '../../reducers/UserReducer';
 import ProjectPicker from '../Common/ProjectPicker';
-import styles from './login.css';
 
 class SelectProjectPage extends React.Component{
     componentDidMount() {

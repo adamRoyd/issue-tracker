@@ -12,7 +12,6 @@ import AddProjectModal from '../Modals/AddProjectModal';
 import AddUserModal from '../Modals/AddUserModal';
 import { openModal } from '../../actions/ModalActions'
 import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
-import styles from './Nav.css';
 
 class NavBar extends React.Component{
     constructor(props){

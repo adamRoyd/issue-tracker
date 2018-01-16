@@ -13,7 +13,6 @@ import { getIssues } from '../../reducers/IssueReducer';
 import { getArea } from '../../reducers/AreaReducer';
 import { getUser } from '../../reducers/UserReducer';
 import NewIssueForm from '../Issue/NewIssueForm';
-import styles from '../../styles/styles.css';
 
 class NewIssuePage extends React.Component{
     constructor(props){

@@ -6,7 +6,6 @@ import { fetchComments } from '../../actions/CommentActions';
 import Issue from '../IssueTable/Issue';
 import Comments from '../Comment/Comments';
 import IssueManager from '../Issue/IssueManager';
-import styles from './EditIssue.css'
 
 class EditIssuePage extends React.Component{
     componentDidMount() {

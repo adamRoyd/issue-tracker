@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import styles from './Common.css';
 
 const TextStatic = ({label, value}) => {
   return (

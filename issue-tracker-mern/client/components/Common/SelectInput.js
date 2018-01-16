@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import styles from './Common.css';
 
 const SelectInput = ({name, label, onChange, value, error, options, defaultOption, isStatic}) => {
   let wrapperClass = 'form-group row';

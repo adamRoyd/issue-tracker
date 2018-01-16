@@ -10,7 +10,6 @@ import BatchIssuesModal from '../Modals/BatchIssuesModal';
 import OpenProjectModal from '../Modals/OpenProjectModal';
 import { openModal } from '../../actions/ModalActions'
 import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
-import styles from './Nav.css';
 
 class NavBarPhone extends React.Component{
     constructor(props){

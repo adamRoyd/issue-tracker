@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FilterLink from './FilterLink';
-import styles from './Sidebar.css';
 
 class IssuePots extends React.Component{
     constructor(props){

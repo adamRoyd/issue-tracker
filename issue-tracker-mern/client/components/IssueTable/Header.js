@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './IssueTable.css';
 
 function Header ({onClick,header}) {
     return(

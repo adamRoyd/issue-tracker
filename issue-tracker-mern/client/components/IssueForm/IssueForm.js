@@ -5,7 +5,6 @@ import TextInput from '../Common/TextInput';
 import TextAreaInput from '../Common/TextAreaInput';
 import TextStatic from '../Common/TextStatic';
 import FriendlyDate from '../Common/FriendlyDate';
-import styles from './IssueForm.css';
 
 const IssueForm = ({issue,errors,assignees,onIssueChange,status,displayAdvancedOptions,locations,categories}) => {
     return(
