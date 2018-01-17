@@ -23,6 +23,7 @@ const ModalReducer = (state = initialState.modal, action) =>{
     case types.UPLOAD_FILE_SUCCESS:
         return "newIssue"
     default:
+        console.log(action.type);
         return initialState.modal;     
   }
 }

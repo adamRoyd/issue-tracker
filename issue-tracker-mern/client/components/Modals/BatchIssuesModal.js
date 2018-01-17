@@ -8,7 +8,7 @@ import { batchIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getComments } from '../../reducers/CommentReducer';
 import { getPots } from '../../reducers/IssueFilterReducer';
-import BatchIssueForm from '../Issue/BatchIssueForm';
+import BatchIssueForm from '../IssueForms/BatchIssueForm';
 
 class BatchIssuesModal extends React.Component{
     constructor(props){

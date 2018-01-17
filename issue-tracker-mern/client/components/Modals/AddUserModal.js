@@ -80,30 +80,31 @@ class AddUserModal extends React.Component{
                         <Modal.Title>Add a new user</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <TextInput
-                            name="username"
-                            label="Username (email)"
-                            placeholder="Select a username"
-                            value={this.state.user.username}
-                            onChange={this.updateUserState} 
-                            error={this.state.errors.username}/>
-                        <SelectInput
-                            name="usertype"
-                            label="User Type"
-                            value={this.state.user.usertype}
-                            options={["Internal","Client","Admin"]}
-                            onChange={this.updateUserState} 
-                            error={this.state.errors.usertype}/>
-                        {(this.state.user.usertype == "Client")
-                            ?   <SelectInput
+                        <div className='container-fluid'>
+                            <TextInput
+                                name="username"
+                                label="Username (email)"
+                                placeholder="Select a username"
+                                value={this.state.user.username}
+                                onChange={this.updateUserState} 
+                                error={this.state.errors.username}/>
+                            <SelectInput
+                                name="usertype"
+                                label="User Type"
+                                value={this.state.user.usertype}
+                                options={["Internal","Client","Admin"]}
+                                onChange={this.updateUserState} 
+                                error={this.state.errors.usertype}/>
+                            {(this.state.user.usertype == "Client") &&
+                                <SelectInput
                                     name="projects"
                                     label="Restrict client to project"
                                     value={this.state.user.projects}
                                     options={this.props.projects}
                                     onChange={this.updateUserState} 
                                     error={this.state.errors.usertype}/>
-                            : null
-                        }
+                            }
+                        </div>
                     </Modal.Body>
                     <Modal.Footer>
                         <Spinner visible={this.props.message.isFetching}/>

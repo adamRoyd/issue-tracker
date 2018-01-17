@@ -7,7 +7,7 @@ import { saveIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getPots } from '../../reducers/IssueFilterReducer';
 import IssueDescription from './IssueDescription';
-import IssueForm from '../IssueForm/IssueForm';
+import IssueForm from '../IssueForms/IssueForm';
 import { getArea } from '../../reducers/AreaReducer';
 import { Editor, EditorState, RichUtils, ContentState } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';

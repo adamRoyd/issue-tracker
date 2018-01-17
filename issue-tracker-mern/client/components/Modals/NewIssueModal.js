@@ -8,7 +8,7 @@ import { getAssignees } from '../../reducers/AssigneeReducer';
 import { closeModal } from '../../actions/ModalActions';
 import { getAttachments } from '../../reducers/AttachmentReducer';
 import { getIssues } from '../../reducers/IssueReducer';
-import NewIssueForm from '../Issue/NewIssueForm';
+import NewIssueForm from '../IssueForms/NewIssueForm';
 
 class NewIssueModal extends React.Component{
     constructor(props){

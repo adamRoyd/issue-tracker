@@ -66,12 +66,14 @@ class AddProjectModal extends React.Component{
                         <Modal.Title>Add a new project</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <TextInput
-                            name="project"
-                            label="Project code"
-                            placeholder="Enter a project code"
-                            value={this.state.project}
-                            onChange={this.updateProjectState} />
+                        <div className="container-fluid">
+                            <TextInput
+                                name="project"
+                                label="Project code"
+                                placeholder="Enter a project code"
+                                value={this.state.project}
+                                onChange={this.updateProjectState} />
+                        </div>
                     </Modal.Body>
                     <Modal.Footer>
                         <Spinner visible={this.props.message.isFetching}/>

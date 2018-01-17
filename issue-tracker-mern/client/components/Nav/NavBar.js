@@ -19,20 +19,12 @@ class NavBar extends React.Component{
         this.logout = this.logout.bind(this);
         this.areaClick = this.areaClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.adduser = this.adduser.bind(this);
         this.homeClick = this.homeClick.bind(this);
-        this.createProject = this.createProject.bind(this);
     }
     logout = () => {
         this.props.dispatch(logoutUser());
         this.props.dispatch(logout());
         browserHistory.push(`/`);
-    }
-    adduser = () => {
-        browserHistory.push('/adduser');
-    }
-    createProject = () => {
-        browserHistory.push('/createproject');
     }
     areaClick = () => {
         this.props.dispatch(toggleArea());
@@ -77,8 +69,8 @@ class NavBar extends React.Component{
                         <DropdownButton className='navBtn' title='User options' id="bg-nested-dropdown">
                             <MenuItem header>{this.props.user.username}</MenuItem>
                             <MenuItem divider/>
-                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={this.createProject}>Create Project</MenuItem>    
-                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={this.adduser}>Manage Users</MenuItem>  
+                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={() => this.handleClick('addproject')}>Create Project</MenuItem>    
+                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={() => this.handleClick('adduser')}>Manage Users</MenuItem>  
                             <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
                         </DropdownButton>
                         <OpenProjectModal {...this.props}/>
