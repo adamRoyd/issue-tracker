@@ -65,7 +65,7 @@ h5{
 
 /***********************************Description and Form ************************************/
 .form-group{
-  margin-bottom: 11.5px !important;
+  margin-bottom: 7.5px !important;
 }
 
 .hasError .form-control,
@@ -174,11 +174,6 @@ div .tableCell{
   height:100%;
 }
 
-.row{
-  margin-left: 0px !important;
-  margin-right: 0px !important;
-}
-
 #newIssuePage{
   overflow-y: auto;
 }
@@ -192,7 +187,7 @@ div .tableCell{
 .btn:hover,
 .btn:active{
   background:white;
-  color:#004D1F !important;
+  /* color:#004D1F !important; */
   border:1px solid #004D1F;
 }
 
@@ -285,24 +280,17 @@ height:442px;
 position:absolute;
 }
 
-.commentBox{
-width:50%;
-position:absolute;
-height:23%;
-bottom:10%;
-}
-
 .error{
 color:#a94442;
 }
 
 .textEditor{
-border: 1px solid #ccc;
-cursor: text;
-padding: 10px;
-overflow-y: auto;
-overflow-wrap:break-word;
-height:100%;
+  border: 1px solid #ccc;
+  cursor: text;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-wrap:break-word;
+  height:100%;
 }
 
 .has-error .form-control,

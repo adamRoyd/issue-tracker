@@ -94,7 +94,6 @@ class NewIssuePage extends React.Component{
         return errors
     }
     render(){
-        console.log("phone view", this.props.phoneView);
         return(
             <div id="newIssuePage" className={'visible-phone'}>
                 <h3>New issue for {this.props.params.projectCode}</h3>

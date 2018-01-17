@@ -9,7 +9,6 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 
 // Stylesheets
-//require('./main.css');
 require('./styles/Comments.css');
 require('./styles/Common.css');
 require('./styles/Draft.css');

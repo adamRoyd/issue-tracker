@@ -57,9 +57,9 @@ class NavBar extends React.Component{
                 {(this.props.params.projectCode) ?
                     //nav bar for the main issue page
                     <ButtonGroup style={{ height: '100%'}}>
-                        <Button className='btn navBtn' onClick={this.homeClick}>{projectCode.toUpperCase()}</Button>
+                        <Button className='navBtn' onClick={this.homeClick}>{projectCode.toUpperCase()}</Button>
                         {(usertype == 'Client')
-                            ?   <Button className='btn navBtn' disabled={true}>Client Area</Button>
+                            ?   <Button className='navBtn' disabled={true}>Client Area</Button>
                             :   <DropdownButton
                                     id="bg-nested-dropdown"
                                     title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } 
@@ -68,10 +68,10 @@ class NavBar extends React.Component{
                                 </DropdownButton>
                         }
 
-                        <Button className={usertype == 'Admin' ? 'btn navBtn' : 'hidden'} onClick={() => this.handleClick('project')}>Open Project</Button>
-                        <Button className='btn navBtn' disabled={isInternal && this.props.area == 'client'} onClick={() => this.handleClick('newIssue')}>New Issue</Button>
+                        <Button className={usertype == 'Admin' ? 'navBtn' : 'hidden'} onClick={() => this.handleClick('project')}>Open Project</Button>
+                        <Button className='navBtn' disabled={isInternal && this.props.area == 'client'} onClick={() => this.handleClick('newIssue')}>New Issue</Button>
                         {(this.props.batchIssues)
-                            ? <Button className='btn navBtn' disabled={(this.props.batchIssues.length == 0)} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
+                            ? <Button className='navBtn' disabled={(this.props.batchIssues.length == 0)} onClick={() => this.handleClick('batch')}>Batch Issues</Button>
                             : null
                         }
                         <DropdownButton className='navBtn' title='User options' id="bg-nested-dropdown">

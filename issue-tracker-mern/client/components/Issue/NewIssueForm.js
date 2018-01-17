@@ -9,7 +9,7 @@ import TextStatic from '../Common/TextStatic';
 
 const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categories,onDrop,files,attachments,onCommentChange,params,username}) => {
     return(
-        <form> 
+        <form className='container-fluid'> 
             <TextStatic
                 name="username"
                 label="Username"
