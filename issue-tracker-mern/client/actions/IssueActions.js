@@ -45,6 +45,16 @@ export function fetchIssues(projectCode) {
   };
 }
 
+export function fetchIssuesByUser(username){
+  console.log('FETCHING ISSUES BY USER ACTION');
+  return (dispatch) => {
+    dispatch(fetchingIssues())
+    return callApi(`issuesByUser/${username}`).then(res => {
+      dispatch(addIssues(res.issues));
+    });
+  }
+}
+
 export function addIssue(issue) {
   return {
     type: types.ADD_ISSUE,

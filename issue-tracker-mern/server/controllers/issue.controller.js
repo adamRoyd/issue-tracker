@@ -73,6 +73,21 @@ export function getIssue(req, res) {
   });
 }
 /**
+ * Get all issues by project
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function getIssuesByUser(req, res) {
+  console.log('GET ISSUES BY USER CONTROLLER');
+  Issue.find({assigned: req.params.username}).sort( { id: 1 } ).exec((err, issues) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ issues });
+  });
+}
+/**
  * Save issue
  * @param req
  * @param res

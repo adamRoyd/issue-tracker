@@ -21,7 +21,7 @@ class CommentModal extends React.Component{
             <div className="nav-div">
                 <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Comments for issue X</Modal.Title>
+                        <Modal.Title>Comments</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         {comments.map((comment,i) =>
