@@ -9,8 +9,7 @@
 
 .comment{
     border-bottom: 2px solid rgba(55,55,55,0.1);
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding: 10px 0 10px 0;
   }
   .comment .commentHeading{
     width: 100%;

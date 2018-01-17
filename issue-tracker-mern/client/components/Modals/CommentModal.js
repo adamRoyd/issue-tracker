@@ -30,7 +30,6 @@ class CommentModal extends React.Component{
                                 comment={comment}
                                 issue={this.props.issue}/>
                         )}
-                        <p>sss</p>
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn" onClick={this.close}>Close</button>
