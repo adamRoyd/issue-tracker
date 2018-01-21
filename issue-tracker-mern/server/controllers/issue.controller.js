@@ -5,7 +5,7 @@ import sanitizeHtml from 'sanitize-html';
 import mail from '../handlers/mail';
 
 /**
- * Get all issues
+ * Get all issues by project
  * @param req
  * @param res
  * @returns void
@@ -31,8 +31,11 @@ export async function addIssue(req, res) {
   }
   //get the issue with max id
   const i = await Issue.find({project : req.body.issue.project}).sort({id:-1}).limit(1);
-  const newId = i[0].id + 1;
-
+  console.log('NEW ID');
+  let newId = 1
+  if (i.length != 0){
+    newId = i[0].id + 1;
+  }
   const newIssue = new Issue(req.body.issue);
   // Let's sanitize inputs
   newIssue.class = sanitizeHtml(newIssue.class);
