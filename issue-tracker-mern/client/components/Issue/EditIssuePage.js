@@ -25,7 +25,7 @@ class EditIssuePage extends React.Component{
         const issue = this.props.issues[i];
         const issueComments = this.props.comments;
         return(
-            <div className='editIssuePage'>
+            <div className='editIssuePage container-fluid'>
                 <IssueManager {...this.props} issue={issue}/>
                 <div className='commentsHeader'>
                     <h4>Comments <i className='fa fa-expand expandIcon' title='Expand comments' onClick={this.expandComments}/></h4>

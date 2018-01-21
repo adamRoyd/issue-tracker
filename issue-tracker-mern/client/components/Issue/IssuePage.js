@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 // Import Components
-import IssueList from '../IssueTable/IssueList';
+import IssueTable from '../IssueTable/IssueTable';
 import IssuePots from '../Sidebar/IssuePots';
 import NavBar from '../Nav/NavBar';
 import EditIssuePage from '../Issue/EditIssuePage';
@@ -35,18 +35,15 @@ class IssuePage extends Component {
   render() {
     return (
         <div>
-            {(this.props.isFetching)
-            ? 
+            {(this.props.isFetching) ? 
               <Spinner visible={this.props.isFetching}/>
             :
-              <div id="issuePage">
+              <div class='issuePage'>
                 <NewIssuePage className='testStyle' phoneView={true} {...this.props}/>
                 <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
-                <IssueList {...this.props}/>
-                {this.props.params.id ? 
+                <IssueTable {...this.props}/>
+                {this.props.params.id && 
                   <EditIssuePage {...this.props}/>
-                  : 
-                  null
                 }
               </div>
             }

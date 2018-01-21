@@ -18,7 +18,7 @@ class CommentModal extends React.Component{
             return new Date(b.time) - new Date(a.time);
         })
         return(
-            <div className="nav-div">
+            <div>
                 <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>Comments</Modal.Title>
@@ -42,7 +42,7 @@ class CommentModal extends React.Component{
 
 CommentModal.propTypes = {
     buttonName : PropTypes.string,
-    params : PropTypes.object.isRequired
+    params : PropTypes.object
 };
 
 function mapStateToProps(state, ownProps) {

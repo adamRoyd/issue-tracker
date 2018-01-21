@@ -5,7 +5,7 @@
 }
 
 .navBar div{
-    height:100%;
+    /* height:100%; */
 }
 
 .navButtonGroup{
@@ -98,7 +98,7 @@
     font-weight:bold;
 }
 
-@media (min-width: 1400px){
+/* @media (min-width: 1400px){
   .visible-desktop {
       display: block !important;
   }
@@ -110,7 +110,7 @@
   }
 }
 
-.visible-desktop,
+.visible-desktop, */
 .visible-phone{
   display: none;
 }

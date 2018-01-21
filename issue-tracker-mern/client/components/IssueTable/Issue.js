@@ -10,15 +10,31 @@ class Issue extends React.Component{
         description.innerHTML= issue.description;
         description = description.innerText.trim();
         return(
-            <tr className={this.props.active ? 'issueRowActive' : 'issueRow'}>
-                <td><input type="checkbox" checked={issue.checked} onClick={() => checkBoxClick()}/></td>
-                <td onClick={() => onClick()}>{issue.id}</td>
-                <td onClick={() => onClick()}>{issue.sco + "_" + issue.screen}</td>
-                <td onClick={() => onClick()}>{issue.location}</td>
-                <td onClick={() => onClick()}>{issue.category}</td>
-                <td onClick={() => onClick()}>{description}</td>
-                <td onClick={() => onClick()}>{issue.assigned}</td>
-            </tr>
+            <div className={this.props.active ? 'table-row active' : 'table-row'}>
+                <div className="column issue-select">
+                    <input type="checkbox" checked={issue.checked} onClick={() => checkBoxClick()}/>
+                </div>
+                <div className="zapper attributes" onClick={() => onClick()}>
+                    <div className="zapper title-identifier-location-category-type">
+                        <div className="zapper title-identifier">
+                            <div className="column id">{issue.id}</div>
+                            <div className="column screen">{issue.sco + "_" + issue.screen}</div>
+                            <div className="column project">{issue.project}</div>
+                        </div>
+                        <div className="zapper location-category-type">
+                            <div className="column location">{issue.location}</div>
+                            <div className="column category">{issue.category}</div>
+                            <div className="column type">{issue.type}</div>
+                        </div>
+                    </div>
+                    <div className="zapper description-assigned">
+                        <div className="zapper status-owner">
+                            <div className="column description">{description}</div>
+                            <div className="column assigned">{issue.assigned}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         );
     }
 }

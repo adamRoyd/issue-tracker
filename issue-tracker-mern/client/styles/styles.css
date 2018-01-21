@@ -16,7 +16,7 @@ h5{
   font-weight:bold !important;
 }
 
-@media (min-width: 1400px){
+/* @media (min-width: 1400px){
   .visible-desktop {
       display: block !important;
   }
@@ -28,9 +28,14 @@ h5{
   }
 }
 
-.visible-desktop,
+.visible-desktop, */
 .visible-phone{
   display: none;
+}
+
+.issuePage{
+  display: flex;
+  display: -webkit-flex;
 }
 
 .full-height{
@@ -227,28 +232,6 @@ select.form-control{
   left: 50%;
   position: absolute;
   margin-left: -19px;
-}
-
-@media (min-width: 200px){
-  .editIssuePage {
-    height:100%;
-    position: absolute;
-    top: 40px;
-    bottom: 0;
-    left: 860px;
-    overflow-y: hidden;
-    width: calc(100% - 870px);
-  }
-}
-
-@media (min-width: 1400px){
-.editIssuePage {
-    display: block !important;
-}
-}
-
-.editIssuePage{
-display:none;
 }
 
 .commentsHeader{

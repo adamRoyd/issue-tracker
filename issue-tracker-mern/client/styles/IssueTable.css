@@ -1,133 +1,235 @@
-@media (min-width: 200px){
-    .issuelist {
-        height:100%;
-        position: absolute;
-        top: 40px;
-        bottom: 0;
-        left: 55px;
-        width: 795px;
-    }
+.issue-table {
+  display:inline-block;
+  flex-grow:1;
+  width:53%;
+  margin-left: 20px !important;
+  margin-right: 0px !important;
 }
 
-@media (min-width: 1400px){
-    .issuelist {
-        display: block !important;
-    }
+.table-row {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-wrap: no-wrap;
+  -webkit-flex-wrap: no-wrap;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.zapper {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+}
+.column {
+  flex-grow: 0;
+  -webkit-flex-grow: 0;
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  vertical-align: top;
+}
+.issue-select {
+  width: 20px;
+}
+.id {
+  width: 30px;
+}
+.screen {
+  width: 60px;
+}
+.project{
+  width: 80px; 
+}
+.location {
+  width: 90px;
+}
+.category {
+  width: 90px;
+}
+.type {
+  width: 80px;
+}
+.description {
+  width: 110px;
+}
+.assigned {
+  width: 120px;
+}
+
+.watch,
+.add-comment {
+  width: 40px;
+}
+.index {
+  text-align: center;
+}
+.title {
+  font-weight: bold;
+  color: #337AB5;
+}
+.location,
+.type,
+.category{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.description,
+.assigned {
+  flex-grow: 1;
+  -webkit-flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 4px;
+}
+.date {
+  width: 110px;
+  text-align: right;
+  padding-right: 4px;
+}
+.description-assigned,
+.status-owner,
+.attributes {
+  flex-grow: 1;
+  -webkit-flex-grow: 1;
+}
+@media all and (max-width: 1420px) {
+  .title-identifier {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    width: 120px;
   }
-
-.issuelist{
-    display:none;
-}
-
-.issueTable{
+  .title-identifier div {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+  }
+  .title-identifier > div {
     width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  }
+  .location-category-type,
+  .status-owner {
+    width:150px;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+  .location-category-type div,
+  .status-owner div {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+  }
 }
-
-.issueTable th{
-    padding: 8px;
-    border-bottom: 0px !important;
-}
-
-.issueTable td{
-    overflow: hidden;
-    max-width: 270px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.issueTable thead tr{
-    border-bottom:2px solid #dddddd;
-}
-
-.issueTable tbody tr:hover td, 
-.issueTable tbody tr:hover th,
-.issueRowActive{
-    background: #C8C8C8;
-    cursor: pointer;
-}
-
-
-.issueTable tbody {
-    position:absolute;
-    height: calc(100% - 80px);
-    overflow-y: scroll;
+@media all and (max-width: 85px + max(220px,120px)max(110px,85px)max(95px,75px)80px36px330px) {
+  .location-category-type {
+    flex-direction: row;
+    -webkit-flex-direction: row;
+  }
+  .title-identifier-location-category-type {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    width: max(220px,120px,195px);
+  }
+  .title-identifier-location-category-type div {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+  }
+  .title-identifier-location-category-type > div {
     width: 100%;
+  }
+  .description-assigned {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+  .description-assigned div {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+  }
+  .icons {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+  .icons div {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+  }
+  .dates {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+  .dates div {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+  }
 }
-
-.issueTable>tbody,
-.issueTable>thead {
-    display: block;
+@media all and (max-width: 85px + max(220px,120px,195px)max(95px,75px,80px)18px110px) {
+  .table-row {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .attributes {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    width: max(220px,120px,195px,170px);
+  }
+  .attributes div {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+  }
+  .attributes > div {
+    width: 100%;
+  }
+  .location-category-type,
+  .status-owner {
+    flex-direction: row;
+    -webkit-flex-direction: row;
+  }
 }
-
-.issueTable tbody td, .issueTable thead > tr> th {
-    float: left;
-    border-bottom-width: 0;
+.table-row {
+  border-bottom: 1px solid #e0e0e0;
+  border-collapse: collapse;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
-
-.issueTable tbody td{
-    position:static;
-    display:table-cell;
+.table-row:hover,
+.table-row.active{
+  background:grey;
 }
-
-.issueTable tbody tr{
-    width:100%;
-    display:table !important;
+.table-row.header {
+  font-weight: bold;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
-
-.issueTable thead tr{
-    width:100%;
-    display:table !important;
+.glyphicon {
+  color: #DDDDDD;
 }
-
-.issueTable tbody td:nth-child(1),
-.issueTable thead th:nth-child(1){
-    width:30px !important;
+.header .glyphicon {
+  color: #333;
 }
-
-.issueTable tbody td:nth-child(2),
-.issueTable thead th:nth-child(2){
-    width:39px !important;
+.glyphicon-eye-open.active {
+  color: blue;
 }
-
-.issueTable tbody td:nth-child(3),
-.issueTable thead th:nth-child(3){
-width:75px !important;
+.glyphicon-comment.active {
+  color: #3EBB0D;
 }
-
-.issueTable tbody td:nth-child(4),
-.issueTable thead th:nth-child(4){
-width:115px !important;
+.glyphicon:hover {
+  color: #666;
+  cursor: pointer;
+  text-decoration: underline;
 }
-
-.issueTable tbody td:nth-child(5),
-.issueTable thead th:nth-child(5){
-width:15% !important;
+.category {
+  color: #999999;
 }
-
-.issueTable tbody td:nth-child(6),
-.issueTable thead th:nth-child(6){
-width:250px !important;
+.comment {
+  font-style: italic;
 }
-
-.issueTable tbody td:nth-child(7),
-.issueTable thead th:nth-child(7){
-width:146px !important;
+.severity.high {
+  color: red;
 }
-
-.issueTable thead th{
-cursor: pointer;
+.severity.medium {
+  color: blue;
 }
-
-.issueTable td{
-height:42px !important;
-}
-
-
-.issueRow td,
-.issueRowActive td{
-    padding: 8px;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
+.severity.low {
+  color: green;
 }

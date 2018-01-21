@@ -4,7 +4,7 @@
     color:white;
   }
   
-@media (min-width: 1400px){
+@media (min-width: 900px){
     .issuePots {
         display: block !important;
     }

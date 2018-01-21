@@ -15,7 +15,7 @@ class OpenProjectModal extends React.Component{
     }
     render(){
         return(
-            <div className="nav-div">
+            <div>
 
                 <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
