@@ -1,8 +1,8 @@
-.commentsBox{
+.comments-box{
     position:absolute;
     height:calc(100% - 530px);
     top:485px;
-    width:100%;
+    width:calc(100% - 15px);
     overflow-y: auto;
     overflow-x: hidden;
 }

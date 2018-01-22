@@ -38,7 +38,7 @@ class IssuePage extends Component {
             {(this.props.isFetching) ? 
               <Spinner visible={this.props.isFetching}/>
             :
-              <div class='issuePage'>
+              <div>
                 <NewIssuePage className='testStyle' phoneView={true} {...this.props}/>
                 <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
                 <IssueTable {...this.props}/>

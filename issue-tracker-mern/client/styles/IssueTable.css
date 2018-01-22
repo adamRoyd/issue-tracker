@@ -1,7 +1,9 @@
 .issue-table {
   display:inline-block;
+  overflow-y: auto;
   flex-grow:1;
   width:53%;
+  height:800px;
   margin-left: 20px !important;
   margin-right: 0px !important;
 }
@@ -17,7 +19,7 @@
   padding-left: 15px;
   padding-right: 15px;
 }
-.zapper {
+.flexwrapper {
   display: flex;
   display: -webkit-flex;
   flex-direction: row;
@@ -97,10 +99,17 @@
   -webkit-flex-grow: 1;
 }
 @media all and (max-width: 1420px) {
+  .description,
+  .assigned,
+  .location,
+  .category,
+  .type{
+    width: auto;
+  }
   .title-identifier {
     flex-direction: column;
     -webkit-flex-direction: column;
-    width: 120px;
+    width: 75px;
   }
   .title-identifier div {
     flex-grow: 0;
@@ -111,7 +120,7 @@
   }
   .location-category-type,
   .status-owner {
-    width:150px;
+    width:120px;
     flex-direction: column;
     -webkit-flex-direction: column;
   }
@@ -187,6 +196,7 @@
   }
 }
 .table-row {
+  cursor: pointer;
   border-bottom: 1px solid #e0e0e0;
   border-collapse: collapse;
   padding-top: 4px;
@@ -194,12 +204,15 @@
 }
 .table-row:hover,
 .table-row.active{
-  background:grey;
+  background: #b3d1ff;
 }
 .table-row.header {
   font-weight: bold;
   padding-top: 6px;
   padding-bottom: 6px;
+}
+.table-row.header:hover{
+  background: white;
 }
 .glyphicon {
   color: #DDDDDD;
@@ -217,9 +230,6 @@
   color: #666;
   cursor: pointer;
   text-decoration: underline;
-}
-.category {
-  color: #999999;
 }
 .comment {
   font-style: italic;

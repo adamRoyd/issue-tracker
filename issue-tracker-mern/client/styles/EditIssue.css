@@ -9,7 +9,7 @@
     }
   }
 
-@media (min-width: 900px){
+@media (min-width: 765px){
   .editIssuePage {
       display: inline-block !important;
       flex-grow: 1;

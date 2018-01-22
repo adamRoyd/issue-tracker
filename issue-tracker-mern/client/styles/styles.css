@@ -33,11 +33,6 @@ h5{
   display: none;
 }
 
-.issuePage{
-  display: flex;
-  display: -webkit-flex;
-}
-
 .full-height{
   min-height:100% !important;
   height:auto !important;

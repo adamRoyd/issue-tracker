@@ -20,7 +20,7 @@ class IssueManager extends React.Component{
             errors : {},
             comment : {},
             issue : Object.assign({},this.props.issue),
-            toggleOptions : true,
+            toggleOptions : false,
             submitDisabled : true
         };
         this.focus = () => this.refs.editor.focus();
@@ -109,7 +109,7 @@ class IssueManager extends React.Component{
                     />
                 <div id="issueManagerButtons" className='anchorBottom'>
                     <button className="btn" onClick={this.handleSubmit} disabled={this.state.submitDisabled}>Submit</button>  
-                    <button className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button>
+                    {/* <button className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button> */}
                 </div>
             </div>
         );

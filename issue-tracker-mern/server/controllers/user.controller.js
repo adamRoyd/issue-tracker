@@ -14,6 +14,8 @@ import mail from '../handlers/mail';
  * @returns void
  */
 export function login(req, res, next) {
+  console.log("LOGIN REQUEST")
+  console.log(req);
   passport.authenticate('local', function(err, user, info) {
     if (err) { return next(err); }
 

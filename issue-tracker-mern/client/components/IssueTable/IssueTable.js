@@ -34,21 +34,21 @@ class IssueTable extends React.Component{
             <div className='issue-table container-fluid'>
                 <div className='table-row header'>
                     <div className="column issue-select"/>
-                    <div className="zapper attributes">
-                        <div className="zapper title-identifier-location-category-type">
-                            <div className="zapper title-identifier">
+                    <div className="flexwrapper attributes">
+                        <div className="flexwrapper title-identifier-location-category-type">
+                            <div className="flexwrapper title-identifier">
                                 <div className="column id">Id</div>
                                 <div className="column screen">Screen</div>
                                 <div className="column project">Project</div>
                             </div>
-                            <div className="zapper location-category-type">
+                            <div className="flexwrapper location-category-type">
                                 <div className="column location">Location</div>
                                 <div className="column category">Category</div>
                                 <div className="column type">Type</div>
                             </div>
                         </div>
-                        <div className="zapper description-assigned">
-                            <div className="zapper status-owner">
+                        <div className="flexwrapper description-assigned">
+                            <div className="flexwrapper status-owner">
                                 <div className="column description">Description</div>
                                 <div className="column assigned">Assigned</div>
                             </div>
