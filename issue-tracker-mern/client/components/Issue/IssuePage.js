@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import SplitPane from 'react-split-pane';
 
 // Import Components
 import IssueTable from '../IssueTable/IssueTable';
@@ -24,8 +25,6 @@ import { getProjects } from '../../reducers/ProjectReducer';
 import { getStatus, getArea } from '../../reducers/AreaReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 
-
-
 class IssuePage extends Component {
   componentDidMount() {
      this.props.dispatch(fetchIssues(this.props.params.projectCode));
@@ -41,10 +40,12 @@ class IssuePage extends Component {
               <div>
                 <NewIssuePage className='testStyle' phoneView={true} {...this.props}/>
                 <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
+                <SplitPane split="vertical" defaultSize="800" minSize="100" primary="first">
                 <IssueTable {...this.props}/>
                 {this.props.params.id && 
                   <EditIssuePage {...this.props}/>
                 }
+                </SplitPane>
               </div>
             }
         </div>

@@ -2,10 +2,9 @@
     .editIssuePage {
       height:100%;
       position: absolute;
-      top: 40px;
       bottom: 0;
       overflow-y: hidden;
-      width: 46%;
+      width: 100%;
     }
   }
 
@@ -20,7 +19,6 @@
 
 .editIssuePage{
   display:none;
-  margin-left: -20px !important;
 }
 
 .commentsHeader{
