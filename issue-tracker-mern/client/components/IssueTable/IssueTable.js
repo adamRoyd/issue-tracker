@@ -22,8 +22,9 @@ class IssueTable extends React.Component{
         browserHistory.push(`/${selectedIssue.project}/${this.props.area}/${this.props.filter}/${selectedIssue.id}`);
         this.props.setActiveIssue(selectedIssue);
     }
-    headerClick(header){
-        if(header.name != "")
+    headerClick(event){
+        const name = event.target.id;
+        if(name != "")
         this.props.sortIssues(header);
     }
     checkBoxClick(i){
@@ -37,20 +38,20 @@ class IssueTable extends React.Component{
                     <div className="flexwrapper attributes">
                         <div className="flexwrapper title-identifier-location-category-type">
                             <div className="flexwrapper title-identifier">
-                                <div className="column id">Id</div>
-                                <div className="column screen">Screen</div>
-                                <div className="column project">Project</div>
+                                <div id="Id" value="Id" onClick={this.headerClick} className="column id">Id</div>
+                                <div id="Screen" className="column screen">Screen</div>
+                                <div id="Project" className="column project">Project</div>
                             </div>
                             <div className="flexwrapper location-category-type">
-                                <div className="column location">Location</div>
-                                <div className="column category">Category</div>
-                                <div className="column type">Type</div>
+                                <div id="Location" className="column location">Location</div>
+                                <div id="Category" className="column category">Category</div>
+                                <div id="Type" className="column type">Type</div>
                             </div>
                         </div>
                         <div className="flexwrapper description-assigned">
                             <div className="flexwrapper status-owner">
-                                <div className="column description">Description</div>
-                                <div className="column assigned">Assigned</div>
+                                <div id="Description" className="column description">Description</div>
+                                <div id="Assigned" className="column assigned">Assigned</div>
                             </div>
                         </div>
                     </div>

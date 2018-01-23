@@ -40,7 +40,7 @@ class IssuePage extends Component {
               <div>
                 <NewIssuePage className='testStyle' phoneView={true} {...this.props}/>
                 <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
-                <SplitPane split="vertical" defaultSize="800" minSize="100" primary="first">
+                <SplitPane split="vertical" defaultSize="800px" minSize="100px" primary="first">
                 <IssueTable {...this.props}/>
                 {this.props.params.id && 
                   <EditIssuePage {...this.props}/>
