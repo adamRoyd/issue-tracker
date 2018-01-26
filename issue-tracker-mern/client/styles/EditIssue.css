@@ -50,7 +50,7 @@
   position:absolute;
 }
 
-.commentBox{
+.comment-box{
   width:50%;
   position:absolute;
   height:23%;
@@ -61,7 +61,7 @@
   color:#a94442;
 }
 
-.textEditor{
+.text-editor{
   border: 1px solid #ccc;
   cursor: text;
   padding: 10px;
@@ -71,7 +71,7 @@
 }
 
 .has-error .form-control,
-.textEditor .has-error
+.text-editor .has-error
 {
   border: 1.5px solid #a94442;
 }

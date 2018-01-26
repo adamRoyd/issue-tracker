@@ -3,15 +3,16 @@ import promisify from 'es6-promisify';
 import config from '../config';
 
 const transport = nodemailer.createTransport({
-    host: config.MAIL_HOST,
-    port: config.MAIL_PORT,
+    host: "smtp.mailtrap.io",
+    port: 2525,
     auth: {
-        user: config.MAIL_USER,
-        pass: config.MAIL_PASS
+      user: "b1cfc87c633479",
+      pass: "e4a9c028b9c5cc"
     }
 });
 
 exports.send = async (options) => {
+    console.log("sending mail...");
     const mailOptions = {
         from: 'bit-master@brightwavegroup.com',
         to: options.username,

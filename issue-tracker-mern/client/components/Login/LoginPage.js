@@ -3,13 +3,19 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { fetchProjects } from '../../actions/ProjectActions';
+import { openModal } from '../../actions/ModalActions'
 import { loginUser } from '../../actions/UserActions';
 import { getUser } from '../../reducers/UserReducer';
 import { getMessage } from '../../reducers/MessageReducer';
+import ForgotPasswordModal from '../Modals/ForgotPasswordModal';
 import Spinner from '../Common/Spinner';
 import logonimage from '../../assets/BIT_logon.png';
 
 class LoginPage extends React.Component{
+    constructor(props){
+        super(props);
+        this.handleForgottenPassword = this.handleForgottenPassword.bind(this);
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         const creds = {
@@ -18,6 +24,10 @@ class LoginPage extends React.Component{
         }
         this.props.dispatch(fetchProjects());
         this.props.dispatch(loginUser(creds));
+    }
+    handleForgottenPassword(){
+        console.log("forgot!");
+        this.props.dispatch(openModal('forgotpassword'));
     }
 
     render(){
@@ -33,13 +43,15 @@ class LoginPage extends React.Component{
                         <input type="text" className="form-control" ref="userName" placeholder="Email Address" required="" autoFocus="" />
                         <input type="password" className="form-control" ref="password" placeholder="Password" required=""/>
                         <button className='btn login-button'  type="submit">Login</button>
-                        {(this.props.user.errorMessage)
+                    </form>
+                    <a onClick={this.handleForgottenPassword}>Forgotten your password?</a>
+                    {(this.props.user.errorMessage)
                             ? <p style={{color:'red'}}>{this.props.user.errorMessage.message}</p>
                             : <p></p>
                         }
-                    </form>
                     <Spinner visible={this.props.message.isFetching}/>
                 </div>
+                <ForgotPasswordModal/>
             </div>
         );
     }  

@@ -79,12 +79,12 @@ class IssueManager extends React.Component{
             <div className='issueDescriptionAndSettings'>
                 <h4>Issue Description</h4>
                 <IssueDescription issue={this.state.issue}/>
-                <div className='commentBox'>
+                <div className='comment-box'>
                     {((this.props.area == 'client') && (this.props.usertype != 'Client'))
                     ?
                     <p className='error'><br/><strong>{(this.props.area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
                     :
-                    <div className='textEditor' onClick={this.focus}>
+                    <div className='text-editor' onClick={this.focus}>
                         <Editor
                             className={this.props.errors ? 'hasError' : ""}
                             editorState={this.state.editorState}

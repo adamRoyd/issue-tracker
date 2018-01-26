@@ -13,5 +13,7 @@ router.route('/user').get(UserController.getUser);
 
 router.route('/assignees').get(UserController.getAssignees);
 
+router.route('/forgotpassword').post(UserController.forgotPassword);
+
 
 export default router;

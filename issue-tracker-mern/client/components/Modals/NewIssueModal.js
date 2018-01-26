@@ -16,8 +16,7 @@ class NewIssueModal extends React.Component{
         this.state = {
             issue : {
                 location: "Select a location",
-                sco: "Select a Topic ID",
-                screen: "Select a Screen ID",
+                screen: "Enter a screen",
                 category: "Select a Category",
                 assigned: "Unassigned",
                 type: "Not sure",

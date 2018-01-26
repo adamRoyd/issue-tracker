@@ -22,21 +22,12 @@ const NewIssueForm = ({issue,onChange,loading,errors,assignees,locations,categor
                 options={locations}
                 onChange={onChange} 
                 error={errors.location}/>
-            <SelectInput
-                name="sco"
-                label="Topic ID"
-                value={issue.sco}
-                defaultOption= {params.topic ? params.topic : "Select a Topic ID"}
-                options={[...Array(1000).keys()]}
-                onChange={onChange} 
-                error={errors.sco}/>
-            <SelectInput
+            <TextInput
                 name="screen"
-                label="Page ID"
+                label="Screen"
+                placeholder="Enter a screen"
                 value={issue.screen}
-                defaultOption= {params.page ? params.page : "Select a Screen ID"}
-                options={[...Array(1000).keys()]}
-                onChange={onChange}
+                onChange={onChange} 
                 error={errors.screen}/>
             <SelectInput
                 name="category"

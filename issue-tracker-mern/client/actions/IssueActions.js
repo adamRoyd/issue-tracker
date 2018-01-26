@@ -67,7 +67,6 @@ export function addIssueRequest(issue,attachments,issues,projectCode,area,userna
     return callApi('addIssue','post', {
       issue: {
         project: projectCode,
-        sco: issue.sco,
         screen: issue.screen,
         loggedBy: username,
         location: issue.location,
@@ -105,7 +104,6 @@ export function saveIssueRequest(issue, area) {
       issue: {
         project: issue.project,
         id: issue.id,
-        sco: issue.sco,
         screen: issue.screen,
         location: issue.location,
         category: issue.category,

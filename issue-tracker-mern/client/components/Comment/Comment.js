@@ -16,7 +16,7 @@ class Comment extends React.Component{
         const dateText = day + "/" + month + "/" + year + " " + hour + ":" + minutes;
 
         function checkZero(data){
-            if(data < 10){
+            if ( data < 10 ) {
                 data = "0" + data;
             }
             return data;
@@ -25,10 +25,10 @@ class Comment extends React.Component{
         return(
             <div className='container-fluid comment'>
                 <div className="row">
-                    <p><strong>{comment.user}<span className='rightAlign'><strong>{comment.status} | </strong><FriendlyDate date={comment.time}/></span></strong></p>
+                    <p><strong>{comment.user}<span className='right-align'><strong>{comment.status} | </strong><FriendlyDate date={comment.time}/></span></strong></p>
                 </div>
                 <div className="row">
-                    <div dangerouslySetInnerHTML={{__html: comment.text}} className={`col-sm-12 no-gutter noPadding}`}/>
+                    <div dangerouslySetInnerHTML={{__html: comment.text}} className={`col-sm-12 no-gutter no-padding}`}/>
                 </div>
             </div>
         );

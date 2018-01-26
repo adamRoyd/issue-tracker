@@ -38,21 +38,11 @@ const IssueForm = ({issue,errors,assignees,onIssueChange,status,displayAdvancedO
                 onChange={onIssueChange} 
                 error={errors.location}
                 isStatic={displayAdvancedOptions}/>
-            <SelectInput
-                name="sco"
-                label="Topic"
-                value={issue.sco}
-                defaultOption= "Select a Topic ID"
-                options={[...Array(1000).keys()]}
-                onChange={onIssueChange} 
-                error={errors.sco}
-                isStatic={displayAdvancedOptions}/>
-            <SelectInput
+            <TextInput
                 name="screen"
-                label="Page"
+                label="Screen"
+                placeholder="Enter a screen"
                 value={issue.screen}
-                defaultOption= "Select a Page ID"
-                options={[...Array(1000).keys()]}
                 onChange={onIssueChange} 
                 error={errors.screen}
                 isStatic={displayAdvancedOptions}/>

@@ -21,7 +21,6 @@ class NewIssuePage extends React.Component{
             showModal: false,
             issue : {
                 location: "",
-                sco: "",
                 screen: "",
                 category: "",
                 assigned: "",

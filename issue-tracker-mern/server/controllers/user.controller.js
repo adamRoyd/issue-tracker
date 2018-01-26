@@ -105,3 +105,16 @@ export function getAssignees(req, res) {
     }
     });
 }
+export function forgotPassword(req, res) {
+    console.log("Forgot password controller");
+    const email = req.body.email;
+    console.log(email)
+    User.find({},{ username: email }).exec((err, user) => {
+    if (err) {
+        res.status(500).send(err);
+    }   else{
+        console.log("send an email here");
+        res.json({ user });
+    }
+    });
+}

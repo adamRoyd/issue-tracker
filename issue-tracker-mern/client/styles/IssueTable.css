@@ -82,7 +82,8 @@
 .description,
 .assigned,
 .location,
-.type {
+.type,
+.screen {
   flex-grow: 1;
   -webkit-flex-grow: 1;
   overflow: hidden;
@@ -98,6 +99,7 @@
 .description-assigned,
 .status-owner,
 .title-identifier-location-category-type,
+.title-identifier,
 .location-category-type,
 .attributes {
   flex-grow: 1;

@@ -18,7 +18,7 @@ class Issue extends React.Component{
                     <div className="flexwrapper title-identifier-location-category-type">
                         <div className="flexwrapper title-identifier">
                             <div className="column id">{issue.id}</div>
-                            <div className="column screen">{issue.sco + "_" + issue.screen}</div>
+                            <div className="column screen">{issue.screen}</div>
                             <div className="column project">{issue.project}</div>
                         </div>
                         <div className="flexwrapper location-category-type">

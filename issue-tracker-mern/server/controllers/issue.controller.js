@@ -43,7 +43,6 @@ export async function addIssue(req, res) {
   newIssue.id = newId;
   newIssue.loggedBy = sanitizeHtml(newIssue.loggedBy);
   newIssue.location = sanitizeHtml(newIssue.location);
-  newIssue.sco = sanitizeHtml(newIssue.sco);
   newIssue.screen = sanitizeHtml(newIssue.screen);
   newIssue.category = sanitizeHtml(newIssue.category);
   newIssue.assigned = sanitizeHtml(newIssue.assigned);
@@ -115,7 +114,6 @@ export function saveIssue(req, res) {
         assigned : issueToSave.assigned,
         status : issueToSave.status,
         location : issueToSave.location,
-        sco : issueToSave.sco,
         screen: issueToSave.screen,
         category: issueToSave.category,
         area: issueToSave.area

@@ -24,12 +24,8 @@
     color:green;
     text-align: left;
   }
-  
-.noPadding{
-  padding: 0px !important;
-}
 
-.rightAlign{
+.right-align{
     float:right;
     margin-right:5px;
 }

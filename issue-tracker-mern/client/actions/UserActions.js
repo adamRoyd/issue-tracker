@@ -33,6 +33,21 @@ export function addUserRequest(user) {
   };
 }
 
+export function forgotPasswordRequest(email) {
+  console.log("forgot password request")
+  return (dispatch) => {
+    return callApi(`forgotpassword`,'post', {
+        email : email
+    }).then(res => {
+      if(res.error){
+        console.log("error");
+      } else {
+        console.log("success");
+      }
+    });
+  };
+}
+
 export function fetchingAddUser(){
     return{
         type: types.FETCH_ADD_USER
@@ -97,7 +112,6 @@ export function loginUser(creds) {
 }
 
 export function logout() {
-  console.log('LOGOUT IS BEING CALLED');
     return (dispatch) => {
         return callApi(`logout`,'post', {}).then(res => dispatch(logoutUser()));
   };

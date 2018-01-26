@@ -38,7 +38,7 @@ class IssuePage extends Component {
               <Spinner visible={this.props.isFetching}/>
             :
               <div>
-                <NewIssuePage className='testStyle' phoneView={true} {...this.props}/>
+                <NewIssuePage phoneView={true} {...this.props}/>
                 <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
                 <SplitPane split="vertical" defaultSize="800px" minSize="100px" primary="first">
                 <IssueTable {...this.props}/>
