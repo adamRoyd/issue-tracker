@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Issue from './Issue';
 import Header from './Header';
 import { Link, browserHistory } from 'react-router';
@@ -12,29 +12,29 @@ import { getFilter } from '../../reducers/IssueFilterReducer';
 import { getHeaders } from '../../reducers/HeaderReducer';
 
 
-class IssueTable extends React.Component{
-    componentDidMount(){  
+class IssueTable extends React.Component {
+    componentDidMount() {
         this.props.setIssueFilter(this.props.params.filter);
     }
-    handleClick(i){
+    handleClick(i) {
         const selectedIssue = this.props.issues[i];
-        this.props.dispatch(fetchComments(this.props.params.projectCode,selectedIssue.id));
+        this.props.dispatch(fetchComments(this.props.params.projectCode, selectedIssue.id));
         browserHistory.push(`/${selectedIssue.project}/${this.props.area}/${this.props.filter}/${selectedIssue.id}`);
         this.props.setActiveIssue(selectedIssue);
     }
-    headerClick(event){
+    headerClick(event) {
         const name = event.target.id;
-        if(name != "")
-        this.props.sortIssues(header);
+        if (name != "")
+            this.props.sortIssues(header);
     }
-    checkBoxClick(i){
+    checkBoxClick(i) {
         this.props.toggleCheckedIssue(this.props.issues[i]);
     }
-    render(){
-        return(
+    render() {
+        return (
             <div className='issue-table container-fluid'>
                 <div className='table-row header'>
-                    <div className="column issue-select"/>
+                    <div className="column issue-select" />
                     <div className="flexwrapper attributes">
                         <div className="flexwrapper title-identifier-location-category-type">
                             <div className="flexwrapper title-identifier">
@@ -56,33 +56,33 @@ class IssueTable extends React.Component{
                         </div>
                     </div>
                 </div>
-                {this.props.issues.map((issue, i) => 
-                    <Issue 
-                        {...this.props} 
-                        key={i} 
-                        issue={issue} 
-                        onClick={() => this.handleClick(i)} 
+                {this.props.issues.map((issue, i) =>
+                    <Issue
+                        {...this.props}
+                        key={i}
+                        issue={issue}
+                        onClick={() => this.handleClick(i)}
                         checkBoxClick={() => this.checkBoxClick(i)
-                        }/>)}
-        </div>
+                        } />)}
+            </div>
         );
     }
 }
 
 IssueTable.propTypes = {
-    issues : PropTypes.array.isRequired,
-    filter : PropTypes.string.isRequired,
-    setActiveIssue : PropTypes.func.isRequired,
-    sortIssues : PropTypes.func.isRequired,
-    setIssueFilter : PropTypes.func.isRequired,
-    params : PropTypes.object.isRequired,
-    headers : PropTypes.array.isRequired
+    issues: PropTypes.array.isRequired,
+    filter: PropTypes.string.isRequired,
+    setActiveIssue: PropTypes.func.isRequired,
+    sortIssues: PropTypes.func.isRequired,
+    setIssueFilter: PropTypes.func.isRequired,
+    params: PropTypes.object.isRequired,
+    headers: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
     return {
-        issues: getVisibleIssues(state.issues,state.issueFilter,state.area),
-        headers : getHeaders(state),
+        issues: getVisibleIssues(state.issues, state.issueFilter, state.area),
+        headers: getHeaders(state),
         filter: state.issueFilter
     };
 }

@@ -1,7 +1,7 @@
-import React,{getInitialState} from 'react';
+import React, { getInitialState } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Modal} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { Modal } from 'react-bootstrap';
 import Browser from 'detect-browser';
 import categories from '../../constants/categories';
 import locations from '../../constants/locations';
@@ -14,12 +14,12 @@ import { getArea } from '../../reducers/AreaReducer';
 import { getUser } from '../../reducers/UserReducer';
 import NewIssueForm from '../IssueForms/NewIssueForm';
 
-class NewIssuePage extends React.Component{
-    constructor(props){
+class NewIssuePage extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             showModal: false,
-            issue : {
+            issue: {
                 location: "",
                 screen: "",
                 category: "",
@@ -27,7 +27,7 @@ class NewIssuePage extends React.Component{
                 description: "",
                 browser: Browser.name + ' ' + Browser.version
             },
-            errors : {},
+            errors: {},
             files: []
         };
         this.updateIssueState = this.updateIssueState.bind(this);
@@ -39,27 +39,27 @@ class NewIssuePage extends React.Component{
         this.onDrop = this.onDrop.bind(this);
     }
     close() {
-        this.setState({ showModal: false, issue:{}, errors: {} });
+        this.setState({ showModal: false, issue: {}, errors: {} });
     }
     open() {
         this.setState({ showModal: true });
     }
-    updateIssueState(event){
+    updateIssueState(event) {
         const field = event.target.name;
         const errors = this.validate(this.state.issue);
         let issue = this.state.issue;
         issue[field] = event.target.value;
-        return this.setState({issue : issue, errors: errors});
+        return this.setState({ issue: issue, errors: errors });
     }
-    onCommentChange(html){
+    onCommentChange(html) {
         let issue = this.state.issue;
         issue['description'] = html;
-        return this.setState({issue : issue});
+        return this.setState({ issue: issue });
     }
-    saveIssue(event){
+    saveIssue(event) {
         event.preventDefault();
         const errors = this.validate(this.state.issue);
-        if(Object.keys(errors).length === 0 && errors.constructor === Object){
+        if (Object.keys(errors).length === 0 && errors.constructor === Object) {
             this.props.dispatch(
                 addIssueRequest(
                     this.state.issue,
@@ -70,33 +70,33 @@ class NewIssuePage extends React.Component{
                     this.props.username
                 )
             );
-            return this.setState({ showModal: false });           
-        }   else{
-            return this.setState({ errors: errors});
+            return this.setState({ showModal: false });
+        } else {
+            return this.setState({ errors: errors });
         }
     }
-    onDrop(files){
+    onDrop(files) {
         this.setState({
             files
         });
         this.props.dispatch(uploadFileRequest(files))
     }
-    validate(issue){
+    validate(issue) {
         let errors = {}
-        Object.keys(issue).forEach(item =>{
-            if(issue[item] == null){
+        Object.keys(issue).forEach(item => {
+            if (issue[item] == null) {
                 errors = {
-                   item : 'BLAAAAAH'
-               }
+                    item: 'BLAAAAAH'
+                }
             }
         })
         return errors
     }
-    render(){
-        return(
+    render() {
+        return (
             <div id="newIssuePage" className={'visible-phone'}>
                 <h3>New issue for {this.props.params.projectCode}</h3>
-                <NewIssueForm 
+                <NewIssueForm
                     issue={this.state.issue}
                     errors={this.state.errors}
                     onChange={this.updateIssueState}
@@ -107,7 +107,7 @@ class NewIssuePage extends React.Component{
                     onDrop={this.onDrop}
                     files={this.state.files}
                     params={this.props.params}
-                    {...this.props}/>
+                    {...this.props} />
                 <div className="right-align">
                     <button className="btn" onClick={this.close}>Close</button>
                     <button className="btn" onClick={this.saveIssue}>Create issue</button>
@@ -118,15 +118,15 @@ class NewIssuePage extends React.Component{
 }
 
 NewIssuePage.propTypes = {
-    issue : PropTypes.object,
-    assignees : PropTypes.array.isRequired,
-    locations : PropTypes.array.isRequired,
-    params : PropTypes.object.isRequired
+    issue: PropTypes.object,
+    assignees: PropTypes.array.isRequired,
+    locations: PropTypes.array.isRequired,
+    params: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
     return {
-        assignees: getAssignees(state,ownProps.params.projectCode),
+        assignees: getAssignees(state, ownProps.params.projectCode),
         attachments: getAttachments(state),
         area: getArea(state),
         username: getUser(state).username,

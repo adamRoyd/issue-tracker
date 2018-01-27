@@ -8,17 +8,17 @@ const issueSchema = new Schema({
             "client",
             "internal",
         ],
-        required: true 
+        required: true
     },
-    project: { 
-        type : 'String',
+    project: {
+        type: 'String',
         lowercase: true,
         required: true
     },
     id: { type: 'Number', required: true },
-    loggedBy: { type: 'String', required: true},
+    loggedBy: { type: 'String', required: true },
     screen: { type: 'String', required: true },
-    location: { 
+    location: {
         type: 'String',
         enum: [
             "Current Screen",
@@ -33,10 +33,10 @@ const issueSchema = new Schema({
             "Print",
             "Resources"
         ],
-        required: true 
+        required: true
     },
     browser: { type: 'String', required: true },
-    category: { 
+    category: {
         type: 'String',
         enum: [
             "Screen text",
@@ -51,12 +51,12 @@ const issueSchema = new Schema({
             "Design",
             "Translation"
         ],
-        required: true 
+        required: true
     },
     description: { type: 'String', required: true },
-    status: { 
-        type: 'String', 
-        enum:[
+    status: {
+        type: 'String',
+        enum: [
             "New",
             "On Hold",
             "Ready To Fix",
@@ -74,20 +74,20 @@ const issueSchema = new Schema({
             "client",
             "internal",
         ],
-        required: true 
-    },   
+        required: true
+    },
     assigned: { type: 'String', required: true },
     attachments: [],
-    type: { 
-        type: 'String', 
-        enum:[
+    type: {
+        type: 'String',
+        enum: [
             "Not sure",
             "Change request",
             "Error"
         ],
         required: true
     },
-    dateAdded : { type: 'Date', required: true}
+    dateAdded: { type: 'Date', required: true }
 });
 
 export default mongoose.model('Issue', issueSchema);

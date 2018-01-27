@@ -27,28 +27,28 @@ import { getMessage } from '../../reducers/MessageReducer';
 
 class IssuePage extends Component {
   componentDidMount() {
-     this.props.dispatch(fetchIssues(this.props.params.projectCode));
-     this.props.dispatch(fetchAssignees());
-     this.props.dispatch(fetchProjects());
+    this.props.dispatch(fetchIssues(this.props.params.projectCode));
+    this.props.dispatch(fetchAssignees());
+    this.props.dispatch(fetchProjects());
   }
   render() {
     return (
-        <div>
-            {(this.props.isFetching) ? 
-              <Spinner visible={this.props.isFetching}/>
-            :
-              <div>
-                <NewIssuePage phoneView={true} {...this.props}/>
-                <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
-                <SplitPane split="vertical" defaultSize="800px" minSize="100px" primary="first">
-                <IssueTable {...this.props}/>
-                {this.props.params.id && 
-                  <EditIssuePage {...this.props}/>
-                }
-                </SplitPane>
-              </div>
-            }
-        </div>
+      <div>
+        {(this.props.isFetching) ?
+          <Spinner visible={this.props.isFetching} />
+          :
+          <div>
+            <NewIssuePage phoneView={true} {...this.props} />
+            <IssuePots projectCode={this.props.params.projectCode} {...this.props} />
+            <SplitPane split="vertical" defaultSize="800px" minSize="100px" primary="first">
+              <IssueTable {...this.props} />
+              {this.props.params.id &&
+                <EditIssuePage {...this.props} />
+              }
+            </SplitPane>
+          </div>
+        }
+      </div>
     );
   }
 }
@@ -57,11 +57,11 @@ class IssuePage extends Component {
 function mapStateToProps(state) {
   return {
     issues: getIssues(state),
-    status: getStatus(state,status),
-    locations : locations,
-    categories : categories,
+    status: getStatus(state, status),
+    locations: locations,
+    categories: categories,
     batchIssues: getBatchIssues(state),
-    username : getUser(state).username,
+    username: getUser(state).username,
     usertype: getUser(state).usertype,
     projects: getProjects(state),
     area: getArea(state),

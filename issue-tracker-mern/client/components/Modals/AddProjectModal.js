@@ -1,7 +1,7 @@
-import React,{getInitialState} from 'react';
+import React, { getInitialState } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Modal} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { Modal } from 'react-bootstrap';
 import { closeModal } from '../../actions/ModalActions';
 import { Link, browserHistory } from 'react-router';
 import { addProjectRequest } from '../../actions/ProjectActions';
@@ -10,11 +10,11 @@ import TextInput from '../Common/TextInput';
 import Spinner from '../Common/Spinner';
 
 
-class AddProjectModal extends React.Component{
-    constructor(props){
+class AddProjectModal extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
-            errors : "",
+            errors: "",
             project: "",
             message: "",
             success: false
@@ -24,12 +24,12 @@ class AddProjectModal extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.close = this.close.bind(this);
     }
-    updateProjectState(event){
+    updateProjectState(event) {
         const field = event.target.name;
         let project = this.state.project;
         project = event.target.value;
         return this.setState({
-            project : project,
+            project: project,
             errors: ""
         });
     }
@@ -37,20 +37,20 @@ class AddProjectModal extends React.Component{
         e.preventDefault();
         const newProject = this.state.project;
         const errors = this.validate(newProject);
-        if(errors == ""){
+        if (errors == "") {
             this.props.dispatch(addProjectRequest(newProject));
             return this.setState({
                 project: ""
             })
-        }   else{
+        } else {
             return this.setState({
                 errors: errors
             })
         }
     }
-    validate(project){
+    validate(project) {
         let errors = ""
-        if(project == "" || project.length < 4){
+        if (project == "" || project.length < 4) {
             errors = "Please enter a valid project code"
         }
         return errors
@@ -58,8 +58,8 @@ class AddProjectModal extends React.Component{
     close() {
         this.props.dispatch(closeModal());
     }
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
@@ -76,7 +76,7 @@ class AddProjectModal extends React.Component{
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Spinner visible={this.props.message.isFetching}/>
+                        <Spinner visible={this.props.message.isFetching} />
                         <div className="infomessage error">{this.state.errors}</div>
                         <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
                         <button className="btn" onClick={this.close}>Close</button>
@@ -89,8 +89,8 @@ class AddProjectModal extends React.Component{
 }
 
 AddProjectModal.propTypes = {
-    buttonName : PropTypes.string,
-    params : PropTypes.object.isRequired
+    buttonName: PropTypes.string,
+    params: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

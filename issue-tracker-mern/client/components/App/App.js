@@ -22,7 +22,7 @@ export class App extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchUser());
-    this.setState({isMounted: true}); // eslint-disable-line
+    this.setState({ isMounted: true }); // eslint-disable-line
   }
 
 
@@ -33,8 +33,8 @@ export class App extends Component {
   render() {
     return (
       <div className='container-fluid'>
-        <NavBar {...this.props}/>
-        <NavBarPhone {...this.props}/>
+        <NavBar {...this.props} />
+        <NavBarPhone {...this.props} />
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
         {this.props.children}
       </div>
@@ -49,9 +49,9 @@ App.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    user : getUser(state),
-    locations : locations,
-    categories : categories,
+    user: getUser(state),
+    locations: locations,
+    categories: categories,
     batchIssues: getBatchIssues(state),
     area: getArea(state)
   };

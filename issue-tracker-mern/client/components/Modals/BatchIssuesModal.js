@@ -1,7 +1,7 @@
-import React,{getInitialState} from 'react';
+import React, { getInitialState } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Modal} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { Modal } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 import { closeModal } from '../../actions/ModalActions';
 import { batchIssueRequest } from '../../actions/IssueActions';
@@ -10,11 +10,11 @@ import { getComments } from '../../reducers/CommentReducer';
 import { getPots } from '../../reducers/IssueFilterReducer';
 import BatchIssueForm from '../IssueForms/BatchIssueForm';
 
-class BatchIssuesModal extends React.Component{
-    constructor(props){
+class BatchIssuesModal extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
-            batchOptions : {},
+            batchOptions: {},
             submitDisabled: true
         };
         this.updateBatchState = this.updateBatchState.bind(this);
@@ -22,43 +22,44 @@ class BatchIssuesModal extends React.Component{
         this.close = this.close.bind(this);
     }
     close() {
-        this.setState({ 
+        this.setState({
             batchOptions: {},
             submitDisabled: true
         });
         this.props.dispatch(closeModal());
     }
-    updateBatchState(event){
+    updateBatchState(event) {
         const field = event.target.name;
         let batchOptions = this.state.batchOptions;
         batchOptions[field] = event.target.value;
-        {(batchOptions.assigned != 'No change' || batchOptions.pot != 'No change')
-            ? this.setState({submitDisabled: false})
-            : this.setState({submitDisabled: true})
+        {
+            (batchOptions.assigned != 'No change' || batchOptions.pot != 'No change')
+            ? this.setState({ submitDisabled: false })
+            : this.setState({ submitDisabled: true })
         }
-        return this.setState({batchOptions : batchOptions});
+        return this.setState({ batchOptions: batchOptions });
     }
-    batchIssues(event){
+    batchIssues(event) {
         event.preventDefault();
         browserHistory.push(`/${this.props.params.projectCode}/${this.props.area}/${this.props.params.filter}`);
-        this.props.dispatch(batchIssueRequest(this.props.batchIssues,this.state.batchOptions,this.props.params.projectCode));
+        this.props.dispatch(batchIssueRequest(this.props.batchIssues, this.state.batchOptions, this.props.params.projectCode));
         return this.setState({ showModal: false });
     }
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>Batch Issues</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                         <BatchIssueForm
+                        <BatchIssueForm
                             batchOptions={this.state.batchOptions}
                             onChange={this.updateBatchState}
                             onSave={this.batchIssues}
                             assignees={this.props.assignees}
                             pots={this.props.pots}
-                            {...this.props}/>                       
+                            {...this.props} />
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn" onClick={this.close}>Close</button>
@@ -71,15 +72,15 @@ class BatchIssuesModal extends React.Component{
 }
 
 BatchIssuesModal.propTypes = {
-    assignees : PropTypes.array.isRequired,
-    buttonName : PropTypes.string
+    assignees: PropTypes.array.isRequired,
+    buttonName: PropTypes.string
 };
 
 function mapStateToProps(state, ownProps) {
     return {
-        assignees: getAssignees(state,ownProps.params.projectCode),
-        comments : getComments(state),
-        pots : getPots(state.area,'internal'),
+        assignees: getAssignees(state, ownProps.params.projectCode),
+        comments: getComments(state),
+        pots: getPots(state.area, 'internal'),
         showModal: state.modal == 'batch'
     };
 }

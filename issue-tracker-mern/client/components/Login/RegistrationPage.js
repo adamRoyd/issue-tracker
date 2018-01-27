@@ -1,6 +1,6 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { addUserRequest } from '../../actions/UserActions';
 import { Link, browserHistory } from 'react-router';
 import SelectInput from '../Common/SelectInput';
@@ -9,11 +9,11 @@ import { fetchProjects } from '../../actions/ProjectActions';
 import { getProjects } from '../../reducers/ProjectReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 
-class RegistrationPage extends React.Component{
-    constructor(props){
+class RegistrationPage extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
-            errors : {},
+            errors: {},
             user: {
                 username: "",
                 usertype: "Internal"
@@ -27,17 +27,17 @@ class RegistrationPage extends React.Component{
     componentDidMount() {
         this.props.dispatch(fetchProjects());
     }
-    updateUserState(event){
+    updateUserState(event) {
         const field = event.target.name;
         let user = this.state.user;
         user[field] = event.target.value;
-        return this.setState({user : user});
+        return this.setState({ user: user });
     }
     handleSubmit = (e) => {
         e.preventDefault();
         const newUser = this.state.user;
         const errors = this.validate(newUser);
-        if(Object.keys(errors).length === 0 && errors.constructor === Object){
+        if (Object.keys(errors).length === 0 && errors.constructor === Object) {
             this.props.dispatch(addUserRequest(newUser));
             return this.setState({
                 user: {
@@ -46,62 +46,62 @@ class RegistrationPage extends React.Component{
                 },
                 success: true
             })
-        }   else{
+        } else {
             return this.setState({
-                success:false
+                success: false
             })
         }
     }
-    validate(user){
+    validate(user) {
         let errors = {}
-        if(user.username == ""){
-            errors = Object.assign({},errors,{
+        if (user.username == "") {
+            errors = Object.assign({}, errors, {
                 username: 'Error'
             })
         }
         return errors
     }
-    render(){
-        return(
+    render() {
+        return (
             <div className="col-sm-8 col-sm-offset-2">
                 <h4>Add a new user</h4>
                 <p>Add the new user's email address, then select their User Type. Admins are able to create new users and create new projects.</p>
-                    <TextInput
-                        name="username"
-                        label="Username (email address)"
-                        placeholder="Select a username"
-                        value={this.state.user.username}
-                        onChange={this.updateUserState} 
-                        error={this.state.errors.username}/>
-                    <SelectInput
-                        name="usertype"
-                        label="User Type"
-                        value={this.state.user.usertype}
-                        options={["Internal","Client","Admin"]}
-                        onChange={this.updateUserState} 
-                        error={this.state.errors.usertype}/>
-                    {(this.state.user.usertype == "Client")
-                        ?   <SelectInput
-                                name="projects"
-                                label="Restrict client to project"
-                                value={this.state.user.projects}
-                                options={this.props.projects}
-                                onChange={this.updateUserState} 
-                                error={this.state.errors.usertype}/>
-                        : null
-                    }
+                <TextInput
+                    name="username"
+                    label="Username (email address)"
+                    placeholder="Select a username"
+                    value={this.state.user.username}
+                    onChange={this.updateUserState}
+                    error={this.state.errors.username} />
+                <SelectInput
+                    name="usertype"
+                    label="User Type"
+                    value={this.state.user.usertype}
+                    options={["Internal", "Client", "Admin"]}
+                    onChange={this.updateUserState}
+                    error={this.state.errors.usertype} />
+                {(this.state.user.usertype == "Client")
+                    ? <SelectInput
+                        name="projects"
+                        label="Restrict client to project"
+                        value={this.state.user.projects}
+                        options={this.props.projects}
+                        onChange={this.updateUserState}
+                        error={this.state.errors.usertype} />
+                    : null
+                }
                 <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
                 <div className="right-align">
                     <button className="btn" onClick={this.handleSubmit}>Create User</button>
                 </div>
             </div>
         );
-    }  
+    }
 }
 
-function mapStateToProps(state){
-    return{
-        projects : getProjects(state),
+function mapStateToProps(state) {
+    return {
+        projects: getProjects(state),
         message: getMessage(state)
     };
 }

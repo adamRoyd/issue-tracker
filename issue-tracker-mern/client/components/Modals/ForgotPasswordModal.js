@@ -9,17 +9,17 @@ import { forgotPasswordRequest } from '../../actions/UserActions';
 import { getMessage } from '../../reducers/MessageReducer';
 import Spinner from '../Common/Spinner';
 
-class ForgotPasswordModal extends React.Component{
-    constructor(props){
+class ForgotPasswordModal extends React.Component {
+    constructor(props) {
         super(props);
         this.close = this.close.bind(this);
         this.updateEmailState = this.updateEmailState.bind(this);
         this.validate = this.validate.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            email : "",
-            errors : "",
-            working : false
+            email: "",
+            errors: "",
+            working: false
         }
     }
 
@@ -27,42 +27,43 @@ class ForgotPasswordModal extends React.Component{
         this.props.dispatch(closeModal());
     }
 
-    setWorking(isWorking){
+    setWorking(isWorking) {
         console.log("set working", isWorking);
-        working : isWorking
+        working: isWorking
     }
 
-    updateEmailState(event){
+    updateEmailState(event) {
         const email = event.target.value;
         return this.setState({
-            email : email
+            email: email
         });
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault();
         this.setWorking(true);
         const email = this.state.email;
         const errors = this.validate(email);
-        {(errors == "") ?
+        {
+            (errors == "") ?
             this.props.dispatch(forgotPasswordRequest(this.state.email))
-        :
+            :
             console.log("error!!!");
         }
         console.log("handle submit");
 
     }
 
-    validate(email){
+    validate(email) {
         let errors = ""
-        if(email == "" || !validator.isEmail(email)){
+        if (email == "" || !validator.isEmail(email)) {
             errors = "Please enter a valid email address"
         }
         return errors
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
@@ -80,7 +81,7 @@ class ForgotPasswordModal extends React.Component{
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Spinner visible={this.state.working}/>
+                        <Spinner visible={this.state.working} />
                         <div className="infomessage error">{this.state.errors}</div>
                         <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
                         <button className="btn" onClick={this.close}>Close</button>
@@ -93,8 +94,8 @@ class ForgotPasswordModal extends React.Component{
 }
 
 ForgotPasswordModal.propTypes = {
-    buttonName : PropTypes.string,
-    params : PropTypes.object
+    buttonName: PropTypes.string,
+    params: PropTypes.object
 };
 
 function mapStateToProps(state, ownProps) {

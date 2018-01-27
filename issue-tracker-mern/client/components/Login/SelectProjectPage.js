@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link, browserHistory } from 'react-router';
@@ -7,32 +7,32 @@ import { getProjects } from '../../reducers/ProjectReducer';
 import { getUser } from '../../reducers/UserReducer';
 import ProjectPicker from '../Common/ProjectPicker';
 
-class SelectProjectPage extends React.Component{
+class SelectProjectPage extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProjects());
-        if(this.props.user.userproject){
+        if (this.props.user.userproject) {
             browserHistory.push(`/${this.props.user.userproject}/(:area)/all`);
         }
     }
-    handleClick(value){
+    handleClick(value) {
         const projectCode = value.toLowerCase();
         browserHistory.push(`/${projectCode}/(:area)/all`);
     }
-    render(){
-        return(
+    render() {
+        return (
             <div className='wrapper'>
                 <div className='formSignin'>
                     <h4>Select a project</h4>
-                    <ProjectPicker {...this.props}/>
+                    <ProjectPicker {...this.props} />
                 </div>
             </div>
         );
     }
 }
 
-function mapStateToProps(state){
-    return{
-        projects : getProjects(state),
+function mapStateToProps(state) {
+    return {
+        projects: getProjects(state),
         user: getUser(state)
     };
 }

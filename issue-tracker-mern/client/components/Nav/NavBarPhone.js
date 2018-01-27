@@ -11,8 +11,8 @@ import OpenProjectModal from '../Modals/OpenProjectModal';
 import { openModal } from '../../actions/ModalActions'
 import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
 
-class NavBarPhone extends React.Component{
-    constructor(props){
+class NavBarPhone extends React.Component {
+    constructor(props) {
         super(props);
         this.logout = this.logout.bind(this);
         this.newIssue = this.newIssue.bind(this);
@@ -28,34 +28,34 @@ class NavBarPhone extends React.Component{
     openProject = () => {
         browserHistory.push('/selectproject');
     }
-    render(){
+    render() {
         let projectCode = this.props.params.projectCode;
-        if(projectCode == null){projectCode = '';}
-        return(
+        if (projectCode == null) { projectCode = ''; }
+        return (
             <div id="navBar" className='row visible-phone nav-bar'>
                 {(this.props.params.projectCode) ?
-                    <ButtonGroup vertical block style={{ height: '100%'}}>
-                            <DropdownButton title='Menu' id="bg-nested-dropdown">
-                                <MenuItem eventKey="1" onSelect={this.newIssue}>New Issue</MenuItem>    
-                                <MenuItem eventKey="2" onSelect={this.openProject}>Open Project</MenuItem>  
-                                <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
-                            </DropdownButton>
-                    </ButtonGroup>     
+                    <ButtonGroup vertical block style={{ height: '100%' }}>
+                        <DropdownButton title='Menu' id="bg-nested-dropdown">
+                            <MenuItem eventKey="1" onSelect={this.newIssue}>New Issue</MenuItem>
+                            <MenuItem eventKey="2" onSelect={this.openProject}>Open Project</MenuItem>
+                            <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
+                        </DropdownButton>
+                    </ButtonGroup>
                     :
-                    <ButtonGroup vertical block style={{ height: '100%'}}>
+                    <ButtonGroup vertical block style={{ height: '100%' }}>
                         <DropdownButton title='Menu' id="bg-nested-dropdown">
                             <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
                         </DropdownButton>
-                    </ButtonGroup> 
+                    </ButtonGroup>
                 }
             </div>
-            );
-        }
+        );
     }
+}
 
 NavBarPhone.propTypes = {
-    params : PropTypes.object.isRequired,
-    username : PropTypes.string
+    params: PropTypes.object.isRequired,
+    username: PropTypes.string
 };
 
 

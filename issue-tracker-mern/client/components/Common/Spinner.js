@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 const Spinner = (visible) => {
     let spinclass = "";
-    if(visible.visible){
+    if (visible.visible) {
         spinclass = "fa fa-spinner fa-pulse fa-2x fa-fw center-position"
-    } else{
+    } else {
         spinclass = "fa fa-spinner fa-pulse fa-2x fa-fw center-position hidden"
     }
     console.log("spinner", spinclass, visible);
-    return(
+    return (
         <i display={false} className={spinclass}></i>
     );
 }

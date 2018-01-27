@@ -14,8 +14,8 @@ import AddUserModal from '../Modals/AddUserModal';
 import { openModal } from '../../actions/ModalActions'
 import { DropdownButton, MenuItem, ButtonGroup, Button } from 'react-bootstrap';
 
-class NavBar extends React.Component{
-    constructor(props){
+class NavBar extends React.Component {
+    constructor(props) {
         super(props);
         this.logout = this.logout.bind(this);
         this.areaClick = this.areaClick.bind(this);
@@ -30,7 +30,8 @@ class NavBar extends React.Component{
     }
     areaClick = () => {
         this.props.dispatch(toggleArea());
-        {(this.props.area == 'internal')
+        {
+            (this.props.area == 'internal')
             ? browserHistory.push(`/${this.props.params.projectCode}/client/all`)
             : browserHistory.push(`/${this.props.params.projectCode}/internal/all`)
         }
@@ -45,25 +46,25 @@ class NavBar extends React.Component{
     handleClick = (value) => {
         this.props.dispatch(openModal(value));
     }
-    render(){
+    render() {
         const usertype = this.props.user.usertype;
         const isInternal = (this.props.user.usertype == 'Admin' || this.props.user.usertype == 'Internal');
         let projectCode = this.props.params.projectCode;
-        if(projectCode == null){projectCode = '';}
-        return(
+        if (projectCode == null) { projectCode = ''; }
+        return (
             <div id="navBar" className={'row visible-desktop navBar'}>
                 {(this.props.params.projectCode) ?
                     //nav bar for the main issue page
-                    <ButtonGroup style={{ height: '100%'}}>
+                    <ButtonGroup style={{ height: '100%' }}>
                         <Button className='navBtn' onClick={this.homeClick}>{projectCode.toUpperCase()}</Button>
                         {(usertype == 'Client')
-                            ?   <Button className='navBtn' disabled={true}>Client Area</Button>
-                            :   <DropdownButton
-                                    id="bg-nested-dropdown"
-                                    title={(this.props.area == 'internal') ? 'Internal area' : 'Client area' } 
-                                    className='navBtn'>
-                                <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area' }</MenuItem>
-                                </DropdownButton>
+                            ? <Button className='navBtn' disabled={true}>Client Area</Button>
+                            : <DropdownButton
+                                id="bg-nested-dropdown"
+                                title={(this.props.area == 'internal') ? 'Internal area' : 'Client area'}
+                                className='navBtn'>
+                                <MenuItem onSelect={this.areaClick} eventKey="1">{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area'}</MenuItem>
+                            </DropdownButton>
                         }
 
                         <Button className={usertype == 'Admin' ? 'navBtn' : 'hidden'} onClick={() => this.handleClick('project')}>Open Project</Button>
@@ -75,21 +76,21 @@ class NavBar extends React.Component{
                         {/* <Button className='navBtn' onClick={this.myIssues}>My Issues</Button> */}
                         <DropdownButton className='navBtn' title='User options' id="bg-nested-dropdown">
                             <MenuItem header>{this.props.user.username}</MenuItem>
-                            <MenuItem divider/>
-                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={() => this.handleClick('addproject')}>Create Project</MenuItem>    
-                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={() => this.handleClick('adduser')}>Manage Users</MenuItem>  
+                            <MenuItem divider />
+                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={() => this.handleClick('addproject')}>Create Project</MenuItem>
+                            <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={() => this.handleClick('adduser')}>Manage Users</MenuItem>
                             <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
                         </DropdownButton>
-                        <OpenProjectModal {...this.props}/>
-                        <NewIssueModal {...this.props}/>
-                        <BatchIssuesModal {...this.props}/>
-                        <AddUserModal {...this.props}/>
-                        <AddProjectModal {...this.props}/>
-                    </ButtonGroup>     
+                        <OpenProjectModal {...this.props} />
+                        <NewIssueModal {...this.props} />
+                        <BatchIssuesModal {...this.props} />
+                        <AddUserModal {...this.props} />
+                        <AddProjectModal {...this.props} />
+                    </ButtonGroup>
                     :
                     //Nav bar for pages other than the main issue page
                     <ButtonGroup style={{ height: '100%' }}>
-                        {(this.props.route == '/login' ) 
+                        {(this.props.route == '/login')
                             ?
                             <div className="float-left">
                                 <Button onClick={browserHistory.goBack}>Back</Button>
@@ -101,24 +102,24 @@ class NavBar extends React.Component{
                             ?
                             <DropdownButton className='navBtn' title='User options' id="bg-nested-dropdown">
                                 <MenuItem header>{this.props.user.username}</MenuItem>
-                                <MenuItem divider/>
-                                <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={this.createProject}>Create Project</MenuItem>    
-                                <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={this.adduser}>Manage Users</MenuItem>  
+                                <MenuItem divider />
+                                <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="1" onSelect={this.createProject}>Create Project</MenuItem>
+                                <MenuItem className={usertype == 'Admin' ? '' : 'hidden'} eventKey="2" onSelect={this.adduser}>Manage Users</MenuItem>
                                 <MenuItem eventKey="3" onSelect={this.logout}>Log out</MenuItem>
                             </DropdownButton>
                             :
                             null
                         }
-                    </ButtonGroup>  
+                    </ButtonGroup>
                 }
             </div>
-            );
-        }
+        );
     }
+}
 
 NavBar.propTypes = {
-    params : PropTypes.object.isRequired,
-    username : PropTypes.string
+    params: PropTypes.object.isRequired,
+    username: PropTypes.string
 };
 
 

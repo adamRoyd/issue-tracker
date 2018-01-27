@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
-const TextStatic = ({label, value}) => {
+const TextStatic = ({ label, value }) => {
   return (
     <div className={"form-group row"}>
       <label className="col-sm-3 col-form-label">{label}</label>

@@ -11,7 +11,7 @@ import mail from '../handlers/mail';
  * @returns void
  */
 export function getIssues(req, res) {
-  Issue.find({project: req.params.projectCode}).sort( { id: 1 } ).exec((err, issues) => {
+  Issue.find({ project: req.params.projectCode }).sort({ id: 1 }).exec((err, issues) => {
     if (err) {
       res.status(500).send(err);
     }
@@ -30,10 +30,10 @@ export async function addIssue(req, res) {
     res.status(403).end();
   }
   //get the issue with max id
-  const i = await Issue.find({project : req.body.issue.project}).sort({id:-1}).limit(1);
+  const i = await Issue.find({ project: req.body.issue.project }).sort({ id: -1 }).limit(1);
   console.log('NEW ID');
   let newId = 1
-  if (i.length != 0){
+  if (i.length != 0) {
     newId = i[0].id + 1;
   }
   const newIssue = new Issue(req.body.issue);
@@ -82,7 +82,7 @@ export function getIssue(req, res) {
  */
 export function getIssuesByUser(req, res) {
   console.log('GET ISSUES BY USER CONTROLLER');
-  Issue.find({assigned: req.params.username}).sort( { id: 1 } ).exec((err, issues) => {
+  Issue.find({ assigned: req.params.username }).sort({ id: 1 }).exec((err, issues) => {
     if (err) {
       res.status(500).send(err);
     }
@@ -110,16 +110,17 @@ export function saveIssue(req, res) {
   //Update Issue in Db
   Issue.findOneAndUpdate(
     { id: issueToSave.id },
-    { $set: {
-        assigned : issueToSave.assigned,
-        status : issueToSave.status,
-        location : issueToSave.location,
+    {
+      $set: {
+        assigned: issueToSave.assigned,
+        status: issueToSave.status,
+        location: issueToSave.location,
         screen: issueToSave.screen,
         category: issueToSave.category,
         area: issueToSave.area
-      } 
+      }
     },
-    { new : true }
+    { new: true }
   ).exec((err, issue) => {
     if (err) {
       res.status(500).send(err);
@@ -139,41 +140,44 @@ export async function batchIssues(req, res) {
   const projectCode = req.body.projectCode
   const defaultOption = 'No change';
   //update issues
-  if(!options.assigned || options.assigned == defaultOption){
-    for(let issue of issuesToSave){
+  if (!options.assigned || options.assigned == defaultOption) {
+    for (let issue of issuesToSave) {
       await Issue.update(
         { id: issue.id },
-        { $set: {
-            status : options.pot
-          } 
+        {
+          $set: {
+            status: options.pot
+          }
         }
       )
     }
-  } else if(!options.pot || options.pot == defaultOption){
-    for(let issue of issuesToSave){
+  } else if (!options.pot || options.pot == defaultOption) {
+    for (let issue of issuesToSave) {
       await Issue.update(
         { id: issue.id },
-        { $set: {
-            assigned : options.assigned
-          } 
+        {
+          $set: {
+            assigned: options.assigned
+          }
         }
       )
     }
   } else {
-    for(let issue of issuesToSave){
+    for (let issue of issuesToSave) {
       await Issue.update(
         { id: issue.id },
-        { $set: {
-            assigned : options.assigned,
-            status : options.pot,
-          } 
+        {
+          $set: {
+            assigned: options.assigned,
+            status: options.pot,
+          }
         }
       )
     }
   }
 
   //get updated issues
-  Issue.find({project: projectCode}).sort( { id: 1 } ).exec((err, issues) => {
+  Issue.find({ project: projectCode }).sort({ id: 1 }).exec((err, issues) => {
     if (err) {
       res.status(500).send(err);
     }
