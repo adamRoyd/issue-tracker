@@ -46,7 +46,7 @@ export async function addIssue(req, res) {
   newIssue.screen = sanitizeHtml(newIssue.screen);
   newIssue.category = sanitizeHtml(newIssue.category);
   newIssue.assigned = sanitizeHtml(newIssue.assigned);
-  newIssue.description = sanitizeHtml(newIssue.description);
+  newIssue.description = sanitizeHtml(cleanHtml(newIssue.description));
   newIssue.browser = sanitizeHtml(newIssue.browser);
   newIssue.status = sanitizeHtml(newIssue.status);
   newIssue.dateAdded = sanitizeHtml(newIssue.dateAdded);
@@ -60,6 +60,15 @@ export async function addIssue(req, res) {
     res.json({ issue: saved });
   });
 }
+
+function cleanHtml(html){
+  console.log("cleaning html")
+  console.log(html);
+  html = html.replace('<p>&nbsp;</p>','').replace('<p><br></p>','')
+  console.log(html);
+  return html;
+};
+
 /**
  * Get a single issue
  * @param req

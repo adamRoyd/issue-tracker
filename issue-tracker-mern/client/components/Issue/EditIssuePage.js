@@ -8,6 +8,7 @@ import Issue from '../IssueTable/Issue';
 import Comments from '../Comment/Comments';
 import IssueManager from '../Issue/IssueManager';
 import CommentModal from '../Modals/CommentModal';
+import SplitPane from 'react-split-pane';
 
 class EditIssuePage extends React.Component {
     constructor(props) {
@@ -25,15 +26,18 @@ class EditIssuePage extends React.Component {
         const issue = this.props.issues[i];
         const issueComments = this.props.comments;
         return (
-            <div className='editIssuePage container-fluid'>
+            <SplitPane split="horizontal" defaultSize="400px" minSize="100px" primary="first">
                 <IssueManager {...this.props} issue={issue} />
-                <div className='commentsHeader'>
-                    <h4>Comments <i className='fa fa-expand expandIcon' title='Expand comments' onClick={this.expandComments} /></h4>
-
+                <div className='container-fluid'>
+                    <div className='comments-header'>
+                        <h4>Comments 
+                            {/* <i className='fa fa-expand expand-icon' title='Expand comments' onClick={this.expandComments} /> */}
+                        </h4>
+                    </div>
+                    <Comments issueComments={issueComments} issue={issue} />
+                    <CommentModal issueComments={issueComments} issue={issue} />
                 </div>
-                <Comments issueComments={issueComments} issue={issue} />
-                <CommentModal issueComments={issueComments} issue={issue} />
-            </div>
+            </SplitPane>
         );
     }
 }

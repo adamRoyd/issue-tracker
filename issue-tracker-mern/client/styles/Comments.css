@@ -1,31 +1,32 @@
-.comments-box{
-    position:absolute;
-    height:calc(100% - 530px);
-    top:485px;
-    width:calc(100% - 15px);
-    overflow-y: auto;
-    overflow-x: hidden;
+.comments-box {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100% - 80px);
 }
 
-.comment{
-    border-bottom: 2px solid rgba(55,55,55,0.1);
-    padding: 10px 0 10px 0;
-  }
-  .comment .commentHeading{
-    width: 100%;
-    font-weight:bold;
-  }
-  
-  .comment .commentHeading .right{
-    float:right;
-  }
-  
-  .comment .commentHeading .pot{
-    color:green;
-    text-align: left;
-  }
+.comment-container {
+  width: 100%;
+  border-bottom: 2px solid rgba(55, 55, 55, 0.1);
+  padding: 10px 0 10px 0;
+}
 
-.right-align{
-    float:right;
-    margin-right:5px;
+.comment-stats {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.comment-description{
+
+}
+
+.right-align {
+  float: right;
+  margin-right: 5px;
+}
+
+.expand-icon{
+  font-size: 18px;
+  cursor: pointer;
+  margin-left:10px;
 }

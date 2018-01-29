@@ -1,6 +1,39 @@
-.issueForm{
-    top:0px;
-    position:absolute;
-    width:47%;
-    left:52%;
-  }
+.issue-form {
+  top: 0px;
+  position: absolute;
+  width: 47%;
+  left: 52%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.form-flex {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.form-label{
+  margin-right: 5px;
+  flex-basis: 80px;
+  flex-shrink: 0;
+}
+
+.form-select{
+  flex-basis: 300px;
+  flex-shrink: 1;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color 
+}

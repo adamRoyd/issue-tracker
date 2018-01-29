@@ -11,6 +11,7 @@ import IssueForm from '../IssueForms/IssueForm';
 import { getArea } from '../../reducers/AreaReducer';
 import { Editor, EditorState, RichUtils, ContentState } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
+import Attachment from '../common/Attachment';
 
 class IssueManager extends React.Component {
     constructor(props) {
@@ -76,7 +77,7 @@ class IssueManager extends React.Component {
         const i = this.props.issues.findIndex((issue) => issue.id == this.props.params.id);
         const issue = this.props.issues[i];
         return (
-            <div className='issueDescriptionAndSettings'>
+            <div className='container'>
                 <h4>Issue Description</h4>
                 <IssueDescription issue={this.state.issue} />
                 <div className='comment-box'>
@@ -107,9 +108,14 @@ class IssueManager extends React.Component {
                     locations={this.props.locations}
                     categories={this.props.categories}
                 />
-                <div id="issueManagerButtons" className='anchorBottom'>
+                <div className="issue-manager-buttons">
                     <button className="btn" onClick={this.handleSubmit} disabled={this.state.submitDisabled}>Submit</button>
                     {/* <button className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button> */}
+                    <div className='issue-attachments'>
+                        {(this.state.issue.attachments) &&
+                            this.state.issue.attachments.map((a, i) => { return <Attachment key={i} number={i} path={a} />})
+                        }
+                    </div>
                 </div>
             </div>
         );

@@ -8,10 +8,8 @@ import FriendlyDate from '../Common/FriendlyDate';
 
 const IssueForm = ({ issue, errors, assignees, onIssueChange, status, displayAdvancedOptions, locations, categories }) => {
     return (
-        <div className='container-fluid issueForm'>
-            <div className='row'>
-                <h4>Issue Settings</h4>
-            </div>
+        <div className='issue-form'>
+            <h4>Issue Settings</h4>
             <TextStatic
                 label="Date"
                 value={<FriendlyDate date={issue.dateAdded} />} />

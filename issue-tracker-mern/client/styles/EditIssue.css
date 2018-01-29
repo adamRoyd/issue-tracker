@@ -1,86 +1,74 @@
-@media (min-width: 200px){
-    .editIssuePage {
-      height:100%;
-      position: absolute;
-      bottom: 0;
-      overflow-y: hidden;
-      width: 100%;
-    }
-  }
-
-@media (min-width: 765px){
-  .editIssuePage {
-      display: inline-block !important;
-      flex-grow: 1;
-      flex-grow: 1;
-      -webkit-flex-grow: 1;
+@media (min-width: 200px) {
+  .edit-issue-page {
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    overflow-y: hidden;
+    width: 100%;
   }
 }
 
-.editIssuePage{
-  display:none;
+@media (min-width: 765px) {
+  .edit-issue-page {
+    display: inline-block !important;
+    flex-grow: 1;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+  }
 }
 
-.commentsHeader{
-  position:absolute;
-  top:445px;
-  width:100%;
-  border-bottom: 2px solid rgba(120,120,120,0.2);
+.edit-issue-page {
+  display: none;
 }
 
-.issueDescription{
-  position:absolute;
-  height:235px;
+.comments-header {
+  width: 100%;
+  border-bottom: 2px solid rgba(120, 120, 120, 0.2);
+}
+
+.issue-description {
+  position: absolute;
+  height: calc(100% - 205px);
   overflow-y: auto;
   overflow-x: hidden;
-  width:50%;
-  top:35px;
-  padding-right:12px;
+  width: 50%;
+  top: 35px;
+  padding-right: 12px;
 }
 
-.issueAttachments{
-  height:40px;
-  position:absolute;
-  bottom:127px;
+.issue-attachments {
+  float: right;
 }
 
-.issueDescriptionAndSettings{
-  width:100%;
-  height:442px;
-  position:absolute;
+.comment-box {
+  width: 50%;
+  position: absolute;
+  height: 120px;
+  bottom: 50px;
 }
 
-.comment-box{
-  width:50%;
-  position:absolute;
-  height:23%;
-  bottom:10%;
+.error {
+  color: #a94442;
 }
 
-.error{
-  color:#a94442;
-}
-
-.text-editor{
+.text-editor {
   border: 1px solid #ccc;
   cursor: text;
   padding: 10px;
   overflow-y: auto;
-  overflow-wrap:break-word;
-  height:100%;
+  overflow-wrap: break-word;
+  height: 100%;
 }
 
-.has-error .form-control,
-.text-editor .has-error
-{
+.has-error .form-control, .text-editor .has-error {
   border: 1.5px solid #a94442;
 }
 
-.anchorBottom{
-  position:absolute;
-  bottom:0px;
+.issue-manager-buttons {
+  position: absolute;
+  bottom: 10px;
 }
 
-btn{
-  background-color:blue;
+btn {
+  background-color: blue;
 }
