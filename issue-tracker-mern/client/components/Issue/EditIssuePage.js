@@ -26,7 +26,7 @@ class EditIssuePage extends React.Component {
         const issue = this.props.issues[i];
         const issueComments = this.props.comments;
         return (
-            <SplitPane split="horizontal" defaultSize="400px" minSize="100px" primary="first">
+            <SplitPane split="horizontal" defaultSize="400px" primary="first">
                 <IssueManager {...this.props} issue={issue} />
                 <div className='container-fluid'>
                     <div className='comments-header'>

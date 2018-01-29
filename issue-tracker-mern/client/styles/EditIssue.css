@@ -21,19 +21,29 @@
   display: none;
 }
 
+.issue-manager{
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
 .comments-header {
   width: 100%;
   border-bottom: 2px solid rgba(120, 120, 120, 0.2);
 }
 
+.issue-manager-description{
+  width:55%;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 .issue-description {
-  position: absolute;
   height: calc(100% - 205px);
   overflow-y: auto;
   overflow-x: hidden;
-  width: 50%;
   top: 35px;
-  padding-right: 12px;
 }
 
 .issue-attachments {
@@ -41,8 +51,6 @@
 }
 
 .comment-box {
-  width: 50%;
-  position: absolute;
   height: 120px;
   bottom: 50px;
 }

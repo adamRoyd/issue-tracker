@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 
 const IssueDescription = ({ issue }) => {
     return (
-        <div>
-            <div className='issue-description'>
-                <div dangerouslySetInnerHTML={{ __html: issue.description }} />
-            </div>
+        <div className='issue-description'>
+            <div dangerouslySetInnerHTML={{ __html: issue.description }} />
         </div>
     );
 }
