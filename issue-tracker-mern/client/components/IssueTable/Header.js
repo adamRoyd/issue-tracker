@@ -6,14 +6,7 @@ function Header({ onClick, header }) {
         <th onClick={() => onClick()}>
             {header.name}
             &nbsp;
-            <span
-                className={(header.filter == 0)
-                    ? 'glyphicon glyphicon-minus white'
-                    : (
-                        (header.filter == 1)
-                            ? "glyphicon glyphicon-menu-down"
-                            : "glyphicon glyphicon-menu-up")}
-            />
+            <span className={(header.filter == 0) ? 'glyphicon glyphicon-minus white' : ((header.filter == 1) ? "glyphicon glyphicon-menu-down" : "glyphicon glyphicon-menu-up")}/>
         </th>
     );
 }

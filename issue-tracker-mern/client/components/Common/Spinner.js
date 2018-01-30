@@ -8,7 +8,6 @@ const Spinner = (visible) => {
     } else {
         spinclass = "fa fa-spinner fa-pulse fa-2x fa-fw center-position hidden"
     }
-    console.log("spinner", spinclass, visible);
     return (
         <i display={false} className={spinclass}></i>
     );

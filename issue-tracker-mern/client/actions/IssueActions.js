@@ -118,6 +118,7 @@ export function saveIssueRequest(issue, area) {
 
 
 export function sortIssues(header){
+  console.log("sort issues action", header);
   return{
       type: types.SORT_ISSUES,
       header

@@ -2,22 +2,26 @@ import initialstate from './initialState';
 import * as types from '../actions/actionTypes';
 
 const headerReducer = (state = initialstate.headers, action) => {
-    switch(action.type){
+    switch (action.type) {
         case types.SORT_ISSUES:
+            console.log("sort issues reducer", action.header);
+            console.log(state);
             return [
-                ...state.map((header,i) =>{
-                    if(header.name == action.header.name){
-                        if(header.filter == 2 || header.filter == 0){
-                            return Object.assign({},header,{
-                                filter : 1
+                ...state.map((header, i) => {
+                    if (header.name == action.header) {
+                        console.log("reducer names", header.name, action.header);
+                        if (header.filter == 2 || header.filter == 0) {
+                            console.log("yes");
+                            return Object.assign({}, header, {
+                                filter: 1
                             });
-                        } else{
-                            return Object.assign({},header,{
-                                filter : 2
+                        } else {
+                            return Object.assign({}, header, {
+                                filter: 2
                             });
                         }
-                    } else{
-                        return Object.assign({},header,{
+                    } else {
+                        return Object.assign({}, header, {
                             filter: 0
                         });
                     }
@@ -25,7 +29,7 @@ const headerReducer = (state = initialstate.headers, action) => {
             ];
         default:
             return state;
-    }  
+    }
 };
 
 // Get all issues

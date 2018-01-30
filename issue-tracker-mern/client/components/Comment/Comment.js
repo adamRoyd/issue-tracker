@@ -28,11 +28,11 @@ class Comment extends React.Component {
                     <div>
                         <strong>{comment.user}</strong>
                     </div>
-                    <div>
+                    <div style={{'marginRight' : '5px'}}>
                         <strong>{comment.status} | <FriendlyDate date={comment.time} /></strong>
                     </div>
                 </div>
-                <div className='comment-description'>
+                <div className='comment-description' style={{'marginTop' : '5px'}}>
                     <div dangerouslySetInnerHTML={{ __html: comment.text }} />
                 </div>
             </div>
