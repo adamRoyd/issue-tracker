@@ -1,11 +1,9 @@
 .issue-form {
-  top: 0px;
-  height: 100%;
+  margin-right: 15px;
   overflow-y: auto;
   overflow-x: hidden;
   flex-basis: 40%;
   flex-grow: 0;
-  left:0px;
 }
 
 .form-flex {

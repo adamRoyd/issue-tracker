@@ -9,7 +9,7 @@ class Comments extends React.Component {
             return new Date(b.time) - new Date(a.time);
         })
         return (
-            <div className='comments-box'>
+            <div>
                 {comments.map((comment, i) =>
                     <Comment
                         key={i}

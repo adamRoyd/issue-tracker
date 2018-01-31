@@ -34,6 +34,7 @@
   flex-shrink: 0;
   -webkit-flex-shrink: 0;
   vertical-align: top;
+  user-select: none;
 }
 
 .issue-select {
@@ -45,11 +46,13 @@
 }
 
 .screen {
-  width: 60px;
+  width: 75px;
+  max-width: 100px;
 }
 
 .project {
-  width: 80px;
+  width: 75px;
+  max-width: 80px;
 }
 
 .location {
@@ -85,19 +88,21 @@
   color: #337AB5;
 }
 
-.description, 
-.assigned, 
-.location, 
-.type, 
-.screen, 
-.project, 
-.category {
-  flex-grow: 1;
-  -webkit-flex-grow: 1;
+.description, .assigned, .location, .type, .screen, .category, .project {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   padding-right: 4px;
+}
+
+.location, .type, .screen, .category, .project {
+  flex-grow: 1;
+  -webkit-flex-grow: 1;
+}
+
+.description, .assigned {
+  flex-grow: 4;
+  -webkit-flex-grow: 4;
 }
 
 .date {
@@ -232,6 +237,7 @@
 
 .header .glyphicon {
   color: #333;
+  margin-left: 3px;
 }
 
 .glyphicon-eye-open.active {

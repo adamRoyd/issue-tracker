@@ -26,7 +26,6 @@ class LoginPage extends React.Component {
         this.props.dispatch(loginUser(creds));
     }
     handleForgottenPassword() {
-        console.log("forgot!");
         this.props.dispatch(openModal('forgotpassword'));
     }
 

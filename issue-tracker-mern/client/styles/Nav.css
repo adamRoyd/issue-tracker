@@ -97,20 +97,3 @@
     color:white !important;
     font-weight:bold;
 }
-
-/* @media (min-width: 1400px){
-  .visible-desktop {
-      display: block !important;
-  }
-}
-
-@media (max-width: 1400px){
-  .visible-phone {
-      display: block !important;
-  }
-}
-
-.visible-desktop, */
-.visible-phone{
-  display: none;
-}

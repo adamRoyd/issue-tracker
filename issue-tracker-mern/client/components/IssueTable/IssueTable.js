@@ -30,20 +30,18 @@ class IssueTable extends React.Component {
     }
     headerClick(event) {
         const name = event.target.id;
-        console.log("header click", name);
+        const header = this.props.headers.filter((h) => h.name === name);
         if (name != "")
-            this.props.sortIssues(name);
+            this.props.sortIssues(header);
     }
     checkBoxClick(i) {
         this.props.toggleCheckedIssue(this.props.issues[i]);
     }
     resolveFilterClass(filter){
-        console.log("resolve filter class");
         return (filter == 0) ? 'glyphicon glyphicon-minus white' : ((filter == 1) ? "glyphicon glyphicon-menu-down" : "glyphicon glyphicon-menu-up")
     }
     render() {
         const headers = this.props.headers;
-        console.log("Id Filter", headers[0].filter);
         return (
             <div className='issue-table container-fluid'>
                 <div className='table-row header'>
@@ -59,18 +57,36 @@ class IssueTable extends React.Component {
                                     {headers[1].name}
                                     <span className={this.resolveFilterClass(headers[1].filter)}/> 
                                 </div>
-                                <div id="Project" onClick={this.headerClick} className="column project">Project</div>
+                                <div id="Project" onClick={this.headerClick} className="column project">
+                                    {headers[2].name}
+                                    <span className={this.resolveFilterClass(headers[2].filter)}/>
+                                </div>
                             </div>
                             <div className="flexwrapper location-category-type">
-                                <div id="Location" onClick={this.headerClick} className="column location">Location</div>
-                                <div id="Category" onClick={this.headerClick} className="column category">Category</div>
-                                <div id="Type" onClick={this.headerClick} className="column type">Type</div>
+                                <div id="Location" onClick={this.headerClick} className="column location">
+                                    {headers[3].name}
+                                    <span className={this.resolveFilterClass(headers[3].filter)}/>
+                                </div>
+                                <div id="Category" onClick={this.headerClick} className="column category">
+                                    {headers[4].name}
+                                    <span className={this.resolveFilterClass(headers[4].filter)}/>
+                                </div>
+                                <div id="Type" onClick={this.headerClick} className="column type">
+                                    {headers[5].name}
+                                    <span className={this.resolveFilterClass(headers[5].filter)}/>
+                                </div>
                             </div>
                         </div>
                         <div className="flexwrapper description-assigned">
                             <div className="flexwrapper status-owner">
-                                <div id="Description" onClick={this.headerClick} className="column description">Description</div>
-                                <div id="Assigned" onClick={this.headerClick} className="column assigned">Assigned</div>
+                                <div id="Description" onClick={this.headerClick} className="column description">
+                                    {headers[6].name}
+                                    <span className={this.resolveFilterClass(headers[6].filter)}/>
+                                </div>
+                                <div id="Assigned" onClick={this.headerClick} className="column assigned">
+                                    {headers[7].name}
+                                    <span className={this.resolveFilterClass(headers[7].filter)}/>
+                                </div>
                             </div>
                         </div>
                     </div>

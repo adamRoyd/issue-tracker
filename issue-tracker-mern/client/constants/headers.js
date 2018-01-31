@@ -8,11 +8,19 @@ const headers = [
         "filter": 0
     },
     {
+        "name": "Project", 
+        "filter": 0
+    },
+    {
         "name": "Location",
         "filter": 0
     },
     {
         "name": "Category",
+        "filter": 0
+    },
+    {
+        "name": "Type",
         "filter": 0
     },
     {

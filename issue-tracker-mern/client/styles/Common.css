@@ -12,6 +12,29 @@ h5 {
     font-weight: bold !important;
 }
 
+
+@media (min-width: 900px){
+    .visible-desktop {
+        display: block !important;
+    }
+  }
+  
+  @media (max-width: 900px){
+    .visible-phone {
+        display: block !important;
+    }
+  
+  @media (max-width: 900px){
+    .visible-phone {
+        display: block !important;
+    }
+  }
+  
+  .visible-desktop,
+  .visible-phone{
+    display: none;
+  }
+
 .static {
     border: 0px !important;
     margin-bottom: -10px;
@@ -19,10 +42,6 @@ h5 {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
-
-.visible-phone {
-    display: none;
 }
 
 .full-height {
@@ -53,6 +72,16 @@ h5 {
 
 /***************** SplitPane **********************************/
 
+.SplitPane.vertical{
+    display:flex;
+}
+
+@media (max-width: 900px){
+    .SplitPane.vertical {
+        display: none !important;
+    }
+  }
+
 .Resizer.vertical {
     width: 5px;
     margin: 0 -5px;
@@ -69,9 +98,14 @@ h5 {
     z-index: 1;
 }
 
-.Pane.vertical.Pane2,
-.Pane.horizontal.Pane2 {
+.Pane.vertical.Pane2 {
     background: white;
+}
+
+.Pane.horizontal.Pane2{
+    overflow-y: auto;
+    background: white;
+    margin-bottom: 40px;
 }
 
 .error {

@@ -1,8 +1,7 @@
-.comments-box {
-  overflow-y: auto;
-  overflow-x: hidden;
-  /* height: calc(100% - 80px); */
-  height: 450px;
+.comments-container {
+  height: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .comment-container {
@@ -12,7 +11,7 @@
 }
 
 .comment-stats {
-  display: flex; 
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -23,8 +22,8 @@
   margin-right: 5px;
 }
 
-.expand-icon{
+.expand-icon {
   font-size: 18px;
   cursor: pointer;
-  margin-left:10px;
+  margin-left: 10px;
 }

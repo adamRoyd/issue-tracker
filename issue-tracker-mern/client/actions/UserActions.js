@@ -34,7 +34,6 @@ export function addUserRequest(user) {
 }
 
 export function forgotPasswordRequest(email) {
-  console.log("forgot password request")
   return (dispatch) => {
     return callApi(`forgotpassword`,'post', {
         email : email

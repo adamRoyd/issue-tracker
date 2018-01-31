@@ -28,15 +28,17 @@ class EditIssuePage extends React.Component {
         return (
             <SplitPane split="horizontal" defaultSize="400px" primary="first">
                 <IssueManager {...this.props} issue={issue} />
-                <div className='container-fluid'>
+                
+                <div className='comments-container'>
                     <div className='comments-header'>
-                        <h4>Comments 
+                        <h4>Comments
                             {/* <i className='fa fa-expand expand-icon' title='Expand comments' onClick={this.expandComments} /> */}
                         </h4>
                     </div>
                     <Comments issueComments={issueComments} issue={issue} />
-                    <CommentModal issueComments={issueComments} issue={issue} />
+                    {/* <CommentModal issueComments={issueComments} issue={issue} /> */}
                 </div>
+                <div style={{'background' : 'red'}}/>
             </SplitPane>
         );
     }

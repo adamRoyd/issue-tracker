@@ -8,7 +8,7 @@ class IssuePots extends React.Component {
     }
     render() {
         return (
-            <div className='issuePots'>
+            <div className='issue-pots visible-desktop'>
                 {this.props.status.map((pot, i) =>
                     <FilterLink
                         projectCode={this.props.projectCode}
