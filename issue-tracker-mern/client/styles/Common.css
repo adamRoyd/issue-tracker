@@ -12,28 +12,27 @@ h5 {
     font-weight: bold !important;
 }
 
-
-@media (min-width: 900px){
+@media (min-width: 900px) {
     .visible-desktop {
         display: block !important;
     }
-  }
-  
-  @media (max-width: 900px){
+}
+
+@media (max-width: 900px) {
     .visible-phone {
         display: block !important;
     }
-  
-  @media (max-width: 900px){
+}
+
+@media (max-width: 900px) {
     .visible-phone {
         display: block !important;
     }
-  }
-  
-  .visible-desktop,
-  .visible-phone{
+}
+
+.visible-desktop, .visible-phone {
     display: none;
-  }
+}
 
 .static {
     border: 0px !important;
@@ -72,15 +71,15 @@ h5 {
 
 /***************** SplitPane **********************************/
 
-.SplitPane.vertical{
-    display:flex;
+.SplitPane.vertical {
+    display: flex;
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
     .SplitPane.vertical {
         display: none !important;
     }
-  }
+}
 
 .Resizer.vertical {
     width: 5px;
@@ -102,7 +101,7 @@ h5 {
     background: white;
 }
 
-.Pane.horizontal.Pane2{
+.Pane.horizontal.Pane2 {
     overflow-y: auto;
     background: white;
     margin-bottom: 40px;

@@ -111,6 +111,10 @@
   padding-right: 4px;
 }
 
+.title-identifier {
+  max-width: 250px;
+}
+
 .description-assigned, .status-owner, .title-identifier-location-category-type, .title-identifier, .location-category-type, .attributes {
   flex-grow: 1;
   -webkit-flex-grow: 1;

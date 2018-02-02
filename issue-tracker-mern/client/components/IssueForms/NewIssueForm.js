@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextInput from '../Common/TextInput';
-import TextAreaInput from '../Common/TextAreaInput';
 import SelectInput from '../Common/SelectInput';
 import DropZone from '../Common/DropZone';
 import TextEditor from '../Common/TextEditor';
@@ -9,7 +8,7 @@ import TextStatic from '../Common/TextStatic';
 
 const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, categories, onDrop, files, attachments, onCommentChange, params, username }) => {
     return (
-        <form className='container-fluid'>
+        <div>
             <TextStatic
                 name="username"
                 label="Username"
@@ -26,7 +25,7 @@ const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, 
                 name="screen"
                 label="Screen"
                 placeholder="Enter a screen"
-                value={issue.screen}
+                value={params.filter}
                 onChange={onChange}
                 error={errors.screen} />
             <SelectInput
@@ -52,9 +51,9 @@ const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, 
                 options={assignees}
                 onChange={onChange}
                 error={errors.assigned} />
-            <div className="form-group row">
-                <label className="col-sm-3 col-form-label" htmlFor="description">Description</label>
-                <div className="col-sm-9 field" style={{ height: '160px' }}>
+            <div className="form-flex">
+                <label className="form-label" htmlFor="description">Description</label>
+                <div style={{ height: '160px', width: '100%' }}>
                     <TextEditor
                         name="description"
                         placeholder="Enter a description..."
@@ -70,7 +69,7 @@ const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, 
                 onDrop={onDrop}
                 files={files}
                 attachments={attachments} />
-        </form>
+        </div>
     );
 };
 

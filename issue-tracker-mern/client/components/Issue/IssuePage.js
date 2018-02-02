@@ -5,7 +5,6 @@ import SplitPane from 'react-split-pane';
 // Import Components
 import IssueTable from '../IssueTable/IssueTable';
 import IssuePots from '../Sidebar/IssuePots';
-import NavBar from '../Nav/NavBar';
 import EditIssuePage from '../Issue/EditIssuePage';
 import NewIssuePage from '../Issue/NewIssuePage';
 import Spinner from '../Common/Spinner';

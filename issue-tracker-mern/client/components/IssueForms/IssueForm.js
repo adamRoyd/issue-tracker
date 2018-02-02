@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SelectInput from '../Common/SelectInput';
 import TextInput from '../Common/TextInput';
-import TextAreaInput from '../Common/TextAreaInput';
 import TextStatic from '../Common/TextStatic';
 import FriendlyDate from '../Common/FriendlyDate';
 

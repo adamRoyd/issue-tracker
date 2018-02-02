@@ -51,6 +51,7 @@ export async function addIssue(req, res) {
   newIssue.dateAdded = sanitizeHtml(newIssue.dateAdded);
   newIssue.type = sanitizeHtml(newIssue.type);
   newIssue.area = sanitizeHtml(newIssue.area);
+  newIssue.browser = sanitizeHtml(newIssue.browser);
 
   newIssue.save((err, saved) => {
     if (err) {
@@ -60,8 +61,8 @@ export async function addIssue(req, res) {
   });
 }
 
-function cleanHtml(html){
-  html = html.replace('<p>&nbsp;</p>','').replace('<p><br></p>','')
+function cleanHtml(html) {
+  html = html.replace('<p>&nbsp;</p>', '').replace('<p><br></p>', '')
   return html;
 };
 
@@ -86,7 +87,6 @@ export function getIssue(req, res) {
  * @returns void
  */
 export function getIssuesByUser(req, res) {
-  console.log('GET ISSUES BY USER CONTROLLER');
   Issue.find({ assigned: req.params.username }).sort({ id: 1 }).exec((err, issues) => {
     if (err) {
       res.status(500).send(err);

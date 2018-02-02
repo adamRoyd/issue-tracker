@@ -9,6 +9,11 @@ const transport = nodemailer.createTransport({
         user: "b1cfc87c633479",
         pass: "e4a9c028b9c5cc"
     }
+    // service: 'gmail',
+    // auth: {
+    //     user: 'adamboothroyd1@gmail.com',
+    //     pass: 'IsC,ItH4'
+    // }
 });
 
 exports.send = async (options) => {

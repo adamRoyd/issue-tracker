@@ -94,7 +94,7 @@ class NewIssuePage extends React.Component {
     }
     render() {
         return (
-            <div id="newIssuePage" className={'visible-phone'}>
+            <div id="newIssuePage" className={'container-fluid visible-phone'}>
                 <h3>New issue for {this.props.params.projectCode}</h3>
                 <NewIssueForm
                     issue={this.state.issue}

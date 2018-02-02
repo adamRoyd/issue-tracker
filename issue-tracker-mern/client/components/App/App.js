@@ -7,8 +7,7 @@ import locations from '../../constants/locations';
 // Import Components
 import Helmet from 'react-helmet';
 import DevTools from './DevTools';
-import NavBar from '../Nav/NavBar';
-import NavBarPhone from '../Nav/NavBarPhone'
+import NavigationBar from '../Nav/NavigationBar';
 import { fetchUser } from '../../actions/UserActions';
 //Import Selectors
 import { getBatchIssues } from '../../reducers/IssueReducer';
@@ -32,10 +31,9 @@ export class App extends Component {
 
   render() {
     return (
-      <div className='container-fluid'>
-        <NavBar {...this.props} />
-        <NavBarPhone {...this.props} />
-        {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
+      <div>
+        <NavigationBar {...this.props} />
+        {/* {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />} */}
         {this.props.children}
       </div>
     );
