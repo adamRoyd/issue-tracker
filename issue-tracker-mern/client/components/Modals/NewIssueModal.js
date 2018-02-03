@@ -16,6 +16,15 @@ class NewIssueModal extends React.Component {
         this.state = {
             issue: {
                 location: "Select a location",
+                screen: "",
+                category: "Select a Category",
+                assigned: "Unassigned",
+                type: "Not sure",
+                description: "",
+                browser: Browser.name + ' ' + Browser.version
+            },
+            initialIssueState: {
+                location: "Select a location",
                 screen: "Enter a screen",
                 category: "Select a Category",
                 assigned: "Unassigned",
@@ -74,41 +83,38 @@ class NewIssueModal extends React.Component {
         this.props.dispatch(uploadFileRequest(files))
     }
     validate(issue) {
-        let errors = {}
-        if (issue.location == "Select a location") {
+        let errors = {};
+        const initial = this.state.initialIssueState
+        if (issue.location == initial.location) {
             errors = Object.assign({}, errors, {
                 location: 'Error'
             })
         }
-        if (issue.sco == "Select a Topic ID") {
-            errors = Object.assign({}, errors, {
-                sco: 'Error'
-            })
-        }
-        if (issue.screen == "Select a Screen ID") {
+        if (issue.screen == initial.screen || !issue.screen) {
             errors = Object.assign({}, errors, {
                 screen: 'Error'
             })
         }
-        if (issue.category == "Select a Category") {
+        if (issue.category == initial.category) {
             errors = Object.assign({}, errors, {
                 category: 'Error'
             })
         }
-        if (issue.assigned == "Unassigned") {
+        if (issue.assigned == initial.assigned) {
             errors = Object.assign({}, errors, {
                 assigned: 'Error'
             })
         }
         let div = document.createElement("div");
         div.innerHTML = issue.description;
+        console.log(div.innerHTML);
         let descriptionAsString = div.textContent || div.innerText || "";
-        if (descriptionAsString.trim == "") {
+        if (issue.description.length == 0) {
             errors = Object.assign({}, errors, {
                 description: 'Error'
             })
         }
-        return errors
+        return errors;
     }
     render() {
         return (

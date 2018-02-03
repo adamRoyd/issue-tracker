@@ -15,9 +15,9 @@ class TextEditor extends React.Component {
   }
   render() {
     return (
-      <div className="text-editor" onClick={this.focus}>
+      <div className={this.props.error ? "text-editor has-error" : "text-editor"} onClick={this.focus}>
         <Editor
-          className={this.props.errors ? "has-error" : ""}
+          className={this.props.error ? "has-error" : ""}
           editorState={this.state.editorState}
           onChange={this.onChange}
           placeholder={this.props.placeholder}

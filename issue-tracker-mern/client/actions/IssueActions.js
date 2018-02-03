@@ -92,7 +92,6 @@ export function saveIssue(issue) {
 }
 
 export function saveIssueRequest(issue, area) {
-  console.log('saveIssueRequest', issue);
   if (issue.status != 'New' && area == 'internal') {
     issue.area = 'internal';
   }

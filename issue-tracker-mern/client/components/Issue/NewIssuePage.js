@@ -27,6 +27,14 @@ class NewIssuePage extends React.Component {
                 description: "",
                 browser: Browser.name + ' ' + Browser.version
             },
+            initialIssueState: {
+                location: "",
+                screen: "",
+                category: "",
+                assigned: "",
+                description: "",
+                browser: Browser.name + ' ' + Browser.version
+            },
             errors: {},
             files: []
         };
@@ -46,7 +54,6 @@ class NewIssuePage extends React.Component {
     }
     updateIssueState(event) {
         const field = event.target.name;
-        const errors = this.validate(this.state.issue);
         let issue = this.state.issue;
         issue[field] = event.target.value;
         return this.setState({ issue: issue, errors: errors });
@@ -82,19 +89,43 @@ class NewIssuePage extends React.Component {
         this.props.dispatch(uploadFileRequest(files))
     }
     validate(issue) {
-        let errors = {}
-        Object.keys(issue).forEach(item => {
-            if (issue[item] == null) {
-                errors = {
-                    item: 'BLAAAAAH'
-                }
-            }
-        })
-        return errors
+        let errors = {};
+        const initial = this.state.initialIssueState
+        if (issue.location == initial.location) {
+            errors = Object.assign({}, errors, {
+                location: 'Error'
+            })
+        }
+        if (issue.screen == initial.screen || !issue.screen) {
+            errors = Object.assign({}, errors, {
+                screen: 'Error'
+            })
+        }
+        if (issue.category == initial.category) {
+            errors = Object.assign({}, errors, {
+                category: 'Error'
+            })
+        }
+        if (issue.assigned == initial.assigned) {
+            errors = Object.assign({}, errors, {
+                assigned: 'Error'
+            })
+        }
+        let div = document.createElement("div");
+        div.innerHTML = issue.description;
+        let descriptionAsString = div.textContent || div.innerText || "";
+        if (issue.description.length == 0) {
+            errors = Object.assign({}, errors, {
+                description: 'Error'
+            })
+        }
+        return errors;
     }
     render() {
+        console.log("new issue page", this.props.params.area);
+        const pageContainerClass = this.props.params.area === 'new' ? 'container-fluid' : 'container-fluid visible-phone';
         return (
-            <div id="newIssuePage" className={'container-fluid visible-phone'}>
+            <div id="newIssuePage" className={pageContainerClass}>
                 <h3>New issue for {this.props.params.projectCode}</h3>
                 <NewIssueForm
                     issue={this.state.issue}
