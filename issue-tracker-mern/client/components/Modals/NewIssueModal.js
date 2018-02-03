@@ -71,7 +71,11 @@ class NewIssueModal extends React.Component {
                     this.props.user.username
                 )
             );
-            return this.setState({ showModal: false });
+            return this.setState({ 
+                showModal: false,
+                issue : {},
+                errors: {}
+            });
         } else {
             return this.setState({ errors: errors });
         }
@@ -138,9 +142,8 @@ class NewIssueModal extends React.Component {
                             {...this.props} />
                     </Modal.Body>
                     <Modal.Footer>
-                        {(Object.keys(this.state.errors).length)
-                            ? <div className="infomessage error"><p>Please select a value for the items marked red.</p></div>
-                            : null
+                        {(Object.keys(this.state.errors).length) &&
+                            <div className="infomessage error"><p>Please select a value for the items marked red.</p></div>
                         }
                         <button className="btn" onClick={this.close}>Close</button>
                         <button className="btn" onClick={this.saveIssue}>Create issue</button>

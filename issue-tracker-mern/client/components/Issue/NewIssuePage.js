@@ -35,7 +35,8 @@ class NewIssuePage extends React.Component {
                 description: "",
                 browser: Browser.name + ' ' + Browser.version
             },
-            errors: {},
+            errors: "",
+            success: false,
             files: []
         };
         this.updateIssueState = this.updateIssueState.bind(this);
@@ -76,10 +77,17 @@ class NewIssuePage extends React.Component {
                     this.props.area,
                     this.props.username
                 )
-            );
-            return this.setState({ showModal: false });
+            )
+            return this.setState({
+                issue: {},
+                success: true,
+                errors: { message: 'Issue created' }
+            });
         } else {
-            return this.setState({ errors: errors });
+            return this.setState({
+                success: false,
+                errors: errors
+            });
         }
     }
     onDrop(files) {
@@ -96,7 +104,7 @@ class NewIssuePage extends React.Component {
                 location: 'Error'
             })
         }
-        if (issue.screen == initial.screen || !issue.screen) {
+        if (!issue.screen) {
             errors = Object.assign({}, errors, {
                 screen: 'Error'
             })
@@ -139,6 +147,11 @@ class NewIssuePage extends React.Component {
                     files={this.state.files}
                     params={this.props.params}
                     {...this.props} />
+                {(Object.keys(this.state.errors).length) &&
+                    <div className={this.state.success ? "infomessage success" : "infomessage error"}>
+                        {this.state.success ? 'Issue created' : 'Please select a value for the items marked red.'}
+                    </div>
+                }
                 <div className="right-align">
                     <button className="btn" onClick={this.close}>Close</button>
                     <button className="btn" onClick={this.saveIssue}>Create issue</button>

@@ -47,7 +47,7 @@ class NavigationBar extends React.Component {
     handleClick = (value) => {
         this.props.dispatch(openModal(value));
     }
-    getNavItems = (usertype, projectCode) => {
+    getNavItems = (usertype, projectCode, page) => {
         const isClient = this.props.user.usertype === 'Client';
         const isInternal = this.props.user.usertype == 'Internal';
         const isAdmin = this.props.user.usertype == 'Admin';
@@ -63,7 +63,7 @@ class NavigationBar extends React.Component {
                 }
                 {!isClient && <NavItem className='nav-button' onSelect={() => this.handleClick('project')}>Open Project</NavItem>}
                 {/* <NavItem className='nav-button' onSelect={this.myIssues}>My Issues</NavItem> */}
-                {((isClient && isClientArea) || ((isInternal || isAdmin) && !isClientArea)) && projectCode && <NavItem className='nav-button' onSelect={() => this.handleClick('newIssue')}>New Issue</NavItem>}
+                {((isClient && isClientArea) || ((isInternal || isAdmin) && !isClientArea)) && projectCode && (page != 'new') && <NavItem className='nav-button' onSelect={() => this.handleClick('newIssue')}>New Issue</NavItem>}
                 {projectCode && this.props.batchIssues && <NavItem disabled={!this.props.batchIssues.length} className='nav-button' onSelect={() => this.handleClick('batch')}>Batch Issues</NavItem>}
                 <NavDropdown eventKey={3} title="User options" id="basic-nav-dropdown">
                     <MenuItem header>{this.props.user.username}</MenuItem>
@@ -78,7 +78,7 @@ class NavigationBar extends React.Component {
     render() {
         const usertype = this.props.user.usertype;
         let projectCode = this.props.params.projectCode;
-        const navItems = this.getNavItems(usertype, projectCode);
+        const navItems = this.getNavItems(usertype, projectCode, this.props.params.area);
         return (
             <Navbar className='nav-bar' collapseOnSelect>
                 <Navbar.Header>

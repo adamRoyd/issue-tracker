@@ -31,15 +31,16 @@ class IssuePage extends Component {
     this.props.dispatch(fetchProjects());
   }
   render() {
+    const containerStyle = this.props.params.area == 'new' ?  'hidden' : '';
     return (
       <div>
         {(this.props.isFetching) ?
           <Spinner visible={this.props.isFetching} />
           :
           <div>
-            <NewIssuePage phoneView={true} {...this.props} />
+            <NewIssuePage {...this.props} />
             <IssuePots projectCode={this.props.params.projectCode} {...this.props} />
-            <SplitPane split="vertical" defaultSize="800px" minSize="100px" primary="first">
+            <SplitPane className={containerStyle} split="vertical" defaultSize="800px" minSize="100px" primary="first">
               <IssueTable {...this.props} />
               {this.props.params.id &&
                 <EditIssuePage {...this.props} />

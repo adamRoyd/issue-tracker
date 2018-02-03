@@ -7,8 +7,9 @@ class IssuePots extends React.Component {
         super(props);
     }
     render() {
+        const containerStyle = this.props.params.area == 'new' ?  'issue-pots hidden' : 'issue-pots visible-desktop'
         return (
-            <div className='issue-pots visible-desktop'>
+            <div className={containerStyle}>
                 {this.props.status.map((pot, i) =>
                     <FilterLink
                         projectCode={this.props.projectCode}

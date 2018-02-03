@@ -40,9 +40,10 @@ class IssueTable extends React.Component {
         return (filter == 0) ? 'glyphicon glyphicon-minus white' : ((filter == 1) ? "glyphicon glyphicon-menu-down" : "glyphicon glyphicon-menu-up")
     }
     render() {
+        const containerStyle = this.props.params.area == 'new' ?  'issue-table hidden' : 'issue-table container-fluid';
         const headers = this.props.headers;
         return (
-            <div className='issue-table container-fluid'>
+            <div className={containerStyle}>
                 <div className='table-row header'>
                     <div className="column issue-select" />
                     <div className="flexwrapper attributes">
