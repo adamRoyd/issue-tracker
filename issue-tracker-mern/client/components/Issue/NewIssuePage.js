@@ -17,11 +17,12 @@ import NewIssueForm from '../IssueForms/NewIssueForm';
 class NewIssuePage extends React.Component {
     constructor(props) {
         super(props);
+        const screenNumber = this.props.params.area == 'new' ? this.props.params.filter : '';
         this.state = {
             showModal: false,
             issue: {
                 location: "",
-                screen: "",
+                screen: screenNumber,
                 category: "",
                 assigned: "",
                 description: "",
@@ -29,7 +30,7 @@ class NewIssuePage extends React.Component {
             },
             initialIssueState: {
                 location: "",
-                screen: "",
+                screen: screenNumber,
                 category: "",
                 assigned: "",
                 description: "",
@@ -57,7 +58,7 @@ class NewIssuePage extends React.Component {
         const field = event.target.name;
         let issue = this.state.issue;
         issue[field] = event.target.value;
-        return this.setState({ issue: issue, errors: errors });
+        return this.setState({ issue: issue });
     }
     onCommentChange(html) {
         let issue = this.state.issue;
@@ -67,6 +68,7 @@ class NewIssuePage extends React.Component {
     saveIssue(event) {
         event.preventDefault();
         const errors = this.validate(this.state.issue);
+        const screenNumber = this.props.params.area == 'new' ? this.props.params.filter : '';
         if (Object.keys(errors).length === 0 && errors.constructor === Object) {
             this.props.dispatch(
                 addIssueRequest(
@@ -79,7 +81,14 @@ class NewIssuePage extends React.Component {
                 )
             )
             return this.setState({
-                issue: {},
+                issue: {
+                    location: "",
+                    screen: screenNumber,
+                    category: "",
+                    assigned: "",
+                    description: "",
+                    browser: Browser.name + ' ' + Browser.version
+                },
                 success: true,
                 errors: { message: 'Issue created' }
             });
@@ -130,8 +139,8 @@ class NewIssuePage extends React.Component {
         return errors;
     }
     render() {
-        console.log("new issue page", this.props.params.area);
         const pageContainerClass = this.props.params.area === 'new' ? 'container-fluid' : 'container-fluid visible-phone';
+        const hasErrors = Object.keys(this.state.errors).length;
         return (
             <div id="newIssuePage" className={pageContainerClass}>
                 <h3>New issue for {this.props.params.projectCode}</h3>
@@ -147,9 +156,9 @@ class NewIssuePage extends React.Component {
                     files={this.state.files}
                     params={this.props.params}
                     {...this.props} />
-                {(Object.keys(this.state.errors).length) &&
+                {hasErrors &&
                     <div className={this.state.success ? "infomessage success" : "infomessage error"}>
-                        {this.state.success ? 'Issue created' : 'Please select a value for the items marked red.'}
+                        {this.state.success ? 'Issue created. Fill out the form again to create another issue.' : 'Please select a value for the items marked red.'}
                     </div>
                 }
                 <div className="right-align">

@@ -57,7 +57,7 @@ class NavigationBar extends React.Component {
                 {projectCode && <NavItem className='nav-button' onSelect={this.homeClick}>{projectCode.toUpperCase()}</NavItem>}
                 {projectCode && isClient && <NavItem className='nav-button'>Client area</NavItem>}
                 {projectCode && !isClient &&
-                    <NavDropdown title={(this.props.area == 'internal') ? 'Internal area' : 'Client area'}>
+                    <NavDropdown id='areadropdown' title={(this.props.area == 'internal') ? 'Internal area' : 'Client area'}>
                         <MenuItem onSelect={this.areaClick}>{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area'}</MenuItem>
                     </NavDropdown>
                 }
@@ -65,7 +65,7 @@ class NavigationBar extends React.Component {
                 {/* <NavItem className='nav-button' onSelect={this.myIssues}>My Issues</NavItem> */}
                 {((isClient && isClientArea) || ((isInternal || isAdmin) && !isClientArea)) && projectCode && (page != 'new') && <NavItem className='nav-button' onSelect={() => this.handleClick('newIssue')}>New Issue</NavItem>}
                 {projectCode && this.props.batchIssues && <NavItem disabled={!this.props.batchIssues.length} className='nav-button' onSelect={() => this.handleClick('batch')}>Batch Issues</NavItem>}
-                <NavDropdown eventKey={3} title="User options" id="basic-nav-dropdown">
+                <NavDropdown id='usersettings' eventKey={3} title="User options" id="basic-nav-dropdown">
                     <MenuItem header>{this.props.user.username}</MenuItem>
                     <MenuItem divider />
                     {isAdmin && <MenuItem onSelect={() => this.handleClick('addproject')}>Create Project</MenuItem>}

@@ -74,14 +74,4 @@ const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, 
     );
 };
 
-NewIssueForm.propTypes = {
-    issue: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
-    loading: React.PropTypes.bool,
-    errors: PropTypes.object,
-    assignees: PropTypes.array.isRequired,
-    locations: PropTypes.array.isRequired,
-    categories: PropTypes.array.isRequired
-};
-
 export default NewIssueForm;

@@ -97,9 +97,9 @@ select.form-control {
 }
 
 .infomessage {
+  width: 50%;
   font-weight: bold;
   display: inline-block;
-  float: left;
 }
 
 .error {

@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Issue extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            isChecked : this.props.issue.checked
+        }
+    }
     render() {
         const { issue, onClick, checkBoxClick } = this.props
         //strip html tags from description.
@@ -12,7 +18,7 @@ class Issue extends React.Component {
         return (
             <div className={this.props.active ? 'table-row active' : 'table-row'}>
                 <div className="column issue-select">
-                    <input type="checkbox" checked={issue.checked} onClick={() => checkBoxClick()} />
+                    <input type="checkbox" checked={this.state.isChecked} onClick={() => checkBoxClick()} />
                 </div>
                 <div className="flexwrapper attributes" onClick={() => onClick()}>
                     <div className="flexwrapper title-identifier-location-category-type">
