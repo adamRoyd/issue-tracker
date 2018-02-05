@@ -6,6 +6,7 @@ import { addCommentRequest } from '../../actions/CommentActions';
 import { saveIssueRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getPots } from '../../reducers/IssueFilterReducer';
+import { getIssue } from '../../reducers/IssueReducer';
 import IssueDescription from './IssueDescription';
 import IssueForm from '../IssueForms/IssueForm';
 import { getArea } from '../../reducers/AreaReducer';
@@ -20,7 +21,7 @@ class IssueManager extends React.Component {
             editorState: EditorState.createEmpty(),
             errors: {},
             comment: {},
-            issue: Object.assign({}, this.props.issue),
+            issue: this.props.issue,
             toggleOptions: false,
             submitDisabled: true
         };
@@ -134,6 +135,7 @@ IssueManager.propTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
+        issue: getIssue(state.issues, ownProps.params.id),
         assignees: getAssignees(state, ownProps.params.projectCode),
         pots: getPots(state.area, ownProps.params.area),
         area: getArea(state)

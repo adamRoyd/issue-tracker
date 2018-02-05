@@ -80,6 +80,11 @@ const IssueReducer = (state = initialState.issues, action) => {
 /* Selectors */
 export const getIssues = state => state.issues;
 
+export const getIssue = (issues, paramId) => {
+    const i = issues.findIndex((issue) => issue.id == paramId);
+    return issues[i];
+}
+
 export const getBatchIssues = state => state.issues.filter((issue) => issue.checked == true);
 
 export const getVisibleIssues = (issues, filter, area) => {

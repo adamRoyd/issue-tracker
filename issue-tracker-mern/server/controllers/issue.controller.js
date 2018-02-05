@@ -122,7 +122,8 @@ export function saveIssue(req, res) {
         location: issueToSave.location,
         screen: issueToSave.screen,
         category: issueToSave.category,
-        area: issueToSave.area
+        area: issueToSave.area,
+        browser: issueToSave.browser
       }
     },
     { new: true }
@@ -141,6 +142,7 @@ export function saveIssue(req, res) {
  */
 export async function batchIssues(req, res) {
   const issuesToSave = req.body.issues
+  console.log(issuesToSave);
   const options = req.body.options
   const projectCode = req.body.projectCode
   const defaultOption = 'No change';
