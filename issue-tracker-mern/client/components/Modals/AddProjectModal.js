@@ -5,6 +5,7 @@ import { Modal } from 'react-bootstrap';
 import { closeModal } from '../../actions/ModalActions';
 import { Link, browserHistory } from 'react-router';
 import { addProjectRequest } from '../../actions/ProjectActions';
+import { getProjects } from '../../reducers/ProjectReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 import TextInput from '../Common/TextInput';
 import Spinner from '../Common/Spinner';
@@ -51,7 +52,11 @@ class AddProjectModal extends React.Component {
     validate(project) {
         let errors = ""
         if (project == "" || project.length < 4) {
-            errors = "Please enter a valid project code"
+            errors = "Please enter a valid project code."
+        }
+        const existingProject = this.props.projects.filter((p) => p.toLowerCase() == project.toLowerCase());
+        if(existingProject.length != 0){
+            errors = "A project already exists with that code."
         }
         return errors
     }
@@ -77,8 +82,7 @@ class AddProjectModal extends React.Component {
                     </Modal.Body>
                     <Modal.Footer>
                         <Spinner visible={this.props.message.isFetching} />
-                        <div className="infomessage error">{this.state.errors}</div>
-                        <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
+                        <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text ? this.props.message.text : this.state.errors}</div>
                         <button className="btn" onClick={this.close}>Close</button>
                         <button className="btn" disabled={this.state.project.length === 0} onClick={this.handleSubmit}>Create Project</button>
                     </Modal.Footer>
@@ -96,7 +100,8 @@ AddProjectModal.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {
         showModal: state.modal == 'addproject',
-        message: getMessage(state)
+        message: getMessage(state),
+        projects : getProjects(state)
     };
 }
 

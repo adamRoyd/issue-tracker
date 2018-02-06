@@ -47,14 +47,16 @@ class AddUserModal extends React.Component {
         const newUser = this.state.user;
         const errors = this.validate(newUser);
         if (errors == "") {
-            this.props.dispatch(addUserRequest(newUser));
-            return this.setState({
-                user: {
-                    username: "",
-                    usertype: ""
-                },
-                success: true
-            })
+            this.props.dispatch(addUserRequest(newUser))
+                .then(
+                this.setState({
+                    user: {
+                        username: "",
+                        usertype: ""
+                    },
+                    success: true
+                })
+                )
         } else {
             return this.setState({
                 success: false,
@@ -86,30 +88,26 @@ class AddUserModal extends React.Component {
                                 label="Username (email)"
                                 placeholder="Select a username"
                                 value={this.state.user.username}
-                                onChange={this.updateUserState}
-                                error={this.state.errors.username} />
+                                onChange={this.updateUserState} />
                             <SelectInput
                                 name="usertype"
                                 label="User Type"
                                 value={this.state.user.usertype}
                                 options={["Internal", "Client", "Admin"]}
-                                onChange={this.updateUserState}
-                                error={this.state.errors.usertype} />
+                                onChange={this.updateUserState} />
                             {(this.state.user.usertype == "Client") &&
                                 <SelectInput
                                     name="projects"
                                     label="Restrict client to project"
                                     value={this.state.user.projects}
                                     options={this.props.projects}
-                                    onChange={this.updateUserState}
-                                    error={this.state.errors.usertype} />
+                                    onChange={this.updateUserState} />
                             }
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
                         <Spinner visible={this.props.message.isFetching} />
-                        <div className="infomessage error">{this.state.errors}</div>
-                        <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
+                        <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text ? this.props.message.text : this.state.errors}</div>
                         <button className="btn" onClick={this.close}>Close</button>
                         <button className="btn" onClick={this.handleSubmit}>Create User</button>
                     </Modal.Footer>

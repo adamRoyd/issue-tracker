@@ -5,14 +5,15 @@
     border-radius: 0px !important;
     border-color: #004D1F !important;
     margin-bottom: 0px !important;
+
 }
 
-/* .nav-bar,
-.navbar-header,
-.navbar-brand{
-    height: 40px !important;
-    min-height: 40px !important; 
-} */
+.nav-bar div{
+    margin-left: 20px !important;
+    margin-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
 
 .nav-button a, .dropdown-toggle {
     color: white !important;

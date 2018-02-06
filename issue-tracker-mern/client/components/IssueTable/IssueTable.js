@@ -18,9 +18,6 @@ class IssueTable extends React.Component {
         this.headerClick = this.headerClick.bind(this);
         this.resolveFilterClass = this.resolveFilterClass.bind(this);
     }
-    componentDidMount() {
-        this.props.setIssueFilter(this.props.params.filter);
-    }
     handleClick(i) {
         const selectedIssue = this.props.issues[i];
         this.props.dispatch(fetchComments(this.props.params.projectCode, selectedIssue.id));

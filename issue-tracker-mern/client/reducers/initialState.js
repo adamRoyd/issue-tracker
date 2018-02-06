@@ -15,7 +15,7 @@ export default({
     area: "internal",
     modal: "",
     message: {
-        success: true,
+        success: false,
         text: "",
         isFetching: false
     }

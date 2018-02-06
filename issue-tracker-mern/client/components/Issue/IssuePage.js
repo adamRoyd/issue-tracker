@@ -13,7 +13,7 @@ import categories from '../../constants/categories';
 import locations from '../../constants/locations';
 import status from '../../constants/status';
 // Import Actions
-import { fetchIssues } from '../../actions/IssueActions';
+import { fetchIssues, setIssueFilter } from '../../actions/IssueActions';
 import { fetchAssignees } from '../../actions/AssigneeActions';
 import { fetchProjects } from '../../actions/ProjectActions';
 // Import Selectors
@@ -26,12 +26,14 @@ import { getMessage } from '../../reducers/MessageReducer';
 
 class IssuePage extends Component {
   componentDidMount() {
+    console.log("componentDidMount", this.props.params.filter);
     this.props.dispatch(fetchIssues(this.props.params.projectCode));
+    this.props.dispatch(setIssueFilter(this.props.params.filter));
     this.props.dispatch(fetchAssignees());
     this.props.dispatch(fetchProjects());
   }
   render() {
-    const containerStyle = this.props.params.area == 'new' ?  'hidden' : '';
+    const containerStyle = this.props.params.area == 'new' ? 'hidden' : '';
     return (
       <div>
         {(this.props.isFetching) ?

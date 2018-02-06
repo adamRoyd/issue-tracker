@@ -58,8 +58,7 @@ const IssueForm = ({ issue, errors, assignees, onIssueChange, status, displayAdv
                 value={issue.assigned}
                 options={assignees}
                 onChange={onIssueChange}
-                error={errors.assigned}
-            />
+                error={errors.assigned} />
             <SelectInput
                 name="status"
                 label="Status"
