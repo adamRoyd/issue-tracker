@@ -61,7 +61,7 @@ export function signup(req, res, next) {
             })
             //response
             res.send({
-                message: `New ${req.body.usertype} user ${req.body.username} created.`,
+                message: `New ${req.body.usertype} user ${req.body.username} created. They will receive a welcome email shortly.`,
                 error: false
             });
         }

@@ -11,7 +11,8 @@ import BatchIssuesModal from '../Modals/BatchIssuesModal';
 import OpenProjectModal from '../Modals/OpenProjectModal';
 import AddProjectModal from '../Modals/AddProjectModal';
 import AddUserModal from '../Modals/AddUserModal';
-import { openModal } from '../../actions/ModalActions'
+import { openModal } from '../../actions/ModalActions';
+import { getUser } from '../../reducers/UserReducer';
 import { DropdownButton, MenuItem, ButtonGroup, Button, Navbar, NavDropdown, NavItem, Nav } from 'react-bootstrap';
 
 class NavigationBar extends React.Component {
@@ -47,11 +48,12 @@ class NavigationBar extends React.Component {
     handleClick = (value) => {
         this.props.dispatch(openModal(value));
     }
-    getNavItems = (usertype, projectCode, page) => {
-        const isClient = this.props.user.usertype === 'Client';
-        const isInternal = this.props.user.usertype == 'Internal';
-        const isAdmin = this.props.user.usertype == 'Admin';
+    getNavItems = (usertype, projectCode, params) => {
+        const isClient = usertype === 'Client';
+        const isInternal = usertype == 'Internal';
+        const isAdmin = usertype == 'Admin';
         const isClientArea = this.props.area == 'client';
+        const isLoggedIn = this.props.user.username != null;
         return (
             <Nav>
                 {projectCode && <NavItem className='nav-button' onSelect={this.homeClick}>{projectCode.toUpperCase()}</NavItem>}
@@ -61,24 +63,26 @@ class NavigationBar extends React.Component {
                         <MenuItem onSelect={this.areaClick}>{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area'}</MenuItem>
                     </NavDropdown>
                 }
-                {!isClient && <NavItem className='nav-button' onSelect={() => this.handleClick('project')}>Open Project</NavItem>}
+                {!isClient && isLoggedIn && <NavItem className='nav-button' onSelect={() => this.handleClick('project')}>Open Project</NavItem>}
                 {/* <NavItem className='nav-button' onSelect={this.myIssues}>My Issues</NavItem> */}
-                {((isClient && isClientArea) || ((isInternal || isAdmin) && !isClientArea)) && projectCode && (page != 'new') && <NavItem className='nav-button' onSelect={() => this.handleClick('newIssue')}>New Issue</NavItem>}
+                {((isClient && isClientArea) || ((isInternal || isAdmin) && !isClientArea)) && projectCode && (params.area != 'new') && <NavItem className='nav-button' onSelect={() => this.handleClick('newIssue')}>New Issue</NavItem>}
                 {projectCode && this.props.batchIssues && <NavItem disabled={!this.props.batchIssues.length} className='nav-button' onSelect={() => this.handleClick('batch')}>Batch Issues</NavItem>}
-                <NavDropdown id='usersettings' eventKey={3} title="User options" id="basic-nav-dropdown">
-                    <MenuItem header>{this.props.user.username}</MenuItem>
-                    <MenuItem divider />
-                    {isAdmin && <MenuItem onSelect={() => this.handleClick('addproject')}>Create Project</MenuItem>}
-                    {isAdmin && <MenuItem onSelect={() => this.handleClick('adduser')}>Manage Users</MenuItem>}
-                    <MenuItem onSelect={this.logout}>Log out</MenuItem>
-                </NavDropdown>
+                {isLoggedIn && isAdmin &&
+                    (<NavDropdown id='usersettings' eventKey={3} title="User options" id="basic-nav-dropdown">
+                        <MenuItem header>{this.props.user.username}</MenuItem>
+                        <MenuItem divider />
+                        {isAdmin && <MenuItem onSelect={() => this.handleClick('addproject')}>Create Project</MenuItem>}
+                        {isAdmin && <MenuItem onSelect={() => this.handleClick('adduser')}>Manage Users</MenuItem>}
+                        <MenuItem onSelect={this.logout}>Log out</MenuItem>
+                    </NavDropdown>)
+                }
             </Nav>
         )
     }
     render() {
         const usertype = this.props.user.usertype;
         let projectCode = this.props.params.projectCode;
-        const navItems = this.getNavItems(usertype, projectCode, this.props.params.area);
+        const navItems = this.getNavItems(usertype, projectCode, this.props.params);
         return (
             <Navbar className='nav-bar' collapseOnSelect>
                 <Navbar.Header>
@@ -101,9 +105,13 @@ class NavigationBar extends React.Component {
 }
 
 NavigationBar.propTypes = {
-    params: PropTypes.object.isRequired,
-    username: PropTypes.string
+    params: PropTypes.object.isRequired
 };
 
+function mapStateToProps(state) {
+    return {
+        user: getUser(state)
+    };
+}
 
-export default connect()(NavigationBar);
+export default connect(mapStateToProps)(NavigationBar);

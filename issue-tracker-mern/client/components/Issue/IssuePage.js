@@ -26,7 +26,6 @@ import { getMessage } from '../../reducers/MessageReducer';
 
 class IssuePage extends Component {
   componentDidMount() {
-    console.log("componentDidMount", this.props.params.filter);
     this.props.dispatch(fetchIssues(this.props.params.projectCode));
     this.props.dispatch(setIssueFilter(this.props.params.filter));
     this.props.dispatch(fetchAssignees());

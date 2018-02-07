@@ -35,9 +35,6 @@ class IssueManager extends React.Component {
         this.onCommentChange = this.onCommentChange.bind(this);
         this.onIssueChange = this.onIssueChange.bind(this);
     }
-    componentWillReceiveProps() {
-        return this.setState({ issue: Object.assign({}, this.props.issue) });
-    }
     toggleAdvancedOptions() {
         return this.setState({ toggleOptions: !this.state.toggleOptions });
     }
@@ -75,13 +72,13 @@ class IssueManager extends React.Component {
         return this.setState({ issue: issue });
     }
     render() {
-        const i = this.props.issues.findIndex((issue) => issue.id == this.props.params.id);
-        const issue = this.props.issues[i];
         return (
             <div className='issue-manager'>
                 <div className='issue-manager-description'>
                     <h4>Issue Description</h4>
-                    <IssueDescription issue={this.state.issue} />
+                    {this.props.issue &&
+                        <IssueDescription issue={this.props.issue} />
+                    }
                     <div className='comment-box'>
                         {((this.props.area == 'client') && (this.props.usertype != 'Client'))
                             ?
@@ -100,26 +97,29 @@ class IssueManager extends React.Component {
                     <div className="issue-manager-buttons">
                         <button className="btn" onClick={this.handleSubmit} disabled={this.state.submitDisabled}>Submit</button>
                         {/* <button className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button> */}
-                        <div className='issue-attachments'>
-                            {(this.state.issue.attachments) &&
-                                this.state.issue.attachments.map((a, i) => { return <Attachment key={i} number={i} path={a} /> })
-                            }
-                        </div>
+                        {this.state.issue &&
+                            <div className='issue-attachments'>
+                                {(this.state.issue.attachments) &&
+                                    this.state.issue.attachments.map((a, i) => { return <Attachment key={i} number={i} path={a} /> })
+                                }
+                            </div>
+                        }
                     </div>
                 </div>
-                <IssueForm
-                    issue={this.state.issue}
-                    comment={this.state.comment}
-                    errors={this.state.errors}
-                    handleSubmit={this.handleSubmit}
-                    assignees={this.props.assignees}
-                    onCommentChange={this.onCommentChange}
-                    onIssueChange={this.onIssueChange}
-                    status={this.props.pots}
-                    displayAdvancedOptions={this.state.toggleOptions}
-                    locations={this.props.locations}
-                    categories={this.props.categories}
-                />
+                {this.state.issue &&
+                    <IssueForm
+                        issue={this.state.issue}
+                        comment={this.state.comment}
+                        errors={this.state.errors}
+                        handleSubmit={this.handleSubmit}
+                        assignees={this.props.assignees}
+                        onCommentChange={this.onCommentChange}
+                        onIssueChange={this.onIssueChange}
+                        status={this.props.pots}
+                        displayAdvancedOptions={this.state.toggleOptions}
+                        locations={this.props.locations}
+                        categories={this.props.categories} />
+                }
             </div>
         );
     }
