@@ -12,7 +12,7 @@ h5 {
     font-weight: bold !important;
 }
 
-.hidden{
+.hidden {
     display: none !important;
 }
 
@@ -113,4 +113,65 @@ h5 {
 
 .error {
     color: #a94442;
+}
+
+.error-container{
+    margin-top: 10px;
+    color: #a94442;
+    font-weight:bold;
+}
+
+.r-flat-button {
+    border: none;
+}
+
+.r-button {
+    color: white;
+    padding: 6px 10px;
+    background-color: #0C506E;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0C506E;
+    text-align: center;
+    min-height: 31px;
+}
+
+.r-submit-button {
+    background-color: #0C506E;
+    border-color: #0C506E;
+    color: #FFF;
+    float: left;
+    width: 100%;
+    padding: 6px 30px;
+    margin-right: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-width: 1px;
+    border-style: solid;
+    color: #FFF;
+}
+
+.r-button-disabled {
+    background-color: #777 !important;
+    border-color: #777 !important;
+}
+
+.r-button-disabled:hover {
+    cursor: default !important;
+}
+
+.r-inline-loader i {
+    color: #FFF;
+    font-size: 15px;
+}
+
+.r-inline-loader-dark i {
+    color: #292f3a;
+}
+
+.r-inline-loader span {
+    font-style: italic;
+    color: #888;
+    margin-left: 5px;
 }
