@@ -1,7 +1,7 @@
-import React,{getInitialState} from 'react';
+import React, { getInitialState } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Modal} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { Modal } from 'react-bootstrap';
 import Browser from 'detect-browser';
 import { addIssueRequest, uploadFileRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
@@ -10,21 +10,29 @@ import { getAttachments } from '../../reducers/AttachmentReducer';
 import { getIssues } from '../../reducers/IssueReducer';
 import NewIssueForm from '../IssueForms/NewIssueForm';
 
-class NewIssueModal extends React.Component{
-    constructor(props){
+class NewIssueModal extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
-            issue : {
+            issue: {
                 location: "Select a location",
-                sco: "Select a Topic ID",
-                screen: "Select a Screen ID",
+                screen: "",
                 category: "Select a Category",
                 assigned: "Unassigned",
                 type: "Not sure",
                 description: "",
                 browser: Browser.name + ' ' + Browser.version
             },
-            errors : {},
+            initialIssueState: {
+                location: "Select a location",
+                screen: "Enter a screen",
+                category: "Select a Category",
+                assigned: "Unassigned",
+                type: "Not sure",
+                description: "",
+                browser: Browser.name + ' ' + Browser.version
+            },
+            errors: {},
             files: []
         };
         this.updateIssueState = this.updateIssueState.bind(this);
@@ -35,24 +43,24 @@ class NewIssueModal extends React.Component{
         this.onDrop = this.onDrop.bind(this);
     }
     close() {
-        this.setState({ issue:{}, errors: {} });
+        this.setState({ issue: {}, errors: {} });
         this.props.dispatch(closeModal());
     }
-    updateIssueState(event){
+    updateIssueState(event) {
         const field = event.target.name;
         let issue = this.state.issue;
         issue[field] = event.target.value;
-        return this.setState({issue : issue});
+        return this.setState({ issue: issue });
     }
-    onCommentChange(html){
+    onCommentChange(html) {
         let issue = this.state.issue;
         issue['description'] = html;
-        return this.setState({issue : issue});
+        return this.setState({ issue: issue });
     }
-    saveIssue(event){
+    saveIssue(event) {
         event.preventDefault();
         const errors = this.validate(this.state.issue);
-        if(Object.keys(errors).length === 0 && errors.constructor === Object){
+        if (Object.keys(errors).length === 0 && errors.constructor === Object) {
             this.props.dispatch(
                 addIssueRequest(
                     this.state.issue,
@@ -63,63 +71,64 @@ class NewIssueModal extends React.Component{
                     this.props.user.username
                 )
             );
-            return this.setState({ showModal: false });
-        }   else{
-            return this.setState({ errors: errors});
+            return this.setState({ 
+                showModal: false,
+                issue : {},
+                errors: {}
+            });
+        } else {
+            return this.setState({ errors: errors });
         }
     }
-    onDrop(files){
+    onDrop(files) {
         this.setState({
             files
         });
         this.props.dispatch(uploadFileRequest(files))
     }
-    validate(issue){
-        let errors = {}
-        if(issue.location == "Select a location"){
-            errors = Object.assign({},errors,{
+    validate(issue) {
+        let errors = {};
+        const initial = this.state.initialIssueState
+        if (issue.location == initial.location) {
+            errors = Object.assign({}, errors, {
                 location: 'Error'
             })
         }
-        if(issue.sco == "Select a Topic ID"){
-            errors = Object.assign({},errors,{
-                sco: 'Error'
-            })
-        }
-        if(issue.screen == "Select a Screen ID"){
-            errors = Object.assign({},errors,{
+        if (issue.screen == initial.screen || !issue.screen) {
+            errors = Object.assign({}, errors, {
                 screen: 'Error'
             })
         }
-        if(issue.category == "Select a Category"){
-            errors = Object.assign({},errors,{
+        if (issue.category == initial.category) {
+            errors = Object.assign({}, errors, {
                 category: 'Error'
             })
         }
-        if(issue.assigned == "Unassigned"){
-            errors = Object.assign({},errors,{
+        if (issue.assigned == initial.assigned) {
+            errors = Object.assign({}, errors, {
                 assigned: 'Error'
             })
         }
         let div = document.createElement("div");
         div.innerHTML = issue.description;
+        console.log(div.innerHTML);
         let descriptionAsString = div.textContent || div.innerText || "";
-        if(descriptionAsString.trim == ""){
-            errors = Object.assign({},errors,{
+        if (issue.description.length == 0) {
+            errors = Object.assign({}, errors, {
                 description: 'Error'
             })
         }
-        return errors
+        return errors;
     }
-    render(){
-        return(
-            <div className="nav-div">
+    render() {
+        return (
+            <div>
                 <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>New Issue for {this.props.params.projectCode.toUpperCase()}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <NewIssueForm 
+                        <NewIssueForm
                             issue={this.state.issue}
                             errors={this.state.errors}
                             onChange={this.updateIssueState}
@@ -130,12 +139,11 @@ class NewIssueModal extends React.Component{
                             onDrop={this.onDrop}
                             files={this.state.files}
                             username={this.props.user.username}
-                            {...this.props}/>
+                            {...this.props} />
                     </Modal.Body>
                     <Modal.Footer>
-                        {(Object.keys(this.state.errors).length)
-                            ? <div className="infomessage error"><p>Please select a value for the items marked red.</p></div>
-                            : null
+                        {(Object.keys(this.state.errors).length) &&
+                            <div className="infomessage error"><p>Please select a value for the items marked red.</p></div>
                         }
                         <button className="btn" onClick={this.close}>Close</button>
                         <button className="btn" onClick={this.saveIssue}>Create issue</button>
@@ -147,16 +155,16 @@ class NewIssueModal extends React.Component{
 }
 
 NewIssueModal.propTypes = {
-    issue : PropTypes.object,
-    assignees : PropTypes.array.isRequired,
-    locations : PropTypes.array.isRequired,
-    buttonName : PropTypes.string,
-    params : PropTypes.object.isRequired
+    issue: PropTypes.object,
+    assignees: PropTypes.array.isRequired,
+    locations: PropTypes.array.isRequired,
+    buttonName: PropTypes.string,
+    params: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
     return {
-        assignees: getAssignees(state,ownProps.params.projectCode),
+        assignees: getAssignees(state, ownProps.params.projectCode),
         attachments: getAttachments(state),
         showModal: state.modal == 'newIssue'
     };

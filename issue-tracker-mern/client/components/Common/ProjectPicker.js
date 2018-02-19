@@ -1,75 +1,75 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { Dropdown, Button } from 'react-bootstrap';
 import { getProjects } from '../../reducers/ProjectReducer';
 import { fetchIssues } from '../../actions/IssueActions';
 
-class ProjectPicker extends React.Component{
-    constructor(props){
+class ProjectPicker extends React.Component {
+    constructor(props) {
         super(props);
-        this.state = {visibleprojects : this.props.projects};
+        this.state = { visibleprojects: this.props.projects };
         this.searchProjects = this.searchProjects.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
-    componentDidMount(){
+    componentDidMount() {
 
         this.nameInput.focus();
     }
-    searchProjects(e){
+    searchProjects(e) {
         let term = e.target.value.toLowerCase();
         this.setState({
-            visibleprojects : this.props.projects.filter(projectCode => projectCode.includes(term))
+            visibleprojects: this.props.projects.filter(projectCode => projectCode.includes(term))
         });
     }
-    toggleDropdown(){
+    toggleDropdown() {
         this.setState({
-            dropdownIsOpen : !this.state.dropdownIsOpen
+            dropdownIsOpen: !this.state.dropdownIsOpen
         });
     }
-    handleClick(value){
+    handleClick(value) {
         const projectCode = value.toLowerCase();
         this.props.dispatch(fetchIssues(projectCode));
         browserHistory.push(`/${projectCode}/internal/all/`);
-        if(this.props.close){
+        if (this.props.close) {
             this.props.close();
         }
     }
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <input
-                ref={(input) => { this.nameInput = input; }}
-                type="text"
-                className="form-control"
-                placeholder="Search projects..."
-                onChange={this.searchProjects}
+                    ref={(input) => { this.nameInput = input; }}
+                    type="text"
+                    className="form-control"
+                    placeholder="Search projects..."
+                    onChange={this.searchProjects}
                 />
                 <div className="project-list">
-                    <ul className="list-group">                   
-                        {(this.state.visibleprojects.length > 0) 
-                        ? 
-                        this.state.visibleprojects.map((projectCode, i) =>
-                        <button 
-                            type="button" 
-                            className="list-group-item" 
-                            key={i} 
-                            onClick={() => this.handleClick(projectCode)}
-                        >
-                            {projectCode.toUpperCase()}
-                        </button>
-                        ) 
-                        : 
-                        this.props.projects.map((projectCode, i) =>
-                        <button 
-                            type="button" 
-                            className="list-group-item" 
-                            key={i} 
-                            onClick={() => this.handleClick(projectCode)}
-                        >
-                            {projectCode.toUpperCase()}
-                        </button>)}
+                    <ul className="list-group">
+                        {(this.state.visibleprojects.length > 0)
+                            ?
+                            this.state.visibleprojects.map((projectCode, i) =>
+                                <button
+                                    type="button"
+                                    className="list-group-item"
+                                    key={i}
+                                    onClick={() => this.handleClick(projectCode)}
+                                >
+                                    {projectCode.toUpperCase()}
+                                </button>
+                            )
+                            :
+                            this.props.projects.map((projectCode, i) =>
+                                <button
+                                    type="button"
+                                    className="list-group-item"
+                                    key={i}
+                                    onClick={() => this.handleClick(projectCode)}
+                                >
+                                    {projectCode.toUpperCase()}
+                                </button>)}
                     </ul>
                 </div>
             </div>
@@ -78,7 +78,7 @@ class ProjectPicker extends React.Component{
 }
 
 ProjectPicker.propTypes = {
-    projects : PropTypes.array.isRequired
+    projects: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {

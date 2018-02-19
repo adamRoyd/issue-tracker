@@ -4,7 +4,6 @@ import initialState from './initialState';
 const ModalReducer = (state = initialState.modal, action) =>{
   switch (action.type) {
     case types.OPEN_MODAL:
-        console.log("open modal", action.modal);
         return action.modal
     case types.CLOSE_MODAL:
         return ""
@@ -23,7 +22,6 @@ const ModalReducer = (state = initialState.modal, action) =>{
     case types.UPLOAD_FILE_SUCCESS:
         return "newIssue"
     default:
-        console.log(action.type);
         return initialState.modal;     
   }
 }

@@ -1,21 +1,21 @@
-import React,{getInitialState} from 'react';
+import React, { getInitialState } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Modal} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { Modal } from 'react-bootstrap';
 import { closeModal } from '../../actions/ModalActions';
 import ProjectPicker from '../Common/ProjectPicker';
 
-class OpenProjectModal extends React.Component{
-    constructor(props){
+class OpenProjectModal extends React.Component {
+    constructor(props) {
         super(props);
         this.close = this.close.bind(this);
     }
     close() {
         this.props.dispatch(closeModal());
     }
-    render(){
-        return(
-            <div className="nav-div">
+    render() {
+        return (
+            <div>
 
                 <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
@@ -25,7 +25,7 @@ class OpenProjectModal extends React.Component{
                         <ProjectPicker
                             {...this.props}
                             close={this.close}
-                            />
+                        />
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn" onClick={this.close}>Close</button>
@@ -38,8 +38,8 @@ class OpenProjectModal extends React.Component{
 }
 
 OpenProjectModal.propTypes = {
-    buttonName : PropTypes.string,
-    params : PropTypes.object.isRequired
+    buttonName: PropTypes.string,
+    params: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

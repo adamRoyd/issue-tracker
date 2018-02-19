@@ -1,10 +1,10 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import SplitPane from 'react-split-pane';
 
 // Import Components
-import IssueList from '../IssueTable/IssueList';
+import IssueTable from '../IssueTable/IssueTable';
 import IssuePots from '../Sidebar/IssuePots';
-import NavBar from '../Nav/NavBar';
 import EditIssuePage from '../Issue/EditIssuePage';
 import NewIssuePage from '../Issue/NewIssuePage';
 import Spinner from '../Common/Spinner';
@@ -13,7 +13,7 @@ import categories from '../../constants/categories';
 import locations from '../../constants/locations';
 import status from '../../constants/status';
 // Import Actions
-import { fetchIssues } from '../../actions/IssueActions';
+import { fetchIssues, setIssueFilter } from '../../actions/IssueActions';
 import { fetchAssignees } from '../../actions/AssigneeActions';
 import { fetchProjects } from '../../actions/ProjectActions';
 // Import Selectors
@@ -24,33 +24,32 @@ import { getProjects } from '../../reducers/ProjectReducer';
 import { getStatus, getArea } from '../../reducers/AreaReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 
-
-
 class IssuePage extends Component {
   componentDidMount() {
-     this.props.dispatch(fetchIssues(this.props.params.projectCode));
-     this.props.dispatch(fetchAssignees());
-     this.props.dispatch(fetchProjects());
+    this.props.dispatch(fetchIssues(this.props.params.projectCode));
+    this.props.dispatch(setIssueFilter(this.props.params.filter));
+    this.props.dispatch(fetchAssignees());
+    this.props.dispatch(fetchProjects());
   }
   render() {
+    const containerStyle = this.props.params.area == 'new' ? 'hidden' : '';
     return (
-        <div>
-            {(this.props.isFetching)
-            ? 
-              <Spinner visible={this.props.isFetching}/>
-            :
-              <div id="issuePage">
-                <NewIssuePage className='testStyle' phoneView={true} {...this.props}/>
-                <IssuePots projectCode={this.props.params.projectCode} {...this.props}/>
-                <IssueList {...this.props}/>
-                {this.props.params.id ? 
-                  <EditIssuePage {...this.props}/>
-                  : 
-                  null
-                }
-              </div>
-            }
-        </div>
+      <div>
+        {(this.props.isFetching) ?
+          <Spinner visible={this.props.isFetching} />
+          :
+          <div>
+            <NewIssuePage {...this.props} />
+            <IssuePots projectCode={this.props.params.projectCode} {...this.props} />
+            <SplitPane className={containerStyle} split="vertical" defaultSize="800px" minSize="100px" primary="first">
+              <IssueTable {...this.props} />
+              {this.props.params.id &&
+                <EditIssuePage {...this.props} />
+              }
+            </SplitPane>
+          </div>
+        }
+      </div>
     );
   }
 }
@@ -59,11 +58,11 @@ class IssuePage extends Component {
 function mapStateToProps(state) {
   return {
     issues: getIssues(state),
-    status: getStatus(state,status),
-    locations : locations,
-    categories : categories,
+    status: getStatus(state, status),
+    locations: locations,
+    categories: categories,
     batchIssues: getBatchIssues(state),
-    username : getUser(state).username,
+    username: getUser(state).username,
     usertype: getUser(state).usertype,
     projects: getProjects(state),
     area: getArea(state),

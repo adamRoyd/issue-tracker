@@ -38,6 +38,7 @@ import issues from './routes/issue.routes';
 import projects from './routes/project.routes';
 import comments from './routes/comment.routes';
 import serverConfig  from './config';
+
 // Set native promises as mongoose promise
 mongoose.Promise = global.Promise;
 // MongoDB Connection

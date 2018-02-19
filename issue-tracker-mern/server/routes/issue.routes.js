@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
     cb(null, name + '-' + Date.now() + '.' + extension);
   }
 })
-const upload = multer({storage: storage})
+const upload = multer({ storage: storage })
 
 
 router.route('/(:projectCode)/(:area)/(:filter)').get(IssueController.getIssues);
@@ -27,8 +27,8 @@ router.route('/batchIssues').post(IssueController.batchIssues);
 
 router.route('/saveIssue').put(IssueController.saveIssue);
 
-router.post('/upload', upload.single('file'), function(req,res){
-	res.json(req.file);
+router.post('/upload', upload.single('file'), function (req, res) {
+  res.json(req.file);
 });
 
 export default router;

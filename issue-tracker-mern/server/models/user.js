@@ -10,9 +10,9 @@ const userSchema = new Schema({
 		trim: true
 	},
 	password: String,
-	usertype: { 
-		type: 'String', 
-		enum:[
+	usertype: {
+		type: 'String',
+		enum: [
 			"Client",
 			"Internal",
 			"Admin"
@@ -26,4 +26,4 @@ const userSchema = new Schema({
 
 userSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model('User',userSchema);
+module.exports = mongoose.model('User', userSchema);

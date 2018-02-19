@@ -1,20 +1,16 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import Dropzone from 'react-dropzone';
 
 
-const DropZone = ({name, label, onDrop, files, attachments }) => {
+const DropZone = ({ name, label, onDrop, files, attachments }) => {
   return (
-    <div className="form-group row">
-      <label className="col-sm-3 col-form-label" htmlFor={name}>{label}</label>
-      <div className="col-sm-9 field">
+    <div className="form-flex">
+      <label className="form-label" htmlFor={name}>{label}</label>
+      <div style={{ 'width': '100%' }}>
         <Dropzone className="form-control dashed" onDrop={onDrop}>
-            <p className="text-center">Drop files here, or <a href="#">select</a></p>
+          <p className="text-center">Drop files here, or <a href="#">select</a></p>
         </Dropzone>
-        <ul>
-            {
-                attachments.map((value,i) => <p key={i}>{value}</p>)
-            }
-        </ul>
+        <ul>{attachments.map((value, i) => <p key={i}>{value}</p>)}</ul>
       </div>
     </div>
   );

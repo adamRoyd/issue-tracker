@@ -1,71 +1,56 @@
-.issuePots {
-    height:100%;
-    background: #DEDEE1;
-    color:white;
+.issue-pots {
+  height: 100%;
+  background: #DEDEE1;
+  color: white;
+  z-index: 1;
+}
+
+@media (min-width: 200px) {
+  .issue-pots {
+    position: absolute;
+    top: 52px;
+    bottom: 0;
+    left: 0;
+    width: 50px;
   }
-  
-@media (min-width: 1400px){
-    .issuePots {
-        display: block !important;
-    }
 }
 
-@media (min-width: 200px){
-    .issuePots{
-        position: absolute;
-        top: 40px;
-        bottom: 0;
-        left: 0;
-        width: 50px;
-      }
-}
-
-.issuePots{
-  display: none;
-}
-
-.linkIcon,
-.linkIconActive{
-  position:relative;
-  height:55px;
-  width:100%;
+.linkIcon, .linkIconActive {
+  position: relative;
+  height: 55px;
+  width: 100%;
   cursor: pointer;
 }
 
-
-.linkIcon .issueCount,
-.linkIconActive .issueCount{
-  position:absolute;
-  width:20px;
+.linkIcon .issueCount, .linkIconActive .issueCount {
+  position: absolute;
+  width: 20px;
   top: 3px;
   left: 25px;
   text-align: right;
   color: #40535D;
-  font-weight:bold;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.linkIcon:hover,
-.linkIconActive{
-  background:rgba(64,83,93,1) !important;
+.linkIcon:hover, .linkIconActive {
+  background: rgba(64, 83, 93, 1) !important;
 }
 
-.linkIcon:hover .iconWhite,
-.linkIconActive .iconWhite{
-  fill:#FFFFFF;
+.linkIcon:hover .iconWhite, .linkIconActive .iconWhite {
+  fill: #FFFFFF;
 }
 
-.linkIcon:hover .issueCount,
-.linkIconActive .issueCount{
+.linkIcon:hover .issueCount, .linkIconActive .issueCount {
   color: #FFFFFF;
 }
 
-.iconWhite{
-  fill:rgba(64,83,93,1);
+.iconWhite {
+  fill: rgba(64, 83, 93, 1);
   margin-top: 12px;
   margin-left: 3px;
 }
 
-.potToolTip{
-    margin-left:-32px !important;
-  }
+.potToolTip {
+  margin-left: -32px !important;
+}

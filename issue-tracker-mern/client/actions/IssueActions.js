@@ -2,22 +2,22 @@ import * as types from './actionTypes';
 import callApi from '../util/apiCaller';
 import callApiUpload from '../util/apiUpload';
 
-export function setIssueFilter(issueFilter){
-    return{
-        type: types.SET_ISSUE_FILTER,
-        issueFilter
-    };
+export function setIssueFilter(issueFilter) {
+  return {
+    type: types.SET_ISSUE_FILTER,
+    issueFilter
+  };
 }
 
-export function setActiveIssue(issue,index){
-    return{
-        type: types.SET_ACTIVE_ISSUE,
-        issue
-    };
+export function setActiveIssue(issue, index) {
+  return {
+    type: types.SET_ACTIVE_ISSUE,
+    issue
+  };
 }
 
-export function toggleCheckedIssue(issue){
-  return{
+export function toggleCheckedIssue(issue) {
+  return {
     type: types.TOGGLE_CHECKED_ISSUE,
     issue
   }
@@ -30,8 +30,8 @@ export function addIssues(issues) {
   };
 }
 
-export function fetchingIssues(){
-  return{
+export function fetchingIssues() {
+  return {
     type: types.GLOBAL_FETCHING
   }
 }
@@ -45,8 +45,7 @@ export function fetchIssues(projectCode) {
   };
 }
 
-export function fetchIssuesByUser(username){
-  console.log('FETCHING ISSUES BY USER ACTION');
+export function fetchIssuesByUser(username) {
   return (dispatch) => {
     dispatch(fetchingIssues())
     return callApi(`issuesByUser/${username}`).then(res => {
@@ -62,17 +61,16 @@ export function addIssue(issue) {
   };
 }
 
-export function addIssueRequest(issue,attachments,issues,projectCode,area,username) {
+export function addIssueRequest(issue, attachments, issues, projectCode, area, username) {
   return (dispatch) => {
-    return callApi('addIssue','post', {
+    return callApi('addIssue', 'post', {
       issue: {
         project: projectCode,
-        sco: issue.sco,
         screen: issue.screen,
         loggedBy: username,
         location: issue.location,
         category: issue.category,
-        description: issue.description,        
+        description: issue.description,
         status: "New",
         area: area,
         class: area,
@@ -86,27 +84,30 @@ export function addIssueRequest(issue,attachments,issues,projectCode,area,userna
   };
 }
 
-export function saveIssue(issue){
+export function saveIssue(issue) {
+  console.log("SAVE ISSUE RESPONSE", issue);
   return {
     type: types.SAVE_ISSUE,
     issue
-  };  
+  };
 }
 
 export function saveIssueRequest(issue, area) {
-  if(issue.status != 'New' && area == 'internal' ){
+  console.log("save issue request. broswer: ", issue.browser);
+  if (issue.status != 'New' && area == 'internal') {
     issue.area = 'internal';
   }
-  if(issue.status != 'Returned' && area == 'client'){
+  if (issue.status != 'Returned' && area == 'client') {
     issue.area = 'client';
   }
   return (dispatch) => {
-    return callApi('saveIssue','put', {
+    return callApi('saveIssue', 'put', {
       issue: {
         project: issue.project,
         id: issue.id,
-        sco: issue.sco,
         screen: issue.screen,
+        type: issue.type,
+        browser: issue.browser,
         location: issue.location,
         category: issue.category,
         description: issue.description,
@@ -119,27 +120,27 @@ export function saveIssueRequest(issue, area) {
 }
 
 
-export function sortIssues(header){
-  return{
-      type: types.SORT_ISSUES,
-      header
+export function sortIssues(header) {
+  return {
+    type: types.SORT_ISSUES,
+    header: header[0]
   };
 }
 
-export function addIssueToBatch(id){
-  return{
+export function addIssueToBatch(id) {
+  return {
     type: types.ADD_ISSUE_TO_BATCH,
     id
   }
 }
 
-export function batchIssueRequest(issues, batchOptions, projectCode){
+export function batchIssueRequest(issues, batchOptions, projectCode) {
   return (dispatch) => {
-      return callApi('batchIssues','post', {
-        issues: issues,
-        options: batchOptions,
-        projectCode: projectCode
-      }).then(res => dispatch(batchIssues(res.issues)));
+    return callApi('batchIssues', 'post', {
+      issues: issues,
+      options: batchOptions,
+      projectCode: projectCode
+    }).then(res => dispatch(batchIssues(res.issues)));
   };
 }
 
@@ -150,16 +151,16 @@ export function batchIssues(issues) {
   };
 }
 
-export function uploadFileRequest(files){
+export function uploadFileRequest(files) {
   const file = files[0]
   return (dispatch) => {
-      return callApiUpload(`upload`,'post',file).then(res => dispatch(uploadFileSuccess(res)));
-    };
+    return callApiUpload('upload', 'post', file).then(res => dispatch(uploadFileSuccess(res)));
+  };
 }
 
-export function uploadFileSuccess(file){
+export function uploadFileSuccess(file) {
   const filename = file.filename;
-  return{
+  return {
     type: types.UPLOAD_FILE_SUCCESS,
     filename
   }

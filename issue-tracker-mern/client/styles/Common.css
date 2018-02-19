@@ -1,11 +1,116 @@
+body, html {
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+a {
+    color: white;
+}
+
+h5 {
+    font-weight: bold !important;
+}
+
+.hidden{
+    display: none !important;
+}
+
+@media (min-width: 900px) {
+    .visible-desktop {
+        display: block !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .visible-phone {
+        display: block !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .visible-phone {
+        display: block !important;
+    }
+}
+
+.visible-desktop, .visible-phone {
+    display: none;
+}
+
 .static {
     border: 0px !important;
     margin-bottom: -10px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-.expandIcon{
-    font-size: 18px;
-    cursor: pointer;
-    margin-left:10px;
+.full-height {
+    min-height: 100% !important;
+    height: auto !important;
+    height: 100%;
+}
+
+.right-align {
+    float: right;
+    margin-right: 5px;
+}
+
+/***********************SCROLLBAR *****************************/
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: darkgrey;
+    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+/***************** SplitPane **********************************/
+
+.SplitPane.vertical {
+    display: flex;
+}
+
+@media (max-width: 900px) {
+    .SplitPane.vertical {
+        display: none !important;
+    }
+}
+
+.Resizer.vertical {
+    width: 5px;
+    margin: 0 -5px;
+    cursor: col-resize;
+    background: #dcdcdc;
+    z-index: 1;
+}
+
+.Resizer.horizontal {
+    height: 5px;
+    margin: 0 0px;
+    cursor: row-resize;
+    background: #dcdcdc;
+    z-index: 1;
+}
+
+.Pane.vertical.Pane2 {
+    background: white;
+}
+
+.Pane.horizontal.Pane2 {
+    overflow-y: auto;
+    background: white;
+    margin-bottom: 40px;
+}
+
+.error {
+    color: #a94442;
 }
