@@ -26,9 +26,8 @@ class EditIssuePage extends React.Component {
         const issue = this.props.issues[i];
         const issueComments = this.props.comments;
         return (
-            <SplitPane split="horizontal" defaultSize="400px" primary="first">
+            <SplitPane split='horizontal' defaultSize='400px' primary='first'>
                 <IssueManager {...this.props} issue={issue} />
-                
                 <div className='comments-container'>
                     <div className='comments-header'>
                         <h4>Comments
@@ -38,7 +37,6 @@ class EditIssuePage extends React.Component {
                     <Comments issueComments={issueComments} issue={issue} />
                     {/* <CommentModal issueComments={issueComments} issue={issue} /> */}
                 </div>
-                <div style={{'background' : 'red'}}/>
             </SplitPane>
         );
     }

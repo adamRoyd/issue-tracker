@@ -14,11 +14,12 @@ import mail from '../handlers/mail';
  * @returns void
  */
 export function login(req, res, next) {
-    console.log("LOGIN REQUEST")
-    console.log(req);
+    console.log("login request");
+    console.log(req.body);
     passport.authenticate('local', function (err, user, info) {
         if (err) { return next(err); }
-
+        console.log("user?", user);
+        console.log(info)
         if (!user) {
             return res.status(400).send({
                 message: "Please enter a correct username and password"

@@ -97,10 +97,10 @@ class IssueManager extends React.Component {
                     <div className="issue-manager-buttons">
                         <button className="btn" onClick={this.handleSubmit} disabled={this.state.submitDisabled}>Submit</button>
                         {/* <button className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button> */}
-                        {this.state.issue &&
+                        {this.props.issue &&
                             <div className='issue-attachments'>
-                                {(this.state.issue.attachments) &&
-                                    this.state.issue.attachments.map((a, i) => { return <Attachment key={i} number={i} path={a} /> })
+                                {
+                                    this.props.issue.attachments.map((a, i) => { return <Attachment key={i} number={i} path={a} /> })
                                 }
                             </div>
                         }

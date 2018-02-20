@@ -10,55 +10,85 @@ import { getMessage } from '../../reducers/MessageReducer';
 import ForgotPasswordModal from '../Modals/ForgotPasswordModal';
 import Spinner from '../Common/Spinner';
 import logonimage from '../../assets/BIT_logon.png';
+import StandardButton from '../Common/StandardButton';
 
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
-        this.handleForgottenPassword = this.handleForgottenPassword.bind(this);
-    }
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const creds = {
-            username: this.refs.userName.value,
-            password: this.refs.password.value
+        this.state = {
+            username: '',
+            password: '',
+            working : false,
+            errors : ''
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleForgottenPassword = this.handleForgottenPassword.bind(this);
+        this.onTextChange = this.onTextChange.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.setWorking = this.setWorking.bind(this);
+    }
+    handleSubmit(){
+        this.setWorking(true);
+        const creds = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        console.log('creds', creds);
+        //todo do we need to call fetch projects here
         this.props.dispatch(fetchProjects());
-        this.props.dispatch(loginUser(creds));
+        this.props.dispatch(loginUser(creds))
+            .then(() => {
+                this.setWorking(false);
+                if(this.props.user.username){
+                    browserHistory.push('/selectproject');
+                }   else{
+                    this.setState({
+                        errors: this.props.user.errorMessage.message
+                    })
+                }
+            })
     }
     handleForgottenPassword() {
         this.props.dispatch(openModal('forgotpassword'));
     }
-
+    onTextChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
+    }
+    setWorking(isWorking) {
+        this.setState({ working: isWorking });
+    }
+    handleKeyPress(event) {
+        if (event.key === 'Enter'){
+            event.preventDefault();
+            this.handleSubmit();
+        }
+    }
     render() {
         if (this.props.user.username) {
             browserHistory.push('/selectproject');
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
         return (
-            <div className="wrapper">
-                <div className="formSignin">
+            <div className='wrapper'>
+                <div className='formSignin'>
                     <h4>Log in</h4>
-                    <form onSubmit={this.handleSubmit}>
-                        <input type="text" className="form-control" ref="userName" placeholder="Email Address" required="" autoFocus="" />
-                        <input type="password" className="form-control" ref="password" placeholder="Password" required="" />
-                        <button className='btn login-button' type="submit">Login</button>
-                    </form>
+                    <input name='username' type='text' className='form-control' placeholder='Email Address' onChange={this.onTextChange} onKeyPress={this.handleKeyPress} autoFocus={true} />
+                    <input name='password' type='password' className='form-control' placeholder='Password' onChange={this.onTextChange} onKeyPress={this.handleKeyPress} />
+                    <StandardButton text='Login' className='r-submit-button' isWorking={this.state.working} onClick={this.handleSubmit}/>
                     <a onClick={this.handleForgottenPassword}>Forgotten your password?</a>
-                    {(this.props.user.errorMessage)
-                        ? <p style={{ color: 'red' }}>{this.props.user.errorMessage.message}</p>
-                        : <p></p>
-                    }
-                    <Spinner visible={this.props.message.isFetching} />
+                    <div className='error-container'>
+                        {this.state.errors}
+                    </div>
                 </div>
                 <ForgotPasswordModal />
             </div>
         );
     }
 }
-
-LoginPage.propTypes = {
-
-};
 
 function mapStateToProps(state) {
     return {
