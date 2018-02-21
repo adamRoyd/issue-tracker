@@ -1,6 +1,7 @@
 import User from '../models/user';
 const express = require('express');
 const passport = require('passport');
+const crypto = require('crypto');
 import cuid from 'cuid';
 import slug from 'limax';
 import sanitizeHtml from 'sanitize-html';
@@ -58,7 +59,7 @@ export function signup(req, res, next) {
             mail.send({
                 username: req.body.username,
                 subject: 'Welcome to BIT',
-                html: `<p>Welcome to BIT. Your login details are:</p><p>Username: ${req.body.username}</p><p>Password: test</p><p>Select <a href="localhost:8000/" target="_blank">here</a> to go to BIT</p>`,
+                html: `<p>Welcome to BIT. Your login details are:</p><p>Username: ${req.body.username}</p><p>Password: test</p><p>Select <a href='localhost:8000/' target='_blank'>here</a> to go to BIT</p>`,
             });
             // response
             res.send({
@@ -108,16 +109,31 @@ export function getAssignees(req, res) {
         }
     });
 }
-export function forgotPassword(req, res) {
+export async function forgotPassword(req, res) {
     console.log('Forgot password controller');
-    const email = req.body.email;
-    console.log(email);
-    User.find({}, { username: email }).exec((err, user) => {
-        if (err) {
-            res.status(500).send(err);
-        } else {
-            console.log('send an email here');
-            res.json({ user });
-        }
+    // See if user exists
+    const user = await User.findOne({ username : req.body.email })
+
+    if(!user){
+        console.log('user does not exist');
+        return res.status(500).send({
+            message: `No account with that email exists.`
+        });
+    }
+
+    // Set reset tokens and expiry
+    user.resetPasswordToken = crypto.randomBytes(20).toString('hex');
+    user.resetPasswordExpires = Date.now() + 36000000 // 10 hours
+    await user.save();
+    // Send them an email wiht the token
+    const resetURL = `http://${req.headers.host}.account/reset`;
+    mail.send({
+        username: user.username,
+        subject: 'BIT password reset',
+        html: `<p>Select <a href='${resetURL}' target='_blank'>here</a> to reset your password for BIT</p>`,
     });
+    // Send success response.
+    res.status(200).send({
+        message: 'You have been emailed a password link.'
+    })
 }

@@ -37,13 +37,31 @@ export function forgotPasswordRequest(email) {
     return (dispatch) => {
         return callApi('forgotpassword', 'post', {
             email,
-        }).then(res => {
+        }).then((res, error) => {
             if (res.error) {
-                console.log('error');
+                console.log("res status", res);
+                console.log("res error", error);
+                dispatch(resetPasswordFail(res.message));
             } else {
-                console.log('success');
+                console.log("res status", res);
+                console.log("res error", error);
+                dispatch(resetPasswordSuccess(res.message));
             }
         });
+    };
+}
+
+export function resetPasswordSuccess(message){
+    return {
+        type: types.RESET_PASSWORD_SUCCESS,
+        message,
+    };
+}
+
+export function resetPasswordFail(message){
+    return {
+        type: types.RESET_PASSWORD_FAIL,
+        message,
     };
 }
 

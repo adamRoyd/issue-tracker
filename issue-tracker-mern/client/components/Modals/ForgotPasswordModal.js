@@ -18,7 +18,7 @@ class ForgotPasswordModal extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             email: '',
-            errors: 'blaah',
+            errors: '',
             working: false,
         };
     }
@@ -39,22 +39,29 @@ class ForgotPasswordModal extends React.Component {
         });
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
+    handleSubmit() {
         this.setWorking(true);
         const email = this.state.email;
         const isValid = this.validate(email);
-        if(isValid){
+        console.log("valid", isValid);
+        if (isValid) {
             this.props.dispatch(forgotPasswordRequest(this.state.email))
-        }   else{
+                .then(() => {
+                    console.log("message?", this.props.message.text);
+                    this.setState({
+                        errors: this.props.message.text
+                    })
+                }
+                )
+        } else {
             this.setState({
-                errors : 'Please enter a valid email address'
+                errors: 'Please enter a valid email address'
             })
         }
     }
 
     validate(email) {
-        const isValid = (email !== '' || validator.isEmail(email));
+        const isValid = email !== '' && validator.isEmail(email);
         return isValid;
     }
 
@@ -77,7 +84,7 @@ class ForgotPasswordModal extends React.Component {
                     </Modal.Body>
                     <Modal.Footer>
                         <Spinner visible={this.state.working} />
-                        <div className='infomessage error'>{this.state.errors}</div>
+                        <div className={this.props.message.success ? 'infomessage success' : 'infomessage error'}>{this.state.errors}</div>
                         <button className='btn' onClick={this.close}>Close</button>
                         <button className='btn' onClick={this.handleSubmit}>Submit</button>
                     </Modal.Footer>

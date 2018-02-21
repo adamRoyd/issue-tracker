@@ -15,67 +15,67 @@ import { getMessage } from '../../reducers/MessageReducer';
 import Spinner from '../Common/Spinner';
 
 class AddUserModal extends React.Component {
-  										constructor(props) {
-    										super(props);
-    										this.state = {
-      										errors: '',
-      										user: {
-        										username: '',
-        										usertype: 'Internal',
-      },
-      										success: false,
-    };
-    										this.updateUserState = this.updateUserState.bind(this);
-    										this.validate = this.validate.bind(this);
-    										this.handleSubmit = this.handleSubmit.bind(this);
-    										this.close = this.close.bind(this);
-  }
-  										componentDidMount() {
-    										this.props.dispatch(fetchProjects());
-  }
-  										updateUserState(event) {
-    										const field = event.target.name;
-    										let user = this.state.user;
-    										user[field] = event.target.value;
-    										return this.setState({
-      										user,
-      										errors: '',
-    });
-  }
-  										handleSubmit = (e) => {
-    										e.preventDefault();
-    										const newUser = this.state.user;
-    										const errors = this.validate(newUser);
-    										if (errors == '') {
-      										this.props.dispatch(addUserRequest(newUser))
+    constructor(props) {
+        super(props);
+        this.state = {
+            errors: '',
+            user: {
+                username: '',
+                usertype: 'Internal',
+            },
+            success: false,
+        };
+        this.updateUserState = this.updateUserState.bind(this);
+        this.validate = this.validate.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.close = this.close.bind(this);
+    }
+    componentDidMount() {
+        this.props.dispatch(fetchProjects());
+    }
+    updateUserState(event) {
+        const field = event.target.name;
+        let user = this.state.user;
+        user[field] = event.target.value;
+        return this.setState({
+            user,
+            errors: '',
+        });
+    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const newUser = this.state.user;
+        const errors = this.validate(newUser);
+        if (errors == '') {
+            this.props.dispatch(addUserRequest(newUser))
                 .then(
-                this.setState({
-                  										user: {
-                    										username: '',
-                    										usertype: '',
-                  },
-                  										success: true,
-                })
+                    this.setState({
+                        user: {
+                            username: '',
+                            usertype: '',
+                        },
+                        success: true,
+                    })
                 );
-    } else {
-      										return this.setState({
-        										success: false,
-        										errors,
-      });
+        } else {
+            return this.setState({
+                success: false,
+                errors,
+            });
+        }
     }
-  }
-  										validate(user) {
-    										let errors = '';
-    										if (user.username == '' || !validator.isEmail(user.username)) {
-      										errors = 'Please enter a valid email address';
+    validate(user) {
+        let errors = '';
+        if (user.username == '' || !validator.isEmail(user.username)) {
+            errors = 'Please enter a valid email address';
+        }
+        return errors;
     }
-    										return errors;
-  }
-  										close() {
-    										this.props.dispatch(closeModal());
-  }
-  										render() {
-    										return (
+    close() {
+        this.props.dispatch(closeModal());
+    }
+    render() {
+        return (
             <div>
                 <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
@@ -84,26 +84,26 @@ class AddUserModal extends React.Component {
                     <Modal.Body>
                         <div className="container-fluid">
                             <TextInput
-                              name="username"
-                              label="Username (email)"
-                              placeholder="Select a username"
-                              value={this.state.user.username}
-                              onChange={this.updateUserState}
+                                name="username"
+                                label="Username (email)"
+                                placeholder="Select a username"
+                                value={this.state.user.username}
+                                onChange={this.updateUserState}
                             />
                             <SelectInput
-                              name="usertype"
-                              label="User Type"
-                              value={this.state.user.usertype}
-                              options={['Internal', 'Client', 'Admin']}
-                              onChange={this.updateUserState}
+                                name="usertype"
+                                label="User Type"
+                                value={this.state.user.usertype}
+                                options={['Internal', 'Client', 'Admin']}
+                                onChange={this.updateUserState}
                             />
                             {(this.state.user.usertype == 'Client') &&
                                 <SelectInput
-                                  name="projects"
-                                  label="Restrict client to project"
-                                  value={this.state.user.projects}
-                                  options={this.props.projects}
-                                  onChange={this.updateUserState}
+                                    name="projects"
+                                    label="Restrict client to project"
+                                    value={this.state.user.projects}
+                                    options={this.props.projects}
+                                    onChange={this.updateUserState}
                                 />
                             }
                         </div>
@@ -117,20 +117,20 @@ class AddUserModal extends React.Component {
                 </Modal>
             </div>
         );
-  }
+    }
 }
 
 AddUserModal.propTypes = {
-  										buttonName: PropTypes.string,
-  										params: PropTypes.object.isRequired,
+    buttonName: PropTypes.string,
+    params: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state, ownProps) {
-  										return {
-    										showModal: state.modal == 'adduser',
-    										projects: getProjects(state),
-    										message: getMessage(state),
-  };
+    return {
+        showModal: state.modal == 'adduser',
+        projects: getProjects(state),
+        message: getMessage(state),
+    };
 }
 
 export default connect(mapStateToProps)(AddUserModal);

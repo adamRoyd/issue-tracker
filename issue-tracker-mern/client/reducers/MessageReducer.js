@@ -39,12 +39,16 @@ const MessageReducer = (state = initialState.message, action) => {
                 text: '',
             });
         case types.ADD_USER_SUCCESS:
+        case types.RESET_PASSWORD_SUCCESS:
+            console.log("success reducer", action.message);
             return Object.assign({}, state, {
                 text: action.message,
                 success: true,
                 isFetching: false,
             });
         case types.ADD_USER_FAILURE:
+        case types.RESET_PASSWORD_FAIL:
+            console.log("fail reducer" , action.message);
             return Object.assign({}, state, {
                 text: action.message,
                 success: false,
