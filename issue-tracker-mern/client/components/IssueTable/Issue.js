@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Issue extends React.Component {
-    constructor(props){
-        super(props)
+    constructor(props) {
+        super(props);
         this.state = {
-            isChecked : this.props.issue.checked
-        }
+            isChecked: this.props.issue.checked,
+        };
     }
     render() {
-        const { issue, onClick, checkBoxClick } = this.props
-        //strip html tags from description.
-        let description = document.createElement("div");
+        const { issue, onClick, checkBoxClick } = this.props;
+        // strip html tags from description.
+        let description = document.createElement('div');
         description.innerHTML = issue.description;
         description = description.innerText.trim();
         return (
@@ -47,13 +47,13 @@ class Issue extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        active: ownProps.params.id == ownProps.issue.id
+        active: ownProps.params.id == ownProps.issue.id,
     };
 };
 
 Issue.propTypes = {
     onClick: PropTypes.func.isRequired,
-    issue: PropTypes.object.isRequired
+    issue: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps)(Issue);

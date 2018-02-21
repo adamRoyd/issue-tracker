@@ -14,26 +14,26 @@ import mail from '../handlers/mail';
  * @returns void
  */
 export function login(req, res, next) {
-    console.log("login request");
+    console.log('login request');
     console.log(req.body);
     passport.authenticate('local', function (err, user, info) {
         if (err) { return next(err); }
-        console.log("user?", user);
-        console.log(info)
+        console.log('user?', user);
+        console.log(info);
         if (!user) {
             return res.status(400).send({
-                message: "Please enter a correct username and password"
+                message: 'Please enter a correct username and password',
             });
         }
 
         req.login(user, function (err) {
             if (err) { return next(err); }
             res.status(301).send({
-                user: req.user
+                user: req.user,
             });
         });
     })(req, res, next);
-};
+}
 /**
  * Register user
  * @param req
@@ -43,31 +43,31 @@ export function login(req, res, next) {
 export function signup(req, res, next) {
     let newUser;
     if (req.body.project) {
-        newUser = new User({ username: req.body.username, usertype: req.body.usertype, project: req.body.project })
+        newUser = new User({ username: req.body.username, usertype: req.body.usertype, project: req.body.project });
     } else {
-        newUser = new User({ username: req.body.username, usertype: req.body.usertype })
+        newUser = new User({ username: req.body.username, usertype: req.body.usertype });
     }
     User.register(newUser, 'Testing01', (err, user) => {
         if (err) {
             return res.send({
-                message: `An error occured. Please try again.`,
-                error: true
+                message: 'An error occured. Please try again.',
+                error: true,
             });
         } else {
-            //send new user an email
+            // send new user an email
             mail.send({
                 username: req.body.username,
                 subject: 'Welcome to BIT',
-                html: `<p>Welcome to BIT. Your login details are:</p><p>Username: ${req.body.username}</p><p>Password: test</p><p>Select <a href="localhost:8000/" target="_blank">here</a> to go to BIT</p>`
-            })
-            //response
+                html: `<p>Welcome to BIT. Your login details are:</p><p>Username: ${req.body.username}</p><p>Password: test</p><p>Select <a href="localhost:8000/" target="_blank">here</a> to go to BIT</p>`,
+            });
+            // response
             res.send({
                 message: `New ${req.body.usertype} user ${req.body.username} created. They will receive a welcome email shortly.`,
-                error: false
+                error: false,
             });
         }
     });
-};
+}
 /**
  * Logout user
  * @param req
@@ -75,27 +75,27 @@ export function signup(req, res, next) {
  * @returns void
  */
 export function logout(req, res) {
-    //req.logOut();
+    // req.logOut();
     req.session.destroy();
 }
 
 export function isLoggedIn(req, res, next) {
-    //check if user is authenticated
+    // check if user is authenticated
     if (req.isAuthenticated()) {
-        next(); //carry on
+        next(); // carry on
         return;
     }
-    //res.redirect(301,'/login');
+    // res.redirect(301,'/login');
     next();
 }
 export function getUser(req, res) {
     if (req.user) {
         res.status(201).send({
-            user: req.user
+            user: req.user,
         });
     } else {
         res.status(201).send({
-            user: {}
+            user: {},
         });
     }
 }
@@ -109,14 +109,14 @@ export function getAssignees(req, res) {
     });
 }
 export function forgotPassword(req, res) {
-    console.log("Forgot password controller");
+    console.log('Forgot password controller');
     const email = req.body.email;
-    console.log(email)
+    console.log(email);
     User.find({}, { username: email }).exec((err, user) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            console.log("send an email here");
+            console.log('send an email here');
             res.json({ user });
         }
     });

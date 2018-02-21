@@ -7,17 +7,20 @@ import FriendlyDate from '../Common/FriendlyDate';
 
 const IssueForm = ({ issue, errors, assignees, onIssueChange, status, displayAdvancedOptions, locations, categories }) => {
     return (
-        <div className='issue-form'>
+        <div className="issue-form">
             <h4>Issue Settings</h4>
             <TextStatic
                 label="Date"
-                value={<FriendlyDate date={issue.dateAdded} />} />
+                value={<FriendlyDate date={issue.dateAdded} />}
+            />
             <TextStatic
                 label="Logged by"
-                value={issue.loggedBy} />
+                value={issue.loggedBy}
+            />
             <TextStatic
                 label="Type"
-                value={issue.type} />
+                value={issue.type}
+            />
             <TextInput
                 name="browser"
                 label="Browser"
@@ -25,7 +28,8 @@ const IssueForm = ({ issue, errors, assignees, onIssueChange, status, displayAdv
                 value={issue.browser}
                 onChange={onIssueChange}
                 error={errors.browser}
-                isStatic={displayAdvancedOptions} />
+                isStatic={displayAdvancedOptions}
+            />
             <SelectInput
                 name="location"
                 label="Location"
@@ -34,7 +38,8 @@ const IssueForm = ({ issue, errors, assignees, onIssueChange, status, displayAdv
                 options={locations}
                 onChange={onIssueChange}
                 error={errors.location}
-                isStatic={displayAdvancedOptions} />
+                isStatic={displayAdvancedOptions}
+            />
             <TextInput
                 name="screen"
                 label="Screen"
@@ -42,7 +47,8 @@ const IssueForm = ({ issue, errors, assignees, onIssueChange, status, displayAdv
                 value={issue.screen}
                 onChange={onIssueChange}
                 error={errors.screen}
-                isStatic={displayAdvancedOptions} />
+                isStatic={displayAdvancedOptions}
+            />
             <SelectInput
                 name="category"
                 label="Category"
@@ -51,21 +57,24 @@ const IssueForm = ({ issue, errors, assignees, onIssueChange, status, displayAdv
                 options={categories}
                 onChange={onIssueChange}
                 error={errors.category}
-                isStatic={displayAdvancedOptions} />
+                isStatic={displayAdvancedOptions}
+            />
             <SelectInput
                 name="assigned"
                 label="Assigned"
                 value={issue.assigned}
                 options={assignees}
                 onChange={onIssueChange}
-                error={errors.assigned} />
+                error={errors.assigned}
+            />
             <SelectInput
                 name="status"
                 label="Status"
                 value={issue.status}
                 options={status}
                 onChange={onIssueChange}
-                error={errors.status} />
+                error={errors.status}
+            />
         </div>
     );
 };
@@ -79,9 +88,8 @@ IssueForm.propTypes = {
     issue: PropTypes.object.isRequired,
     assignees: PropTypes.array.isRequired,
     status: PropTypes.array.isRequired,
-    displayAdvancedOptions: PropTypes.bool
+    displayAdvancedOptions: PropTypes.bool,
 };
-
 
 
 export default IssueForm;

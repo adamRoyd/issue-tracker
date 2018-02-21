@@ -77,6 +77,11 @@
     padding: 5px 10px !important;
     border: none !important;
     height: 30px;
+    background: transparent !important;
+}
+
+.list-group-item:hover{
+    background: #e2e2e2 !important;
 }
 
 .navDiv {

@@ -11,9 +11,9 @@ class AddProjectPage extends React.Component {
         super(props);
         this.state = {
             errors: {},
-            project: "",
-            message: "",
-            success: false
+            project: '',
+            message: '',
+            success: false,
         };
         this.updateProjectState = this.updateProjectState.bind(this);
         this.validate = this.validate.bind(this);
@@ -23,7 +23,7 @@ class AddProjectPage extends React.Component {
         const field = event.target.name;
         let project = this.state.project;
         project = event.target.value;
-        return this.setState({ project: project });
+        return this.setState({ project });
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -33,24 +33,24 @@ class AddProjectPage extends React.Component {
             this.props.dispatch(addProjectRequest(newProject));
             return this.setState({
                 message: `New project ${newProject} created.`,
-                project: "",
-                success: true
-            })
+                project: '',
+                success: true,
+            });
         } else {
             return this.setState({
-                message: `There was a problem with the form. Please ensure you have entered a valid project code.`,
-                success: false
-            })
+                message: 'There was a problem with the form. Please ensure you have entered a valid project code.',
+                success: false,
+            });
         }
     }
     validate(project) {
-        let errors = {}
-        if (project == "") {
+        let errors = {};
+        if (project == '') {
             errors = Object.assign({}, errors, {
-                project: 'Error'
-            })
+                project: 'Error',
+            });
         }
-        return errors
+        return errors;
     }
     render() {
         return (
@@ -61,8 +61,9 @@ class AddProjectPage extends React.Component {
                     label="Project code"
                     placeholder="Enter a project code"
                     value={this.state.project}
-                    onChange={this.updateProjectState} />
-                <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
+                    onChange={this.updateProjectState}
+                />
+                <div className={this.props.message.success ? 'infomessage success' : 'infomessage error'}>{this.props.message.text}</div>
                 <div className="right-align">
                     <button className="btn" onClick={this.handleSubmit}>Create Project</button>
                 </div>
@@ -73,7 +74,7 @@ class AddProjectPage extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        message: getMessage(state)
+        message: getMessage(state),
     };
 }
 

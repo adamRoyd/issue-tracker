@@ -12,8 +12,8 @@ import { getHeaders } from '../../reducers/HeaderReducer';
 
 
 class IssueTable extends React.Component {
-    constructor(props){
-        super(props)
+    constructor(props) {
+        super(props);
         this.checkBoxClick = this.checkBoxClick.bind(this);
         this.headerClick = this.headerClick.bind(this);
         this.resolveFilterClass = this.resolveFilterClass.bind(this);
@@ -27,50 +27,50 @@ class IssueTable extends React.Component {
     headerClick(event) {
         const name = event.target.id;
         const header = this.props.headers.filter((h) => h.name === name);
-        if (name != "")
+        if (name != '')
             this.props.sortIssues(header);
     }
     checkBoxClick(i) {
         this.props.toggleCheckedIssue(this.props.issues[i]);
     }
-    resolveFilterClass(filter){
-        return (filter == 0) ? 'glyphicon glyphicon-minus white' : ((filter == 1) ? "glyphicon glyphicon-menu-down" : "glyphicon glyphicon-menu-up")
+    resolveFilterClass(filter) {
+        return (filter == 0) ? 'glyphicon glyphicon-minus white' : ((filter == 1) ? 'glyphicon glyphicon-menu-down' : 'glyphicon glyphicon-menu-up');
     }
     render() {
-        const containerStyle = this.props.params.area == 'new' ?  'issue-table hidden' : 'issue-table container-fluid';
+        const containerStyle = this.props.params.area == 'new' ? 'issue-table hidden' : 'issue-table container-fluid';
         const headers = this.props.headers;
         return (
             <div className={containerStyle}>
-                <div className='table-row header'>
+                <div className="table-row header">
                     <div className="column issue-select" />
                     <div className="flexwrapper attributes">
                         <div className="flexwrapper title-identifier-location-category-type">
                             <div className="flexwrapper title-identifier">
                                 <div id="Id" onClick={this.headerClick} className="column id">
                                     {headers[0].name}
-                                    <span className={this.resolveFilterClass(headers[0].filter)}/> 
+                                    <span className={this.resolveFilterClass(headers[0].filter)} />
                                 </div>
                                 <div id="Screen" onClick={this.headerClick} className="column screen">
                                     {headers[1].name}
-                                    <span className={this.resolveFilterClass(headers[1].filter)}/> 
+                                    <span className={this.resolveFilterClass(headers[1].filter)} />
                                 </div>
                                 <div id="Project" onClick={this.headerClick} className="column project">
                                     {headers[2].name}
-                                    <span className={this.resolveFilterClass(headers[2].filter)}/>
+                                    <span className={this.resolveFilterClass(headers[2].filter)} />
                                 </div>
                             </div>
                             <div className="flexwrapper location-category-type">
                                 <div id="Location" onClick={this.headerClick} className="column location">
                                     {headers[3].name}
-                                    <span className={this.resolveFilterClass(headers[3].filter)}/>
+                                    <span className={this.resolveFilterClass(headers[3].filter)} />
                                 </div>
                                 <div id="Category" onClick={this.headerClick} className="column category">
                                     {headers[4].name}
-                                    <span className={this.resolveFilterClass(headers[4].filter)}/>
+                                    <span className={this.resolveFilterClass(headers[4].filter)} />
                                 </div>
                                 <div id="Type" onClick={this.headerClick} className="column type">
                                     {headers[5].name}
-                                    <span className={this.resolveFilterClass(headers[5].filter)}/>
+                                    <span className={this.resolveFilterClass(headers[5].filter)} />
                                 </div>
                             </div>
                         </div>
@@ -78,11 +78,11 @@ class IssueTable extends React.Component {
                             <div className="flexwrapper status-owner">
                                 <div id="Description" onClick={this.headerClick} className="column description">
                                     {headers[6].name}
-                                    <span className={this.resolveFilterClass(headers[6].filter)}/>
+                                    <span className={this.resolveFilterClass(headers[6].filter)} />
                                 </div>
                                 <div id="Assigned" onClick={this.headerClick} className="column assigned">
                                     {headers[7].name}
-                                    <span className={this.resolveFilterClass(headers[7].filter)}/>
+                                    <span className={this.resolveFilterClass(headers[7].filter)} />
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,8 @@ class IssueTable extends React.Component {
                         issue={issue}
                         onClick={() => this.handleClick(i)}
                         checkBoxClick={() => this.checkBoxClick(i)
-                        } />)}
+                        }
+                    />)}
             </div>
         );
     }
@@ -107,14 +108,14 @@ IssueTable.propTypes = {
     setActiveIssue: PropTypes.func.isRequired,
     sortIssues: PropTypes.func.isRequired,
     setIssueFilter: PropTypes.func.isRequired,
-    params: PropTypes.object.isRequired
+    params: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state, ownProps) {
     return {
         issues: getVisibleIssues(state.issues, state.issueFilter, state.area),
         headers: getHeaders(state),
-        filter: state.issueFilter
+        filter: state.issueFilter,
     };
 }
 

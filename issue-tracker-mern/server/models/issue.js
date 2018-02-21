@@ -5,15 +5,15 @@ const issueSchema = new Schema({
     class: {
         type: 'String',
         enum: [
-            "client",
-            "internal",
+            'client',
+            'internal',
         ],
-        required: true
+        required: true,
     },
     project: {
         type: 'String',
         lowercase: true,
-        required: true
+        required: true,
     },
     id: { type: 'Number', required: true },
     loggedBy: { type: 'String', required: true },
@@ -21,73 +21,73 @@ const issueSchema = new Schema({
     location: {
         type: 'String',
         enum: [
-            "Current Screen",
-            "Functionality",
-            "Global Change",
-            "Splash Screen",
-            "Menu",
-            "Bookmark",
-            "Exit",
-            "Glossary",
-            "Help",
-            "Print",
-            "Resources"
+            'Current Screen',
+            'Functionality',
+            'Global Change',
+            'Splash Screen',
+            'Menu',
+            'Bookmark',
+            'Exit',
+            'Glossary',
+            'Help',
+            'Print',
+            'Resources',
         ],
-        required: true
+        required: true,
     },
     browser: { type: 'String', required: true },
     category: {
         type: 'String',
         enum: [
-            "Screen text",
-            "Script",
-            "Image",
-            "Animation",
-            "Audio",
-            "Video",
-            "Functionality",
-            "Global functionality",
-            "Global content",
-            "Design",
-            "Translation"
+            'Screen text',
+            'Script',
+            'Image',
+            'Animation',
+            'Audio',
+            'Video',
+            'Functionality',
+            'Global functionality',
+            'Global content',
+            'Design',
+            'Translation',
         ],
-        required: true
+        required: true,
     },
     description: { type: 'String', required: true },
     status: {
         type: 'String',
         enum: [
-            "New",
-            "On Hold",
-            "Ready To Fix",
-            "Fixed",
-            "Returned",
-            "Closed",
-            "Rejected",
-            "All"
+            'New',
+            'On Hold',
+            'Ready To Fix',
+            'Fixed',
+            'Returned',
+            'Closed',
+            'Rejected',
+            'All',
         ],
-        required: true
+        required: true,
     },
     area: {
         type: 'String',
         enum: [
-            "client",
-            "internal",
+            'client',
+            'internal',
         ],
-        required: true
+        required: true,
     },
     assigned: { type: 'String', required: true },
     attachments: [],
     type: {
         type: 'String',
         enum: [
-            "Not sure",
-            "Change request",
-            "Error"
+            'Not sure',
+            'Change request',
+            'Error',
         ],
-        required: true
+        required: true,
     },
-    dateAdded: { type: 'Date', required: true }
+    dateAdded: { type: 'Date', required: true },
 });
 
 export default mongoose.model('Issue', issueSchema);

@@ -22,15 +22,15 @@ require('./styles/Sidebar.css');
 require('./styles/styles.css');
 
 export default function App(props) {
-  return (
-    <Provider store={props.store}>
-        <Router history={browserHistory}>
-          {routes}
-        </Router>
-    </Provider>
-  );
+    return (
+        <Provider store={props.store}>
+            <Router history={browserHistory}>
+                {routes}
+            </Router>
+        </Provider>
+    );
 }
 
 App.propTypes = {
-  store: React.PropTypes.object.isRequired
+    store: React.PropTypes.object.isRequired,
 };

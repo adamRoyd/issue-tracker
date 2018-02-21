@@ -15,10 +15,10 @@ class RegistrationPage extends React.Component {
         this.state = {
             errors: {},
             user: {
-                username: "",
-                usertype: "Internal"
+                username: '',
+                usertype: 'Internal',
             },
-            success: false
+            success: false,
         };
         this.updateUserState = this.updateUserState.bind(this);
         this.validate = this.validate.bind(this);
@@ -31,7 +31,7 @@ class RegistrationPage extends React.Component {
         const field = event.target.name;
         let user = this.state.user;
         user[field] = event.target.value;
-        return this.setState({ user: user });
+        return this.setState({ user });
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -41,25 +41,25 @@ class RegistrationPage extends React.Component {
             this.props.dispatch(addUserRequest(newUser));
             return this.setState({
                 user: {
-                    username: "",
-                    usertype: ""
+                    username: '',
+                    usertype: '',
                 },
-                success: true
-            })
+                success: true,
+            });
         } else {
             return this.setState({
-                success: false
-            })
+                success: false,
+            });
         }
     }
     validate(user) {
-        let errors = {}
-        if (user.username == "") {
+        let errors = {};
+        if (user.username == '') {
             errors = Object.assign({}, errors, {
-                username: 'Error'
-            })
+                username: 'Error',
+            });
         }
-        return errors
+        return errors;
     }
     render() {
         return (
@@ -72,25 +72,28 @@ class RegistrationPage extends React.Component {
                     placeholder="Select a username"
                     value={this.state.user.username}
                     onChange={this.updateUserState}
-                    error={this.state.errors.username} />
+                    error={this.state.errors.username}
+                />
                 <SelectInput
                     name="usertype"
                     label="User Type"
                     value={this.state.user.usertype}
-                    options={["Internal", "Client", "Admin"]}
+                    options={['Internal', 'Client', 'Admin']}
                     onChange={this.updateUserState}
-                    error={this.state.errors.usertype} />
-                {(this.state.user.usertype == "Client")
+                    error={this.state.errors.usertype}
+                />
+                {(this.state.user.usertype == 'Client')
                     ? <SelectInput
                         name="projects"
                         label="Restrict client to project"
                         value={this.state.user.projects}
                         options={this.props.projects}
                         onChange={this.updateUserState}
-                        error={this.state.errors.usertype} />
+                        error={this.state.errors.usertype}
+                    />
                     : null
                 }
-                <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text}</div>
+                <div className={this.props.message.success ? 'infomessage success' : 'infomessage error'}>{this.props.message.text}</div>
                 <div className="right-align">
                     <button className="btn" onClick={this.handleSubmit}>Create User</button>
                 </div>
@@ -102,7 +105,7 @@ class RegistrationPage extends React.Component {
 function mapStateToProps(state) {
     return {
         projects: getProjects(state),
-        message: getMessage(state)
+        message: getMessage(state),
     };
 }
 

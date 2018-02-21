@@ -17,7 +17,7 @@ input[type="text"] {
 }
 
 .modal-dialog {
-  width: 700px !important;
+  /* width: 700px !important; */
 }
 
 .white {

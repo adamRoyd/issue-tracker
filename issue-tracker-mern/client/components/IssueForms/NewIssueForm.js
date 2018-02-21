@@ -13,7 +13,8 @@ const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, 
             <TextStatic
                 name="username"
                 label="Username"
-                value={username} />
+                value={username}
+            />
             <SelectInput
                 name="location"
                 label="Location"
@@ -21,14 +22,16 @@ const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, 
                 defaultOption="Select a location"
                 options={locations}
                 onChange={onChange}
-                error={errors.location} />
+                error={errors.location}
+            />
             <TextInput
                 name="screen"
                 label="Screen"
                 placeholder="Enter a screen"
                 value={screenValue}
                 onChange={onChange}
-                error={errors.screen} />
+                error={errors.screen}
+            />
             <SelectInput
                 name="category"
                 label="Category"
@@ -36,14 +39,16 @@ const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, 
                 defaultOption="Select a Category"
                 options={categories}
                 onChange={onChange}
-                error={errors.category} />
+                error={errors.category}
+            />
             <SelectInput
                 name="type"
                 label="Change / Error"
                 value={issue.type}
-                options={["Not sure", "Change request", "Error"]}
+                options={['Not sure', 'Change request', 'Error']}
                 onChange={onChange}
-                error={errors.type} />
+                error={errors.type}
+            />
             <SelectInput
                 name="assigned"
                 label="Assigned to"
@@ -51,7 +56,8 @@ const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, 
                 defaultOption="Unassigned"
                 options={assignees}
                 onChange={onChange}
-                error={errors.assigned} />
+                error={errors.assigned}
+            />
             <div className="form-flex">
                 <label className="form-label" htmlFor="description">Description</label>
                 <div style={{ height: '160px', width: '100%' }}>
@@ -69,7 +75,8 @@ const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, 
                 label="Attachment"
                 onDrop={onDrop}
                 files={files}
-                attachments={attachments} />
+                attachments={attachments}
+            />
         </div>
     );
 };

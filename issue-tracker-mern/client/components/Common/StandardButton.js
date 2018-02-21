@@ -15,7 +15,7 @@ class StandardButton extends Component {
     }
 
     onClick() {
-        //Get rid of rollover/focus state otherwise horizontal white line stays put.
+        // Get rid of rollover/focus state otherwise horizontal white line stays put.
         if (this.button) {
             this.button.blur();
         }
@@ -51,13 +51,13 @@ StandardButton.propTypes = {
     onClick: PropTypes.func,
     text: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.element
+        PropTypes.element,
     ]),
-    title: PropTypes.string
+    title: PropTypes.string,
 };
 
-StandardButton.defaultProps = {    
-    isDisabled: false
+StandardButton.defaultProps = {
+    isDisabled: false,
 };
 
 export default StandardButton;
@@ -71,8 +71,9 @@ const Link = props => {
 
 const Button = props => {
     return (
-        <button type='button' className={props.className}
-            onClick={props.onClick} ref={props.buttonRef}>
+        <button type="button" className={props.className}
+            onClick={props.onClick} ref={props.buttonRef}
+        >
             {props.isWorking ? <InlineLoader /> : props.children}
         </button>);
 };

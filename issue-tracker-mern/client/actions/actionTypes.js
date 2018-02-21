@@ -1,4 +1,4 @@
-//ISSUE
+// ISSUE
 export const ADD_ISSUES = 'ADD_ISSUES';
 export const ADD_ISSUE = 'ADD_ISSUE';
 export const SAVE_ISSUE = 'SAVE_ISSUE';
@@ -9,7 +9,7 @@ export const TOGGLE_CHECKED_ISSUE = 'TOGGLE_CHECKED_ISSUE';
 export const ADD_ISSUE_TO_BATCH = 'ADD_ISSUE_TO_BATCH';
 export const BATCH_ISSUES = 'BATCH_ISSUES';
 export const TOGGLE_AREA = 'TOGGLE_AREA';
-//USER
+// USER
 export const SET_USER = 'SET_USER';
 export const SAVE_USER = 'SAVE_USER';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -20,18 +20,18 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS';
 export const ADD_USER_FAILURE = 'ADD_USER_FAILURE';
 export const FETCH_ADD_USER = 'FETCH_ADD_USER';
-//MODALS
+// MODALS
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
-//PROJECT
+// PROJECT
 export const ADD_PROJECTS = 'ADD_PROJECTS';
 export const ADD_PROJECT_SUCCESS = 'ADD_PROJECT_SUCCESS';
 export const ADD_PROJECT_FAILURE = 'ADD_PROJECT_FAILURE';
 export const REQUEST_PROJECT = 'REQUEST_PROJECT';
-//COMMENT
+// COMMENT
 export const ADD_COMMENTS = 'ADD_COMMENTS';
 export const ADD_COMMENT = 'ADD_COMMENT';
-//FILE
+// FILE
 export const UPLOAD_FILE_SUCCESS = 'UPLOAD_FILE_SUCCESS';
-//Global
+// Global
 export const GLOBAL_FETCHING = 'GLOBAL_FETCHING';

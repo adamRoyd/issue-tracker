@@ -4,17 +4,18 @@ import Comment from './Comment';
 
 class Comments extends React.Component {
     render() {
-        //sort comments by date added
+        // sort comments by date added
         const comments = this.props.issueComments.sort((a, b) => {
             return new Date(b.time) - new Date(a.time);
-        })
+        });
         return (
             <div>
                 {comments.map((comment, i) =>
                     <Comment
                         key={i}
                         comment={comment}
-                        issue={this.props.issue} />
+                        issue={this.props.issue}
+                    />
                 )}
             </div>
         );
@@ -22,7 +23,7 @@ class Comments extends React.Component {
 }
 
 Comments.propTypes = {
-    issueComments: PropTypes.array.isRequired
+    issueComments: PropTypes.array.isRequired,
 };
 
 export default Comments;

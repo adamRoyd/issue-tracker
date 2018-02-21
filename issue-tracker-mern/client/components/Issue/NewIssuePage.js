@@ -21,24 +21,24 @@ class NewIssuePage extends React.Component {
         this.state = {
             showModal: false,
             issue: {
-                location: "",
+                location: '',
                 screen: screenNumber,
-                category: "",
-                assigned: "",
-                description: "",
-                browser: Browser.name + ' ' + Browser.version
+                category: '',
+                assigned: '',
+                description: '',
+                browser: Browser.name + ' ' + Browser.version,
             },
             initialIssueState: {
-                location: "",
+                location: '',
                 screen: screenNumber,
-                category: "",
-                assigned: "",
-                description: "",
-                browser: Browser.name + ' ' + Browser.version
+                category: '',
+                assigned: '',
+                description: '',
+                browser: Browser.name + ' ' + Browser.version,
             },
-            errors: "",
+            errors: '',
             success: false,
-            files: []
+            files: [],
         };
         this.updateIssueState = this.updateIssueState.bind(this);
         this.onCommentChange = this.onCommentChange.bind(this);
@@ -58,12 +58,12 @@ class NewIssuePage extends React.Component {
         const field = event.target.name;
         let issue = this.state.issue;
         issue[field] = event.target.value;
-        return this.setState({ issue: issue });
+        return this.setState({ issue });
     }
     onCommentChange(html) {
         let issue = this.state.issue;
         issue['description'] = html;
-        return this.setState({ issue: issue });
+        return this.setState({ issue });
     }
     saveIssue(event) {
         event.preventDefault();
@@ -79,62 +79,62 @@ class NewIssuePage extends React.Component {
                     this.props.area,
                     this.props.username
                 )
-            )
+            );
             return this.setState({
                 issue: {
-                    location: "",
+                    location: '',
                     screen: screenNumber,
-                    category: "",
-                    assigned: "",
-                    description: "",
-                    browser: Browser.name + ' ' + Browser.version
+                    category: '',
+                    assigned: '',
+                    description: '',
+                    browser: Browser.name + ' ' + Browser.version,
                 },
                 success: true,
-                errors: { message: 'Issue created' }
+                errors: { message: 'Issue created' },
             });
         } else {
             return this.setState({
                 success: false,
-                errors: errors
+                errors,
             });
         }
     }
     onDrop(files) {
         this.setState({
-            files
+            files,
         });
-        this.props.dispatch(uploadFileRequest(files))
+        this.props.dispatch(uploadFileRequest(files));
     }
     validate(issue) {
         let errors = {};
-        const initial = this.state.initialIssueState
+        const initial = this.state.initialIssueState;
         if (issue.location == initial.location) {
             errors = Object.assign({}, errors, {
-                location: 'Error'
-            })
+                location: 'Error',
+            });
         }
         if (!issue.screen) {
             errors = Object.assign({}, errors, {
-                screen: 'Error'
-            })
+                screen: 'Error',
+            });
         }
         if (issue.category == initial.category) {
             errors = Object.assign({}, errors, {
-                category: 'Error'
-            })
+                category: 'Error',
+            });
         }
         if (issue.assigned == initial.assigned) {
             errors = Object.assign({}, errors, {
-                assigned: 'Error'
-            })
+                assigned: 'Error',
+            });
         }
-        let div = document.createElement("div");
+        let div = document.createElement('div');
         div.innerHTML = issue.description;
-        let descriptionAsString = div.textContent || div.innerText || "";
+        let descriptionAsString = div.textContent || div.innerText || '';
         if (issue.description.length == 0) {
             errors = Object.assign({}, errors, {
-                description: 'Error'
-            })
+                description: 'Error',
+            });
         }
         return errors;
     }
@@ -155,9 +155,10 @@ class NewIssuePage extends React.Component {
                     onDrop={this.onDrop}
                     files={this.state.files}
                     params={this.props.params}
-                    {...this.props} />
+                    {...this.props}
+                />
                 {hasErrors &&
-                    <div className={this.state.success ? "infomessage success" : "infomessage error"}>
+                    <div className={this.state.success ? 'infomessage success' : 'infomessage error'}>
                         {this.state.success ? 'Issue created. Fill out the form again to create another issue.' : 'Please select a value for the items marked red.'}
                     </div>
                 }
@@ -174,7 +175,7 @@ NewIssuePage.propTypes = {
     issue: PropTypes.object,
     assignees: PropTypes.array.isRequired,
     locations: PropTypes.array.isRequired,
-    params: PropTypes.object.isRequired
+    params: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state, ownProps) {
@@ -185,7 +186,7 @@ function mapStateToProps(state, ownProps) {
         username: getUser(state).username,
         categories,
         locations,
-        status
+        status,
     };
 }
 

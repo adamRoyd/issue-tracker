@@ -1,19 +1,19 @@
-
-.wrapper {	
-margin-top: 80px;
-  margin-bottom: 80px;
+.wrapper {
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
-.formSignin {
-  max-width: 380px;
-  padding: 15px 35px 45px;
-  margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);  
+.form-signin {
+    position: absolute;
+    width: 400px;
+    left: calc(50% - 200px);
+    top: 10%;
+    padding: 15px 35px 45px;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
-.form-signin-heading,
-.checkbox {
+
+.form-signin-heading, .checkbox {
     margin-bottom: 30px;
 }
 
@@ -40,16 +40,27 @@ input[type="password"] {
     border-top-right-radius: 0;
 }
 
-.login-button{
+.login-button {
     background: #0C506E !important;
     display: block;
     width: 100%;
-    border-radius:0px !important;
-    color:white;
-    font-weight:bold !important;
+    border-radius: 0px !important;
+    color: white;
+    font-weight: bold !important;
 }
 
-.login-button:hover{
+.login-button:hover {
     background: #32738F !important;
-    color:white !important;
+    color: white !important;
+}
+
+.landing-background{
+    width:100%;
+    height:100%;
+    position: absolute;
+    background: url(../assets/login_background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

@@ -20,8 +20,8 @@ class SelectProjectPage extends React.Component {
     }
     render() {
         return (
-            <div className='wrapper'>
-                <div className='formSignin'>
+            <div className="landing-background">
+                <div className="form-signin">
                     <h4>Select a project</h4>
                     <ProjectPicker {...this.props} />
                 </div>
@@ -33,10 +33,9 @@ class SelectProjectPage extends React.Component {
 function mapStateToProps(state) {
     return {
         projects: getProjects(state),
-        user: getUser(state)
+        user: getUser(state),
     };
 }
-
 
 
 export default connect(mapStateToProps)(SelectProjectPage);

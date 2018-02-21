@@ -9,19 +9,19 @@ const commentSchema = new Schema({
     status: {
         type: 'String',
         enum: [
-            "New",
-            "On Hold",
-            "Ready To Fix",
-            "Fixed",
-            "Returned",
-            "Closed",
-            "Rejected",
-            "Brightwave",
-            "All"
+            'New',
+            'On Hold',
+            'Ready To Fix',
+            'Fixed',
+            'Returned',
+            'Closed',
+            'Rejected',
+            'Brightwave',
+            'All',
         ],
-        required: true
+        required: true,
     },
-    time: { type: 'Date', required: true }
-})
+    time: { type: 'Date', required: true },
+});
 
 export default mongoose.model('Comment', commentSchema);

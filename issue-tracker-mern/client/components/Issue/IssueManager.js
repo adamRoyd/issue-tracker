@@ -23,12 +23,12 @@ class IssueManager extends React.Component {
             comment: {},
             issue: this.props.issue,
             toggleOptions: false,
-            submitDisabled: true
+            submitDisabled: true,
         };
         this.focus = () => this.refs.editor.focus();
         this.onChange = (editorState) => {
             this.onCommentChange(stateToHTML(this.state.editorState.getCurrentContent()));
-            this.setState({ editorState })
+            this.setState({ editorState });
         };
         this.toggleAdvancedOptions = this.toggleAdvancedOptions.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,12 +46,11 @@ class IssueManager extends React.Component {
         this.setState({
             editorState,
             comment: { text: '' },
-            submitDisabled: true
+            submitDisabled: true,
         });
         if (this.props.issue.status != this.state.issue.status) {
             browserHistory.push(`/${this.props.params.projectCode}/(:area)/${this.props.params.filter}/`);
         }
-
     }
     onCommentChange(html) {
         let comment = this.state.comment;
@@ -59,9 +58,9 @@ class IssueManager extends React.Component {
             this.setState({
                 comment: {
                     user: this.props.username,
-                    text: html
+                    text: html,
                 },
-                submitDisabled: false
+                submitDisabled: false,
             });
         }
     }
@@ -69,28 +68,29 @@ class IssueManager extends React.Component {
         const field = event.target.name;
         let issue = this.state.issue;
         issue[field] = event.target.value;
-        return this.setState({ issue: issue });
+        return this.setState({ issue });
     }
     render() {
         return (
-            <div className='issue-manager'>
-                <div className='issue-manager-description'>
+            <div className="issue-manager">
+                <div className="issue-manager-description">
                     <h4>Issue Description</h4>
                     {this.props.issue &&
                         <IssueDescription issue={this.props.issue} />
                     }
-                    <div className='comment-box'>
+                    <div className="comment-box">
                         {((this.props.area == 'client') && (this.props.usertype != 'Client'))
                             ?
-                            <p className='error'><br /><strong>{(this.props.area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
+                            <p className="error"><br /><strong>{(this.props.area == 'client') ? 'This issue is in the client pot and cannot be edited.' : 'This issue is closed and cannot be edited.'}</strong></p>
                             :
-                            <div className='text-editor' onClick={this.focus}>
+                            <div className="text-editor" onClick={this.focus}>
                                 <Editor
-                                    className={this.props.errors ? 'hasError' : ""}
+                                    className={this.props.errors ? 'hasError' : ''}
                                     editorState={this.state.editorState}
                                     onChange={this.onChange}
                                     placeholder="Enter a comment..."
-                                    ref="editor" />
+                                    ref="editor"
+                                />
                             </div>
                         }
                     </div>
@@ -98,9 +98,9 @@ class IssueManager extends React.Component {
                         <button className="btn" onClick={this.handleSubmit} disabled={this.state.submitDisabled}>Submit</button>
                         {/* <button className="btn" onClick={this.toggleAdvancedOptions}>Toggle advanced options</button> */}
                         {this.props.issue &&
-                            <div className='issue-attachments'>
+                            <div className="issue-attachments">
                                 {
-                                    this.props.issue.attachments.map((a, i) => { return <Attachment key={i} number={i} path={a} /> })
+                                    this.props.issue.attachments.map((a, i) => { return <Attachment key={i} number={i} path={a} />; })
                                 }
                             </div>
                         }
@@ -118,7 +118,8 @@ class IssueManager extends React.Component {
                         status={this.props.pots}
                         displayAdvancedOptions={this.state.toggleOptions}
                         locations={this.props.locations}
-                        categories={this.props.categories} />
+                        categories={this.props.categories}
+                    />
                 }
             </div>
         );
@@ -130,7 +131,7 @@ IssueManager.propTypes = {
     status: PropTypes.array.isRequired,
     params: PropTypes.object.isRequired,
     locations: PropTypes.array.isRequired,
-    categories: PropTypes.array.isRequired
+    categories: PropTypes.array.isRequired,
 };
 
 function mapStateToProps(state, ownProps) {
@@ -138,7 +139,7 @@ function mapStateToProps(state, ownProps) {
         issue: getIssue(state.issues, ownProps.params.id),
         assignees: getAssignees(state, ownProps.params.projectCode),
         pots: getPots(state.area, ownProps.params.area),
-        area: getArea(state)
+        area: getArea(state),
     };
 }
 

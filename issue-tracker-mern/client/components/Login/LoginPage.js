@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { fetchProjects } from '../../actions/ProjectActions';
-import { openModal } from '../../actions/ModalActions'
+import { openModal } from '../../actions/ModalActions';
 import { loginUser } from '../../actions/UserActions';
 import { getUser } from '../../reducers/UserReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 import ForgotPasswordModal from '../Modals/ForgotPasswordModal';
 import Spinner from '../Common/Spinner';
-import logonimage from '../../assets/BIT_logon.png';
 import StandardButton from '../Common/StandardButton';
 
 class LoginPage extends React.Component {
@@ -18,35 +17,35 @@ class LoginPage extends React.Component {
         this.state = {
             username: '',
             password: '',
-            working : false,
-            errors : ''
-        }
+            working: false,
+            errors: '',
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleForgottenPassword = this.handleForgottenPassword.bind(this);
         this.onTextChange = this.onTextChange.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
         this.setWorking = this.setWorking.bind(this);
     }
-    handleSubmit(){
+    handleSubmit() {
         this.setWorking(true);
         const creds = {
             username: this.state.username,
-            password: this.state.password
-        }
+            password: this.state.password,
+        };
         console.log('creds', creds);
-        //todo do we need to call fetch projects here
+        // todo do we need to call fetch projects here
         this.props.dispatch(fetchProjects());
         this.props.dispatch(loginUser(creds))
             .then(() => {
                 this.setWorking(false);
-                if(this.props.user.username){
+                if (this.props.user.username) {
                     browserHistory.push('/selectproject');
-                }   else{
+                } else {
                     this.setState({
-                        errors: this.props.user.errorMessage.message
-                    })
+                        errors: this.props.user.errorMessage.message,
+                    });
                 }
-            })
+            });
     }
     handleForgottenPassword() {
         this.props.dispatch(openModal('forgotpassword'));
@@ -56,14 +55,14 @@ class LoginPage extends React.Component {
         const value = target.value;
         const name = target.name;
         this.setState({
-            [name]: value
+            [name]: value,
         });
     }
     setWorking(isWorking) {
         this.setState({ working: isWorking });
     }
     handleKeyPress(event) {
-        if (event.key === 'Enter'){
+        if (event.key === 'Enter') {
             event.preventDefault();
             this.handleSubmit();
         }
@@ -73,14 +72,14 @@ class LoginPage extends React.Component {
             browserHistory.push('/selectproject');
         }
         return (
-            <div className='wrapper'>
-                <div className='formSignin'>
+            <div className="landing-background">
+                <div className="form-signin">
                     <h4>Log in</h4>
-                    <input name='username' type='text' className='form-control' placeholder='Email Address' onChange={this.onTextChange} onKeyPress={this.handleKeyPress} autoFocus={true} />
-                    <input name='password' type='password' className='form-control' placeholder='Password' onChange={this.onTextChange} onKeyPress={this.handleKeyPress} />
-                    <StandardButton text='Login' className='r-submit-button' isWorking={this.state.working} onClick={this.handleSubmit}/>
-                    <a onClick={this.handleForgottenPassword}>Forgotten your password?</a>
-                    <div className='error-container'>
+                    <input name="username" type="text" className="form-control" placeholder="Email Address" onChange={this.onTextChange} onKeyPress={this.handleKeyPress} autoFocus />
+                    <input name="password" type="password" className="form-control" placeholder="Password" onChange={this.onTextChange} onKeyPress={this.handleKeyPress} />
+                    <StandardButton text="Login" className="r-submit-button" isWorking={this.state.working} onClick={this.handleSubmit} />                    
+                    <div style={{ marginTop: '65px' }}><a onClick={this.handleForgottenPassword}>Forgotten your password?</a></div>
+                    <div className="error-container">
                         {this.state.errors}
                     </div>
                 </div>
@@ -93,7 +92,7 @@ class LoginPage extends React.Component {
 function mapStateToProps(state) {
     return {
         user: getUser(state),
-        message: getMessage(state)
+        message: getMessage(state),
     };
 }
 

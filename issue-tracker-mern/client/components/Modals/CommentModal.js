@@ -6,18 +6,18 @@ import { closeModal } from '../../actions/ModalActions';
 import Comment from '../Comment/Comment';
 
 class CommentModal extends React.Component {
-    constructor(props) {
-        super(props);
-        this.close = this.close.bind(this);
-    }
-    close() {
-        this.props.dispatch(closeModal());
-    }
-    render() {
-        const comments = this.props.issueComments.sort((a, b) => {
-            return new Date(b.time) - new Date(a.time);
-        })
-        return (
+  										constructor(props) {
+    										super(props);
+    										this.close = this.close.bind(this);
+  }
+  										close() {
+    										this.props.dispatch(closeModal());
+  }
+  										render() {
+    										const comments = this.props.issueComments.sort((a, b) => {
+      										return new Date(b.time) - new Date(a.time);
+    });
+    										return (
             <div>
                 <Modal show={this.props.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
@@ -26,9 +26,10 @@ class CommentModal extends React.Component {
                     <Modal.Body>
                         {comments.map((comment, i) =>
                             <Comment
-                                key={i}
-                                comment={comment}
-                                issue={this.props.issue} />
+                              key={i}
+                              comment={comment}
+                              issue={this.props.issue}
+                            />
                         )}
                     </Modal.Body>
                     <Modal.Footer>
@@ -37,18 +38,18 @@ class CommentModal extends React.Component {
                 </Modal>
             </div>
         );
-    }
+  }
 }
 
 CommentModal.propTypes = {
-    buttonName: PropTypes.string,
-    params: PropTypes.object
+  										buttonName: PropTypes.string,
+  										params: PropTypes.object,
 };
 
 function mapStateToProps(state, ownProps) {
-    return {
-        showModal: state.modal == 'comments'
-    };
+  										return {
+    										showModal: state.modal == 'comments',
+  };
 }
 
 export default connect(mapStateToProps)(CommentModal);
