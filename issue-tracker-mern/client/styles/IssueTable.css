@@ -222,7 +222,7 @@
 }
 
 .table-row:hover, .table-row.active {
-  background: #b3d1ff;
+  background: rgba(110,183,50,0.3);
 }
 
 .table-row.header {

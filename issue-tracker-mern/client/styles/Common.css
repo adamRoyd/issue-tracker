@@ -128,17 +128,17 @@ h5 {
 .r-button {
     color: white;
     padding: 6px 10px;
-    background-color: #0C506E;
+    background-color: #00959D;
     border-width: 1px;
     border-style: solid;
-    border-color: #0C506E;
+    border-color: #00959D;
     text-align: center;
     min-height: 31px;
 }
 
 .r-submit-button {
-    background-color: #0C506E;
-    border-color: #0C506E;
+    background-color: #00959D;
+    border-color: #00959D;
     color: #FFF;
     float: left;
     width: 100%;

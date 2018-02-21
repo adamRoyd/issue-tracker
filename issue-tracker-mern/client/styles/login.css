@@ -12,7 +12,6 @@
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-
 .form-signin-heading, .checkbox {
     margin-bottom: 30px;
 }
@@ -41,7 +40,7 @@ input[type="password"] {
 }
 
 .login-button {
-    background: #0C506E !important;
+    background: #00959D !important;
     display: block;
     width: 100%;
     border-radius: 0px !important;

@@ -18,7 +18,7 @@ class ForgotPasswordModal extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             email: '',
-            errors: '',
+            errors: 'blaah',
             working: false,
         };
     }
@@ -43,22 +43,19 @@ class ForgotPasswordModal extends React.Component {
         e.preventDefault();
         this.setWorking(true);
         const email = this.state.email;
-        const errors = this.validate(email);
-        {
-            (errors == '') ?
-                this.props.dispatch(forgotPasswordRequest(this.state.email))
-                :
-                console.log('error!!!');
+        const isValid = this.validate(email);
+        if(isValid){
+            this.props.dispatch(forgotPasswordRequest(this.state.email))
+        }   else{
+            this.setState({
+                errors : 'Please enter a valid email address'
+            })
         }
-        console.log('handle submit');
     }
 
     validate(email) {
-        let errors = '';
-        if (email == '' || !validator.isEmail(email)) {
-            errors = 'Please enter a valid email address';
-        }
-        return errors;
+        const isValid = (email !== '' || validator.isEmail(email));
+        return isValid;
     }
 
     render() {
@@ -81,7 +78,6 @@ class ForgotPasswordModal extends React.Component {
                     <Modal.Footer>
                         <Spinner visible={this.state.working} />
                         <div className='infomessage error'>{this.state.errors}</div>
-                        <div className={this.props.message.success ? 'infomessage success' : 'infomessage error'}>{this.props.message.text}</div>
                         <button className='btn' onClick={this.close}>Close</button>
                         <button className='btn' onClick={this.handleSubmit}>Submit</button>
                     </Modal.Footer>

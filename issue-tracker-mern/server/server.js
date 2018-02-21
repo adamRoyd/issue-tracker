@@ -19,9 +19,9 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const app = new Express();
 // Run Webpack dev server in development mode
 if (process.env.NODE_ENV === 'development') {
-  										const compiler = webpack(config);
-  										app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
-  										app.use(webpackHotMiddleware(compiler));
+    const compiler = webpack(config);
+    app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
+    app.use(webpackHotMiddleware(compiler));
 }
 // React And Redux Setup
 const { configureStore } = require('../client/store');
@@ -43,10 +43,10 @@ import serverConfig from './config';
 mongoose.Promise = global.Promise;
 // MongoDB Connection
 mongoose.connect(serverConfig.mongoURL, (error) => {
-  										if (error) {
-    										console.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
-    										throw error;
-  }
+    if (error) {
+        console.error('Please make sure Mongodb is installed and running!'); // eslint-disable-line no-console
+        throw error;
+    }
 });
 // Apply body Parser and server public assets and routes
 app.use(compression());
@@ -58,13 +58,13 @@ app.use(Express.static(path.resolve(__dirname, '../uploads')));
 app.use(morgan('dev'));
 // Configuring passport
 app.use(session({
-  										cookie: {
-    										maxAge: 3600000000,
-  },
-  										secret: 'mySecretKey',
-  										saveUninitialized: true,
-  										resave: true,
-  										store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: {
+        maxAge: 3600000000,
+    },
+    secret: 'mySecretKey',
+    saveUninitialized: true,
+    resave: true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -83,13 +83,13 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
-  										const head = Helmet.rewind();
+    const head = Helmet.rewind();
 
-  // Manifests
-  										const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
-  										const chunkManifest = process.env.webpackChunkAssets && JSON.parse(process.env.webpackChunkAssets);
+    // Manifests
+    const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
+    const chunkManifest = process.env.webpackChunkAssets && JSON.parse(process.env.webpackChunkAssets);
 
-  										return `
+    return `
     <!doctype html>
     <html>
       <head>
@@ -112,7 +112,7 @@ const renderFullPage = (html, initialState) => {
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
           ${process.env.NODE_ENV === 'production' ?
-          `//<![CDATA[
+            `//<![CDATA[
           window.webpackManifest = ${JSON.stringify(chunkManifest)};
           //]]>` : ''}
         </script>
@@ -124,68 +124,68 @@ const renderFullPage = (html, initialState) => {
 };
 
 const renderError = err => {
-  										const softTab = '&#32;&#32;&#32;&#32;';
-  										const errTrace = process.env.NODE_ENV !== 'production' ?
-    `:<br><br><pre style="color:red">${softTab}${err.stack.replace(/\n/g, `<br>${softTab}`)}</pre>` : '';
-  										return renderFullPage(`Server Error${errTrace}`, {});
+    const softTab = '&#32;&#32;&#32;&#32;';
+    const errTrace = process.env.NODE_ENV !== 'production' ?
+        `:<br><br><pre style="color:red">${softTab}${err.stack.replace(/\n/g, `<br>${softTab}`)}</pre>` : '';
+    return renderFullPage(`Server Error${errTrace}`, {});
 };
 
 // Server Side Rendering based on routes matched by React-router.
 app.use((req, res, next) => {
-  										match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
-    // if not logged in, redirect to login page
-    // if(req.user == null && req.url != '/login'){
-    //   console.log('LOG IN NOT OK!');
-    //   redirectLocation = {
-    //     pathname : '/login',
-    //     search: ''
-    //   }
-    // }
-    // if logged in, redirect to selectproject page
-    										if (req.user && req.url == '/login') {
-      										console.log('LOG IN OK!');
-      										redirectLocation = {
-        										pathname: '/selectproject',
-        										search: '',
-      };
-    }
-    										if (err) {
-      										return res.status(500).end(renderError(err));
-    }
+    match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+        // if not logged in, redirect to login page
+        // if(req.user == null && req.url != '/login'){
+        //   console.log('LOG IN NOT OK!');
+        //   redirectLocation = {
+        //     pathname : '/login',
+        //     search: ''
+        //   }
+        // }
+        // if logged in, redirect to selectproject page
+        if (req.user && req.url == '/login') {
+            console.log('LOG IN OK!');
+            redirectLocation = {
+                pathname: '/selectproject',
+                search: '',
+            };
+        }
+        if (err) {
+            return res.status(500).end(renderError(err));
+        }
 
-    										if (redirectLocation) {
-      										return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-    }
+        if (redirectLocation) {
+            return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+        }
 
-    										if (!renderProps) {
-      										return next();
-    }
+        if (!renderProps) {
+            return next();
+        }
 
-    										const store = configureStore();
+        const store = configureStore();
 
-    										return fetchComponentData(store, renderProps.components, renderProps.params)
-      .then(() => {
-        										const initialView = renderToString(
-          <Provider store={store}>
-              <RouterContext {...renderProps} />
-          </Provider>
-        );
-        										const finalState = store.getState();
+        return fetchComponentData(store, renderProps.components, renderProps.params)
+            .then(() => {
+                const initialView = renderToString(
+                    <Provider store={store}>
+                        <RouterContext {...renderProps} />
+                    </Provider>
+                );
+                const finalState = store.getState();
 
-        										res
-          .set('Content-Type', 'text/html')
-          .status(200)
-          .end(renderFullPage(initialView, finalState));
-      })
-      .catch((error) => next(error));
-  });
+                res
+                    .set('Content-Type', 'text/html')
+                    .status(200)
+                    .end(renderFullPage(initialView, finalState));
+            })
+            .catch((error) => next(error));
+    });
 });
 
 // start app
 app.listen(serverConfig.port, (error) => {
-  										if (!error) {
-    console.log(`Issue Tracker is running on port: ${serverConfig.port}!`); // eslint-disable-line
-  }
+    if (!error) {
+        console.log(`Issue Tracker is running on port: ${serverConfig.port}!`); // eslint-disable-line
+    }
 });
 
 export default app;
