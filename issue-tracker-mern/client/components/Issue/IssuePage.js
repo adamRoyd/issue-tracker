@@ -43,9 +43,11 @@ class IssuePage extends Component {
                         <IssuePots projectCode={this.props.params.projectCode} {...this.props} />
                         <SplitPane className={containerStyle} split="vertical" defaultSize="800px" minSize="100px" primary="first">
                             <IssueTable {...this.props} />
-                            {this.props.params.id &&
-                                <EditIssuePage {...this.props} />
-                            }
+                            <div>
+                                {this.props.params.id &&
+                                    <EditIssuePage {...this.props} />
+                                }
+                            </div>
                         </SplitPane>
                     </div>
                 }

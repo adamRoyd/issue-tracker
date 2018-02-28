@@ -18,7 +18,9 @@
 .dropdown.open,
 .dropdown.open a,
 .dropdown.open ul{
-    background-color: #00959D !important
+    background-color: #ffffff !important;
+    color: #1B4885 !important;
+    font-weight: bold;
 }
 
 .nav-button a, .dropdown-toggle {
@@ -26,12 +28,32 @@
     font-weight: bold;
 }
 
-.dropdown.open a {
-    color: white !important;
-}
-
 .nav-button a:hover {
     color: #DEDEE1 !important
+}
+
+.dropdown-menu li:hover,
+.dropdown-menu li:hover a {
+    background: #1B4885 !important;
+    color: white !important; 
+}
+
+.dropdown-header,
+.dropdown-menu li:hover.dropdown-header {
+    cursor: default;
+    background-color: #ffffff !important;
+    color: #1B4885 !important;
+    font-size: 13px !important;
+    font-weight: bold;
+}
+
+.dropdown.btn-group .dropdown-menu li a:hover {
+    background: #fff !important;
+}
+
+.dropdown-menu li a {
+    color: white !important;
+    font-weight: bold;
 }
 
 .navbar-brand, .navbar-default {
@@ -95,21 +117,9 @@
     display: inline-block;
 }
 
-.dropdown.btn-group .dropdown-menu li a:hover {
-    background: #2E6382;
-}
 
 .dropdown.btn-group {
     height: 100%;
-}
-
-.dropdown.btn-group .dropdown-menu {
-    background: #1B4885;
-}
-
-.dropdown.btn-group .dropdown-menu li a {
-    color: white;
-    font-weight: bold;
 }
 
 .float-right {
@@ -126,12 +136,6 @@
 
 .btn-group {
     display: block !important;
-}
-
-.dropdown-header {
-    color: white !important;
-    font-size: 13px !important;
-    font-weight: bold;
 }
 
 @media (min-width: 768px) {

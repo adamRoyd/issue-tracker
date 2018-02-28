@@ -39,7 +39,7 @@ export default (
             }}
         />
         <Route
-            path="/reset/(:resetpasswordtoken)"
+            path="/reset/(:token)"
             getComponent={(nextState, cb) => {
                 require.ensure([], require => {
                     cb(null, require('./components/Login/ResetPasswordPage').default);

@@ -15,5 +15,7 @@ router.route('/assignees').get(UserController.getAssignees);
 
 router.route('/forgotpassword').post(UserController.forgotPassword);
 
+router.route('/checktoken').post(UserController.checkToken);
+
 
 export default router;

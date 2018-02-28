@@ -112,9 +112,9 @@ export function getAssignees(req, res) {
 export async function forgotPassword(req, res) {
     console.log('Forgot password controller');
     // See if user exists
-    const user = await User.findOne({ username : req.body.email })
+    const user = await User.findOne({ username: req.body.email })
 
-    if(!user){
+    if (!user) {
         console.log('user does not exist');
         return res.status(500).send({
             message: `No account with that email exists.`
@@ -125,8 +125,8 @@ export async function forgotPassword(req, res) {
     user.resetPasswordToken = crypto.randomBytes(20).toString('hex');
     user.resetPasswordExpires = Date.now() + 36000000 // 10 hours
     await user.save();
-    // Send them an email wiht the token
-    const resetURL = `http://${req.headers.host}.account/reset`;
+    // Send them an email with the token
+    const resetURL = `http://${req.headers.host}/reset/${user.resetPasswordToken}`;
     mail.send({
         username: user.username,
         subject: 'BIT password reset',
@@ -136,4 +136,19 @@ export async function forgotPassword(req, res) {
     res.status(200).send({
         message: 'You have been emailed a password link.'
     })
+}
+
+export async function checkToken(req, res) {
+    console.log("check token controller");
+    const user = await User.findOne({
+        resetPasswordToken: req.body.token,
+        resetPasswordExpires: { $gt: Date.now() }
+    });
+    console.log("user?", user);
+    if(!user){
+        res.status(500).send({
+            message: 'Password reset is invalid or has expired. Please contact Brightwave for support.'
+        })
+    }
+    res.status(200);
 }

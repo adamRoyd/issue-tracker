@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { fetchProjects } from '../../actions/ProjectActions';
 import { openModal } from '../../actions/ModalActions';
-import { loginUser } from '../../actions/UserActions';
+import { loginUser, checkUserToken } from '../../actions/UserActions';
 import { getUser } from '../../reducers/UserReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 import StandardButton from '../Common/StandardButton';
@@ -23,6 +23,9 @@ class ResetPasswordPage extends React.Component {
         this.checkMatchingPasswords = this.checkMatchingPasswords.bind(this);
         this.onTextChange = this.onTextChange.bind(this);
         this.setWorking = this.setWorking.bind(this);
+    }
+    componentWillMount(){
+        this.props.dispatch(checkUserToken(this.props.params.token))
     }
     handleSubmit = (e) => {
         this.setWorking(true);

@@ -51,6 +51,17 @@ export function forgotPasswordRequest(email) {
     };
 }
 
+export function checkUserToken(token){
+    console.log('check user token action', token);
+    return (dispatch) => {
+        return callApi('checktoken', 'post', {
+            token
+        }).then((res, error) => {
+            console.log("token check response", res.message);
+        })
+    }
+}
+
 export function resetPasswordSuccess(message){
     return {
         type: types.RESET_PASSWORD_SUCCESS,

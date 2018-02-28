@@ -16,45 +16,45 @@ import { getUser } from '../../reducers/UserReducer';
 import { DropdownButton, MenuItem, ButtonGroup, Button, Navbar, NavDropdown, NavItem, Nav } from 'react-bootstrap';
 
 class NavigationBar extends React.Component {
-  										constructor(props) {
-    										super(props);
-    										this.logout = this.logout.bind(this);
-    										this.areaClick = this.areaClick.bind(this);
-    										this.handleClick = this.handleClick.bind(this);
-    										this.homeClick = this.homeClick.bind(this);
-    										this.myIssues = this.myIssues.bind(this);
-    										this.getNavItems = this.getNavItems.bind(this);
-  }
-  										logout = () => {
-    										this.props.dispatch(logoutUser());
-    										this.props.dispatch(logout());
-    										browserHistory.push('/');
-  }
-  										areaClick = () => {
-    										this.props.dispatch(toggleArea());
-    										{
-      										(this.props.area == 'internal')
+    constructor(props) {
+        super(props);
+        this.logout = this.logout.bind(this);
+        this.areaClick = this.areaClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.homeClick = this.homeClick.bind(this);
+        this.myIssues = this.myIssues.bind(this);
+        this.getNavItems = this.getNavItems.bind(this);
+    }
+    logout = () => {
+        this.props.dispatch(logoutUser());
+        this.props.dispatch(logout());
+        browserHistory.push('/');
+    }
+    areaClick = () => {
+        this.props.dispatch(toggleArea());
+        {
+            (this.props.area == 'internal')
                 ? browserHistory.push(`/${this.props.params.projectCode}/client/all`)
                 : browserHistory.push(`/${this.props.params.projectCode}/internal/all`);
+        }
     }
-  }
-  										myIssues = () => {
-    										this.props.dispatch(fetchIssuesByUser(this.props.user.username));
-    										browserHistory.push('/myissues');
-  }
-  										homeClick = () => {
-    										browserHistory.push(`/${this.props.params.projectCode}/${this.props.area}/all`);
-  }
-  										handleClick = (value) => {
-    										this.props.dispatch(openModal(value));
-  }
-  										getNavItems = (usertype, projectCode, params) => {
-    										const isClient = usertype === 'Client';
-    										const isInternal = usertype == 'Internal';
-    										const isAdmin = usertype == 'Admin';
-    										const isClientArea = this.props.area == 'client';
-    										const isLoggedIn = this.props.user.username != null;
-    										return (
+    myIssues = () => {
+        this.props.dispatch(fetchIssuesByUser(this.props.user.username));
+        browserHistory.push('/myissues');
+    }
+    homeClick = () => {
+        browserHistory.push(`/${this.props.params.projectCode}/${this.props.area}/all`);
+    }
+    handleClick = (value) => {
+        this.props.dispatch(openModal(value));
+    }
+    getNavItems = (usertype, projectCode, params) => {
+        const isClient = usertype === 'Client';
+        const isInternal = usertype == 'Internal';
+        const isAdmin = usertype == 'Admin';
+        const isClientArea = this.props.area == 'client';
+        const isLoggedIn = this.props.user.username != null;
+        return (
             <Nav>
                 {projectCode && <NavItem className="nav-button" onSelect={this.homeClick}>{projectCode.toUpperCase()}</NavItem>}
                 {projectCode && isClient && <NavItem className="nav-button">Client area</NavItem>}
@@ -78,12 +78,12 @@ class NavigationBar extends React.Component {
                 }
             </Nav>
         );
-  }
-  										render() {
-    										const usertype = this.props.user.usertype;
-    										let projectCode = this.props.params.projectCode;
-    										const navItems = this.getNavItems(usertype, projectCode, this.props.params);
-    										return (
+    }
+    render() {
+        const usertype = this.props.user.usertype;
+        let projectCode = this.props.params.projectCode;
+        const navItems = this.getNavItems(usertype, projectCode, this.props.params);
+        return (
             <Navbar className="nav-bar" collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand>
@@ -101,17 +101,17 @@ class NavigationBar extends React.Component {
                 <AddProjectModal {...this.props} />
             </Navbar>
         );
-  }
+    }
 }
 
 NavigationBar.propTypes = {
-  										params: PropTypes.object.isRequired,
+    params: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
-  										return {
-    										user: getUser(state),
-  };
+    return {
+        user: getUser(state),
+    };
 }
 
 export default connect(mapStateToProps)(NavigationBar);
