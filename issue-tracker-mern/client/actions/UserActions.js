@@ -51,25 +51,54 @@ export function forgotPasswordRequest(email) {
     };
 }
 
-export function checkUserToken(token){
+export function checkUserToken(token) {
     console.log('check user token action', token);
     return (dispatch) => {
         return callApi('checktoken', 'post', {
             token
         }).then((res, error) => {
             console.log("token check response", res.message);
+            if (res.message == 'error') {
+                dispatch(checkTokenFail())
+            } else {
+                dispatch(checkTokenSuccess())
+            }
         })
     }
 }
 
-export function resetPasswordSuccess(message){
+export function checkTokenFail() {
+    return {
+        type: types.CHECK_TOKEN_FAIL
+    }
+}
+
+export function checkTokenSuccess() {
+    return {
+        type: types.CHECK_TOKEN_SUCCESS
+    }
+}
+
+export function resetPasswordRequest(password, token) {
+    return (dispatch) => {
+        console.log('reset password request');
+        return callApi('resetpassword', 'post', {
+            password,
+            token
+        }).then((res, error) => {
+            console.log('reset password response');
+        });
+    };
+}
+
+export function resetPasswordSuccess(message) {
     return {
         type: types.RESET_PASSWORD_SUCCESS,
         message,
     };
 }
 
-export function resetPasswordFail(message){
+export function resetPasswordFail(message) {
     return {
         type: types.RESET_PASSWORD_FAIL,
         message,

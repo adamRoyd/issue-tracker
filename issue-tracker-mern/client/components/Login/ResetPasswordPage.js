@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 import { fetchProjects } from '../../actions/ProjectActions';
 import { openModal } from '../../actions/ModalActions';
-import { loginUser, checkUserToken } from '../../actions/UserActions';
+import { loginUser, checkUserToken, resetPasswordRequest } from '../../actions/UserActions';
 import { getUser } from '../../reducers/UserReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 import StandardButton from '../Common/StandardButton';
@@ -23,16 +23,17 @@ class ResetPasswordPage extends React.Component {
         this.checkMatchingPasswords = this.checkMatchingPasswords.bind(this);
         this.onTextChange = this.onTextChange.bind(this);
         this.setWorking = this.setWorking.bind(this);
+        this.handleGoLogin = this.handleGoLogin.bind(this);
     }
-    componentWillMount(){
+    componentWillMount() {
         this.props.dispatch(checkUserToken(this.props.params.token))
     }
     handleSubmit = (e) => {
         this.setWorking(true);
         const isValid = this.checkMatchingPasswords();
         if (isValid) {
-            // reset the password
-
+            // reset the password   
+            this.props.dispatch(resetPasswordRequest(this.state.newPassword, this.props.params.token))
             // redirect to the login page
         } else {
             this.setState({
@@ -40,6 +41,9 @@ class ResetPasswordPage extends React.Component {
                 errors: 'Passwords do not match.',
             });
         }
+    }
+    handleGoLogin(){
+        browserHistory.push(`/login`);
     }
     setWorking(isWorking) {
         this.setState({ working: isWorking });
@@ -60,22 +64,31 @@ class ResetPasswordPage extends React.Component {
         });
     }
     render() {
+        console.log('reset password page message...', this.props.user);
         this.handleSubmit = this.handleSubmit.bind(this);
-        return (
-            <div className="landing-background">
-                <div className="form-signin">
-                    <h4>Reset password</h4>
-                    <label htmlFor="new-password">New</label>
-                    <input name="newPassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.newPassword} />
-                    <label htmlFor="retype-password">Retype</label>
-                    <input name="retypePassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.retypePassword} />
-                    <StandardButton text="Reset" className="r-submit-button" isWorking={this.state.working} onClick={this.handleSubmit} />
-                    <div className="error-container">
-                        {this.state.errors}
-                    </div>
+            return(
+                <div className="landing-background">
+                    {this.props.message.success === true ?
+                        <div className="form-signin">
+                            <h4>Reset password</h4>
+                            <label htmlFor="new-password">New</label>
+                            <input name="newPassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.newPassword} />
+                            <label htmlFor="retype-password">Retype</label>
+                            <input name="retypePassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.retypePassword} />
+                            <StandardButton text="Reset" className="r-submit-button" isWorking={this.state.working} onClick={this.handleSubmit} />
+                            <div className="error-container">
+                                {this.state.errors}
+                            </div>
+                        </div>  
+                        :
+                        <div className="form-signin">
+                            <h4>Reset password</h4>
+                            <p className='error'><strong>Password reset is invalid or has expired. Please contact Brightwave for support.</strong></p>
+                            <StandardButton text="Back to login" className="r-submit-button" onClick={this.handleGoLogin} />
+                        </div>  
+                }
                 </div>
-            </div>
-        );
+            );
     }
 }
 

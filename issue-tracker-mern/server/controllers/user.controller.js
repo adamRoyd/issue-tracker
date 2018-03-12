@@ -139,16 +139,32 @@ export async function forgotPassword(req, res) {
 }
 
 export async function checkToken(req, res) {
-    console.log("check token controller");
     const user = await User.findOne({
-        resetPasswordToken: req.body.token,
-        resetPasswordExpires: { $gt: Date.now() }
+        resetPasswordToken: req.body.token
     });
-    console.log("user?", user);
-    if(!user){
+    if (!user) {
         res.status(500).send({
-            message: 'Password reset is invalid or has expired. Please contact Brightwave for support.'
+            message: 'error'
         })
     }
-    res.status(200);
+
+    
+    res.status(200).send({
+        message: 'success'
+    });
+}
+
+export async function resetPassword(req, res) {
+    console.log('reset password controller');
+    const user = await User.findOne({
+        resetPasswordToken: req.body.token
+    });
+    if (!user) {
+        res.status(500).send({
+            message: 'error'
+        })
+    }
+    console.log(user);
+
+    // TODO set the user's password here
 }

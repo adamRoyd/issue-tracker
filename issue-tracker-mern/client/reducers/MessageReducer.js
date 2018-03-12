@@ -38,6 +38,15 @@ const MessageReducer = (state = initialState.message, action) => {
                 isFetching: true,
                 text: '',
             });
+        case types.CHECK_TOKEN_SUCCESS:
+            return Object.assign({}, state, {
+                success: true
+            });
+        case types.CHECK_TOKEN_FAIL:
+            console.log('check token fail reducer');
+            return Object.assign({}, state, {
+                success: false
+            });
         case types.ADD_USER_SUCCESS:
         case types.RESET_PASSWORD_SUCCESS:
             console.log("success reducer", action.message);
