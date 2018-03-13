@@ -93,10 +93,11 @@ select.form-control {
 }
 
 .infomessage {
-  width: 50%;
+  /* width: 50%; */
   font-weight: bold;
   display: inline-block;
   text-align: left;
+  margin-top: 5px;
   float: left;
 }
 

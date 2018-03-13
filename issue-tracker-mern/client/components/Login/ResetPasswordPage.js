@@ -15,8 +15,10 @@ class ResetPasswordPage extends React.Component {
         this.state = {
             newPassword: '',
             retypePassword: '',
-            errors: '',
+            message: '',
             working: false,
+            success: false,
+            showLoginButton: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleForgottenPassword = this.handleForgottenPassword.bind(this);
@@ -24,6 +26,7 @@ class ResetPasswordPage extends React.Component {
         this.onTextChange = this.onTextChange.bind(this);
         this.setWorking = this.setWorking.bind(this);
         this.handleGoLogin = this.handleGoLogin.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
     componentWillMount() {
         this.props.dispatch(checkUserToken(this.props.params.token))
@@ -34,11 +37,19 @@ class ResetPasswordPage extends React.Component {
         if (isValid) {
             // reset the password   
             this.props.dispatch(resetPasswordRequest(this.state.newPassword, this.props.params.token))
+                .then(() => {
+                    this.setState({
+                        working: false,
+                        success: true,
+                        message: 'Your password has been reset.',
+                        showLoginButton: true
+                    })
+                });
             // redirect to the login page
         } else {
             this.setState({
                 working: false,
-                errors: 'Passwords do not match.',
+                message: 'Passwords do not match.',
             });
         }
     }
@@ -63,6 +74,12 @@ class ResetPasswordPage extends React.Component {
             [name]: value,
         });
     }
+    handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            this.handleSubmit();
+        }
+    }
     render() {
         console.log('reset password page message...', this.props.user);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -72,18 +89,20 @@ class ResetPasswordPage extends React.Component {
                         <div className="form-signin">
                             <h4>Reset password</h4>
                             <label htmlFor="new-password">New</label>
-                            <input name="newPassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.newPassword} />
+                            <input name="newPassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.newPassword} onKeyPress={this.handleKeyPress} autoFocus />
                             <label htmlFor="retype-password">Retype</label>
-                            <input name="retypePassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.retypePassword} />
-                            <StandardButton text="Reset" className="r-submit-button" isWorking={this.state.working} onClick={this.handleSubmit} />
-                            <div className="error-container">
-                                {this.state.errors}
-                            </div>
+                            <input name="retypePassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.retypePassword} onKeyPress={this.handleKeyPress} />
+                            {this.state.showLoginButton ?
+                                <StandardButton text="Back to login" className="r-submit-button" onClick={this.handleGoLogin} />
+                                :
+                                <StandardButton text="Reset" className="r-submit-button" isWorking={this.state.working} onClick={this.handleSubmit} />
+                            }
+                            <div className={this.state.success ? 'infomessage success' : 'infomessage error'}>{this.state.message}</div>
                         </div>  
                         :
                         <div className="form-signin">
                             <h4>Reset password</h4>
-                            <p className='error'><strong>Password reset is invalid or has expired. Please contact Brightwave for support.</strong></p>
+                            <p className='error'><strong>Password reset is invalid or has expired. Go back to the login page to reset your password again.</strong></p>
                             <StandardButton text="Back to login" className="r-submit-button" onClick={this.handleGoLogin} />
                         </div>  
                 }

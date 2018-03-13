@@ -7,6 +7,7 @@ import slug from 'limax';
 import sanitizeHtml from 'sanitize-html';
 import config from '../config';
 import mail from '../handlers/mail';
+import { promisify } from 'bluebird';
 
 /**
  * Login user
@@ -15,12 +16,8 @@ import mail from '../handlers/mail';
  * @returns void
  */
 export function login(req, res, next) {
-    console.log('login request');
-    console.log(req.body);
     passport.authenticate('local', function (err, user, info) {
         if (err) { return next(err); }
-        console.log('user?', user);
-        console.log(info);
         if (!user) {
             return res.status(400).send({
                 message: 'Please enter a correct username and password',
@@ -110,12 +107,10 @@ export function getAssignees(req, res) {
     });
 }
 export async function forgotPassword(req, res) {
-    console.log('Forgot password controller');
     // See if user exists
     const user = await User.findOne({ username: req.body.email })
 
     if (!user) {
-        console.log('user does not exist');
         return res.status(500).send({
             message: `No account with that email exists.`
         });
@@ -140,7 +135,8 @@ export async function forgotPassword(req, res) {
 
 export async function checkToken(req, res) {
     const user = await User.findOne({
-        resetPasswordToken: req.body.token
+        resetPasswordToken: req.body.token,
+        resetPasswordExpires: { $gt: Date.now() }
     });
     if (!user) {
         res.status(500).send({
@@ -148,23 +144,30 @@ export async function checkToken(req, res) {
         })
     }
 
-    
+
     res.status(200).send({
         message: 'success'
     });
 }
 
 export async function resetPassword(req, res) {
-    console.log('reset password controller');
     const user = await User.findOne({
-        resetPasswordToken: req.body.token
+        resetPasswordToken: req.body.token,
+        resetPasswordExpires: { $gt: Date.now() }
     });
     if (!user) {
         res.status(500).send({
             message: 'error'
         })
     }
-    console.log(user);
 
     // TODO set the user's password here
+    const setPassword = promisify(user.setPassword , user);
+    await setPassword(req.body.password);
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpires = undefined;
+    const updatedUser = await user.save();
+    res.status(200).send({
+        message: 'success'
+    })
 }

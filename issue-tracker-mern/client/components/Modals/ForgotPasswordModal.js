@@ -24,6 +24,11 @@ class ForgotPasswordModal extends React.Component {
     }
 
     close() {
+        this.setState({
+            email: '',
+            errors: '',
+            working: false
+        })
         this.props.dispatch(closeModal());
     }
 

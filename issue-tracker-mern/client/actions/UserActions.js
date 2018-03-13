@@ -86,7 +86,7 @@ export function resetPasswordRequest(password, token) {
             password,
             token
         }).then((res, error) => {
-            console.log('reset password response');
+            console.log('reset password response', res.message);
         });
     };
 }
