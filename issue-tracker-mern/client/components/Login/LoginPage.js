@@ -32,7 +32,6 @@ class LoginPage extends React.Component {
             username: this.state.username,
             password: this.state.password,
         };
-        console.log('creds', creds);
         // todo do we need to call fetch projects here
         this.props.dispatch(fetchProjects());
         this.props.dispatch(loginUser(creds))

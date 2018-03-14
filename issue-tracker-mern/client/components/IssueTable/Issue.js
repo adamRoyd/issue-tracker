@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 class Issue extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            isChecked: this.props.issue.checked,
-        };
     }
     render() {
         const { issue, onClick, checkBoxClick } = this.props;
@@ -18,9 +15,9 @@ class Issue extends React.Component {
         return (
             <div className={this.props.active ? 'table-row active' : 'table-row'}>
                 <div className="column issue-select">
-                    <input type="checkbox" checked={this.state.isChecked} onClick={() => checkBoxClick()} />
+                    <input type="checkbox" checked={this.props.issue.checked} onClick={this.props.checkBoxClick} />
                 </div>
-                <div className="flexwrapper attributes" onClick={() => onClick()}>
+                <div className="flexwrapper attributes" onClick={this.props.onClick}>
                     <div className="flexwrapper title-identifier-location-category-type">
                         <div className="flexwrapper title-identifier">
                             <div className="column id">{issue.id}</div>

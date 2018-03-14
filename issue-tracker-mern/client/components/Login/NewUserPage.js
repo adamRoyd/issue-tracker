@@ -9,7 +9,7 @@ import { getUser } from '../../reducers/UserReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 import StandardButton from '../Common/StandardButton';
 
-class ResetPasswordPage extends React.Component {
+class NewUserPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -86,7 +86,7 @@ class ResetPasswordPage extends React.Component {
                 <div className="landing-background">
                     {this.props.message.success === true ?
                         <div className="form-signin">
-                            <h4>Reset password</h4>
+                            <h4>Welcome to BIT. Please set your password.</h4>
                             <label htmlFor="new-password">New</label>
                             <input name="newPassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.newPassword} onKeyPress={this.handleKeyPress} autoFocus />
                             <label htmlFor="retype-password">Retype</label>
@@ -100,9 +100,8 @@ class ResetPasswordPage extends React.Component {
                         </div>  
                         :
                         <div className="form-signin">
-                            <h4>Reset password</h4>
-                            <p className='error'><strong>Password reset is invalid or has expired. Go back to the login page to reset your password again.</strong></p>
-                            <StandardButton text="Back to login" className="r-submit-button" onClick={this.handleGoLogin} />
+                            <h4>Welcome to BIT.</h4>
+                            <p className='error'><strong>Password reset is invalid or has expired. Please contact Brightwave for assistance.</strong></p>
                         </div>  
                 }
                 </div>
@@ -110,7 +109,7 @@ class ResetPasswordPage extends React.Component {
     }
 }
 
-ResetPasswordPage.propTypes = {
+NewUserPage.propTypes = {
 
 };
 
@@ -122,4 +121,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(ResetPasswordPage);
+export default connect(mapStateToProps)(NewUserPage);

@@ -114,7 +114,6 @@ export async function saveIssue(req, res) {
         project: issueToSave.project
     });
     if (existingIssue.assigned !== issueToSave.assigned) {
-        console.log('assignees are different', existingIssue.assigned, issueToSave.assigned);
         mail.send({
             username: issueToSave.assigned,
             subject: 'A BIT issue has been assigned to you',
@@ -153,7 +152,6 @@ export async function saveIssue(req, res) {
  */
 export async function batchIssues(req, res) {
     const issuesToSave = req.body.issues;
-    console.log(issuesToSave);
     const options = req.body.options;
     const projectCode = req.body.projectCode;
     const defaultOption = 'No change';

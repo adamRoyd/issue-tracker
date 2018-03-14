@@ -23,6 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
     require('./components/Issue/NewIssuePage');
     require('./components/Login/AddProjectPage');
     require('./components/Login/ResetPasswordPage');
+    require('./components/Login/NewUserPage');
 }
 
 // react-router setup with code-splitting
@@ -43,6 +44,14 @@ export default (
             getComponent={(nextState, cb) => {
                 require.ensure([], require => {
                     cb(null, require('./components/Login/ResetPasswordPage').default);
+                });
+            }}
+        />
+        <Route
+            path="/newuser/(:token)"
+            getComponent={(nextState, cb) => {
+                require.ensure([], require => {
+                    cb(null, require('./components/Login/NewUserPage').default);
                 });
             }}
         />

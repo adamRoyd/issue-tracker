@@ -39,12 +39,8 @@ export function forgotPasswordRequest(email) {
             email,
         }).then((res, error) => {
             if (res.error) {
-                console.log("res status", res);
-                console.log("res error", error);
                 dispatch(resetPasswordFail(res.message));
             } else {
-                console.log("res status", res);
-                console.log("res error", error);
                 dispatch(resetPasswordSuccess(res.message));
             }
         });
@@ -52,12 +48,10 @@ export function forgotPasswordRequest(email) {
 }
 
 export function checkUserToken(token) {
-    console.log('check user token action', token);
     return (dispatch) => {
         return callApi('checktoken', 'post', {
             token
         }).then((res, error) => {
-            console.log("token check response", res.message);
             if (res.message == 'error') {
                 dispatch(checkTokenFail())
             } else {
@@ -81,13 +75,10 @@ export function checkTokenSuccess() {
 
 export function resetPasswordRequest(password, token) {
     return (dispatch) => {
-        console.log('reset password request');
         return callApi('resetpassword', 'post', {
             password,
             token
-        }).then((res, error) => {
-            console.log('reset password response', res.message);
-        });
+        })
     };
 }
 

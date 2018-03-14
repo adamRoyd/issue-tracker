@@ -24,6 +24,7 @@ class IssueManager extends React.Component {
             issue: this.props.issue,
             toggleOptions: false,
             submitDisabled: true,
+            hasIssuechanged: false
         };
         this.focus = () => this.refs.editor.focus();
         this.onChange = (editorState) => {
@@ -40,17 +41,34 @@ class IssueManager extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        this.props.dispatch(addCommentRequest(this.state.comment, this.state.issue.status, this.props.params));
-        this.props.dispatch(saveIssueRequest(this.state.issue, this.props.area));
+
+        // Save comment
         const editorState = EditorState.push(this.state.editorState, ContentState.createFromText(''));
-        this.setState({
-            editorState,
-            comment: { text: '' },
-            submitDisabled: true,
-        });
-        if (this.props.issue.status != this.state.issue.status) {
-            browserHistory.push(`/${this.props.params.projectCode}/(:area)/${this.props.params.filter}/`);
+        this.props.dispatch(addCommentRequest(this.state.comment, this.state.issue.status, this.props.params))
+            .then(() => {
+                this.setState({
+                    editorState,
+                    comment: { text: '' },
+                })
+            })
+
+        // Save issue - only save if issue has changed
+        if (!this.state.hasIssuechanged) {
+            return;
         }
+
+        const oldStatus = this.state.issue.status;
+
+        this.props.dispatch(saveIssueRequest(this.state.issue, this.props.area))
+            .then(() => {
+                this.setState({
+                    hasIssuechanged: false,
+                    submitDisabled: true,
+                });
+                if (this.props.issue.status != oldStatus) {
+                    browserHistory.push(`/${this.props.params.projectCode}/${this.props.area}/${this.props.params.filter}/`);
+                }
+            })
     }
     onCommentChange(html) {
         let comment = this.state.comment;
@@ -68,7 +86,10 @@ class IssueManager extends React.Component {
         const field = event.target.name;
         let issue = this.state.issue;
         issue[field] = event.target.value;
-        return this.setState({ issue });
+        return this.setState({
+            issue,
+            hasIssuechanged: true
+        });
     }
     render() {
         return (

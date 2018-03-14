@@ -43,13 +43,11 @@ const MessageReducer = (state = initialState.message, action) => {
                 success: true
             });
         case types.CHECK_TOKEN_FAIL:
-            console.log('check token fail reducer');
             return Object.assign({}, state, {
                 success: false
             });
         case types.ADD_USER_SUCCESS:
         case types.RESET_PASSWORD_SUCCESS:
-            console.log("success reducer", action.message);
             return Object.assign({}, state, {
                 text: action.message,
                 success: true,
@@ -57,7 +55,6 @@ const MessageReducer = (state = initialState.message, action) => {
             });
         case types.ADD_USER_FAILURE:
         case types.RESET_PASSWORD_FAIL:
-            console.log("fail reducer" , action.message);
             return Object.assign({}, state, {
                 text: action.message,
                 success: false,

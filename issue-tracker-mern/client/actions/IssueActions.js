@@ -85,7 +85,6 @@ export function addIssueRequest(issue, attachments, issues, projectCode, area, u
 }
 
 export function saveIssue(issue) {
-    console.log('SAVE ISSUE RESPONSE', issue);
     return {
         type: types.SAVE_ISSUE,
         issue,
@@ -93,7 +92,6 @@ export function saveIssue(issue) {
 }
 
 export function saveIssueRequest(issue, area) {
-    console.log('save issue request. broswer: ', issue.browser);
     if (issue.status != 'New' && area == 'internal') {
         issue.area = 'internal';
     }

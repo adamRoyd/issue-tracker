@@ -134,9 +134,7 @@ const renderError = err => {
 app.use((req, res, next) => {
     match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
         //if not logged in, redirect to login page
-        console.log('requested url', req.url);
-        console.log('requested url includes reset?', req.url.includes('reset'));
-        if(req.user == null && req.url != '/login' && !req.url.includes('reset')){
+        if(req.user == null && req.url != '/login' && !req.url.includes('reset') && !req.url.includes('newuser')){
           redirectLocation = {
             pathname : '/login',
             search: ''

@@ -33,7 +33,6 @@ class ForgotPasswordModal extends React.Component {
     }
 
     setWorking(isWorking) {
-        console.log('set working', isWorking);
         working: isWorking;
     }
 
@@ -48,11 +47,9 @@ class ForgotPasswordModal extends React.Component {
         this.setWorking(true);
         const email = this.state.email;
         const isValid = this.validate(email);
-        console.log("valid", isValid);
         if (isValid) {
             this.props.dispatch(forgotPasswordRequest(this.state.email))
                 .then(() => {
-                    console.log("message?", this.props.message.text);
                     this.setState({
                         errors: this.props.message.text
                     })

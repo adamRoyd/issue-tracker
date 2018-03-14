@@ -71,7 +71,10 @@ const IssueReducer = (state = initialState.issues, action) => {
                 ];
             }
         case types.BATCH_ISSUES:
-            return action.issues;
+            return action.issues.map(issue => {
+                issue.checked = false;
+                return issue;
+            });
         default:
             return state;
     }

@@ -135,8 +135,8 @@ export async function forgotPassword(req, res) {
 
 export async function checkToken(req, res) {
     const user = await User.findOne({
-        resetPasswordToken: req.body.token,
-        resetPasswordExpires: { $gt: Date.now() }
+        resetPasswordToken: req.body.token
+        //resetPasswordExpires: { $gt: Date.now() }
     });
     if (!user) {
         res.status(500).send({
