@@ -54,13 +54,6 @@ export function fetchIssuesByUser(username) {
     };
 }
 
-export function addIssue(issue) {
-    return {
-        type: types.ADD_ISSUE,
-        issue,
-    };
-}
-
 export function addIssueRequest(issue, attachments, issues, projectCode, area, username) {
     return (dispatch) => {
         return callApi('addIssue', 'post', {
@@ -80,8 +73,29 @@ export function addIssueRequest(issue, attachments, issues, projectCode, area, u
                 attachments,
                 dateAdded: new Date(),
             },
-        }).then(res => dispatch(addIssue(res.issue)));
+        }).then(res => {
+            if(res.err){
+                dispatch(addIssueFailure())
+            }   else{
+                dispatch(addIssueSuccess(res.issue))
+            }
+        });
     };
+}
+
+export function addIssueSuccess(issue) {
+    return {
+        type: types.ADD_ISSUE_SUCCESS,
+        issue,
+        message: 'Issue created. Fill in the form again to create another.'
+    };
+}
+
+export function addIssueFailure() {
+    return{ 
+        type: types.ADD_ISSUE_FAILURE,
+        message: 'An error prevented the issue from being saved. Please try again, or contact Brightwave for assistance.'
+    }
 }
 
 export function saveIssue(issue) {
@@ -113,7 +127,7 @@ export function saveIssueRequest(issue, area) {
                 assigned: issue.assigned,
                 area: issue.area,
             },
-        }).then(res => dispatch(saveIssue(res.issue)));
+        }).then(res => {dispatch(saveIssue(res.issue))});
     };
 }
 

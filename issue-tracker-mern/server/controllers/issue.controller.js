@@ -55,6 +55,7 @@ export async function addIssue(req, res) {
 
     newIssue.save((err, saved) => {
         if (err) {
+            console.log('issue save error', err);
             return res.status(500).send(err);
         }
         res.json({ issue: saved });

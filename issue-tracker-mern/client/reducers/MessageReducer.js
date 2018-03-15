@@ -22,12 +22,14 @@ const MessageReducer = (state = initialState.message, action) => {
                 text: '',
             });
         case types.ADD_PROJECT_SUCCESS:
+        case types.ADD_ISSUE_SUCCESS:
             return Object.assign({}, state, {
                 text: action.message,
                 success: true,
                 isFetching: false,
             });
         case types.ADD_PROJECT_FAILURE:
+        case types.ADD_ISSUE_FAILURE:
             return Object.assign({}, state, {
                 text: action.message,
                 success: false,

@@ -5,7 +5,7 @@ const IssueReducer = (state = initialState.issues, action) => {
     switch (action.type) {
         case types.ADD_ISSUES:
             return action.issues;
-        case types.ADD_ISSUE:
+        case types.ADD_ISSUE_SUCCESS:
             return [...state, action.issue];
         case types.SAVE_ISSUE:
             const existingIssueIndex = state.findIndex(a => a.id == action.issue.id);
