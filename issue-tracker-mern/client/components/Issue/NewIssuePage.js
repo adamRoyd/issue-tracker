@@ -59,10 +59,12 @@ class NewIssuePage extends React.Component {
         this.setState({ showModal: true });
     }
     updateIssueState(event) {
+        console.log('UPDATE ISSUE STATE');
         const field = event.target.name;
         let issue = this.state.issue;
         issue[field] = event.target.value;
-        return this.setState({ issue });
+        console.log(issue);
+        return this.setState({ issue: issue });
     }
     onCommentChange(html) {
         let issue = this.state.issue;

@@ -7,7 +7,7 @@ import TextEditor from '../Common/TextEditor';
 import TextStatic from '../Common/TextStatic';
 
 const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, categories, onDrop, files, attachments, onCommentChange, params, username }) => {
-    const screenValue = params.area === 'new' ? params.filter : issue.screen;
+    //const screenValue = params.area === 'new' ? params.filter : issue.screen;
     return (
         <div>
             <TextStatic
@@ -28,7 +28,7 @@ const NewIssueForm = ({ issue, onChange, loading, errors, assignees, locations, 
                 name="screen"
                 label="Screen"
                 placeholder="Enter a screen"
-                value={screenValue}
+                value={issue.screen}
                 onChange={onChange}
                 error={errors.screen}
             />

@@ -10,6 +10,7 @@ import { getMessage } from '../../reducers/MessageReducer';
 import ForgotPasswordModal from '../Modals/ForgotPasswordModal';
 import Spinner from '../Common/Spinner';
 import StandardButton from '../Common/StandardButton';
+import BWLogo from '../../assets/BWLogo';
 
 class LoginPage extends React.Component {
     constructor(props) {
