@@ -9,12 +9,13 @@ const ModalReducer = (state = initialState.modal, action) => {
             return '';
         case types.REQUEST_PROJECT:
             return 'addproject';
-        case types.FETCH_ADD_USER:
-        case types.ADD_USER_SUCCESS:
-        case types.ADD_USER_FAILURE:
         case types.ADD_PROJECT_FAILURE:
         case types.ADD_PROJECT_SUCCESS:
             return 'addproject';
+        case types.FETCH_ADD_USER:
+        case types.ADD_USER_SUCCESS:
+        case types.ADD_USER_FAILURE:
+            return 'adduser';
         case types.RESET_PASSWORD_FAIL:
         case types.RESET_PASSWORD_SUCCESS:
             return 'forgotpassword';

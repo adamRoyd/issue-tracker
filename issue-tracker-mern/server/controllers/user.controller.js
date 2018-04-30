@@ -39,24 +39,30 @@ export function login(req, res, next) {
  * @returns void
  */
 export function signup(req, res, next) {
-    let newUser;
-    if (req.body.project) {
-        newUser = new User({ username: req.body.username, usertype: req.body.usertype, project: req.body.project });
-    } else {
-        newUser = new User({ username: req.body.username, usertype: req.body.usertype });
-    }
-    User.register(newUser, 'Testing01', (err, user) => {
+
+    const newUser = new User({ 
+        username: req.body.username, 
+        usertype: req.body.usertype, 
+        project: req.body.project,
+        resetPasswordToken: crypto.randomBytes(20).toString('hex'),
+        resetPasswordExpires:  Date.now() + 36000000 // 10 hours
+    });
+
+    const placeholderpassword = crypto.randomBytes(20).toString('hex');
+
+    User.register(newUser, placeholderpassword,(err, user) => {
         if (err) {
             return res.send({
                 message: 'An error occured. Please try again.',
                 error: true,
             });
         } else {
+            const newUserUrl = `http://${req.headers.host}/newuser/${user.resetPasswordToken}`;
             // send new user an email
             mail.send({
                 username: req.body.username,
                 subject: 'Welcome to BIT',
-                html: `<p>Welcome to BIT. Your login details are:</p><p>Username: ${req.body.username}</p><p>Password: test</p><p>Select <a href='localhost:8000/' target='_blank'>here</a> to go to BIT</p>`,
+                html: `<p>Welcome to BIT. Select <a href='${newUserUrl}' target='_blank'>here</a> to go to BIT</p>`,
             });
             // response
             res.send({
@@ -162,7 +168,7 @@ export async function resetPassword(req, res) {
     }
 
     // TODO set the user's password here
-    const setPassword = promisify(user.setPassword , user);
+    const setPassword = promisify(user.setPassword, user);
     await setPassword(req.body.password);
     user.resetPasswordToken = undefined;
     user.resetPasswordExpires = undefined;

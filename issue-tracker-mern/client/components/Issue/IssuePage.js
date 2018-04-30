@@ -16,6 +16,7 @@ import status from '../../constants/status';
 import { fetchIssues, setIssueFilter } from '../../actions/IssueActions';
 import { fetchAssignees } from '../../actions/AssigneeActions';
 import { fetchProjects } from '../../actions/ProjectActions';
+import { fetchComments } from '../../actions/CommentActions';
 // Import Selectors
 import { getIssues } from '../../reducers/IssueReducer';
 import { getBatchIssues } from '../../reducers/IssueReducer';
@@ -30,6 +31,7 @@ class IssuePage extends Component {
         this.props.dispatch(setIssueFilter(this.props.params.filter));
         this.props.dispatch(fetchAssignees());
         this.props.dispatch(fetchProjects());
+        if(this.props.params.id) this.props.dispatch(fetchComments(this.props.params.projectCode, this.props.params.id));
     }
     render() {
         const containerStyle = this.props.params.area == 'new' ? 'hidden' : '';

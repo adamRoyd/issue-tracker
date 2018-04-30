@@ -18,9 +18,6 @@ class EditIssuePage extends React.Component {
     expandComments() {
         this.props.dispatch(openModal('comments'));
     }
-    componentDidMount() {
-        this.props.dispatch(fetchComments(this.props.params.projectCode, this.props.params.id));
-    }
     render() {
         const i = this.props.issues.findIndex((issue) => issue.id == this.props.params.id);
         const issue = this.props.issues[i];

@@ -23,8 +23,7 @@ exports.send = async (options) => {
         to: options.username,
         subject: options.subject,
         html: options.html,
-        // text: 'Go to the issue by selecting this link...',
     };
     const sendMail = promisify(transport.sendMail, transport);
     return sendMail(mailOptions);
-};
+}

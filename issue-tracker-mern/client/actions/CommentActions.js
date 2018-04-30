@@ -24,6 +24,7 @@ export function addCommentRequest(comment, status, params) {
 }
 
 export function addComments(comments) {
+    console.log("add comments being called");
     return {
         type: types.ADD_COMMENTS,
         comments,
@@ -38,7 +39,6 @@ export function fetchingComments() {
 
 export function fetchComments(projectCode, id) {
     return (dispatch) => {
-        // dispatch(fetchingComments());
         return callApi(`${projectCode}/(:area)/(:filter)/${id}`).then(res => {
             dispatch(addComments(res.comments));
         });

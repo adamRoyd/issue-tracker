@@ -81,6 +81,7 @@ export function getIssue(req, res) {
         res.json({ issue });
     });
 }
+
 /**
  * Get all issues by project
  * @param req
@@ -95,6 +96,7 @@ export function getIssuesByUser(req, res) {
         res.json({ issues });
     });
 }
+
 /**
  * Save issue
  * @param req
@@ -120,7 +122,6 @@ export async function saveIssue(req, res) {
             subject: 'A BIT issue has been assigned to you',
             html: `<p>Select <a href=${issueRoute} target="_blank">here</a> to go to the issue.</p>`,
         });
-
     }
 
     // Update Issue in Db
@@ -145,12 +146,13 @@ export async function saveIssue(req, res) {
         res.json({ issue });
     });
 }
+
 /**
  * Batch issues
  * @param req
  * @param res
  * @returns void
- */
+*/
 export async function batchIssues(req, res) {
     const issuesToSave = req.body.issues;
     const options = req.body.options;
