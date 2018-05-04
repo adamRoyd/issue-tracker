@@ -7,20 +7,20 @@ import { getVisibleIssues } from '../../reducers/IssueReducer';
 import Link from './Link';
 
 const mapStateToProps = (state, ownProps) => {
-  										return {
-    										active: ownProps.filter === state.issueFilter,
-    										issues: state.issues,
-    										numberOfIssues: getVisibleIssues(state.issues, ownProps.filter, state.area).length,
-  };
+    return {
+        active: ownProps.filter === state.issueFilter,
+        issues: state.issues,
+        numberOfIssues: getVisibleIssues(state.issues, ownProps.filter, state.area).length,
+    };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  										return {
-    										onClick: () => {
-      										browserHistory.push(`/${ownProps.projectCode}/${ownProps.area}/${ownProps.filter}`);
-      										dispatch(setIssueFilter(ownProps.filter));
-    },
-  };
+    return {
+        onClick: () => {
+            browserHistory.push(`/${ownProps.projectCode}/${ownProps.area}/${ownProps.filter}`);
+            dispatch(setIssueFilter(ownProps.filter));
+        },
+    };
 };
 
 const FilterLink = connect(mapStateToProps, mapDispatchToProps)(Link);

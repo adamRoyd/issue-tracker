@@ -60,9 +60,10 @@ export function signup(req, res, next) {
             const newUserUrl = `http://${req.headers.host}/newuser/${user.resetPasswordToken}`;
             // send new user an email
             mail.send({
-                username: req.body.username,
-                subject: 'Welcome to BIT',
-                html: `<p>Welcome to BIT. Select <a href='${newUserUrl}' target='_blank'>here</a> to go to BIT</p>`,
+                username: user.username,
+                filename: 'new-user',
+                subject: 'BIT: Welcome',
+                newUserUrl
             });
             // response
             res.send({

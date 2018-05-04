@@ -14,40 +14,49 @@ import AddUserModal from '../Modals/AddUserModal';
 import { openModal } from '../../actions/ModalActions';
 import { getUser } from '../../reducers/UserReducer';
 import { DropdownButton, MenuItem, ButtonGroup, Button, Navbar, NavDropdown, NavItem, Nav } from 'react-bootstrap';
+import BWLogo from '../../assets/BWLogo';
 
 class NavigationBar extends React.Component {
     constructor(props) {
         super(props);
         this.logout = this.logout.bind(this);
-        this.areaClick = this.areaClick.bind(this);
+        this.internalAreaClick = this.internalAreaClick.bind(this);
+        this.clientAreaClick = this.clientAreaClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.homeClick = this.homeClick.bind(this);
         this.myIssues = this.myIssues.bind(this);
         this.getNavItems = this.getNavItems.bind(this);
     }
+
     logout = () => {
         this.props.dispatch(logoutUser());
         this.props.dispatch(logout());
         browserHistory.push('/');
     }
-    areaClick = () => {
-        this.props.dispatch(toggleArea());
-        {
-            (this.props.area == 'internal')
-                ? browserHistory.push(`/${this.props.params.projectCode}/client/all`)
-                : browserHistory.push(`/${this.props.params.projectCode}/internal/all`);
-        }
+
+    internalAreaClick = (e) => {
+        this.props.dispatch(toggleArea('internal'));
+        browserHistory.push(`/${this.props.params.projectCode}/internal/all`);
     }
+
+    clientAreaClick = (e) => {
+        this.props.dispatch(toggleArea('client'));
+        browserHistory.push(`/${this.props.params.projectCode}/client/all`)
+    }
+
     myIssues = () => {
         this.props.dispatch(fetchIssuesByUser(this.props.user.username));
         browserHistory.push('/myissues');
     }
+
     homeClick = () => {
         browserHistory.push(`/${this.props.params.projectCode}/${this.props.area}/all`);
     }
+
     handleClick = (value) => {
         this.props.dispatch(openModal(value));
     }
+
     getNavItems = (usertype, projectCode, params) => {
         const isClient = usertype === 'Client';
         const isInternal = usertype == 'Internal';
@@ -56,11 +65,12 @@ class NavigationBar extends React.Component {
         const isLoggedIn = this.props.user.username != null;
         return (
             <Nav>
-                {projectCode && <NavItem className="nav-button" onSelect={this.homeClick}>{projectCode.toUpperCase()}</NavItem>}
-                {projectCode && isClient && <NavItem className="nav-button">Client area</NavItem>}
+                <NavItem><BWLogo /> <span className="bit-title">BIT</span></NavItem>
+                {projectCode && isClient && <NavItem className="nav-button">{projectCode.toUpperCase()}</NavItem>}
                 {projectCode && !isClient &&
-                    <NavDropdown id="areadropdown" title={(this.props.area == 'internal') ? 'Internal area' : 'Client area'}>
-                        <MenuItem onSelect={this.areaClick}>{(this.props.area == 'internal') ? 'Switch to Client area' : 'Switch to Internal area'}</MenuItem>
+                    <NavDropdown id="areadropdown" title={projectCode.toUpperCase()}>
+                        <MenuItem ref='internal' onSelect={this.internalAreaClick}>Internal area</MenuItem>
+                        <MenuItem ref='client' onSelect={this.clientAreaClick}>Client area</MenuItem>
                     </NavDropdown>
                 }
                 {!isClient && isLoggedIn && <NavItem className="nav-button" onSelect={() => this.handleClick('project')}>Open Project</NavItem>}
@@ -86,9 +96,6 @@ class NavigationBar extends React.Component {
         return (
             <Navbar className="nav-bar" collapseOnSelect>
                 <Navbar.Header>
-                    <Navbar.Brand>
-                        <a href="#brand">BIT</a>
-                    </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
