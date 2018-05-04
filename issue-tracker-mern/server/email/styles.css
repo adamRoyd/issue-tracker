@@ -47,9 +47,9 @@ table td {
     display: block;
     Margin: 0 auto !important;
     /* makes it centered */
-    max-width: 580px;
+    max-width: 100%;
     padding: 10px;
-    width: 580px;
+    width: 100%;
 }
 
 /* This should also be a block element, so that it will fill 100% of the .container */
@@ -58,7 +58,7 @@ table td {
     box-sizing: border-box;
     display: block;
     Margin: 0 auto;
-    max-width: 580px;
+    max-width: 100%;
     padding: 10px;
 }
 
@@ -68,7 +68,7 @@ table td {
 
 .main {
     background: #fff;
-    border-top: 20px solid #fff200;
+    border-top: 20px solid #1B4885;
     width: 100%;
 }
 
@@ -124,7 +124,7 @@ p li, ul li, ol li {
 }
 
 a {
-    color: #fff200;
+    color: #1B4885;
     text-decoration: underline;
 }
 
@@ -153,10 +153,10 @@ a {
 
 .btn a {
     background-color: #ffffff;
-    border: solid 1px #fff200;
+    border: solid 1px #1B4885;
     border-radius: 5px;
     box-sizing: border-box;
-    color: #fff200;
+    color: #1B4885;
     cursor: pointer;
     display: inline-block;
     font-size: 14px;
@@ -168,13 +168,13 @@ a {
 }
 
 .btn-primary table td {
-    background-color: #fff200;
+    background-color: #1B4885;
 }
 
 .btn-primary a {
-    background-color: #fff200;
-    border-color: #fff200;
-    color: #3a3a3a;
+    background-color: #1B4885;
+    border-color: #1B4885;
+    color: #fff;
 }
 
 /* -------------------------------------

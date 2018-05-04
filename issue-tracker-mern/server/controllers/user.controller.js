@@ -124,14 +124,14 @@ export async function forgotPassword(req, res) {
 
     // Set reset tokens and expiry
     user.resetPasswordToken = crypto.randomBytes(20).toString('hex');
-    user.resetPasswordExpires = Date.now() + 36000000 // 10 hours
+    user.resetPasswordExpires = Date.now() + 28800000 // 8 hours
     await user.save();
 
     // Send them an email with the token
     const resetURL = `http://${req.headers.host}/reset/${user.resetPasswordToken}`;
     mail.send({
         username: user.username,
-        filename: 'password-reset', // used to select the template filename
+        filename: 'password-reset',
         subject: 'BIT password reset',
         resetURL
     });

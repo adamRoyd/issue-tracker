@@ -104,14 +104,15 @@ export function getIssuesByUser(req, res) {
  * @returns void
  */
 export async function saveIssue(req, res) {
-    // Send Email
+ 
     const project = req.body.issue.project;
     const id = req.body.issue.id;
+    const area = req.body.issue.area;
     const filter = 'all';
-    const issueRoute = 'http://localhost:8000/' + project + '/(:area)/' + filter + '/' + id;
+    const issueRoute = `http://localhost:8000/${project}/${area}/${filter}/${id}`;
     const issueToSave = req.body.issue;
 
-    //If assignee has changed, send an email
+    // If assignee has changed, send an email
     const existingIssue = await Issue.findOne({
         id: issueToSave.id,
         project: issueToSave.project
@@ -119,8 +120,9 @@ export async function saveIssue(req, res) {
     if (existingIssue.assigned !== issueToSave.assigned) {
         mail.send({
             username: issueToSave.assigned,
-            subject: 'A BIT issue has been assigned to you',
-            html: `<p>Select <a href=${issueRoute} target="_blank">here</a> to go to the issue.</p>`,
+            filename: 'issue-assignment',
+            subject: 'BIT issue assignment',
+            issueRoute
         });
     }
 

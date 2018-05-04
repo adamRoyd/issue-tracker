@@ -23,7 +23,6 @@ const IssueForm = ({ issue, errors, assignees, onIssueChange, status, displayAdv
 };
 
 IssueForm.propTypes = {
-    comment: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
     handleSubmit: PropTypes.func.isRequired,
     onCommentChange: PropTypes.func.isRequired,

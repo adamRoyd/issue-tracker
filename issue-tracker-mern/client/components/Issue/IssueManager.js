@@ -36,9 +36,19 @@ class IssueManager extends React.Component {
         this.onCommentChange = this.onCommentChange.bind(this);
         this.onIssueChange = this.onIssueChange.bind(this);
     }
+
+    componentDidUpdate() {
+        // Uber hack alert. Issue state needs to change if issue props change (i.e when another issue is selected.) 
+        // There has to be a better way to do this but I can't think of it.
+        if(this.props.issue.id !== this.state.issue.id){
+            this.setState({ issue: this.props.issue });
+        }
+    }
+
     toggleAdvancedOptions() {
         return this.setState({ toggleOptions: !this.state.toggleOptions });
     }
+
     handleSubmit(e) {
         e.preventDefault();
 
@@ -70,6 +80,7 @@ class IssueManager extends React.Component {
                 }
             })
     }
+
     onCommentChange(html) {
         let comment = this.state.comment;
         if (html != '<p><br></p>') {
@@ -82,6 +93,7 @@ class IssueManager extends React.Component {
             });
         }
     }
+
     onIssueChange(event) {
         const field = event.target.name;
         let issue = this.state.issue;
@@ -91,6 +103,7 @@ class IssueManager extends React.Component {
             hasIssuechanged: true
         });
     }
+
     render() {
         return (
             <div className="issue-manager">
@@ -130,7 +143,6 @@ class IssueManager extends React.Component {
                 {this.state.issue &&
                     <IssueForm
                         issue={this.state.issue}
-                        comment={this.state.comment}
                         errors={this.state.errors}
                         handleSubmit={this.handleSubmit}
                         assignees={this.props.assignees}

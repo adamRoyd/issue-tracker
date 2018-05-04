@@ -67,7 +67,7 @@ class NavigationBar extends React.Component {
                 {/* <NavItem className='nav-button' onSelect={this.myIssues}>My Issues</NavItem> */}
                 {((isClient && isClientArea) || ((isInternal || isAdmin) && !isClientArea)) && projectCode && (params.area != 'new') && <NavItem className="nav-button" onSelect={() => this.handleClick('newIssue')}>New Issue</NavItem>}
                 {projectCode && this.props.batchIssues && <NavItem disabled={!this.props.batchIssues.length} className="nav-button" onSelect={() => this.handleClick('batch')}>Batch Issues</NavItem>}
-                {isLoggedIn && isAdmin &&
+                {isLoggedIn &&
                     (<NavDropdown id="usersettings" eventKey={3} title="User options" id="basic-nav-dropdown">
                         <MenuItem header>{this.props.user.username}</MenuItem>
                         <MenuItem divider />
