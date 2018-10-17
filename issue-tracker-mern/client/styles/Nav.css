@@ -14,6 +14,19 @@
     padding-right: 0px !important;
 }
 
+.nav-title-section {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    color: #ffffff;
+    font-size: 20px;
+    width: 270px;
+}
+
+.nav.navbar-nav {
+    width: 1000px;
+}
+
 .dropdown.open, .dropdown.open a, .dropdown.open ul {
     background-color: #ffffff !important;
     color: #1B4885 !important;
@@ -130,11 +143,6 @@
 
 .btn-group {
     display: block !important;
-}
-
-.bit-title {
-    color: #ffffff;
-    font-size: 20px;
 }
 
 .dropdown-menu {

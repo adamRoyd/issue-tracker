@@ -4,7 +4,7 @@ import React from 'react';
 const BWLogo = () => {
     return(
         <svg version="1.1" id="Layer_1" x="0px" y="0px"
-             viewBox="10 10 220 50" style={{width:'187px'}}>
+             viewBox="10 10 220 50" style={{ width:'187px', float: 'left' }}>
         <g>
             <g style={{opacity:'0.9'}}>
                 <path style={{fill:'#ffffff'}} d="M160.9,52.8h3v4.3c-0.5,0.1-0.9,0.3-1.4,0.3c-0.5,0.1-1,0.1-1.7,0.1c-1.3,0-2.4-0.4-3.1-1.2

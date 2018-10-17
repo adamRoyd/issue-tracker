@@ -65,7 +65,7 @@ class NavigationBar extends React.Component {
         const isLoggedIn = this.props.user.username != null;
         return (
             <Nav>
-                <NavItem><BWLogo /> <span className="bit-title">BIT</span></NavItem>
+                <div className='nav-title-section'><BWLogo />BIT</div>{/*  */}
                 {projectCode && isClient && <NavItem className="nav-button">{projectCode.toUpperCase()}</NavItem>}
                 {projectCode && !isClient &&
                     <NavDropdown id="areadropdown" title={projectCode.toUpperCase()}>
