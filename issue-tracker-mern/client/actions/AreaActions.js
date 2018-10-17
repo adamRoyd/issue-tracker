@@ -1,7 +1,8 @@
 import * as types from './actionTypes';
 
-export function toggleArea() {
-  return {
-    type: types.TOGGLE_AREA
-  };
+export function toggleArea(area) {
+    return {
+        type: types.TOGGLE_AREA,
+        area
+    };
 }

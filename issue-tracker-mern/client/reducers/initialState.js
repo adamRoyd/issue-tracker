@@ -1,22 +1,22 @@
 import headers from '../constants/headers';
 
-export default({ 
+export default ({
     projects: [],
     comments: [],
     assignees: [],
     issues: [],
-    headers : headers,
-    issueFilter: "all",
+    headers,
+    issueFilter: 'all',
     user: {
         isFetching: false,
-        username: ""
+        username: '',
     },
     attachments: [],
-    area: "internal",
-    modal: "",
+    area: 'internal',
+    modal: '',
     message: {
         success: false,
-        text: "",
-        isFetching: false
-    }
+        text: '',
+        isFetching: false,
+    },
 });

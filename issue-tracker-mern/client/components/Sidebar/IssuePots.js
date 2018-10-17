@@ -7,7 +7,7 @@ class IssuePots extends React.Component {
         super(props);
     }
     render() {
-        const containerStyle = this.props.params.area == 'new' ?  'issue-pots hidden' : 'issue-pots visible-desktop'
+        const containerStyle = this.props.params.area == 'new' ? 'issue-pots hidden' : 'issue-pots visible-desktop';
         return (
             <div className={containerStyle}>
                 {this.props.status.map((pot, i) =>
@@ -15,7 +15,8 @@ class IssuePots extends React.Component {
                         projectCode={this.props.projectCode}
                         key={i} name={pot.name}
                         filter={pot.filter}
-                        area={this.props.area} />
+                        area={this.props.area}
+                    />
                 )}
             </div>
         );
@@ -24,7 +25,7 @@ class IssuePots extends React.Component {
 
 IssuePots.propTypes = {
     status: PropTypes.array.isRequired,
-    projectCode: PropTypes.string.isRequired
+    projectCode: PropTypes.string.isRequired,
 };
 
 export default IssuePots;

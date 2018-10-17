@@ -15,25 +15,25 @@ class NewIssueModal extends React.Component {
         super(props);
         this.state = {
             issue: {
-                location: "Select a location",
-                screen: "",
-                category: "Select a Category",
-                assigned: "Unassigned",
-                type: "Not sure",
-                description: "",
-                browser: Browser.name + ' ' + Browser.version
+                location: 'Select a location',
+                screen: '',
+                category: 'Select a Category',
+                assigned: 'Unassigned',
+                type: 'Not sure',
+                description: '',
+                browser: Browser.name + ' ' + Browser.version,
             },
             initialIssueState: {
-                location: "Select a location",
-                screen: "Enter a screen",
-                category: "Select a Category",
-                assigned: "Unassigned",
-                type: "Not sure",
-                description: "",
-                browser: Browser.name + ' ' + Browser.version
+                location: 'Select a location',
+                screen: 'Enter a screen',
+                category: 'Select a Category',
+                assigned: 'Unassigned',
+                type: 'Not sure',
+                description: '',
+                browser: Browser.name + ' ' + Browser.version,
             },
             errors: {},
-            files: []
+            files: [],
         };
         this.updateIssueState = this.updateIssueState.bind(this);
         this.onCommentChange = this.onCommentChange.bind(this);
@@ -50,12 +50,12 @@ class NewIssueModal extends React.Component {
         const field = event.target.name;
         let issue = this.state.issue;
         issue[field] = event.target.value;
-        return this.setState({ issue: issue });
+        return this.setState({ issue });
     }
     onCommentChange(html) {
         let issue = this.state.issue;
         issue['description'] = html;
-        return this.setState({ issue: issue });
+        return this.setState({ issue });
     }
     saveIssue(event) {
         event.preventDefault();
@@ -71,52 +71,51 @@ class NewIssueModal extends React.Component {
                     this.props.user.username
                 )
             );
-            return this.setState({ 
+            return this.setState({
                 showModal: false,
-                issue : {},
-                errors: {}
+                issue: {},
+                errors: {},
             });
         } else {
-            return this.setState({ errors: errors });
+            return this.setState({ errors });
         }
     }
     onDrop(files) {
         this.setState({
-            files
+            files,
         });
-        this.props.dispatch(uploadFileRequest(files))
+        this.props.dispatch(uploadFileRequest(files));
     }
     validate(issue) {
         let errors = {};
-        const initial = this.state.initialIssueState
+        const initial = this.state.initialIssueState;
         if (issue.location == initial.location) {
             errors = Object.assign({}, errors, {
-                location: 'Error'
-            })
+                location: 'Error',
+            });
         }
         if (issue.screen == initial.screen || !issue.screen) {
             errors = Object.assign({}, errors, {
-                screen: 'Error'
-            })
+                screen: 'Error',
+            });
         }
         if (issue.category == initial.category) {
             errors = Object.assign({}, errors, {
-                category: 'Error'
-            })
+                category: 'Error',
+            });
         }
         if (issue.assigned == initial.assigned) {
             errors = Object.assign({}, errors, {
-                assigned: 'Error'
-            })
+                assigned: 'Error',
+            });
         }
-        let div = document.createElement("div");
+        let div = document.createElement('div');
         div.innerHTML = issue.description;
-        console.log(div.innerHTML);
-        let descriptionAsString = div.textContent || div.innerText || "";
+        let descriptionAsString = div.textContent || div.innerText || '';
         if (issue.description.length == 0) {
             errors = Object.assign({}, errors, {
-                description: 'Error'
-            })
+                description: 'Error',
+            });
         }
         return errors;
     }
@@ -139,11 +138,14 @@ class NewIssueModal extends React.Component {
                             onDrop={this.onDrop}
                             files={this.state.files}
                             username={this.props.user.username}
-                            {...this.props} />
+                            {...this.props}
+                        />
                     </Modal.Body>
                     <Modal.Footer>
-                        {(Object.keys(this.state.errors).length) &&
+                        {(Object.keys(this.state.errors).length) ?
                             <div className="infomessage error"><p>Please select a value for the items marked red.</p></div>
+                            :
+                            <span/>
                         }
                         <button className="btn" onClick={this.close}>Close</button>
                         <button className="btn" onClick={this.saveIssue}>Create issue</button>
@@ -159,14 +161,14 @@ NewIssueModal.propTypes = {
     assignees: PropTypes.array.isRequired,
     locations: PropTypes.array.isRequired,
     buttonName: PropTypes.string,
-    params: PropTypes.object.isRequired
+    params: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state, ownProps) {
     return {
         assignees: getAssignees(state, ownProps.params.projectCode),
         attachments: getAttachments(state),
-        showModal: state.modal == 'newIssue'
+        showModal: state.modal == 'newIssue',
     };
 }
 

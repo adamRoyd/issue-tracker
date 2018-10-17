@@ -11,14 +11,16 @@ const BatchIssueForm = ({ batchOptions, onChange, loading, assignees, pots }) =>
                 value={batchOptions.pots}
                 defaultOption="No change"
                 options={pots}
-                onChange={onChange} />
+                onChange={onChange}
+            />
             <SelectInput
                 name="assigned"
                 label="Assigned to"
                 value={batchOptions.assigned}
                 defaultOption="No change"
                 options={assignees}
-                onChange={onChange} />
+                onChange={onChange}
+            />
         </form>
     );
 };
@@ -28,7 +30,7 @@ BatchIssueForm.propTypes = {
     loading: React.PropTypes.bool,
     errors: PropTypes.object,
     assignees: PropTypes.array.isRequired,
-    locations: PropTypes.array.isRequired
+    locations: PropTypes.array.isRequired,
 };
 
 export default BatchIssueForm;

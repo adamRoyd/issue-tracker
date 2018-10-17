@@ -1,0 +1,8 @@
+extends email-layout
+
+block content
+  h2 Welcome to BIT
+  p To login and create a password, click the button below.
+  +button(newUserUrl, 'Login →')
+  p This link will expire 8 hours after this email was sent.
+  p Your username is #{username}

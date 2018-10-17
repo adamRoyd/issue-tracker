@@ -16,11 +16,11 @@ const Link = ({ name, filter, onClick, active, issues, numberOfIssues }) => {
                 onClick();
             }}
         >
-            <StatusIcon height="35" width="35" type={name} imageCssClass='iconWhite' />
-            <ReactTooltip id={filter} className='potToolTip' offset={{ top: 0, left: -40 }} place="right" effect='solid'>
+            <StatusIcon height="35" width="35" type={name} imageCssClass="iconWhite" />
+            <ReactTooltip id={filter} className="potToolTip" offset={{ top: 0, left: -40 }} place="right" effect="solid">
                 <span>{name}</span>
             </ReactTooltip>
-            <div className='issueCount'>
+            <div className="issueCount">
                 <p>{numberOfIssues}</p>
             </div>
         </div>
@@ -31,7 +31,7 @@ Link.propTypes = {
     active: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
-    filter: PropTypes.string.isRequired
+    filter: PropTypes.string.isRequired,
 };
 
 export default Link;

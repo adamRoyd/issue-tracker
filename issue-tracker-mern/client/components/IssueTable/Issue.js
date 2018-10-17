@@ -3,24 +3,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Issue extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            isChecked : this.props.issue.checked
-        }
+    constructor(props) {
+        super(props);
     }
     render() {
-        const { issue, onClick, checkBoxClick } = this.props
-        //strip html tags from description.
-        let description = document.createElement("div");
+        const { issue, onClick, checkBoxClick } = this.props;
+        // strip html tags from description.
+        let description = document.createElement('div');
         description.innerHTML = issue.description;
         description = description.innerText.trim();
         return (
             <div className={this.props.active ? 'table-row active' : 'table-row'}>
                 <div className="column issue-select">
-                    <input type="checkbox" checked={this.state.isChecked} onClick={() => checkBoxClick()} />
+                    <input type="checkbox" checked={this.props.issue.checked} onClick={this.props.checkBoxClick} />
                 </div>
-                <div className="flexwrapper attributes" onClick={() => onClick()}>
+                <div className="flexwrapper attributes" onClick={this.props.onClick}>
                     <div className="flexwrapper title-identifier-location-category-type">
                         <div className="flexwrapper title-identifier">
                             <div className="column id">{issue.id}</div>
@@ -47,13 +44,13 @@ class Issue extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        active: ownProps.params.id == ownProps.issue.id
+        active: ownProps.params.id == ownProps.issue.id,
     };
 };
 
 Issue.propTypes = {
     onClick: PropTypes.func.isRequired,
-    issue: PropTypes.object.isRequired
+    issue: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps)(Issue);

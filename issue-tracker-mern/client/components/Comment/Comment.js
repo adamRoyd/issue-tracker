@@ -5,7 +5,7 @@ import FriendlyDate from '../Common/FriendlyDate';
 class Comment extends React.Component {
 
     render() {
-        //date formatting
+        // date formatting
         const { comment } = this.props;
         const d = new Date(comment.time);
         const day = checkZero(d.getDay());
@@ -13,26 +13,26 @@ class Comment extends React.Component {
         const year = d.getFullYear();
         const hour = checkZero(d.getHours());
         const minutes = checkZero(d.getMinutes());
-        const dateText = day + "/" + month + "/" + year + " " + hour + ":" + minutes;
+        const dateText = day + '/' + month + '/' + year + ' ' + hour + ':' + minutes;
 
         function checkZero(data) {
             if (data < 10) {
-                data = "0" + data;
+                data = '0' + data;
             }
             return data;
         }
 
         return (
-            <div className='comment-container'>
-                <div className='comment-stats'>
+            <div className="comment-container">
+                <div className="comment-stats">
                     <div>
                         <strong>{comment.user}</strong>
                     </div>
-                    <div style={{'marginRight' : '5px'}}>
+                    <div style={{ 'marginRight': '5px' }}>
                         <strong>{comment.status} | <FriendlyDate date={comment.time} /></strong>
                     </div>
                 </div>
-                <div className='comment-description' style={{'marginTop' : '5px'}}>
+                <div className="comment-description" style={{ 'marginTop': '5px' }}>
                     <div dangerouslySetInnerHTML={{ __html: comment.text }} />
                 </div>
             </div>
@@ -41,7 +41,7 @@ class Comment extends React.Component {
 }
 
 Comment.propTypes = {
-    comment: PropTypes.object.isRequired
+    comment: PropTypes.object.isRequired,
 };
 
 export default Comment;

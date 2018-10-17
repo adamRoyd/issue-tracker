@@ -1,0 +1,10 @@
+extends email-layout
+
+block content
+  h2 BIT issue assignment
+  p A BIT issue has been assigned to you.
+  p Please click the following button to see the issue.
+  +button(issueRoute, 'Go to issue →')
+  p
+    | To visit BIT please click 
+    a(href='https://bit.bright-wave.co.uk/') here

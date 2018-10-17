@@ -14,18 +14,17 @@ class ProjectPicker extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount() {
-
         this.nameInput.focus();
     }
     searchProjects(e) {
         let term = e.target.value.toLowerCase();
         this.setState({
-            visibleprojects: this.props.projects.filter(projectCode => projectCode.includes(term))
+            visibleprojects: this.props.projects.filter(projectCode => projectCode.includes(term)),
         });
     }
     toggleDropdown() {
         this.setState({
-            dropdownIsOpen: !this.state.dropdownIsOpen
+            dropdownIsOpen: !this.state.dropdownIsOpen,
         });
     }
     handleClick(value) {
@@ -78,12 +77,12 @@ class ProjectPicker extends React.Component {
 }
 
 ProjectPicker.propTypes = {
-    projects: PropTypes.array.isRequired
+    projects: PropTypes.array.isRequired,
 };
 
 function mapStateToProps(state) {
     return {
-        projects: getProjects(state)
+        projects: getProjects(state),
     };
 }
 

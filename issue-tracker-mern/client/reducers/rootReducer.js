@@ -13,15 +13,15 @@ import modal from './ModalReducer';
 import message from './MessageReducer';
 
 export default combineReducers({
-  projects,
-  issues,
-  comments,
-  assignees,
-  issueFilter,
-  headers,
-  user,
-  attachments,
-  area,
-  modal,
-  message
+    projects,
+    issues,
+    comments,
+    assignees,
+    issueFilter,
+    headers,
+    user,
+    attachments,
+    area,
+    modal,
+    message,
 });

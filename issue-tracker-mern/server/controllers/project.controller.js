@@ -10,12 +10,12 @@ import sanitizeHtml from 'sanitize-html';
  * @returns void
  */
 export function getProjects(req, res) {
-  Project.find({}, { projectCode: 1, _id: 0 }).sort({ projectCode: 1 }).exec((err, projects) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.json({ projects });
-  });
+    Project.find({}, { projectCode: 1, _id: 0 }).sort({ projectCode: 1 }).exec((err, projects) => {
+        if (err) {
+            res.status(500).send(err);
+        }
+        res.json({ projects });
+    });
 }
 /**
  * Add Project
@@ -24,21 +24,20 @@ export function getProjects(req, res) {
  * @returns void
  */
 export async function addProject(req, res) {
-  if (!req.body.project) {
-    res.status(403).end();
-  }
-
-  const newProject = new Project({ projectCode: req.body.project });
-  newProject.projectCode = sanitizeHtml(newProject.projectCode);
-
-  newProject.save((err, saved) => {
-    if (err) {
-      return res.status(500).send(err);
+    if (!req.body.project) {
+        res.status(403).end();
     }
-    res.json({
-      project: saved,
-      message: `New project ${saved.projectCode} created`
-    });
-  });
 
+    const newProject = new Project({ projectCode: req.body.project });
+    newProject.projectCode = sanitizeHtml(newProject.projectCode);
+
+    newProject.save((err, saved) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        res.json({
+            project: saved,
+            message: `New project ${saved.projectCode} created`,
+        });
+    });
 }

@@ -18,12 +18,12 @@ class AddUserModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            errors: "",
+            errors: '',
             user: {
-                username: "",
-                usertype: "Internal"
+                username: '',
+                usertype: 'Internal',
             },
-            success: false
+            success: false,
         };
         this.updateUserState = this.updateUserState.bind(this);
         this.validate = this.validate.bind(this);
@@ -38,38 +38,38 @@ class AddUserModal extends React.Component {
         let user = this.state.user;
         user[field] = event.target.value;
         return this.setState({
-            user: user,
-            errors: ""
+            user,
+            errors: '',
         });
     }
     handleSubmit = (e) => {
         e.preventDefault();
         const newUser = this.state.user;
         const errors = this.validate(newUser);
-        if (errors == "") {
+        if (errors == '') {
             this.props.dispatch(addUserRequest(newUser))
                 .then(
-                this.setState({
-                    user: {
-                        username: "",
-                        usertype: ""
-                    },
-                    success: true
-                })
-                )
+                    this.setState({
+                        user: {
+                            username: '',
+                            usertype: '',
+                        },
+                        success: true,
+                    })
+                );
         } else {
             return this.setState({
                 success: false,
-                errors: errors
-            })
+                errors,
+            });
         }
     }
     validate(user) {
-        let errors = ""
-        if (user.username == "" || !validator.isEmail(user.username)) {
-            errors = "Please enter a valid email address"
+        let errors = '';
+        if (user.username == '' || !validator.isEmail(user.username)) {
+            errors = 'Please enter a valid email address';
         }
-        return errors
+        return errors;
     }
     close() {
         this.props.dispatch(closeModal());
@@ -82,32 +82,35 @@ class AddUserModal extends React.Component {
                         <Modal.Title>Add a new user</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className='container-fluid'>
+                        <div className="container-fluid">
                             <TextInput
                                 name="username"
                                 label="Username (email)"
                                 placeholder="Select a username"
                                 value={this.state.user.username}
-                                onChange={this.updateUserState} />
+                                onChange={this.updateUserState}
+                            />
                             <SelectInput
                                 name="usertype"
                                 label="User Type"
                                 value={this.state.user.usertype}
-                                options={["Internal", "Client", "Admin"]}
-                                onChange={this.updateUserState} />
-                            {(this.state.user.usertype == "Client") &&
+                                options={['Internal', 'Client', 'Admin']}
+                                onChange={this.updateUserState}
+                            />
+                            {(this.state.user.usertype == 'Client') &&
                                 <SelectInput
                                     name="projects"
                                     label="Restrict client to project"
                                     value={this.state.user.projects}
                                     options={this.props.projects}
-                                    onChange={this.updateUserState} />
+                                    onChange={this.updateUserState}
+                                />
                             }
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
                         <Spinner visible={this.props.message.isFetching} />
-                        <div className={this.props.message.success ? "infomessage success" : "infomessage error"}>{this.props.message.text ? this.props.message.text : this.state.errors}</div>
+                        <div className={this.props.message.success ? 'infomessage success' : 'infomessage error'}>{this.props.message.text ? this.props.message.text : this.state.errors}</div>
                         <button className="btn" onClick={this.close}>Close</button>
                         <button className="btn" onClick={this.handleSubmit}>Create User</button>
                     </Modal.Footer>
@@ -119,14 +122,14 @@ class AddUserModal extends React.Component {
 
 AddUserModal.propTypes = {
     buttonName: PropTypes.string,
-    params: PropTypes.object.isRequired
+    params: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state, ownProps) {
     return {
         showModal: state.modal == 'adduser',
         projects: getProjects(state),
-        message: getMessage(state)
+        message: getMessage(state),
     };
 }
 

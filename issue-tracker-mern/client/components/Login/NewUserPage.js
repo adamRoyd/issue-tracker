@@ -9,7 +9,7 @@ import { getUser } from '../../reducers/UserReducer';
 import { getMessage } from '../../reducers/MessageReducer';
 import StandardButton from '../Common/StandardButton';
 
-class ResetPasswordPage extends React.Component {
+class NewUserPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,7 +41,7 @@ class ResetPasswordPage extends React.Component {
                     this.setState({
                         working: false,
                         success: true,
-                        message: 'Your password has been reset.',
+                        message: 'Your password has been set. Please go to the login page to log in.',
                         showLoginButton: true
                     })
                 });
@@ -53,7 +53,7 @@ class ResetPasswordPage extends React.Component {
             });
         }
     }
-    handleGoLogin() {
+    handleGoLogin(){
         browserHistory.push(`/login`);
     }
     setWorking(isWorking) {
@@ -82,35 +82,35 @@ class ResetPasswordPage extends React.Component {
     }
     render() {
         this.handleSubmit = this.handleSubmit.bind(this);
-        return (
-            <div className="landing-background">
-                {this.props.message.success === true ?
-                    <div className="form-signin">
-                        <h4>Reset password</h4>
-                        <label htmlFor="new-password">New</label>
-                        <input name="newPassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.newPassword} onKeyPress={this.handleKeyPress} autoFocus />
-                        <label htmlFor="retype-password">Retype</label>
-                        <input name="retypePassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.retypePassword} onKeyPress={this.handleKeyPress} />
-                        {this.state.showLoginButton ?
-                            <StandardButton text="Back to login" className="r-submit-button" onClick={this.handleGoLogin} />
-                            :
-                            <StandardButton text="Reset" className="r-submit-button" isWorking={this.state.working} onClick={this.handleSubmit} />
-                        }
-                        <div className={this.state.success ? 'infomessage success' : 'infomessage error'}>{this.state.message}</div>
-                    </div>
-                    :
-                    <div className="form-signin">
-                        <h4>Reset password</h4>
-                        <p className='error'><strong>Password reset is invalid or has expired. Go back to the login page to reset your password again.</strong></p>
-                        <StandardButton text="Back to login" className="r-submit-button" onClick={this.handleGoLogin} />
-                    </div>
+            return(
+                <div className="landing-background">
+                    {this.props.message.success === true ?
+                        <div className="form-signin">
+                            <h4>Welcome to BIT</h4>
+                            <p>Please set your password.</p>
+                            <label htmlFor="new-password">New</label>
+                            <input name="newPassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.newPassword} onKeyPress={this.handleKeyPress} autoFocus />
+                            <label htmlFor="retype-password">Retype</label>
+                            <input name="retypePassword" type="password" className="form-control" onChange={this.onTextChange} value={this.state.retypePassword} onKeyPress={this.handleKeyPress} />
+                            {this.state.showLoginButton ?
+                                <StandardButton text="Login" className="r-submit-button" onClick={this.handleGoLogin} />
+                                :
+                                <StandardButton text="Reset" className="r-submit-button" isWorking={this.state.working} onClick={this.handleSubmit} />
+                            }
+                            <div className={this.state.success ? 'infomessage success' : 'infomessage error'}>{this.state.message}</div>
+                        </div>  
+                        :
+                        <div className="form-signin">
+                            <h4>Welcome to BIT.</h4>
+                            <p className='error'><strong>Password reset is invalid or has expired. Please contact Brightwave for assistance.</strong></p>
+                        </div>  
                 }
-            </div>
-        );
+                </div>
+            );
     }
 }
 
-ResetPasswordPage.propTypes = {
+NewUserPage.propTypes = {
 
 };
 
@@ -122,4 +122,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(ResetPasswordPage);
+export default connect(mapStateToProps)(NewUserPage);
