@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Issue from './Issue';
-import { Link, browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import * as IssueActions from '../../actions/IssueActions';
 import { fetchComments } from '../../actions/CommentActions';
 import { getVisibleIssues } from '../../reducers/IssueReducer';
-import { getFilter } from '../../reducers/IssueFilterReducer';
 import { getHeaders } from '../../reducers/HeaderReducer';
 
 

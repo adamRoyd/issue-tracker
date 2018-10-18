@@ -24,7 +24,6 @@ export function addCommentRequest(comment, status, params) {
 }
 
 export function addComments(comments) {
-    console.log("add comments being called");
     return {
         type: types.ADD_COMMENTS,
         comments,

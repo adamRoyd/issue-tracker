@@ -8,7 +8,7 @@ import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getPots } from '../../reducers/IssueFilterReducer';
 import { getIssue } from '../../reducers/IssueReducer';
 import IssueDescription from './IssueDescription';
-import IssueForm from '../IssueForms/IssueForm';
+import IssueSettingsForm from '../IssueForms/IssueSettingsForm';
 import { getArea } from '../../reducers/AreaReducer';
 import { Editor, EditorState, RichUtils, ContentState } from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
@@ -81,8 +81,7 @@ class IssueManager extends React.Component {
             })
     }
 
-    onCommentChange(html) {
-        let comment = this.state.comment;
+    onCommentChange(html) {        
         if (html != '<p><br></p>') {
             this.setState({
                 comment: {
@@ -141,7 +140,7 @@ class IssueManager extends React.Component {
                     </div>
                 </div>
                 {this.state.issue &&
-                    <IssueForm
+                    <IssueSettingsForm
                         issue={this.state.issue}
                         errors={this.state.errors}
                         handleSubmit={this.handleSubmit}

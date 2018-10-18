@@ -1,6 +1,4 @@
 import Comment from '../models/comment';
-import cuid from 'cuid';
-import slug from 'limax';
 import sanitizeHtml from 'sanitize-html';
 /**
  * Get all comments

@@ -5,8 +5,6 @@ import { getUser } from '../../reducers/UserReducer';
 import categories from '../../constants/categories';
 import locations from '../../constants/locations';
 // Import Components
-import Helmet from 'react-helmet';
-import DevTools from './DevTools';
 import NavigationBar from '../Nav/NavigationBar';
 import { fetchUser } from '../../actions/UserActions';
 // Import Selectors
@@ -33,7 +31,6 @@ export class App extends Component {
         return (
             <div>
                 <NavigationBar {...this.props} />
-                {/* {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />} */}
                 {this.props.children}
             </div>
         );

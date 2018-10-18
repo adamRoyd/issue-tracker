@@ -31,7 +31,7 @@ class IssuePage extends Component {
         this.props.dispatch(setIssueFilter(this.props.params.filter));
         this.props.dispatch(fetchAssignees());
         this.props.dispatch(fetchProjects());
-        if(this.props.params.id) this.props.dispatch(fetchComments(this.props.params.projectCode, this.props.params.id));
+        if (this.props.params.id) this.props.dispatch(fetchComments(this.props.params.projectCode, this.props.params.id));
     }
     render() {
         const containerStyle = this.props.params.area == 'new' ? 'hidden' : '';
@@ -45,11 +45,9 @@ class IssuePage extends Component {
                         <IssuePots projectCode={this.props.params.projectCode} {...this.props} />
                         <SplitPane className={containerStyle} split="vertical" defaultSize="800px" minSize="100px" primary="first">
                             <IssueTable {...this.props} />
-                            <div>
-                                {this.props.params.id &&
-                                    <EditIssuePage {...this.props} />
-                                }
-                            </div>
+                            {this.props.params.id &&
+                                <EditIssuePage {...this.props} />
+                            }
                         </SplitPane>
                     </div>
                 }

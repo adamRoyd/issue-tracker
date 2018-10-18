@@ -5,7 +5,7 @@ import TextInput from '../Common/TextInput';
 import TextStatic from '../Common/TextStatic';
 import FriendlyDate from '../Common/FriendlyDate';
 
-const IssueForm = ({ issue, errors, assignees, onIssueChange, status, displayAdvancedOptions, locations, categories }) => {
+const IssueSettingsForm = ({ issue, errors, assignees, onIssueChange, status, displayAdvancedOptions, locations, categories }) => {
     return (
         <div className="issue-form">
             <h4>Issue Settings</h4>
@@ -22,7 +22,7 @@ const IssueForm = ({ issue, errors, assignees, onIssueChange, status, displayAdv
     );
 };
 
-IssueForm.propTypes = {
+IssueSettingsForm.propTypes = {
     errors: PropTypes.object.isRequired,
     handleSubmit: PropTypes.func.isRequired,
     onCommentChange: PropTypes.func.isRequired,
@@ -34,4 +34,4 @@ IssueForm.propTypes = {
 };
 
 
-export default IssueForm;
+export default IssueSettingsForm;

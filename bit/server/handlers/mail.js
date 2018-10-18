@@ -6,17 +6,7 @@ import htmlToText from 'html-to-text';
 import config from '../config';
 
 const transport = nodemailer.createTransport({
-    // host: 'smtp.mailtrap.io',
-    // port: 2525,
-    // auth: {
-    //     user: 'b1cfc87c633479',
-    //     pass: 'e4a9c028b9c5cc',
-    // },
-    service: 'gmail',
-    auth: {
-        user: 'adamboothroyd1@gmail.com',
-        pass: 'IsC,ItH4'
-    }
+
 });
 
 const generateHTML = (filename, options = {}) => {

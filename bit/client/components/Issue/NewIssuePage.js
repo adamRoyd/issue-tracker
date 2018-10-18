@@ -1,7 +1,6 @@
-import React, { getInitialState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Modal } from 'react-bootstrap';
 import Browser from 'detect-browser';
 import categories from '../../constants/categories';
 import locations from '../../constants/locations';
@@ -9,7 +8,6 @@ import status from '../../constants/status';
 import { addIssueRequest, uploadFileRequest } from '../../actions/IssueActions';
 import { getAssignees } from '../../reducers/AssigneeReducer';
 import { getAttachments } from '../../reducers/AttachmentReducer';
-import { getIssues } from '../../reducers/IssueReducer';
 import { getArea } from '../../reducers/AreaReducer';
 import { getUser } from '../../reducers/UserReducer';
 import { getMessage } from '../../reducers/MessageReducer';

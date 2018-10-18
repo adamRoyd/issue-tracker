@@ -1,11 +1,6 @@
 import User from '../models/user';
-const express = require('express');
 const passport = require('passport');
 const crypto = require('crypto');
-import cuid from 'cuid';
-import slug from 'limax';
-import sanitizeHtml from 'sanitize-html';
-import config from '../config';
 import mail from '../handlers/mail';
 import { promisify } from 'bluebird';
 
@@ -32,6 +27,7 @@ export function login(req, res, next) {
         });
     })(req, res, next);
 }
+
 /**
  * Register user
  * @param req
@@ -40,17 +36,17 @@ export function login(req, res, next) {
  */
 export function signup(req, res, next) {
 
-    const newUser = new User({ 
-        username: req.body.username, 
-        usertype: req.body.usertype, 
+    const newUser = new User({
+        username: req.body.username,
+        usertype: req.body.usertype,
         project: req.body.project,
         resetPasswordToken: crypto.randomBytes(20).toString('hex'),
-        resetPasswordExpires:  Date.now() + 36000000 // 10 hours
+        resetPasswordExpires: Date.now() + 36000000 // 10 hours
     });
 
     const placeholderpassword = crypto.randomBytes(20).toString('hex');
 
-    User.register(newUser, placeholderpassword,(err, user) => {
+    User.register(newUser, placeholderpassword, (err, user) => {
         if (err) {
             return res.send({
                 message: 'An error occured. Please try again.',
@@ -73,14 +69,14 @@ export function signup(req, res, next) {
         }
     });
 }
+
 /**
  * Logout user
  * @param req
  * @param res
  * @returns void
  */
-export function logout(req, res) {
-    // req.logOut();
+export function logout(req, res) {    
     req.session.destroy();
 }
 
@@ -93,6 +89,7 @@ export function isLoggedIn(req, res, next) {
     // res.redirect(301,'/login');
     next();
 }
+
 export function getUser(req, res) {
     if (req.user) {
         res.status(201).send({
@@ -104,6 +101,7 @@ export function getUser(req, res) {
         });
     }
 }
+
 export function getAssignees(req, res) {
     User.find({}, { _id: 0, username: 1, usertype: 1, project: 1 }).exec((err, assignees) => {
         if (err) {
@@ -113,6 +111,7 @@ export function getAssignees(req, res) {
         }
     });
 }
+
 export async function forgotPassword(req, res) {
     // See if user exists
     const user = await User.findOne({ username: req.body.email })
@@ -135,8 +134,11 @@ export async function forgotPassword(req, res) {
         filename: 'password-reset',
         subject: 'BIT password reset',
         resetURL
+    }).catch(function(err) {
+        console.log(err);
+        return;
     });
-    
+
     // Send success response.
     res.status(200).send({
         message: 'You have been emailed a password link.'
